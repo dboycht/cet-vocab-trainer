@@ -4559,6 +4559,341 @@
    "kind": "story",
    "certainty": "medium",
    "tip": "出自中古英语 escheat「（无主财产）没收」—— 管这事的人常中饱私囊，于是「没收」变成了「骗取」。搭配：cheat sb out of sth 骗走某人的东西 / cheat on sb 对某人不忠 / cheat in an exam 考试作弊。"
+  },
+  "periodical": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "peri-(周围) + hod(路，希腊 hodos) = 绕一圈回来的路 → 周期；periodical 就是按周期出的刊物 → 期刊（a monthly periodical 月刊）。同族：period 时期 / periodic 周期的 / episode 一段情节。"
+  },
+  "currently": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "curr = 跑（拉丁 currere）→ 正在跑的 → 当前、目前（currently available 现有可用的）。同族：current 当前的·水流 / currency 货币 / occur 发生。"
+  },
+  "universally": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "uni-(一) + vers(转，拉丁 vertere) = 转成一个整体 → 普遍的、通用的（universally accepted 普遍接受的）。同族：universe 宇宙（转成一个整体）/ universal 普遍的 / university 大学（师生的联合体）。"
+  },
+  "raisin": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 raisin 本是「葡萄」（同 raceme 一串），英语借来后专指「葡萄干」—— 葡萄在英语里另有 grape。同源词：raceme 总状花序。"
+  },
+  "bushel": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 boissel（可能出自拉丁「小盒」）→ 蒲式耳（约 36 升的容量单位，量谷物用）。习语：hide one's light under a bushel 埋没才华（出自《圣经》「把灯藏在斗底下」）。"
+  },
+  "fracture": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fract = 折、碎（拉丁 frangere）→ 骨折、裂痕（a fracture of the leg 腿骨折）。同族 fract「折/碎」：fragment 碎片 / fragile 易碎的 / fraction 分数·小部分 / refract 折射。"
+  },
+  "bankrupt": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "bank(长凳，意大利语 banca) + rupt(断，拉丁 rumpere) = 钱商的长凳被砸断 → 破产（go bankrupt 破产）。中世纪钱商在长凳上做买卖，还不出钱就被砸凳子。同族 rupt「断」：interrupt 打断 / corrupt 腐败 / erupt 爆发 / disrupt 扰乱。"
+  },
+  "persecute": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(彻底) + secut(跟随，拉丁 sequi) = 一路追着不放 → 迫害、残害（persecuted minorities 受迫害的少数群体）。同族 sequ「跟随」：pursue 追求 / sequence 序列 / execute 执行。"
+  },
+  "incline": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(向) + clin(倾斜，拉丁 clinare) = 往一边倾 → 坡度、斜面；动词「倾向、使倾向于」（be inclined to do 倾向于做）。同族 clin「倾」：inclination 倾向·斜坡 / decline 下降 / recline 斜倚。"
+  },
+  "tack": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "中古英语 takke「小钉子」→ 图钉、平头钉；动词「钉住」；航海上「抢风调向」也是它。引申「方针、做法」很常用：change tack 改变策略 / try a different tack 换个办法。"
+  },
+  "destructive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + struct(建造，拉丁 struere) = 把建起来的拆掉 → 破坏性的（destructive criticism 破坏性批评 / a destructive storm）。同族 struct「建」：construct 建造 / structure 结构 / instruct 教 / destruction 破坏。"
+  },
+  "flask": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 flasca「瓶子」→ 烧瓶、随身酒壶、火药筒。实验室三件套：flask 烧瓶 / beaker 烧杯 / test tube 试管。"
+  },
+  "terrace": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "terr = 土（拉丁 terra）→ 用土垒起来的平台 → 露台、梯田（rice terraces 梯田）；也指联排住宅（terraced houses）。同族 terr「土」：terrain 地形 / territory 领土 / Mediterranean 地中海（地中间的海）。"
+  },
+  "tranquil": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "tranquil = 平静的、安宁的（a tranquil lake 平静的湖）。同族：tranquillity 宁静 / tranquilizer 镇静剂。近义词强度：calm 平静 / tranquil 宁静（更文学）/ serene 安详。"
+  },
+  "civilian": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "civil = 公民的（拉丁 civis）→ 平民（相对于军人）、民用的（civilian use 民用）。同族 civ「公民」：civil 公民的·民事的 / civilization 文明 / citizen 公民 / civility 礼貌。"
+  },
+  "equation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "equ = 相等（拉丁 aequus）→ 等式、方程式（solve the equation 解方程）；化学的「反应式」也是它；「平衡」是引申（两边相等）。同族 equ「相等」：equal 相等的 / equator 赤道（等分地球）/ adequate 足够的 / equilibrium 平衡。"
+  },
+  "commonplace": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "common(共同) + place(地方) = 大家都在说的地方 → 平常话、老生常谈；形容词「平凡的」（a commonplace remark）。同族：common 共同的 / commonplace book 摘抄本（把常见句子抄在一起）。"
+  },
+  "equilibrium": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "equi-(相等) + libr(天平，拉丁 libra) + -ium = 两边一样重 → 平衡（chemical equilibrium 化学平衡 / lose one's equilibrium 失去平衡）。同族 libr「天平」：Libra 天秤座 / deliberate 深思熟虑的（反复称量）。"
+  },
+  "frequency": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "frequ = 拥挤、频繁（拉丁 frequens）→ 频繁、频率（high frequency 高频 / the frequency of visits 访问频次）。同族：frequent 频繁的 / frequently 经常 / infrequent 罕见的。"
+  },
+  "bleach": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 blæcan「使变白」→ 漂白（bleach the shirt）；名词「漂白剂」。同族：bleak 荒凉的·苍白的（同源「白」义）。近义词：whiten 使白 / fade 褪色。"
+  },
+  "barren": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 baraigne「不育的」→ 不毛的、贫瘠的（barren land 荒地 / a barren discussion 毫无结果的讨论）、不孕的。反义 fertile 肥沃的。"
+  },
+  "float": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "动词「漂浮」→ 名词「漂浮物、浮标、木筏」；商业上「（上市前的）招股」也叫 float（把股票放到市场上漂）。同族：floating 漂浮的 / afloat 在海上。搭配：float an idea 试探性地提出想法。"
+  },
+  "flake": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古北欧语 flak「薄片」→ 薄片（snowflakes 雪花 / flakes of paint 剥落的漆片）；动词「剥落」（the paint flaked off）。⚠️ 口语里作名词还指「古怪靠不住的人」（a flake / flaky）。"
+  },
+  "adjacent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ad-(向) + jac(躺、位于，拉丁 jacere) + -ent = 躺在旁边 → 毗连的（adjacent to the school 紧挨着学校）。同族 ject/jac「扔/躺」：adjoin 毗连 / inject 注射 / eject 弹出。"
+  },
+  "deflection": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(离开) + flect(弯，拉丁 flectere) = 弯离原方向 → 偏斜、偏差（the deflection of light 光的偏折 / deflection of the needle 指针偏转）。同族 flect「弯」：reflect 反射·反思 / flexible 灵活的 / inflect 屈折变化。"
+  },
+  "cape": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "两个同形词，来源不同：① 披肩、斗篷（拉丁 cappa「头巾」，与 cap 帽子同源）；② 海角（拉丁 caput「头」，地形的「头」）。地名：Cape of Good Hope 好望角 / Cape Cod 鳕鱼角。"
+  },
+  "clash": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是金属猛撞那一声 → 冲突、抵触（clash with the police / a clash of opinions 意见冲突）；时间撞车也叫 clash（The two meetings clash.）。同类拟声：crash 哗啦 / clang 铛 / clank 叮当。"
+  },
+  "prejudice": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(预先) + judic(判断，拉丁 judex) = 还没了解就先判了 → 偏见（racial prejudice 种族偏见）；法律上「损害」义见 without prejudice to（不损害…权利）。同族 jud「判断」：judge 法官 / judicial 司法的 / prejudge 预判。"
+  },
+  "collide": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "col-(一起) + lid(打、碰，拉丁 laedere) = 撞到一起 → 碰撞、冲突（collide with 与…相撞）。同族：collision 碰撞 / collusion 串通（同源，义不同）。"
+  },
+  "ingredient": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(进) + gred(走，拉丁 gradi) + -ient = 走进配方里的东西 → 配料、成分（the ingredients of the cake）；引申「成功要素」（the ingredients of success）。同族 grad/gred「走」：grade 等级 / progress 进步。"
+  },
+  "shell": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「壳」：蛋壳、贝壳 → 弹壳（炮弹的外壳）→ 炮弹（shell 作动词就是「炮轰」）。三个义项一条线：外面那层。搭配：shell out 掏钱（把壳里的东西拿出来）。"
+  },
+  "battery": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "bat = 打（拉丁 battuere）+ -ery(一组) = 一排（炮）→ 炮兵连、兵器群 → 一组电池。同族 bat「打」：battle 战斗 / combat 战斗 / debate 辩论。"
+  },
+  "foam": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 fam「泡沫」→ 泡沫、泡沫材料（foam rubber 泡沫橡胶）；动词「起泡沫」（foaming at the mouth 口吐白沫 —— 也形容暴怒）。搭配：shaving foam 剃须泡沫。"
+  },
+  "limp": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "两个同形词：① 动词「跛行」（limp along 一瘸一拐地走）；② 形容词「软绵绵的」（a limp handshake 无力的握手 / lettuce went limp 生菜蔫了）。走路「软」和东西「软」是同一个画面。"
+  },
+  "bypass": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "by(旁边) + pass(通过) = 从旁边过去 → 绕过（bypass the city 绕城而过）；名词「旁路、旁通管」；医学上「心脏搭桥」就是 bypass。同族：byproduct 副产品 / bylaw 附则。"
+  },
+  "ascend": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "a-(向上) + scend(爬，拉丁 scandere) = 往上爬 → 攀登、上升（ascend the throne 登基）；「追溯」是往上追源头。同族 scend「爬」：descend 下降 / ascent 上升 / descendant 后代 / transcendent 超越的。"
+  },
+  "dispatch": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "dis-(分开) + patch(古法语「脚镣、阻碍」) = 把束缚解开 → 赶快送出 → 派遣、发送（dispatch a messenger 派信使）；名词「急件、快讯」（a news dispatch 新闻电讯）。"
+  },
+  "stagger": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古北欧语 stakra「推」→ 走不稳、蹒跚（stagger home 踉跄着回家）；「使震惊」义很常用（a staggering price 令人咋舌的价格）。三个「走不稳」：stagger 踉跄 / stumble 绊了一下 / totter 摇摇欲坠。"
+  },
+  "hover": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "中古英语 hoven「悬停」→ 悬停、盘旋（a helicopter hovering）；引申「徘徊犹豫」（hover between A and B）和「在旁守着」（hovering parents 直升机父母）。同族：hovercraft 气垫船。"
+  },
+  "range": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "rang = 排、行（古法语 reng）→ 排成一行 → 范围、一系列（a range of products 一系列产品）；动词「排列、分类」。同族：arrange 安排 / rank 等级。搭配：range from A to B 从 A 到 B 不等。"
+  },
+  "faction": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fact = 做（拉丁 facere）→ 一起做事的一伙人 → 派别、小集团（rival factions 对立的派系）。同族 fact「做」：fact 事实 / factory 工厂 / factor 因素。⚠️ 别与 fiction（虚构）混。"
+  },
+  "clap": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「啪」那一声：拍手（clap one's hands）、掌声、霹雳（a clap of thunder 一声霹雳 —— 雷的「啪」）。同类拟声：clap 拍 / slap 掴 / tap 轻敲 / rap 叩。"
+  },
+  "drainage": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "drain(排干) + -age = 排水、排水系统（drainage system 排水系统 / poor drainage 排水不良）。同族：drain 排水·耗尽 / brain drain 人才外流（人才被「排走」）。"
+  },
+  "reptile": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "rept = 爬（拉丁 repere）→ 爬行动物（蛇、蜥蜴、龟）。⚠️ 两栖动物严格说是 amphibian（amphi- 两 + bio 生命），不算 reptile。同族：serpent 蛇 / reptilian 爬行的。"
+  },
+  "ohm": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "以德国物理学家欧姆（Georg Simon Ohm）命名 → 电阻单位欧姆（符号 Ω）。同类「人名变单位」：watt 瓦特 / volt 伏特 / ampere 安培 / joule 焦耳 / newton 牛顿。"
+  },
+  "hostess": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "host(主人) + -ess(阴性) = 女主人、女招待。同类 -ess：actress 女演员 / waitress 女服务员 / goddess 女神 / lioness 母狮。⚠️ 现代英语里 -ess 常被视为过时，多改用中性词。"
+  },
+  "overhear": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(越过) + hear(听) = 隔着听到 → 无意中听到（I overheard their conversation.）。辨析：overhear 无意听到 / eavesdrop 有意偷听。同族：overlook 俯瞰·忽视 / overtake 超过。"
+  },
+  "waitress": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "wait(伺候，原义「守候」) + -ress(阴性) = 女服务员。同族：waiter 服务员 / wait on 伺候 / waiting room 候车室。⚠️ 现代多用 server 这类中性词。"
+  },
+  "feminine": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "femin = 女人（拉丁 femina）→ 女性的、女子气的；语法上的「阴性」也是它。同族：female 女性 / feminism 女权主义 / effeminate 娘娘腔的（贬义）。两对对比：male/female 看生理，masculine/feminine 看气质。"
+  },
+  "blouse": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "法语 blouse（一说与「蓝色」有关，最早是蓝色的工装）→ 女式衬衫、罩衫。同类服装借词：blouse 女衬衫 / skirt 裙子（北欧语）/ dress 连衣裙（法语）。"
+  },
+  "goddess": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "god(神) + -dess(阴性) = 女神（the goddess of wisdom 智慧女神）；引申「绝世美女」。⚠️ -dess 这类阴性后缀在现代英语里越来越少用。"
+  },
+  "coward": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 coart 出自拉丁 cauda「尾巴」—— 夹着尾巴跑的人 → 懦夫（cowardly 怯懦的 / cowardice 怯懦）。同族 -ard 常带贬义：drunkard 酒鬼 / sluggard 懒鬼。"
+  },
+  "radiator": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "radi = 光线、辐射（拉丁 radius）→ 散热器、暖气片（汽车的水箱也叫 radiator）。同族：radiate 辐射 / radiation 辐射 / radio 无线电。"
+  },
+  "strive": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古法语 estriver「争斗」→ 努力、奋斗（strive for success 力争成功 / strive to do 力求做）。同族：strife 冲突。过去式特殊：strove，过去分词 striven。"
+  },
+  "mess": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 mes 本是「一份食物」（军队的食堂也叫 mess）—— 一群人吃完就是一摊乱 → 弄乱、搞糟（mess up 搞砸 / in a mess 一团糟）。同族：messy 凌乱的 / mess hall 食堂。"
+  },
+  "distortion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(坏) + tort(扭，拉丁 torquere) + -ion = 扭坏了 → 歪曲、畸变（signal distortion 信号失真 / distortion of the facts 歪曲事实）。同族 tort「扭」：distort 扭曲 / torture 折磨 / extort 敲诈。"
+  },
+  "Saturn": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "罗马农神 Saturnus → 土星；他的节日 Saturnalia 是古罗马的狂欢节，英语 saturnine「阴郁的」来自占星里土星的影响。同族：Saturday 星期六（土星日）。"
+  },
+  "shorten": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "short(短) + -en(使) = 弄短、缩短（shorten the deadline 缩短期限）。同类 -en 使动：lengthen 加长 / widen 加宽 / deepen 加深 / strengthen 加强。"
+  },
+  "milky": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "milk(奶) + -y = 乳白色的、含奶的（milky coffee 加奶咖啡）；天文上的 the Milky Way 就是银河（像洒了奶的一条带）。"
+  },
+  "peer": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "两个同形词：① 名词「同辈、同行」（peer pressure 同辈压力 / peer review 同行评审）；② 动词「凝视、费力地看」（peer at the small print 眯着眼看小字）—— 后者来自「探出头去看」。"
+  },
+  "wrench": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 wrencan「扭」→ 猛拧、扭伤（wrench one's ankle 扭伤脚踝）；名词「扳手」（a monkey wrench 活动扳手）；引申「（离别时的）痛苦」（a wrench to leave 离开时的心痛）。同族：wring 拧 / wrangle 争吵。"
+  },
+  "nickel": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "德语 Kupfernickel「假铜」（Nickel 是小鬼）—— 矿工以为这矿石含铜却炼不出铜，就怪小鬼捣乱 → 镍。美国的五分镍币就叫 nickel。"
+  },
+  "wring": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 wringan「拧」→ 拧、绞（wring out the wet towel 把湿毛巾拧干）；引申「（从人身上）榨取」（wring a confession out of sb 逼出口供）和「揪心」。过去式：wrung。"
+  },
+  "junior": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "jun = 年轻（拉丁 juvenis）→ 年少的、下级的（junior staff 初级员工 / junior high school 初中）；美国大学三年级学生也叫 junior。同族：juvenile 青少年的 / rejuvenate 使恢复青春。"
+  },
+  "annually": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ann = 年（拉丁 annus）→ 每年地。同族 ann「年」：annual 年度的 / anniversary 周年（ann 年 + vers 转 → 转回来的一年）/ annuity 年金 / biennial 两年一次的。"
+  },
+  "practicable": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "practic(做) + -able = 做得成的 → 可行的（a practicable plan 可行的计划）。⚠️ 与 practical（实用的）区分：practicable 指「能实施」，practical 指「务实、实用」。同族：practice 实践 / practical 实用的。"
+  },
+  "capability": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cap = 抓、容纳（拉丁 capere）→ 能接得住 → 能力、性能（the capability of the machine 机器性能 / nuclear capability 核能力）。同族 cap「抓/容纳」：capable 有能力的 / capacity 容量 / capture 捕获。"
   }
  }
 }
