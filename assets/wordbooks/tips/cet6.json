@@ -8554,6 +8554,341 @@
    "kind": "root",
    "certainty": "high",
    "tip": "voc = 声音、称呼（拉丁 vocare）→ 一个语言里能叫出的词 → 词汇表、词汇量（build vocabulary 扩大词汇量）。同族 voc「叫」：vocal 嗓音的 / vocation 天职 / advocate 提倡 / invoke 祈求。"
+  },
+  "sheer": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "① 纯粹的、全然的（sheer luck 纯属运气 / sheer nonsense 一派胡言）；② 极陡的（a sheer cliff 陡峭的悬崖）；③ 极薄的（sheer stockings 薄丝袜）。⚠️ 与 shear（剪羊毛）别混。"
+  },
+  "stem": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「茎、干」→ 词干；「（手表的）转柄」；动词「起源于」（stem from 源自 —— 像枝从干上长出来）和「阻止」（stem the flow 堵住水流）。"
+  },
+  "perpendicular": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(完全) + pend(挂，拉丁 pendere) + -icular = 垂线（铅垂线）方向 → 垂直的（perpendicular to the surface 与表面垂直）。同族 pend「挂」：pendulum 摆 / suspend 悬挂 / depend 依赖。"
+  },
+  "poke": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "「戳、捅」：poke sb in the ribs 捅某人肋部 / poke fun at 取笑 / poke one's nose into 多管闲事；口语 poke around 到处翻看。同类：jab 猛戳 / prod 轻推 / prick 刺。"
+  },
+  "author": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "aug = 使生长、创造（拉丁 augere）→ 使作品生长出来的人 → 作者、创造者（the author of the plan 计划的制定者）。同族 aug「增/生」：augment 增加 / auction 拍卖（价格往上加）/ August 八月（奥古斯都，使帝国增长者）。"
+  },
+  "lipstick": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "lip(唇) + stick(棒) = 唇膏棒 → 口红。同类「部位 + 物」：toothbrush 牙刷 / hairdryer 吹风机 / nail polish 指甲油。"
+  },
+  "innovation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(进入) + nov(新，拉丁 novus) + -ation = 把新东西引进来 → 创新、革新（technological innovation 技术创新）。同族 nov「新」：novel 新颖的·小说 / renovate 翻新 / novice 新手。"
+  },
+  "stainless": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "stain(污点、锈) + -less(无) = 不锈的（stainless steel 不锈钢）；引申「纯洁的、无瑕疵的」（a stainless reputation 清白的名声）。同族：stain 污点·染色 / stained glass 彩色玻璃。"
+  },
+  "initiative": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(进入) + it(走，拉丁 ire) + -iative = 迈出第一步的那股劲 → 主动性、首创精神（take the initiative 采取主动 / on one's own initiative 主动地）。同族 it「走」：initial 最初的 / initiate 发起 / exit 出口。"
+  },
+  "puff": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「噗」地喷一口那声 → 喷（烟）、喘气（puffing up the hill 喘着上坡）；名词「一股（烟）」（a puff of smoke）。同族：powder puff 粉扑。"
+  },
+  "infectious": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(在内) + fect(做，拉丁 facere) + -ious = 在体内「做」起来的 → 传染的（an infectious disease 传染病）；引申「有感染力的」（an infectious laugh 有感染力的笑）。同族：infect 感染 / disinfect 消毒 / disease 疾病。"
+  },
+  "shipwreck": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ship(船) + wreck(失事) = 船舶失事、沉船（survive a shipwreck 在沉船中生还）。同族 wreck：wreck 残骸·毁坏 / wreckage 残骸。"
+  },
+  "romance": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "出自「罗马式的」（Roman）—— 中世纪用罗曼语写的骑士传奇 → 传奇、浪漫文学（a historical romance 历史传奇小说）。同族：romantic 浪漫的 / Romanticism 浪漫主义。"
+  },
+  "report": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「带回来」（re- 回 + port 带）：报告、报道；也指「传说、议论」（report has it that… 据传…）和「报到」（report for duty）。同族 port「带」：transport 运输 / export 出口 / portable 便携的。"
+  },
+  "herald": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "古法语 herault（源自日耳曼语「军队的指挥者」）→ 传令官、通报者；动词「预示…的到来」（The song heralded a new era.）；报纸名常用（The Herald 先驱报）。同族：heraldry 纹章学。"
+  },
+  "circular": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "circul = 圈（拉丁 circulus）→ 圆形的；传单、通函也叫 circular（因为一张张传阅一圈）。同族 circ「圈」：circle 圆 / circulate 循环 / circuit 电路 / circus 马戏团。"
+  },
+  "leaflet": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "leaf(叶、纸页) + -let(小) = 小纸页 → 传单、活页（hand out leaflets 发传单）。同类 -let 表「小」：booklet 小册子 / piglet 小猪 / droplet 小滴。"
+  },
+  "sensor": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sens = 感觉（拉丁 sentire）→ 感知的元件 → 传感器（a motion sensor 运动传感器）。同族：sense 感觉 / sensitive 敏感的 / sensation 感觉。⚠️ 别与 censor（审查）混。"
+  },
+  "missionary": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "miss(送，拉丁 mittere) + -ionary = 被派出去的人 → 传教士（a missionary in Africa）。同族 miss「送」：mission 使命 / dismiss 解散 / transmit 传送。"
+  },
+  "convey": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + vey(路，拉丁 via) = 一路带走 → 传达、运送（convey the message 传达信息 / convey the goods 运送货物）；法律上「转让」也是它。同族 via「路」：via 经由 / deviate 偏离 / obvious 明显的（在路上的）。"
+  },
+  "pierce": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古法语 percer「刺穿」→ 穿透、戳穿（pierce the skin / pierce the silence 打破寂静）；「洞察」是引申。同族：piercing 刺骨的·尖锐的（a piercing cry 一声尖叫）。"
+  },
+  "penetration": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "penetr = 进入内部（拉丁 penetrare）→ 穿入、渗透（market penetration 市场渗透率 / penetration of the enemy lines 突破敌阵）。同族：penetrate 穿透·渗透 / penetrating 敏锐的。"
+  },
+  "antenna": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 antenna 本是「帆桁」（船上挂帆的横杆）—— 昆虫的触角像帆桁，后来无线电天线也像 → 触角、天线。⚠️ 复数两种：antennae（昆虫触角）/ antennas（天线设备）。"
+  },
+  "penalty": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pen = 惩罚（拉丁 poena「偿债、惩罚」）→ 处罚、罚款（a penalty for speeding 超速罚款 / penalty kick 点球）。同族 pen「惩罚」：punish 惩罚 / punitive 惩罚性的 / pain 疼痛（同源）。"
+  },
+  "transaction": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "trans-(穿过) + act(做，拉丁 agere) + -ion = 双方之间做完的一笔 → 交易（a business transaction）；也指「（学会的）议事录」。同族 act「做」：action 行动 / agent 代理人 / agenda 议程。"
+  },
+  "virgin": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 virgo「处女」→ 处女；形容词义「未开发的、原始的」（virgin forest 原始森林 / virgin land 处女地 / virgin wool 初剪羊毛）。同族：Virginia 弗吉尼亚（为纪念「处女女王」伊丽莎白一世）。"
+  },
+  "exclusive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + clus(关，拉丁 claudere) + -ive = 把人关在外面的 → 排他的、独家的（an exclusive interview 独家采访 / exclusive of 不包括）；「孤傲的」是引申（不合群）。同族 clus「关」：exclude 排除 / include 包括 / close 关。"
+  },
+  "notorious": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "not = 知道（拉丁 notus）→ 出了名的；⚠️ 但它专指「臭名昭著的」（a notorious criminal 臭名昭著的罪犯），褒义的「著名」要用 famous / renowned。同族 not「知道」：note 注意 / notice 通知 / notify 告知。"
+  },
+  "scandal": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 skandalon 本是「绊脚石、陷阱」→ 让人跌倒的事 → 丑闻（a political scandal 政治丑闻）。同族：scandalous 丑闻的·可耻的。"
+  },
+  "specimen": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "spec = 看（拉丁 specere）→ 拿来给人看的东西 → 样品、标本（a blood specimen 血样 / a specimen of his handwriting 他的字迹样本）。同族 spec「看」：inspect 检查 / respect 尊重 / suspect 怀疑。"
+  },
+  "extraction": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + tract(拉，拉丁 trahere) + -ion = 拉出来 → 抽出、提取（the extraction of a tooth 拔牙 / data extraction 数据抽取）；「摘要」就是从文中抽出来的一段。同族 tract「拉」：extract 提取 / attract 吸引 / contract 合同。"
+  },
+  "equator": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "equ = 相等（拉丁 aequus）→ 把地球等分成南北两半的那条线 → 赤道（cross the equator 越过赤道）。同族 equ「相等」：equal 相等的 / equation 方程 / equilibrium 平衡。"
+  },
+  "adore": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ad-(向) + or(说、祈祷，拉丁 orare) = 对着神说话 → 崇拜；口语里表示「非常喜欢」（I adore chocolate.）。同族 or「说/祈」：oral 口头的 / oration 演说 / inexorable 不可动摇的。"
+  },
+  "worship": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "worth(价值) + -ship(状态) = 承认对方的价值 → 崇拜、做礼拜（a place of worship 礼拜场所 / hero worship 英雄崇拜）。同族 -ship：friendship 友谊 / leadership 领导。"
+  },
+  "punch": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "三个义项靠语境分：① 用拳打（punch sb）；② 冲压、打孔（a ticket punch 打孔机）；③ 潘趣酒（一种混合果汁酒，源自印度语 panch「五」，指五种配料）。习语：beat sb to the punch 抢在某人前面。"
+  },
+  "gear": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「装备、用具」（fishing gear 渔具 / camping gear 露营装备）→ 机械的「齿轮、传动装置」；引申「（为某目的）调整」（gear up for 为…做好准备）。"
+  },
+  "strife": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古法语 estrif「争斗」（与 strive 同源）→ 冲突、纷争（industrial strife 劳资纠纷 / a time of strife 动荡时期）。同族：strive 努力·抗争。"
+  },
+  "bug": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古英语 bugge「鬼怪」→ 虫子、臭虫 → 「（程序的）漏洞」（第一个计算机 bug 真的是只飞蛾）→「窃听器」（bug the room）和「烦扰」（Don't bug me.）。"
+  },
+  "persist": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(贯穿到底) + sist(站，拉丁 sistere) = 一直站着不倒 → 坚持、持续存在（persist in doing 坚持做 / The problem persists.）。同族 sist「站」：insist 主张 / resist 抵抗 / persist 坚持。"
+  },
+  "proceeding": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + ceed(走，拉丁 cedere) = 往前走 → 程序、行动（legal proceedings 法律程序 / in the course of the proceedings 在程序进行中）。同族 ced/cess「走」：proceed 进行 / precede 先于 / succeed 接替。"
+  },
+  "acknowledge": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ac-(加强) + knowledge(知道) = 表明自己知道 → 承认（acknowledge the mistake）；「告知收到」也是表明知道了（acknowledge the email 回复确认收到）。同族：knowledge 知识。"
+  },
+  "breakfast": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "break(打破) + fast(禁食) = 打破一夜的禁食 → 早餐；动词「吃早餐」（其中 fast 作名词就是「禁食」，同 breakfast 的由来）。同族：fast 禁食·快 / lunch 午餐 / dinner 晚餐。"
+  },
+  "shoulder": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「肩」→ 动词「用肩扛」→ 引申「承担」（shoulder the responsibility 承担责任）。习语：shoulder to shoulder 并肩 / shrug one's shoulders 耸肩。"
+  },
+  "dine": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 disjejunare「打破禁食」（同 breakfast）→ 吃饭、宴请（dine out 外出吃饭 / wine and dine 款待）。同族：dinner 正餐 / diner 用餐者·小餐馆。"
+  },
+  "offer": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "of-(向) + fer(带，拉丁 ferre) = 把东西带到你面前 → 提供、呈现出（offer a solution 提供方案 / offer a view 呈现景色）；「出现」是「献上」的引申。同族 fer「带」：transfer 转移 / prefer 更喜欢 / confer 商议。"
+  },
+  "length": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "long 的名词 → 长度；也指「程度、范围」（go to great lengths 竭尽全力 / at length 最终·详细地）；「（时间的）一段」（a length of time）。同族：long 长的 / lengthen 加长 / lengthy 冗长的。"
+  },
+  "membership": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "member(成员) + -ship(身份) = 成员资格、会员人数（apply for membership 申请入会 / a membership of 500 会员五百人）。同族 -ship：friendship 友谊 / ownership 所有权。"
+  },
+  "systematic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "system(系统) + -atic = 成体系的（a systematic approach 系统的方法 / systematic error 系统误差）。⚠️ 与 systemic（全身性的、体制性的）区分。同族：system 系统 / systematically 系统地。"
+  },
+  "integrity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + teg(触动，拉丁 tangere) = 没被碰过的完整 → 完整性；引申「正直、诚实」（a man of integrity）—— 人格没被碰坏。同族：integrate 整合 / entire 整个的 / contact 接触。"
+  },
+  "kit": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "中古荷兰语 kitte「木桶」→ 一套用具、工具包（a first-aid kit 急救包 / a tool kit 工具箱）；动词「装备」（kit sb out 给某人装备）。搭配：kit and caboodle 全部。"
+  },
+  "commend": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(完全) + mend(托付，拉丁 mandare) = 郑重交给对方 → 称赞、推荐（commend sb for sth 表扬某人 / commend sth to sb 把…推荐给某人）。同族 mand「命令/托付」：command 命令 / demand 要求 / recommend 推荐。"
+  },
+  "muse": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊神话的缪斯女神（Muses）主管文艺 → 她们的「灵感」→ 沉思、冥想（muse on the past 追忆往事）；museum 原是「缪斯的神殿」，music 也来自缪斯。同族：museum 博物馆 / music 音乐。"
+  },
+  "meditate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "med = 中间、度量（拉丁 medius / meditari「反复思量」）→ 沉思、冥想（meditate on life 思索人生）。同族 med「中间」：medium 媒介·中等的 / mediate 调解 / medicine 医学（原来的「治疗之道」）。"
+  },
+  "hush": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声的「嘘」→ 安静、使沉默（hush the baby 哄孩子安静）；名词「寂静」（in the hush of the night）；习语 hush up 掩盖（丑闻）。同族：hush-hush 秘密的。"
+  },
+  "repeal": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + peal(驱赶，拉丁 pellere) = 把法令赶回去 → 撤销、废止（repeal the law 废除法律）。同族 pel「推」：expel 驱逐 / repel 击退 / appeal 呼吁（向上求助）。"
+  },
+  "brood": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "本义「一窝（雏鸟）」→ 母鸟孵蛋 → 引申「长时间郁结地想着」（brood over the past 耿耿于怀 / a brooding silence 压抑的沉默）—— 像孵蛋一样捂着不放。"
+  },
+  "immerse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(进入) + mers(浸，拉丁 mergere) = 浸进去 → 沉浸（immerse oneself in work 埋头工作 / be immersed in a book 沉浸在书里）；「施洗礼」是浸水的原义。同族 merg「浸」：submerge 淹没 / emerge 浮现。"
+  },
+  "lathe": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古英语 lath「车床」（可能与「支撑物」有关）→ 车床；动词「用车床加工」。同类机械：lathe 车床 / drill 钻床 / miller 铣床 / grinder 磨床。"
+  },
+  "row": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "⚠️ 三个同形词，两个读音：① /rəʊ/ 一排、一行（a row of houses）；② /rəʊ/ 划船（row a boat）；③ /raʊ/ 吵嚷、吵架（have a row with sb）。第三个读音不同，这正是它最容易被考的点。"
+  },
+  "mock": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "「嘲弄、挖苦」（mock sb's accent 取笑某人的口音）；也指「仿制的、模拟的」（a mock exam 模拟考 / mock turtle soup 仿甲鱼汤）。辨析：mock 嘲笑（可善意）/ sneer 冷笑 / ridicule 公开嘲弄。"
+  },
+  "supersonic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "super-(超) + son(声音，拉丁 sonus) + -ic = 超音速的（a supersonic aircraft 超音速飞机）。同族 son「声」：sound 声音 / sonic 声音的 / resonance 共鸣。对比：subsonic 亚音速的。"
+  },
+  "reign": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "reg = 王、统治（拉丁 rex, regis）→ 统治、朝代（during the reign of 在…统治时期 / the reign of terror 恐怖统治）。⚠️ 同音不同词：rein 缰绳 / rain 雨。同族：royal 王室的 / regal 帝王般的 / regime 政权。"
+  },
+  "ultrasonic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ultra-(超过) + son(声音) + -ic = 超声的、超声波（ultrasonic cleaning 超声波清洗）。同族 ultra-：ultraviolet 紫外线 / ultrasound 超声 / ultimate 最终的。"
+  },
+  "resident": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + sid(坐，拉丁 sedere) + -ent = 常坐在这里的人 → 常住者、居民（local residents 当地居民）；形容词「居住的」（resident alien 外籍居民）。同族 sid「坐」：reside 居住 / residence 住所 / preside 主持。"
+  },
+  "nickname": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "中古英语 ekename「附加的名字」（eke 意为「额外的」）—— 被误听成 an ekename → a nekename → nickname，那个 n 从冠词跑到了词首。同族：eke out 勉强维持。"
+  },
+  "surpass": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sur-(超过) + pass(走过) = 走过去超过 → 超过、胜过（surpass all expectations 超出所有预期）。同族 sur-：surface 表面 / surplus 剩余 / surrender 投降（交上去）。"
+  },
+  "waggon": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古荷兰语 wagen「车」→ 敞篷车厢、货车（英式拼 waggon 或 wagon，美式 wagon）。同源词：wagon 货车 / way 路（车走的路）。习语：on the wagon 戒酒。"
   }
  }
 }

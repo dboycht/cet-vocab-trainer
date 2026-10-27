@@ -53,15 +53,22 @@ for (const [w, t] of Object.entries(tips)) {
   if (/"/.test(t.tip || "")) hasQuote.push(w);
   // U+FFFD 替换字符 = 写入时坏掉的字节（实测踩过一次：「存电荷的器」写成了「存\uFFFD的器」）
   if (/\uFFFD/.test(t.tip || "")) corrupted.push(w);
-  // 同一个 tip 里把「X 同族：A / A / B」这种同项连写两遍 = 复制粘贴的疏忽
-  const tail = (t.tip || "").split(/同族[^：:]*[：:]/).pop() || "";
-  const items = tail.split("/").map((s) => s.trim()).filter(Boolean);
-  if (items.length >= 2 && new Set(items).size < items.length) repeated.push(w);
+  // 同一个 tip 里把「X 同族：A / A / B」这种同项连写两遍 = 复制粘贴的疏忽。
+  // ⚠️ 只在**确实有「同族：」标记**时才检查 —— 第一版对没有该标记的 tip 也跑，
+  //    结果把音标里的斜杠（/rəʊ/ 一排 /rəʊ/ 划船）当成了列表分隔符，row 被假红。
+  const m = /同族[^：:]*[：:]([^。]*)/.exec(t.tip || "");
+  if (m) {
+    const items = m[1].split("/").map((s) => s.trim()).filter(Boolean);
+    if (items.length >= 2 && new Set(items).size < items.length) repeated.push(w);
+  }
   // 助记只管记忆，「与书不一致」由界面横幅统一提示（entry_repairs + fixNote）。
   // 助记里写「书里只收了 X」有两个毛病：数据补齐后它变成假话；学习者也并不关心版本学。
-  // ⚠️ 必须排除「文书里」「说明书里」这类合法搭配 —— 第一版正则把
-  //    「法律文书里也表示『鉴于』」判成了谈论源书（假红，产品与文案都没问题）。
-  if (/(?<![文说])书里|源书|书本/.test(t.tip || "")) metaTalk.push(w);
+  //
+  // ⚠️ 判据必须锚在**「谈论源书缺陷」的特有句式**上，不能只匹配「书里」两个字。
+  //    实测两次假红：① 「法律文*书里*也表示『鉴于』」②「沉浸在*书里*」——
+  //    都是「书里」的正常用法，产品与文案都没问题。
+  //    所以只抓「书里只收/只给/没有/漏/标成」与「源书/书本」这些真正指向源书的说法。
+  if (/(源书|书本)|书里(?:只收|只给|没有|漏|没收录|标成)/.test(t.tip || "")) metaTalk.push(w);
 }
 
 const certCount = {};
