@@ -6889,6 +6889,336 @@
    "kind": "family",
    "certainty": "high",
    "tip": "ap-(向) + plaus(拍手，拉丁 plaudere) = 朝你拍手 → 掌声、喝彩（a round of applause 一阵掌声）。同族 plaus「拍手」：applaud 鼓掌 / plausible 貌似合理的（原义「值得鼓掌的」）。"
+  },
+  "hinge": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "与 hang(悬挂) 同源 —— 门挂在框上的那个连接件 → 铰链；习语很常用：hinge on 取决于（Everything hinges on his decision.）。"
+  },
+  "applaud": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ap-(向) + plaud(拍手，拉丁 plaudere) = 朝你拍手 → 鼓掌、喝彩；引申「赞许」（I applaud your decision.）。同族：applause 掌声 / plausible 貌似合理的。"
+  },
+  "proper": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 proprius「自己的、专属的」→ 适合自身身份的 → 恰当的、合乎体统的（proper behaviour 得体的行为 / proper name 专有名词）。同族：property 财产·属性 / appropriate 恰当的 / propriety 礼节。"
+  },
+  "pal": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自罗姆语（吉普赛语）phral「兄弟」→ 好朋友、伙伴（an old pal 老朋友）。同类口语「朋友」：pal / buddy / mate / chum。"
+  },
+  "composite": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + posit(放，拉丁 ponere) = 放在一起 → 合成的、合成物（a composite material 复合材料 / a composite sketch 拼图画像）。同族 posit「放」：compose 组成 / composition 作文·构成 / deposit 存放。"
+  },
+  "romantic": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "出自「罗马式的」（Roman）—— 中世纪用罗曼语写的骑士传奇充满冒险与爱情，于是「罗马式的」成了「浪漫的」；也指「好幻想的」（a romantic view 不切实际的看法）。同族：romance 浪漫史 / Romanticism 浪漫主义。"
+  },
+  "hospitality": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "hospit = 客人（拉丁 hospes）→ 待客之道 → 好客（show hospitality 热情款待）。同族 hospit「客」：hospital 医院（原为接待客人的地方）/ hotel 旅馆 / hostel 旅舍 / host 主人。"
+  },
+  "howl": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是狼嚎那声 → 嚎叫、哀号（The wind howled. 风在呼啸 / howl with laughter 放声大笑）。同类拟声：bark 吠 / growl 低吼 / whine 呜咽。"
+  },
+  "hurrah": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声的欢呼声 → 好哇、万岁（Hurrah for the winner!）；变体 hooray / hurray。同类感叹词：bravo 好极了 / cheers 干杯·谢谢（英式）。"
+  },
+  "log": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "本义是「圆木」—— 航海时把木块系在绳上扔下去测航速，每天记录 → 航海日志、飞行日志；引申「（计算机）日志」（log file）和动词「记录」（log in 登录）。同一个「记下来」的画面。"
+  },
+  "aerospace": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "aero(空气，希腊 aer) + space(空间) = 空气与太空 → 航空航天（the aerospace industry）。同族 aero：aerial 航空的 / aeroplane 飞机 / aerodynamics 空气动力学。"
+  },
+  "pedestrian": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ped = 脚（拉丁 pes）+ -estrian(人) = 用脚走的人 → 行人（a pedestrian crossing 人行横道）；形容词义「平淡无奇的」（pedestrian prose 平淡的文章）。同族 ped「脚」：pedal 踏板 / expedition 远征 / centipede 蜈蚣。"
+  },
+  "hesitate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 haerere「粘住」→ 想动却粘住 → 犹豫、支吾（hesitate to do 迟疑做 / hesitate over 犹豫不决）。同族 haer「粘」：adhere 粘附 / coherent 连贯的 / inherent 固有的。"
+  },
+  "move": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "动词「移动」→ 名词「行动、步骤」（a good move 一步好棋 / make a move 采取行动）；下棋的「一步」也是它。搭配：get a move on 赶快 / on the move 在活动中。"
+  },
+  "turtle": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自法语 tortue（拉丁 tartarucha，据说是「冥府之兽」）→ 海龟。习语：turn turtle 翻个底朝天（像龟翻过来）。辨析：turtle 海龟 / tortoise 陆龟 / terrapin 淡水龟。"
+  },
+  "strait": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 strictus「拉紧的」→ 被两岸「夹紧」的窄水道 → 海峡（the Straits of Malacca 马六甲海峡）；复数 straits 还指「困境」（in dire straits）。同族 strict「拉紧」：strict 严格的 / restrict 限制。"
+  },
+  "seaport": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sea(海) + port(港口) = 海港、港市。同类 port 构词：airport 机场 / passport 护照（过关的凭证）/ portable 便携的。"
+  },
+  "custom": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「习惯、习俗」→ 海关、关税：古代商人进关要按「惯例」（custom）交钱，于是「惯例」变成了「关税」（the customs 海关，用复数）。同族：custom 习俗 / customer 顾客 / customary 惯例的。"
+  },
+  "surplus": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sur-(超过) + plus(更多，拉丁 plus) = 超出需要的部分 → 剩余、顺差（trade surplus 贸易顺差 / surplus value 剩余价值）；反义 deficit 赤字。同族 plus「更多」：plus 加 / plural 复数。"
+  },
+  "cable": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "出自拉丁 capulum「缆绳」→ 电缆；19 世纪海底电缆铺成后，「发 cable」就是发电报；现在指有线电视（cable TV）。同族：cable car 缆车 / cablegram 海底电报。"
+  },
+  "excess": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + cess(走，拉丁 cedere) = 走出界限 → 过量、无节制（in excess of 超过 / excess baggage 超重行李）；「暴行」是「过度」的极端（the excesses of the regime 政权的暴行）。同族 cess「走」：exceed 超过 / proceed 进行 / access 接近。"
+  },
+  "overestimate": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(过度) + estimate(估计) = 过高估计（overestimate one's ability 高估自己的能力）；反义 underestimate 低估。心理学里的「优于平均效应」就是人人都 overestimate 自己。"
+  },
+  "orchard": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 ortgeard，来自拉丁 hortus「园」+ yard「围场」→ 果园（an apple orchard 苹果园）。同族：horticulture 园艺学（hortus 园 + culture 栽培）/ garden（同源）。"
+  },
+  "pirate": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 peirates「袭击者」（peiran 尝试、攻击）→ 海盗；引申「盗版者」（software pirates / pirate a film 盗版电影）。同族：piracy 海盗行为·盗版。"
+  },
+  "peel": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "出自拉丁 pilare「去毛、剥皮」→ 果皮；动词「剥皮、脱落」（peel the apple / The paint is peeling.）。习语：keep one's eyes peeled 睁大眼睛留意。"
+  },
+  "seaside": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sea(海) + side(边) = 海边、海滨胜地（a seaside resort 海滨度假地）。同类 sea 构词：seashore 海岸 / seafood 海鲜 / seagull 海鸥 / seaport 海港。"
+  },
+  "stone": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「石头」→ 水果里那颗硬得像石头的核（a peach stone 桃核）；也指英制的「石」（14 磅）和「结石」（kidney stone 肾结石）。动词义「向…扔石头」。"
+  },
+  "excessively": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "excess(过量) + -ively = 过分地、极端地（excessively high prices 高得离谱的价格）。同族：excess 过量 / excessive 过度的 / exceed 超过。"
+  },
+  "slap": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「啪」一巴掌那声 → 掴、拍（slap sb in the face）；引申「（猛然）放置」（slap the book on the table）和「轻微惩戒」（a slap on the wrist）。同类：smack 掌掴 / punch 拳打。"
+  },
+  "boiler": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "boil(煮沸) + -er(器) = 烧水的器具 → 锅炉、热水器（a gas boiler 燃气锅炉）。同类 -er 器具：heater 加热器 / cooker 炊具 / toaster 烤面包机。"
+  },
+  "define": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + fin(界限，拉丁 finis) = 把界限划死 → 下定义、规定（define the terms 界定术语 —— 这正是「立界限」的本义）。同族 fin「界限」：definite 明确的 / definition 定义 / finite 有限的。"
+  },
+  "inland": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in(内) + land(陆地) = 内陆的、内地的（inland cities 内陆城市 / inland revenue 国内税收）；反义 coastal 沿海的。同族：island 岛（同源 land 义）。"
+  },
+  "regulation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "reg = 尺、统治（拉丁 regula）→ 按规矩定下来的东西 → 规章（traffic regulations 交通规则）；「调节」是动词义（the regulation of temperature）。同族：regulate 调节 / regular 规则的 / regime 政权。"
+  },
+  "salmon": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 salmo（可能与 salire「跳」有关 —— 鲑鱼会逆流跳瀑布）→ 鲑鱼、三文鱼；也指「鲑肉色」（salmon pink 橙粉色）。⚠️ 拼写里的 l 不发音。"
+  },
+  "provision": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + vis(看，拉丁 videre) + -ion = 预先看到并准备好 → 预备、供给（provision of food 食物供应）；法律条文就是「预先定好的条款」（under the provisions of the treaty 根据条约条款）。同族：provide 提供 / evident 明显的 / vision 视野。"
+  },
+  "roller": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "roll(滚) + -er(器) = 滚筒、擀面杖（a paint roller 滚筒刷）；也指「巨浪」（the rollers）和旱冰鞋（roller skates）。同族：roll 滚动 / rolling 起伏的。"
+  },
+  "replacement": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + place(放) + -ment = 放回原位 → 归还、替换（the replacement of the old system / a replacement part 替换件）。同族：replace 取代 / place 放置 / displace 取代。"
+  },
+  "valuable": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "valu(价值) + -able = 有价值的；名词常用复数 valuables 指「贵重物品」（keep your valuables safe）。同族：value 价值 / evaluate 评估 / valid 有效的。"
+  },
+  "spacious": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "spati = 空间（拉丁 spatium）→ 宽敞的（a spacious living room 宽敞的客厅）。同族：space 空间 / spatial 空间的。⚠️ 与 specious（似是而非的）别混。"
+  },
+  "silicon": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "silic = 燧石（拉丁 silex）→ 硅（芯片材料，Silicon Valley 硅谷）。⚠️ 区分 silicone 硅酮（密封胶、某些医美材料用的那个）。同族：silica 二氧化硅 / silicon chip 硅芯片。"
+  },
+  "radial": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "radi = 光线、半径（拉丁 radius）→ 放射状的、径向的（radial roads 放射状道路 / radial tyre 子午线轮胎）；「光线的」是它的本义。同族：radiate 辐射 / radius 半径 / radio 无线电。"
+  },
+  "regularity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "regul = 尺、规则（拉丁 regula）→ 规律性、整齐（the regularity of the seasons 季节的规律）。同族：regular 规则的 / regulate 调节 / regulation 规章。"
+  },
+  "amplitude": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ampl = 大、充足（拉丁 amplus）→ 广大、充足；物理上的「振幅」就是波动的幅度。同族 ampl「大」：ample 充足的 / amplify 放大·详述 / amplifier 放大器。"
+  },
+  "photoelectric": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "photo(光，希腊 phos) + electric(电的) = 光电的（photoelectric effect 光电效应 —— 爱因斯坦因此获诺贝尔奖）。同族 photo：photograph 照片 / photon 光子 / photosynthesis 光合作用。"
+  },
+  "orchestra": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 orkhestra 本是剧场里「歌队跳舞的半圆场地」→ 乐池 → 管弦乐队。同族：orchestrate 编配·精心安排（引申「幕后操盘」）/ orchestral 管弦乐的。"
+  },
+  "optical": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "opt = 看（希腊 optikos）→ 光学的、视觉的（optical illusion 视错觉 / optical fibre 光纤）。同族 opt「看」：optics 光学 / optician 验光师 / option 选择。"
+  },
+  "blast": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「呼」地猛吹一声 →（管乐器的）吹奏声、一阵狂风、爆炸（a bomb blast）；动词「炸毁、猛吹」；口语里 a blast 指「极好玩的事」（We had a blast.）。"
+  },
+  "shrub": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 scrybb「矮树丛」→ 灌木（与 tree 相对：矮而多枝）。同族：scrub 矮树丛·擦洗。三个植被层次：tree 乔木 / shrub 灌木 / herb 草本。"
+  },
+  "pipe": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「管子」→ 管乐器（笛、风笛 pipes）；也指烟斗和水管。习语：pipe down 安静下来 / pipe up 突然开口。同族：pipeline 管道·流水线 / piper 吹笛人。"
+  },
+  "irrigation": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ir-(进入) + rig(浇水，拉丁 rigare) + -ation = 把水引进去 → 灌溉（an irrigation system 灌溉系统）；医学上的「冲洗」也是它。同族：irrigate 灌溉·冲洗。"
+  },
+  "coffin": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经拉丁 cophinus 来自希腊 kophinos「篮子、箱子」→ 棺材。同源词：coffer 保险箱（也是「箱子」）。习语：a nail in sb's coffin 加速某人垮台的一件事。"
+  },
+  "inertia": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + ert(技艺、活力，拉丁 ars「技艺」) = 不带劲 → 惰性、惯性（the inertia of the system 系统惯性 / social inertia 社会惰性）。同族 ert「技艺」：art 艺术 / inert 惰性的 / artisan 工匠。"
+  },
+  "bureaucracy": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "bureau(办公桌、局，法语) + -cracy(统治，希腊 kratos) = 办公桌说了算 → 官僚机构、官僚主义。同族 cracy「统治」：democracy 民主 / aristocracy 贵族制。"
+  },
+  "monster": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 monstrum 本是「神显示的凶兆」→ 怪物、畸形的生物；引申「庞然大物」（a monster truck 巨型卡车）。同族：monstrous 可怕的 / demonstrate 演示（显示出来）。"
+  },
+  "obstinate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ob-(对着) + stin(站定，拉丁 destinare) + -ate = 站在那里不动 → 固执的（an obstinate refusal）、顽强的（obstinate resistance）。同族：destine 注定 / destiny 命运。"
+  },
+  "client": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 cliens「依附者」—— 古罗马平民依附贵族保护，所以 client 是「依靠你的人」→ 客户、委托人。同族 clin「倾斜」：incline 倾向 / decline 下降。"
+  },
+  "inherent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(在内) + her(粘，拉丁 haerere) + -ent = 粘在里面拿不掉 → 固有的、内在的（inherent risks 固有风险 / inherent in 内在于）。同族 haer「粘」：adhere 粘附 / coherent 连贯的 / hesitate 犹豫。"
+  },
+  "fixture": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fix(固定) + -ture = 固定装置（light fixtures 灯具）；体育上的「固定赛事」（a regular fixture 常规赛事）；「定期存款」也是「固定」。同族：fix 固定 / fixed 固定的 / prefix 前缀。"
+  },
+  "pluck": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "本义「拔（毛、弦）」（pluck a chicken 拔鸡毛 / pluck the strings 拨弦）；习语 pluck up (the) courage 鼓起勇气 —— 像是把勇气「拔」出来。名词义「勇气」（a lot of pluck）。"
+  },
+  "agitation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ag = 驱动、做（拉丁 agere）→ 搅动（物理上）、鼓动（社会上的煽动）、焦虑不安（in a state of agitation）。同族 ag「做/驱动」：agent 动因 / agenda 议程 / agile 敏捷的。"
+  },
+  "antique": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ante-(在前，拉丁 ante) → 从前的 → 古董、古物（an antique shop 古董店）。辨析：antique 古董（可交易的实物）/ ancient 古代的 / antiquated 过时的。同族：ancestor 祖先。"
+  },
+  "skeleton": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 skeletos「干枯的（尸体）」→ 骨架、骨骼；引申「（建筑、计划的）骨架」（the skeleton of the plan 计划的框架）。搭配：skeleton in the closet 家丑。"
+  },
+  "thigh": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 theoh「大腿」→ 股、大腿。⚠️ 发音 /θaɪ/，与 high 押韵，gh 不发音。同类身体部位：thigh 大腿 / calf 小腿 / shin 胫 / hip 髋。"
+  },
+  "constitute": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + stitu(立，拉丁 statuere) = 共同立起来 → 构成、组成（Twelve months constitute a year. / constitute a threat 构成威胁）；也指「设立、任命」。同族：constitution 宪法·体质 / institute 建立 / substitute 替代。"
+  },
+  "cereal": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "来自罗马谷物女神 Ceres（刻瑞斯）→ 谷类、麦片（breakfast cereal 早餐麦片）；小行星谷神星也叫 Ceres。"
+  },
+  "assessment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "as-(向) + sess(坐，拉丁 sedere) + -ment = 坐在旁边定价 → 评估、估价（a tax assessment 估税 / environmental assessment 环境评估）；教育上的「考核」也是它。同族 sess「坐」：assess 评估 / session 会议 / sediment 沉淀。"
   }
  }
 }
