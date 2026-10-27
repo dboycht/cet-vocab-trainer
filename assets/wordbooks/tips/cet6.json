@@ -1559,6 +1559,341 @@
    "kind": "family",
    "certainty": "high",
    "tip": "scop = 看（希腊 skopein）。scope 就是「能看到的范围」→ 眼界、范围（beyond the scope of 超出…范围）；-scope 结尾的仪器都是「用来看的」：telescope 望远镜 / microscope 显微镜 / periscope 潜望镜 / horoscope 星座运程。"
+  },
+  "proverb": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "pro-(在前) + verb(词，拉丁 verbum) = 摆在前面给人看的词 → 谚语、格言。同族 verb「词」：verb 动词 / verbal 口头的 / verbose 啰嗦的（词太多）/ verbiage 废话。《箴言》的英文书名就是 Proverbs。"
+  },
+  "cloak": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「斗篷」→ 动词「罩起来、掩饰」（cloak one's intentions 掩盖意图 / under the cloak of 在…的幌子下）。同类「衣物转遮盖」：veil 面纱→遮掩 / mask 面具→掩饰 / screen 屏风→遮蔽。"
+  },
+  "prolong": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "pro-(向前) + long(长) = 往前拉长 → 延长（prolong the deadline 延长期限 / prolong life 延长寿命）。同族：longevity 长寿 / elongate 拉长 / longitude 经度（「长度」）。"
+  },
+  "sharply": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "sharp(尖锐) + -ly = 尖锐地：言辞尖锐 → 严厉地、苛刻地；数字尖锐地变 → 急剧地（prices rose sharply 价格急剧上涨）。一个画面两个高频义项。"
+  },
+  "pickle": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自中古荷兰语 pekel「盐水」→ 腌制品、泡菜。习语很地道：in a pickle 陷入困境（像被泡在盐水里）。同族：pickled 腌制的·（口语）醉醺醺的。"
+  },
+  "squash": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是压扁那一声「啪叽」。挤压的动作 → 压碎、镇压（squash a rebellion 镇压叛乱）；挤出来的汁 → 鲜果汁（orange squash）；还有一种瓜也叫 squash。一个「压」字串起三个义项。"
+  },
+  "retard": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "re-(向后) + tard(慢，拉丁 tardus) = 往慢里推 → 延迟、放慢。同族：tardy 迟缓的·迟到的。⚠️ 英语里 retard 作名词是严重冒犯语，写作只用动词/形容词形式。"
+  },
+  "squeeze": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「用力挤」：挤压的动作 → 榨取（squeeze money out of 从…榨钱）；挤出来的份额 → 佣金、回扣；经济上的「挤」→ 紧缩（a credit squeeze 信贷紧缩）。搭配：squeeze in 挤时间做 / a tight squeeze 很挤。"
+  },
+  "dentist": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "dent = 牙齿（拉丁 dens）。dentist 就是管牙的人。同族一串：dental 牙科的 / denture 假牙 / indent 使成锯齿状·缩进 / dandelion 蒲公英（法语 dent de lion「狮子牙」，叶子像牙）。"
+  },
+  "overwhelming": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(过头) + whelm(淹没) = 水淹过头 → 压倒、势不可挡（overwhelming majority 压倒性多数 / overwhelming evidence 铁证如山）。同族：overwhelm 压倒·使不知所措。"
+  },
+  "opium": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 opion 是「罂粟汁」（opos = 汁）。鸦片战争相关阅读里常见：the Opium War 鸦片战争。引申义：opium of the people 人民的精神鸦片。"
+  },
+  "overwhelm": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(过头) + whelm(淹没) = 被水淹过头 → 压倒；引申为「（情绪上）使不知所措」（I was overwhelmed by the response）。两个义项一个画面：水漫过头。"
+  },
+  "deposit": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + posit(放) = 放下去 → 押金·存款（放钱进去）·沉淀物（放下来的东西）·矿床。同族 posit「放」：compose 组成 / expose 暴露 / impose 强加 / postpone 推迟。"
+  },
+  "velocity": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "veloc = 快（拉丁 velox）。物理里 velocity 是「速度」（有方向，区别于 speed）；书里收的「迅速、快速」是它的一般义。同族：velocipede 早期的脚踏车。"
+  },
+  "compression": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + press(压) = 压到一起 → 压缩、浓缩。同族压字辈：compress 压缩 / express 表达（压出来）/ impress 印象（压进去）/ depress 沮丧（压下去）/ oppress 压迫。技术里的「压缩比」「压缩算法」都是它。"
+  },
+  "patrol": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自法语 patte「爪子」—— 像爪子一样在辖区里到处踩 → 巡逻。搭配：on patrol 在巡逻 / a patrol car 巡逻车 / border patrol 边境巡逻队。"
+  },
+  "circulation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "circul = 圈（拉丁 circulus）。转圈 → 血液循环、货币流通、报纸发行量（a circulation of 50,000）。同族：circle 圆 / circular 圆形的·传单 / circuit 电路 / circus 马戏团（圆形的场）。"
+  },
+  "scholarship": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "school 出自希腊 skhole「闲暇」—— 有闲才能读书，所以 school 是学校、scholar 是学者、scholarship 既是「学问」也是「资助做学问的钱」（奖学金）。-ship 表状态/身份：friendship / leadership / scholarship。"
+  },
+  "cruise": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 crux「十字」（同 cross）：船按十字路线来回巡 → 巡航；现在多指坐游轮旅行（go on a cruise）。同族：cross 十字 / crusade 十字军东征 / crucial 关键的（十字路口的抉择）。"
+  },
+  "option": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "opt = 选择（拉丁 optare）。同族：opt 选择 / optional 可选的 / adopt 采纳（向…选过来）/ optimism 乐观（选好的一面看）。"
+  },
+  "cigar": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自西班牙语 cigarro（玛雅语 sicar「吸烟」）。区分大小靠后缀：cigar 雪茄（整片烟叶卷）/ cigarette 香烟（-ette 是「小」后缀，即「小雪茄」）。同类 -ette：kitchenette 小厨房 / statuette 小雕像。"
+  },
+  "cock": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "核心是「公鸡」→ 引申为「竖起来、扳起来」的东西：水龙头的扳手 → 旋塞、龙头；枪的击锤也是它（cock the gun 扳起击锤）。⚠️ 这个字在现代英语里有粗俗义，正式写作里水龙头用 tap/faucet 更稳。"
+  },
+  "quest": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "quest = 寻求（拉丁 quaerere，和 question、require、inquire 同根）。名词常见于「远征寻宝」式表达：in quest of 寻求 / the quest for truth 对真理的追求。"
+  },
+  "melody": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊 melos「歌」+ ode「唱」→ 旋律。同族：melodrama 情节剧（带音乐的戏）/ melodic 旋律的 / ode 颂歌。三者分清：melody 旋律（一条线）/ harmony 和声（同时响）/ rhythm 节奏。"
+  },
+  "radiant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "radi = 光线（拉丁 radius 既是「光线」也是「半径」—— 像光线一样从中心射出）。radiant 是「发光的」→ 绚丽的、容光焕发的（a radiant smile）。同族：radiate 辐射 / radiation 辐射 / radio 无线电 / radius 半径。"
+  },
+  "gorgeous": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自古法语 gorgias「华丽时髦的」（可能与 gorge 喉咙、即「衣领」有关 —— 讲究的领子）。现在口语里是万能褒义词：a gorgeous day 好天气。近似词：glorious 光荣的 / elegant 优雅的。"
+  },
+  "overhang": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(在上) + hang(挂) = 挂在上方 → 悬垂、突出。名词是「突出的部分」（the overhang of the roof 屋檐外伸）；金融里指「（供应）过剩悬顶」。同族：overhead 头顶上的。"
+  },
+  "narration": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "narr = 讲述（拉丁 narrare）。同族：narrate 讲述 / narrative 叙事·故事 / narrator 叙述者。文学的「叙事视角」= narrative perspective；电影的画外音叫 voice-over narration。"
+  },
+  "propaganda": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 propagare 本是「插枝繁殖」（propagate 繁殖）—— 把教义像插枝一样四处传布 → 宣传。⚠️ 感情色彩：propaganda 在英语里偏贬义（操纵舆论的片面宣传），中性的「宣传」用 publicity / promotion。"
+  },
+  "warrant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "和 guarantee、warranty 同源（古法语 warant「担保」）：担保的凭据 → 许可证、逮捕令（an arrest warrant）；动词义「使…有正当理由」（The evidence warrants further study）。同族：warranty 保修 / guarantee 保证。"
+  },
+  "console": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "两个同形词别混：① 动词 console 安慰（con- 一起 + sol 安慰，同族 solace 慰藉 / consolation 安慰）；② 名词 console 控制台、肘托（出自 consolidator「加固者」，与 solid 同源）。游戏机的「主机」就是 console。"
+  },
+  "declaration": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + clar(清楚，拉丁 clarus) = 讲清楚 → 宣布、宣言。同族 clar「清楚」：clear 清楚 / clarify 澄清 / clarity 清晰 / declare 宣布。《独立宣言》就是 Declaration of Independence。"
+  },
+  "sequence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sequ = 跟随。一个跟着一个 → 序列、顺序（in sequence 依次 / a sequence of events 一连串事件）。同族：consequence 后果 / subsequent 随后的 / consecutive 连续的 / sequel 续集。数学的「数列」就是 sequence。"
+  },
+  "nun": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 nonna「保姆、对老妇的称呼」，后来专指修女。同族：nunnery 女修道院。三者分清：nun 修女 / monk 修士 / priest 神父（可主持圣事）。"
+  },
+  "embroidery": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "em-(使) + broid(编织) + -ery = 编上去的花样 → 刺绣；引申为「添油加醋」（embroider the truth 把事实修饰一番）。同族：embroider 刺绣·渲染。"
+  },
+  "eloquence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + loqu(说，拉丁 loqui) = 话从嘴里流出来 → 雄辩、口才。同族 loqu「说」：eloquent 雄辩的 / colloquial 口语的 / loquacious 健谈的 / soliloquy 独白。"
+  },
+  "requisite": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(反复) + quisit(寻求) = 必须求到的东西 → 必需品、必需的。同族：require 要求 / prerequisite 前提条件（预先需要的）/ exquisite 精致的（精心求来的）/ inquiry 询问。"
+  },
+  "pacific": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "pac = 和平（拉丁 pax）。pacific 是「爱好和平的、温和的」；大写 Pacific 就是太平洋（麦哲伦觉得它风平浪静，所以叫「和平之海」）。同族：peace 和平 / pacify 平定 / pacifist 和平主义者。"
+  },
+  "survival": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sur-(超过) + viv(活，拉丁 vivere) = 活过了那件事 → 幸存。同族 viv「活」：survive 幸存 / vivid 生动的（活灵活现）/ revive 复苏 / vital 至关重要的 / vitamin 维生素。"
+  },
+  "flush": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是水「哗」地冲过去。冲的动作 → 冲洗马桶（flush the toilet）；血冲上脸 → 脸红、兴奋（a flush of excitement）；牌桌上的「同花」也是 flush。一个「冲」字串起来。"
+  },
+  "wind": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "三个不同的词别混：① /wɪnd/ 风；② /waɪnd/ 缠绕、上发条（wind the clock）；③ 名词「胸口、心窝」（出自「弯曲处」）—— 习语 get one's wind back 喘过气来 / knock the wind out of sb 把某人打得喘不上气。"
+  },
+  "formal": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "form(形式) + -al = 形式上的 → 正式的、规范的（formal dress 正装 / formal education 正规教育）。对比：formal 讲形式规矩 / informal 随便的。同族：form 形式 / format 格式 / formula 公式。"
+  },
+  "directory": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "di-(分开) + rect(指引，拉丁 regere) = 分门别类地指引 → 姓名地址录、电话号码簿；电脑里的「目录/文件夹」就是它。同族：direct 指引·直接的 / director 主管·董事 / rectify 纠正。"
+  },
+  "constituent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + stitu(立) = 共同立起来的 → 组成部分、成分；投票把政府「立起来」的人 → 选民；形容词「构成的」。同族：constitute 构成 / constitution 宪法·体质 / institute 建立 / substitute 替代。"
+  },
+  "scarlet": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自古法语 escarlate，一种中世纪昂贵红布的名号 → 猩红。文学里很醒目：The Scarlet Letter（霍桑《红字》—— 通奸者戴的红字）/ The Scarlet Pimpernel（红花侠）。"
+  },
+  "regenerative": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(再) + gener(产生，拉丁 genus) + -ative = 能重新长出来的 → 新生的、再生的（regenerative medicine 再生医学 / regenerative braking 能量回收制动）。同族：generate 产生 / generous 慷慨的 / genus 属。"
+  },
+  "religion": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "re-(回) + lig(绑，拉丁 ligare) = 把人重新绑在一起 → 宗教、信条。同族「绑」字辈：oblige 迫使 / liable 有责任的 / ally 结盟 / ligament 韧带。词源里有「把人重新联结起来」的意味。"
+  },
+  "appreciation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ap-(向) + preci(价格，拉丁 pretium) = 给它估个价 → 赏识、感激（对别人的好「估价」）；也指「增值」（反义 depreciate 贬值）。同族：precious 珍贵的 / price 价格 / appraise 评估。"
+  },
+  "novelty": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "nov = 新（拉丁 novus）。两个义项是一回事：新颖的性质 → 新奇的事物（店里卖的小玩艺也叫 novelties）。同族：novel 小说（当年是「新文体」）/ innovate 创新 / renovate 翻新 / novice 新手。"
+  },
+  "psychology": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "psycho = 灵魂、心理（希腊 psyche，本义「呼吸」）；-logy = 学问。同族：psychiatry 精神病学 / psychic 通灵的 / psychopath 精神变态者。记忆钩：Psyche 是希腊神话里与爱神相恋的少女，象征灵魂。"
+  },
+  "bridegroom": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 bryd(新娘) + guma(男人) = 新娘的男人 → 新郎（中间的 -g- 是后人误加的）。成对记：bride 新娘 / bridegroom 新郎 / bridesmaid 伴娘 / best man 伴郎。"
+  },
+  "zinc": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自德语 Zink（也许出自 zinke「尖齿」，因为锌冷却时结成齿状）。化学符号 Zn。延伸：zinc oxide 氧化锌（防晒霜成分）/ galvanized 镀锌的（来自意大利人 Galvani 的名字）。"
+  },
+  "novel": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "nov = 新（拉丁 novus）。作形容词是「新颖的、前所未见的」（a novel idea）；作名词「小说」（因为当年小说是全新的文体）。同族：novelty 新奇 / innovate 创新 / novice 新手。"
+  },
+  "jean": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自地名：意大利热那亚 Genoa（法语 Gênes）产的斜纹棉布叫 jean；而牛仔裤叫 jeans 另有来源 —— 法国尼姆产的布 serge de Nîmes 缩写成 denim。所以：jean 是热那亚布，denim 是尼姆布。"
+  },
+  "crab": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 crabba，与「抓、扒」（scratch / crawl）同源 —— 横着爬、用钳子抓的东西。习语：catch a crab（划船时桨入水太深）；a crab 脾气坏的人（crabby 脾气坏的）。"
+  },
+  "gradient": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "grad = 走、步（拉丁 gradi）。一步步上升的程度 → 坡度、梯度（数学的梯度、temperature gradient 温度梯度）。同族：grade 等级·分数 / gradual 逐渐的 / graduate 毕业（读完每一级）/ degrade 降级。"
+  },
+  "subscript": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(下面) + script(写) = 写在下面的 → 下标（数学里 x₁ 那个 1）；反义 superscript 上标（x² 那个 2）。同族：subscribe 订阅（在下面签名）/ describe 描述 / prescribe 开处方。"
+  },
+  "evil": {
+   "kind": "image",
+   "certainty": "low",
+   "tip": "把 evil 倒过来拼就是 live —— 「倒过来的生活就是邪恶」是个流传很广的民间联想，**不是词源**（真词源是古英语 yfel，与德语 übel 同源），只当记忆钩子用。搭配：the lesser of two evils 两害相权取其轻。"
+  },
+  "sideways": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "side(边) + -ways(方向) = 朝一边地 → 斜向一边地；引申「（事业上）横向的」（a sideways move 平级调动）。同类方向副词：sideways 横着 / lengthwise 竖着 / clockwise 顺时针 / otherwise 否则。"
+  },
+  "collaborate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "col-(一起) + labor(劳动) = 一起干活 → 合作。同族：labor 劳动 / elaborate 精心的·详述（费力做出来）/ laboratory 实验室。⚠️ 历史语境里 collaborate 有「通敌」的贬义（二战时与占领军合作），阅读时看语境。"
+  },
+  "vicious": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "vice(恶习，拉丁 vitium) + -ious = 恶的 → 邪恶的；「恶性的」是它的高频搭配：a vicious circle 恶性循环 / a vicious dog 恶犬 / a vicious attack 恶毒攻击。"
+  },
+  "team": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「队」→ 动词「组队协作」，而且一定要带 up：team up with sb（与某人合作）。两个必背名词：a team player 有团队精神的人 / teamwork 团队合作。"
+  },
+  "coefficient": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "co-(一起) + efficient(起作用的) = 一起起作用的那个数 → 系数（物理化学里到处都是：coefficient of friction 摩擦系数 / coefficient of expansion 膨胀系数）。书里的「协同因素」正是这个构词的字面义。"
+  },
+  "wedge": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "楔子 → 动词「楔入、挤入」（wedge the door open 用楔子撑住门 / wedged between two cars 卡在两车之间）。习语：drive a wedge between 在…之间挑拨离间。形状义：a wedge of cake 一角蛋糕。"
+  },
+  "calibration": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "出自阿拉伯语 qalib「模具」→ 卡尺 → 用卡尺量准 → 校准、标定（instrument calibration 仪器校准）。同族：calibre 口径·水准（也是「量出来的规格」）。"
+  },
+  "cautious": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "caut = 小心（拉丁 cautio）。cautious 是「谨慎的」；同族：caution 小心·警告 / precaution 预防 / caveat 告诫。搭配：be cautious about 对…谨慎 / a cautious approach 稳妥的做法。"
+  },
+  "paragraph": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "para-(旁边) + graph(写) = 古书里在文字旁边画的记号（分段用）→ 段落。同族 graph「写」：photograph 照片（光写）/ telegraph 电报 / biography 传记 / diagram 图表。"
   }
  }
 }
