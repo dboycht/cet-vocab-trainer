@@ -8158,7 +8158,7 @@
   "capacitor": {
    "kind": "root",
    "certainty": "high",
-   "tip": "capacity(容量) + -or(器) = 存��的器 → 电容器。同族 cap「容纳」：capacitance 电容 / capacity 容量 / capable 有能力的。"
+   "tip": "capacity(容量) + -or(器) = 存电荷的器 → 电容器。同族 cap「容纳」：capacitance 电容 / capacity 容量 / capable 有能力的。"
   },
   "electrician": {
    "kind": "root",
@@ -8224,6 +8224,336 @@
    "kind": "sound",
    "certainty": "medium",
    "tip": "拟声词，就是低沉连续的声音 → 低语、喃喃（murmur a reply / the murmur of the stream 溪水潺潺）；医学上的「心脏杂音」也是它。同族：mumble 含糊地说 / mutter 嘀咕。"
+  },
+  "enroll": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(进入) + roll(名册，拉丁 rotulus) = 把名字写进名册 → 登记、招收（enroll in a course 报名课程 / enroll new students 招新生）。同族 roll「卷、名册」：roll 卷 / payroll 工资名单 / role 角色（原来的「名册上的那一行」）。"
+  },
+  "burner": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "burn(烧) + -er(器) = 燃烧的部件 → 灯头、煤气灶头（a gas burner 煤气灶）；也指「刻录机」（CD burner）。同族：burn 烧 / burning 燃烧的。"
+  },
+  "equivalent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "equi-(相等) + val(价值，拉丁 valere) + -ent = 价值相等的 → 等价的、相当于（equivalent to 等同于）；名词「等价物」。同族 val「值」：value 价值 / valid 有效的 / evaluate 评估。"
+  },
+  "morality": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mor = 风俗、道德（拉丁 mos, moris）→ 道德、品行（a matter of morality）。同族 mor「风俗」：moral 道德的 / morals 品行 / morale 士气（同一来源）。"
+  },
+  "clatter": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是硬物相撞「得得、咔嗒」那声 → 卡嗒声（the clatter of dishes 碗碟的碰撞声）；动词「咔嗒作响」。同族：clatter 与 clap、clash 同属拟声。"
+  },
+  "triumphant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "tri-(三) + umph(原为罗马凯旋式的鼓号声) → 凯旋的 → 得胜的、得意洋洋的（a triumphant smile 得意的笑）。同族：triumph 胜利 / triumphal arch 凯旋门。"
+  },
+  "theft": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 þeof「贼」的名词形式 → 盗窃（theft of property 财物失窃 / identity theft 身份盗用）。同族：thief 贼 / thieve 偷窃。⚠️ theft 是行为，thief 是人。"
+  },
+  "attendance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "at-(向) + tend(伸，拉丁 tendere) + -ance = 把身子伸过去 → 出席（attendance at the meeting 出席会议）；「出席人数」（a large attendance 出席人数多）。同族：attend 出席 / attention 注意 / attendant 侍者。"
+  },
+  "between": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "作副词表「当中、中间」（two houses with a garden between 两栋房子中间有个花园）；⚠️ between 用于两者，among 用于三者以上；但 between 也可用于多方的「两两之间」（trade between the three countries）。"
+  },
+  "cartridge": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经法语 cartouche 来自意大利语 cartoccio「纸卷」（同 cartoon、card）→ 弹药筒（纸包的发射药）；引申「墨盒、软片盒」（ink cartridge 墨盒）。同族 cart「纸」：card 卡片 / cartoon 漫画 / carton 纸盒。"
+  },
+  "yolk": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 geolca「黄」→ 蛋黄（yolk 与 yellow 同源）。⚠️ 拼写别和 yoke（牛轭）混：yolk 是蛋黄，yoke 是轭。"
+  },
+  "detain": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(离开) + tain(拿住，拉丁 tenere) = 把人留住不让走 → 拘留、耽搁（detain sb for questioning 拘留某人问话 / be detained by traffic 因交通受阻）。同族 tain「拿住」：contain 包含 / maintain 维持 / retain 保留。"
+  },
+  "algebra": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "阿拉伯语 al-jabr 意为「复原、接合」（al- 是定冠词）→ 解方程时把项移来移去 → 代数学。同类带 al- 的阿拉伯语借词：alcohol 酒精 / algorithm 算法 / alkali 碱。"
+  },
+  "simplicity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "simplic = 简单的（拉丁 simplex，sim- 一 + plic 折 = 只折一层）→ 单纯、质朴（for simplicity 为简便起见 / simplicity of style 风格朴素）。同族 plic「折」：simple 简单的 / complex 复杂的（叠在一起）/ duplicate 复制。"
+  },
+  "fill": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「填满」：装满（fill the glass）、填补（fill a gap 填补空白）、担任（fill a post 担任职位 —— 把位置填上）、补牙（fill a tooth）。搭配：fill in 填写 / fill up 加满。"
+  },
+  "attorney": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "at-(向) + torn(转，拉丁 tornare) + -ey = 被指定「转交」事务的人 → 代理人、辩护律师（power of attorney 授权书 / District Attorney 地方检察官）。同族 torn「转」：turn 转 / tournament 锦标赛。"
+  },
+  "simple": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sim-(一) + ple(折，拉丁 plicare) = 只折了一层 → 简单的、单纯的；也指「迟钝的」（simple-minded 头脑简单的）。同族 plic「折」：complex 复杂 / multiply 乘 / complicate 使复杂。"
+  },
+  "deputy": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + put(考虑、指派，拉丁 putare) = 被指派下去代职的人 → 代理人、副职（the deputy manager 副经理 / a deputy 代表）。同族 put「思考/计算」：compute 计算 / dispute 争论 / reputation 名声。"
+  },
+  "jug": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "可能来自人名 Jug（女子名 Joan 的昵称）→ 带柄水罐、大壶；美式口语 the jug 指「监狱」。同族：jugful 一罐之量。"
+  },
+  "delegate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(出) + leg(送、选，拉丁 legare) = 被派出去的人 → 代表；动词「授权、委派」（delegate tasks 分派任务）。同族 leg「送/选」：legation 公使馆 / legacy 遗产（传下来的）/ allege 宣称。"
+  },
+  "representative": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(再) + present(呈现) + -ative = 替大家再现身的人 → 代表；形容词「有代表性的」（a representative sample 代表性样本）。⚠️ 美国众议员就叫 Representative。同族：represent 代表 / presentation 演示。"
+  },
+  "massacre": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 macecre「屠宰」→ 大屠杀（the Nanjing Massacre 南京大屠杀）。三档区分：killing 杀人 / slaughter 屠宰式杀害 / massacre 大屠杀（无辜者、规模大）。"
+  },
+  "gorilla": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 gorillai 是古人记载的一种「毛茸茸的野人」→ 大猩猩；引申「暴徒、打手」（gorilla tactics 蛮横手段 / guerrilla 游击队 —— 这两个词拼写很容易混，但来源不同）。"
+  },
+  "embassy": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自古法语 ambasse「使命」（同 ambassador）→ 大使馆、大使的职务。同族：ambassador 大使 / embassy 使馆。辨析：embassy 大使馆 / consulate 领事馆。"
+  },
+  "magnitude": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "magn = 大（拉丁 magnus）→ 大小、量级、重大（the magnitude of the problem 问题的严重程度 / an earthquake of magnitude 7 七级地震）；天文上的「星等」也是它。同族：magnify 放大 / magnificent 壮丽的 / magnate 巨头。"
+  },
+  "ambassador": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 ambactus「派出去的仆人」→ 大使（a goodwill ambassador 亲善大使）。同族：embassy 大使馆 / ambassadorial 大使的。"
+  },
+  "stride": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「一大步」：大踏步走（stride across the room）；名词「步幅、进展」（make great strides 取得长足进步）。习语：take sth in one's stride 从容应对。"
+  },
+  "mansion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "man = 停留（拉丁 manere）→ 留下来住的地方 → 大厦、宅第（a country mansion 乡间宅邸）；也指公寓楼（Mansion House 伦敦市长官邸）。同族 man「停留」：remain 保持 / permanent 永久的 / manor 庄园。"
+  },
+  "continental": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "continent(大陆) + -al = 大陆的；英式语境里 the Continent 特指欧洲大陆，「大陆式早餐」（continental breakfast）就是欧陆式的。同族：continent 大洲 / continue 继续（连成一片）。"
+  },
+  "multitude": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "multi-(多) + -tude(状态) = 多的状态 → 大批、大量（a multitude of reasons 众多理由）。同族 multi-：multiply 乘·繁殖 / multiple 多个的 / multimedia 多媒体。"
+  },
+  "barley": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 bærlic（可能与 bere「大麦」+ -lic 有关）→ 大麦。同族：barn 谷仓（bere-ern 大麦的房子）。搭配：barley sugar 麦芽糖 / barley water 大麦茶。"
+  },
+  "infinity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + fin(界限，拉丁 finis) + -ity = 没有界限 → 无穷大（数学符号 ∞）、无限（an infinity of stars）；摄影的「无限远对焦」也是它。同族 fin「界限」：finite 有限的 / define 界定 / finish 结束。"
+  },
+  "steak": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古北欧语 steik「烤肉串」（同 stick 串）→ 牛排、大块肉（a beef steak 牛排 / salmon steak 三文鱼块）。⚠️ 读音 /steɪk/，与 stake（桩、赌注）同音。"
+  },
+  "butt": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "四个同形词：① 大酒桶（本义，a water butt）；② 烟蒂（cigarette butt）；③ 笑柄、靶子（the butt of jokes）；④ 屁股（口语）。形容词 butt「顶撞」是动词用法。"
+  },
+  "largely": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "large(大) + -ly = 主要地、大部分地（largely due to 主要由于）—— ⚠️ 它不表示「大规模地」，而是「大体上」。同族：large 大的 / enlarge 扩大。"
+  },
+  "prairie": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "法语 prairie「草地」（拉丁 pratum 草地）→ 大草原（北美的大草原专称 the prairies）。同类地貌：prairie 草原（北美）/ savanna 稀树草原（非洲）/ steppe 干草原（欧亚）。"
+  },
+  "widely": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "wide(宽) + -ly = 广泛地（widely used 广泛使用 / widely believed 普遍认为）；⚠️ 它不表示「大大地」，而是「范围广」。同族：wide 宽的 / widen 加宽 / widespread 普遍的。"
+  },
+  "smash": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「哗啦」砸碎那声 → 打碎（smash the window）；引申「（比赛）大胜」（smash the opponent）和「（车辆）猛烈撞击」。四个「碎」：break 破 / crack 裂 / smash 砸碎 / shatter 粉碎。"
+  },
+  "sneeze": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是打喷嚏那声「啊嚏」（英文拼作 ah-choo）。习语：not to be sneezed at 不可轻视（值得考虑）。同族拟声：sniff 嗅 / snore 打鼾 / snort 喷鼻息。"
+  },
+  "lighter": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "light(点火) + -er(器) = 打火机、引燃器；⚠️ 与「更轻的」（light 的比较级 lighter）同形，靠语境分。同族：light 点燃·光·轻 / lighthouse 灯塔。"
+  },
+  "snore": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是打鼾那声。同族拟声：sniff 嗅 / sniffle 抽鼻子 / snort 喷鼻息 —— 全是鼻音类的拟声词。"
+  },
+  "thresh": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 þrescan「打谷」→ 打谷、脱粒；引申「反复推敲」（thresh out the details 把细节推敲清楚）。⚠️ 与 thrash（痛打）只差一个字母，且同源。同族：threshold 门槛（打谷场上的横木）。"
+  },
+  "forge": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "两个主要义项：① 锻造（forge iron 打铁）→ 引申「建立、缔造」（forge a friendship 建立友谊）；② 伪造（forge a signature 伪造签名）—— 可能是「非法打造」的引申。同族：forgery 伪造品 / blacksmith 铁匠。"
+  },
+  "passport": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "pass(通过) + port(港口) = 过港口的凭证 → 护照；引申「达到目的的手段」（a passport to success 通往成功的敲门砖）。同族 port：port 港口 / import 进口 / portable 便携的。"
+  },
+  "inaccessible": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + accessible(可接近的) = 达不到的、难接近的（an inaccessible village 难以到达的村庄 / inaccessible to the public 不对公众开放）。同族 cess「走」：access 接近 / accessible 可及的。"
+  },
+  "latent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "lat = 藏（拉丁 latere）→ 存在但看不见的、潜伏的（latent talent 潜在的才能 / latent heat 潜热）。同族 lat「藏」：latency 潜伏 / late 晚的（原义「藏起来迟迟不现」）。"
+  },
+  "frustrate": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 frustra「徒劳」→ 使挫败、使无效（frustrated by the delay 因延误而沮丧 / frustrate the plan 使计划受挫）。同族：frustration 挫折感。"
+  },
+  "frail": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 fragilis「易碎的」（同 fragile）→ 虚弱的、意志薄弱的（a frail old man / frail health）。同族 frag「碎」：fragile 易碎的 / fragment 碎片 / fracture 骨折。"
+  },
+  "catalyst": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cata-(向下) + lyt(松开，希腊 lyein) = 把东西松开 → 催化剂；引申「刺激因素」（a catalyst for change 变革的催化剂）。同族 lyt「松」：analyse 分析（拆开）/ paralysis 瘫痪。"
+  },
+  "crisp": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是咬脆东西那声「咔嚓」→ 脆的（crisp biscuits 脆饼干）、（天气）干冷的（a crisp morning）；引申「（言谈）干脆利落的」。同族：crisps 薯片（英式）。"
+  },
+  "promotion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + mot(动，拉丁 movere) + -ion = 往前推 → 促进、晋升、促销（get a promotion 升职 / sales promotion 促销）。同族 mot「动」：move 移动 / motion 运动 / emotion 情绪 / motive 动机。"
+  },
+  "reckless": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "reck(顾虑，古英语 reccan「留心」) + -less(无) = 不顾后果的 → 鲁莽的（reckless driving 鲁莽驾驶）。同族：reckon 计算·认为（原义「细数」）。"
+  },
+  "follow": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「跟着」：跟随 → 听懂（Do you follow me?）→ 从事（follow a career 从事某种职业）→ 遵循（follow the rules）。习语：as follows 如下 / follow up 跟进。"
+  },
+  "vulgar": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vulg = 普通人、大众（拉丁 vulgus）→ 「大众的」→ 粗俗的、庸俗的（vulgar jokes 粗俗的笑话）。词义一路贬化。同族：vulgate 通俗拉丁语版《圣经》/ divulge 泄露（向大众传开）。"
+  },
+  "overflow": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(越过) + flow(流) = 漫过边流出来 → 溢出（The river overflowed. / overflow with gratitude 充满感激）；电脑的「溢出」也是它。同族：flow 流动 / flood 洪水。"
+  },
+  "massive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mass(团、大量) + -ive = 又大又重的一团 → 粗大的、巨大的（a massive increase 大幅增长 / massive resistance 顽强的抵抗）。同族：mass 团·质量·群众 / massive dose 大剂量。"
+  },
+  "smart": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义是「刺痛」（The cut smarts. 伤口火辣辣地疼）→ 引申「机敏的、时髦的」（a smart answer / a smart suit）—— 词义从「刺人」变成了「利落」。同族：smartphone 智能手机。"
+  },
+  "harsh": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古英语 harsk「粗糙」→ 粗糙的；（条件）严酷的（harsh weather 恶劣天气）、（人）严厉的（harsh criticism 严厉的批评）。三个「严」的层次：strict 严格的（守规矩）/ harsh 严酷的（不留情）/ severe 严重的·严厉的。"
+  },
+  "thereafter": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "there + after = 此后、以后（Thereafter he never spoke of it.）—— 正式书面词。同类 there- 副词：thereby 因此 / therein 其中 / thereof 其 / thereto 对此。"
+  },
+  "jungle": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经印地语 jangal 来自梵语「荒地、荒野」→ 丛林、密林；引申「弱肉强食的地方」（the law of the jungle 丛林法则 / an urban jungle 城市丛林）。"
+  },
+  "prick": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是刺一下那感觉 → 刺穿（prick the balloon）；名词「刺孔、刺痛」（the prick of a needle）；习语 prick up one's ears 竖起耳朵。同族：prickle 刺 / prickly 多刺的·敏感的。"
+  },
+  "porcelain": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "意大利语 porcellana 本是「小猪贝」（那种贝壳又白又亮），后来「像贝壳一样白的陶瓷」也叫它 → 瓷器（a porcelain vase 瓷花瓶）。同类陶瓷：porcelain 瓷 / pottery 陶器 / ceramics 陶瓷制品。"
+  },
+  "initial": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(进入) + it(走，拉丁 ire) + -ial = 走进去的那一步 → 最初的（the initial stage 初始阶段）；名词「（姓名的）首字母 」（His initials are J. K.）。同族 it「走」：initiate 开始 / exit 出口 / transit 过境。"
+  },
+  "magnetism": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "magnet(磁铁) + -ism = 磁性、魅力（personal magnetism 个人魅力）；历史上的「催眠术」（animal magnetism）就是它。同族：magnet 磁铁 / magnetic 磁的·有魅力的。"
+  },
+  "glossary": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "gloss = 注释（希腊 glossa 本义「舌头、语言」）→ 词汇表、术语汇编（a glossary of terms 术语表）。同族 gloss「解释」：gloss 注释·光彩 / glossy 有光泽的（另一支义）。"
+  },
+  "vocabulary": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "voc = 声音、称呼（拉丁 vocare）→ 一个语言里能叫出的词 → 词汇表、词汇量（build vocabulary 扩大词汇量）。同族 voc「叫」：vocal 嗓音的 / vocation 天职 / advocate 提倡 / invoke 祈求。"
   }
  }
 }

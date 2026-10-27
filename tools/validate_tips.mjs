@@ -44,13 +44,19 @@ const fixed = new Set(wb.words.filter((w) => w.entry_fix).map((w) => w.word));
 
 console.log(`助记 ${keys.length} 条 / 词库 ${wb.count} 词\n`);
 
-const tooShort = [], badKind = [], badCert = [], notInBook = [], hasQuote = [], metaTalk = [];
+const tooShort = [], badKind = [], badCert = [], notInBook = [], hasQuote = [], metaTalk = [], corrupted = [], repeated = [];
 for (const [w, t] of Object.entries(tips)) {
   if (!t.tip || t.tip.length < 30) tooShort.push(w);
   if (!KINDS.includes(t.kind)) badKind.push(`${w}:${t.kind}`);
   if (!CERT.includes(t.certainty)) badCert.push(`${w}:${t.certainty}`);
   if (!words.has(w)) notInBook.push(w);
   if (/"/.test(t.tip || "")) hasQuote.push(w);
+  // U+FFFD 替换字符 = 写入时坏掉的字节（实测踩过一次：「存电荷的器」写成了「存\uFFFD的器」）
+  if (/\uFFFD/.test(t.tip || "")) corrupted.push(w);
+  // 同一个 tip 里把「X 同族：A / A / B」这种同项连写两遍 = 复制粘贴的疏忽
+  const tail = (t.tip || "").split(/同族[^：:]*[：:]/).pop() || "";
+  const items = tail.split("/").map((s) => s.trim()).filter(Boolean);
+  if (items.length >= 2 && new Set(items).size < items.length) repeated.push(w);
   // 助记只管记忆，「与书不一致」由界面横幅统一提示（entry_repairs + fixNote）。
   // 助记里写「书里只收了 X」有两个毛病：数据补齐后它变成假话；学习者也并不关心版本学。
   // ⚠️ 必须排除「文书里」「说明书里」这类合法搭配 —— 第一版正则把
@@ -68,6 +74,9 @@ check("kind 都受支持", badKind.length === 0, badKind.slice(0, 5).join(", ") 
 check("certainty 都受支持", badCert.length === 0, badCert.slice(0, 5).join(", ") || JSON.stringify(certCount));
 check("每条的首词都在词库里（没有打错字）", notInBook.length === 0, notInBook.slice(0, 5).join(", ") || "全部命中");
 check("助记文本里没有 ASCII 双引号", hasQuote.length === 0, hasQuote.slice(0, 5).join(", ") || "无");
+check("助记文本里没有乱码替换字符（U+FFFD）", corrupted.length === 0,
+  corrupted.slice(0, 5).join(", ") || "无");
+check("同族列表里没有重复项", repeated.length === 0, repeated.slice(0, 5).join(", ") || "无");
 check("助记里不谈论源书（出处由界面横幅统一提示）", metaTalk.length === 0,
   metaTalk.slice(0, 5).join(", ") || `已修正的 ${fixed.size} 条都由横幅提示，助记不重复`);
 check("确定度三档齐备", Object.keys(certCount).length === 3, JSON.stringify(certCount));
