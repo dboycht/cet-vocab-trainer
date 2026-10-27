@@ -23,6 +23,20 @@ if (!msg) {
 }
 
 const GATES = ["check_launcher.mjs", "check_wordbook.mjs", "validate_tips.mjs"];
+
+// 先重建派生数据，再跑门禁。
+// ⚠️ 为什么必须有这一步：`cet6.json` 是 `build_wordbook.py` 的**产物**，
+// 但它同时又是**入库的文件**。改了 `entry_repairs.json` 而没重跑 build，
+// 库里就还是旧词条 —— 本轮实测踩过：门禁报「库 22 / 表 25」，
+// 我盯着修正表找了半天，因为**错的是那道没跑的工序**。
+// 判据：**派生文件与源表之间不许存在"只有人记得同步"的状态。**
+console.log("— 重建派生数据（build_wordbook.py，应用 entry_repairs / headword_repairs）—");
+const build = spawnSync("python", [join(HERE, "build_wordbook.py")], { cwd: ROOT, stdio: "inherit" });
+if (build.status !== 0) {
+  console.error(`\n[构建失败] build_wordbook.py 退出码 ${build.status} —— 拒绝提交。`);
+  process.exit(1);
+}
+
 let allGreen = true;
 
 for (const g of GATES) {

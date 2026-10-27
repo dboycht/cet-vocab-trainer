@@ -4712,11 +4712,14 @@
   },
   {
    "word": "resignation",
-   "def": "n.听从，屈从，顺从",
+   "def": "n.辞职，辞呈；听从，屈从，顺从",
    "pos": [
     "n."
    ],
-   "page": 9
+   "page": 9,
+   "source_def": "n.听从，屈从，顺从",
+   "source_pos": [],
+   "entry_fix": "sense_add"
   },
   {
    "word": "hydrocarbon",
@@ -4954,11 +4957,15 @@
   },
   {
    "word": "essential",
-   "def": "a.特发的；自发的",
+   "def": "a.本质的，必不可少的；特发的，原发性的（医学） n.要素，要点",
    "pos": [
-    "a."
+    "a.",
+    "n."
    ],
-   "page": 9
+   "page": 9,
+   "source_def": "a.特发的；自发的",
+   "source_pos": [],
+   "entry_fix": "sense_add"
   },
   {
    "word": "bore",
@@ -5141,11 +5148,14 @@
   },
   {
    "word": "replace",
-   "def": "vt.送还，归还，赔还",
+   "def": "vt.取代，代替；送还，归还，赔还",
    "pos": [
     "vt."
    ],
-   "page": 9
+   "page": 9,
+   "source_def": "vt.送还，归还，赔还",
+   "source_pos": [],
+   "entry_fix": "sense_add"
   },
   {
    "word": "scrap",

@@ -28,6 +28,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -153,9 +154,15 @@ def validate(word: str, definition: str):
 
 
 def main() -> int:
+    # 中间产物缺失就自己补：`raw_cells.json` 在 .tmp/ 里，而"每轮清 .tmp"的纪律会把它删掉
+    # —— 于是"清理"和"重建"互相打架（本轮实测：加了修正表条目却因缺中间产物而静默没生效，
+    # 门禁报"库 22 / 表 25"才发现）。**做成机制，不靠记得先跑哪一步。**
     if not os.path.exists(RAW):
-        print(f"[FAIL] 先跑 tools/extract_pdf.py 生成 {RAW}", file=sys.stderr)
-        return 2
+        print(f"[i] 缺少中间产物 {os.path.basename(RAW)}，先自动跑 extract_pdf.py …")
+        rc = subprocess.call([sys.executable, os.path.join(HERE, "extract_pdf.py")])
+        if rc != 0 or not os.path.exists(RAW):
+            print(f"[FAIL] 自动抽取失败（退出码 {rc}）；也可手动跑 tools/extract_pdf.py", file=sys.stderr)
+            return 2
     raw = json.load(open(RAW, encoding="utf-8"))
 
     all_moved, parsed, unparsed = [], [], []

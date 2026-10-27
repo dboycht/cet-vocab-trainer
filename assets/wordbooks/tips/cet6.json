@@ -2884,6 +2884,341 @@
    "kind": "root",
    "certainty": "high",
    "tip": "custom(习惯) + -ary = 照惯例的（as is customary 按惯例）；也指「习惯法上的」（customary law）。同族：custom 习俗 / customer 顾客（老主顾 = 习惯来的人）/ accustom 使习惯。"
+  },
+  "resignation": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "re-(回) + sign(签字，拉丁 signare) = 签字把职位交回去 → 辞职；「听任、顺从」是引申（认命地签了字）。同族：sign 签字 / design 设计 / assign 分配 / significant 重要的。"
+  },
+  "hydrocarbon": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "hydro(氢，希腊 hydor 水) + carbon(碳) = 氢和碳的化合物 → 烃（就是「碳氢化合物」的简称）。同族 hydro-：hydrogen 氢 / hydroelectric 水力发电 / carbohydrate 碳水化合物。"
+  },
+  "blacksmith": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "black(黑，指黑铁) + smith(工匠) = 打铁的工匠 → 铁匠。同族 smith：goldsmith 金匠 / locksmith 锁匠 / wordsmith 文字高手。"
+  },
+  "skip": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「轻快地跳」：跳、跳绳（skip rope）；引申「跳过、略过」（skip a chapter 跳过一章 / skip breakfast 不吃早饭）。四个「跳」：jump 双脚跳 / hop 单脚跳 / skip 蹦蹦跳跳 / leap 纵跃。"
+  },
+  "ferrous": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ferr = 铁（拉丁 ferrum，化学符号 Fe 就来自它）。ferrous 是「含铁的、亚铁的」（ferrous metal 黑色金属 / ferrous oxide 氧化亚铁）；同族：ferric 三价铁的。"
+  },
+  "hop": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是轻轻一跳那声。hop 是「单脚跳」（也可指鸟兽双脚蹦）。搭配：hop on a bus 跳上车 / hopping mad 气得跳脚（口语）。"
+  },
+  "regulate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "reg = 直、统治（拉丁 regula 是「尺子」）→ 用尺子量着来 → 调节、管理（regulate the temperature 调节温度 / regulate traffic 管理交通）。同族：regular 规则的 / rule 规则 / regime 政权 / regulation 规章。"
+  },
+  "modulate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mod = 尺度、方式（拉丁 modus）。按尺度调整 → 调节声音（modulate one's voice 压低声音）；无线电里的「调制」就是它。同族：mode 方式 / moderate 适度的 / modest 谦虚的（有分寸的）/ module 模块。"
+  },
+  "overlook": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "over(在上) + look(看) = 从高处看 → 眺望；目光「看过去了」→ 看漏、忽视（overlook a mistake 漏看错误）；「宽容」是睁只眼闭只眼。三个义项一个画面：视线从上方掠过。"
+  },
+  "settlement": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "settle(安放、解决) + -ment = 把事情放平 → 解决、调停；把人安放下来 → 定居点、住宅区；钱放下来 → 结算。同族：settle 解决·定居 / settler 移民。"
+  },
+  "adjoin": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ad-(向) + join(连接，拉丁 jungere) = 连到一块 → 毗连、紧挨（the adjoining room 隔壁房间）。同族 join/junct「连」：join 加入 / joint 关节·联合的 / junction 交叉口 / adjacent 邻近的。"
+  },
+  "mischief": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "mis-(坏) + chief(头、结果，古法语 chef) = 坏的结局 → 最早指「灾祸、危害」，现在多指（孩子的）调皮捣蛋。同族：chief 首领 / achieve 达到（做到头）/ chef 主厨。"
+  },
+  "questionnaire": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "法语化拼写：question(问题) + -naire(表「一组」的法语后缀) = 一组问题 → 问卷。同类法语借词：millionaire 百万富翁 / doctrinaire 教条主义的。"
+  },
+  "Catholic": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "希腊 katholikos「普遍的、全体的」→ 大公教会（universal church），中文译「天主教」。⚠️ 小写 catholic 意思是「广泛的、包罗万象的」（catholic tastes 广泛的兴趣）—— 那才是它的本义，大写才是教派。"
+  },
+  "sweetness": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "sweet(甜) + -ness = 甜、甜蜜、温和。搭配：sweetness and light 和谐融洽 / the sweetness of success 成功的甜蜜。「新鲜」是 sweet 的另一个义项（sweet butter 新鲜黄油）。"
+  },
+  "theme": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "希腊词根 the「放置」（tithenai）：放出来的中心命题 → 主题、主旋律；语法上的「词干」也是它。同族：thesis 论文·论点 / hypothesis 假设（放在下面）/ synthetic 合成的。音乐里的「主题」就是 theme。"
+  },
+  "accord": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ac-(向) + cord(心，拉丁 cor) = 心往一处想 → 一致、协议（in accord with 与…一致 / of one's own accord 自愿地）。同族 cord「心」：cordial 热忱的 / concord 和睦 / discord 不和 / record 记录（记在心里）。"
+  },
+  "nominate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "nomin = 名字（拉丁 nomen，同 name）→ 报出名字 → 提名、任命。同族 nomin「名」：nominal 名义上的 / synonym 同义词 / anonymous 匿名的 / nominate 提名。"
+  },
+  "dessert": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "des-(去掉) + sert(上菜) = 把正餐的碗碟撤走之后上的那道 → 甜点。⚠️ 与 desert（沙漠 / 抛弃）只差一个 s：de**ss**ert 是甜的，双 s 想成 super sweet。"
+  },
+  "finance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fin = 结束、界限（拉丁 finis）—— 古法语 finance 本是「结清欠款」→ 财政、金融；动词「为…提供资金」（finance the project 为项目融资）。同族 fin：final 最终的 / finish 结束 / finite 有限的。"
+  },
+  "astronomy": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "astro = 星（希腊 astron）+ -nomy(法则，同 economy 的 nomos) → 天文学。同族 astro：astronaut 宇航员 / asteroid 小行星 / asterisk 星号 / disaster 灾难（星位不好）。"
+  },
+  "embody": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "em-(使进入) + body(身体) = 让抽象的东西有了身体 → 体现（embody the spirit 体现精神）；也指「收录、包含」（the book embodies…）。同族：body 身体 / embodiment 化身。"
+  },
+  "nourish": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "nour = 养育（拉丁 nutrire）→ 提供养分；引申「培养（感情、希望）」（nourish a hope 心怀希望）。同族：nurse 护士 / nurture 培育 / nutrition 营养 / nutrient 营养素。"
+  },
+  "enhance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(使) + hance(高，拉丁 altus，同 altitude 的 alt) = 使变高 → 提高、增强（enhance the reputation 提升声誉）。同族 alt「高」：altitude 高度 / exalt 赞扬（举高）/ altar 祭坛。"
+  },
+  "elevate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + lev(举起，拉丁 levare) = 举起来 → 抬高（物理上）、提升（思想、地位上）。同族 lev「举/轻」：lever 杠杆 / relieve 减轻 / relevant 相关的 / elevator 电梯。"
+  },
+  "raise": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「往上举」：举起手 → raise your hand；提高 → raise prices；把事情举到桌面上 → 提出（raise a question 提出问题）；把孩子举大 → 养育。⚠️ raise 及物，rise 不及物。"
+  },
+  "introduce": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "intro-(向内) + duc(引导，拉丁 ducere) = 引进来 → 介绍（把人引进来）、引进、提出（把议案引到桌面上）。同族 duct「引导」：produce 生产 / reduce 减少 / conduct 引导 / seduce 引诱。"
+  },
+  "peculiarity": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 peculium 是「私有财产」（pecus 牲畜，最早的财产）→ 自己独有的 → 特性、怪癖。同族：peculiar 奇特的·独有的。逻辑链好记：私有 → 独有 → 特别 → 古怪。"
+  },
+  "purify": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pur = 纯（拉丁 purus）+ -ify(使) = 使纯 → 提纯、净化。同族：pure 纯的 / purity 纯度 / purge 清除（使纯净）/ Puritan 清教徒（要纯正）。"
+  },
+  "individual": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + divid(分，拉丁 dividere) + -ual = 不能再分的 → 个体、个人；形容词「个人的、独特的」。同族：divide 分 / division 分割·部门 / dividend 红利（要分的钱）。"
+  },
+  "essential": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ess = 存在、本质（拉丁 esse 存在）。essential 的高频义是「本质的、必不可少的」（essential to 对…必不可少）；医学上「特发的、原发性的」（essential hypertension 原发性高血压）是专业义。同族：essence 本质 / quintessence 精髓。"
+  },
+  "bore": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "三个同形词：① 动词「钻孔」（bore a hole）；② 动词「使厌烦」→ 名词「讨厌的人、麻烦事」；③ 名词「（海潮的）涌潮」。记忆钩：钻孔是「磨」进去的，唠叨也是「磨」人。"
+  },
+  "flee": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "古英语 fleon「逃」→ 逃走（flee the country 逃亡国外），也可搭 flee from 逃离；不规则变化 fled / fled。三者辨析：flee 逃离危险 / escape 摆脱困境 / run away 口语的跑掉。"
+  },
+  "earthenware": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "earthen(泥土做的) + ware(器皿) = 陶器。同族 -ware：hardware 五金·硬件 / software 软件 / glassware 玻璃器皿 / kitchenware 厨具。"
+  },
+  "outlaw": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "out(在外) + law(法律) = 被置于法律保护之外的人 → 逃犯、歹徒；动词「宣布…为非法」（outlaw the practice 取缔这种做法）。历史上「法外之徒」可以被任何人杀死而不算罪 —— 分量比「逃犯」重。"
+  },
+  "wade": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 wadan「走」→ 在浅水里走、跋涉（wade across the river 涉水过河）；引申「费力地读完」（wade through a long report 啃完一份长报告）。同族：waddle 摇摇摆摆地走。"
+  },
+  "probe": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "prob = 验证、试（拉丁 probare）→ 探针、探查；引申「深入调查」（probe into the matter）；太空探测器也叫 probe。同族：prove 证明 / probable 可能的 / probation 试用期 / proof 证据。"
+  },
+  "expedition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + ped(脚，拉丁 pes) = 迈脚出去 → 远征、探险（队）。同族 ped「脚」：pedal 踏板 / pedestrian 行人 / impede 阻碍（绊住脚）/ expedite 加速办理。"
+  },
+  "charcoal": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "char(烧焦) + coal(煤) = 烧焦的煤 → 木炭；也指画画的「炭笔」（charcoal drawing 炭笔画）。同族 char：char 烧焦 / charred 烧焦的 / charbroil 炭烤。"
+  },
+  "plain": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "plan = 平（拉丁 planus）→ 地形平 → 平原；不加修饰 → 朴素的、普通的；说话不加修饰 → 坦白的（in plain words 直说）。同族：plane 平面 / explain 解释（摊平说清）。"
+  },
+  "greed": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 grædig「贪吃」→ 贪婪（greed for power 权欲）。同族：greedy 贪心的。三个「贪」的程度：desire 渴望 → greed 贪婪 → avarice 贪财（最书面）。"
+  },
+  "negotiate": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "neg-(不) + oti(闲暇，拉丁 otium) = 不得空闲 → 做生意、谈判（古罗马人眼里做生意就是不务正业）。同族：negotiable 可协商的 / otiose 多余的（闲着的）。"
+  },
+  "pedal": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ped = 脚（拉丁 pes）→ 脚踏板；动词「踩踏板」（pedal a bike 蹬自行车）。同族 ped「脚」：pedestrian 行人 / pedestal 基座（脚站的地方）/ expedition 远征 / centipede 蜈蚣（百足）。"
+  },
+  "moss": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 meos。谚语很值得记：A rolling stone gathers no moss.（滚石不生苔 —— 常搬家的人积不起财，也指不停换工作的人难有积累）。同类植物：moss 苔藓 / lichen 地衣 / fern 蕨。"
+  },
+  "thereof": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "there + of = 它的、其（法律文书高频：the terms thereof 其条款）。同类 there- 系列正式词：therein 其中 / thereof 其 / thereto 对此 / thereby 因此。看到 there- 就往「那件事的某个方面」理解。"
+  },
+  "trivial": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 trivium 是「三岔路口」（tri 三 + via 路）—— 路口上人们闲聊的都是小事，所以 trivial 是「琐碎的」；名词 trivia 冷知识。同族：trifle 琐事 / triviality 琐碎。"
+  },
+  "detail": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "de-(完全) + tail(切，法语 tailler) = 切得很碎 → 细节、琐事（in detail 详细地 / go into detail 详述）。同族：tailor 裁缝（裁剪的人）/ retail 零售（再切小卖）。"
+  },
+  "concern": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + cern(筛、分辨，拉丁 cernere) = 把它筛进来 → 与…有关、使担心；名词「关切的事、商行」（a going concern 在营业的商行）。同族 cern「筛/分辨」：discern 辨别 / certain 确定的 / secret 秘密。"
+  },
+  "what": {
+   "kind": "usage",
+   "certainty": "medium",
+   "tip": "这里收的是 what 作「关系形容词」的用法：what little money he had 他仅有的那点钱 / what few friends remained 剩下不多的朋友 —— 这类 what 等于「所有…的那点」。日常最常用的仍是疑问代词。"
+  },
+  "miniature": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 minium「朱砂」—— 中世纪手抄本用朱砂画小装饰画，所以 miniature 是「小画像」→ 缩影、缩小的（in miniature 以缩小的形式）。词根 mini 后来独立成「小」：minimum 最小 / minor 次要的 / diminish 减少。"
+  },
+  "hurt": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "动词「使受伤、使疼痛」→ 名词「损伤、创伤」（the hurt in his eyes 他眼里的伤）。⚠️ 过去式与过去分词都是 hurt。三个「伤」：hurt 身心受伤 / injure 事故致伤 / wound 刀枪伤。"
+  },
+  "deformation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(离开) + form(形状) + -ation = 离开原来的形状 → 变形（物理里的「形变」就是它）、畸形。同族：form 形状 / reform 改革（重新成形）/ inform 通知（成形于心）/ uniform 制服。"
+  },
+  "deform": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(离开) + form(形状) = 使走形 → 损坏形状、使变形（deformed 畸形的）。同族：deformation 变形 / form 形状 / conform 顺从（同成形）。"
+  },
+  "replace": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + place(放) = 放回原位 → 归还、赔还；更常用的是「取代」（把新的放到旧的位置上）。同族：place 放置 / displace 取代·使流离 / replacement 替换。"
+  },
+  "scrap": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古北欧语 skrap「碎片」→ 碎片、废料；动词「废弃」（scrap the plan 放弃计划）；口语「打架」（have a scrap）。同族：scrape 刮·擦 / scrapbook 剪贴簿（贴碎片的本子）。"
+  },
+  "plastic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊 plassein「塑造」→ 可塑的（plastic 最早的义项就是「可塑的、塑性的」）→ 塑料。同族：plaster 石膏 / plasticity 可塑性 / plasma 血浆。"
+  },
+  "shorthand": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "short(短) + hand(手写) = 用短的手写符号 → 速记（take shorthand 做速记）；引申「简略说法」（a shorthand for 对…的简称）。同族：handwriting 笔迹 / longhand 普通书写。"
+  },
+  "garlic": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 gar(矛) + leac(韭葱) = 长矛形状的葱 → 大蒜。同族 leac → leek 韭葱；gar「矛」还留在 garfish（针鱼）里。"
+  },
+  "perish": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(完全) + ish(走，拉丁 ire) = 整个走掉 → 消亡、死亡（perish in the fire 死于火灾）；东西「走掉」就是变质（perishable goods 易腐货物）。同族 it/ish「走」：exit 出口 / initial 最初的 / transient 短暂的。"
+  },
+  "scout": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自古法语 escouter「听」（同 auscultate 听诊）→ 去听风声的人 → 侦察员（Boy Scout 男童子军）；动词「侦察、物色」（scout for talent 物色人才）。"
+  },
+  "random": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 randon 本是「急速奔跑、乱冲」→ 没有规律 → 随机的（at random 随机地 / a random sample 随机样本）。计算机里的 random access 随机存取。"
+  },
+  "laundry": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "lav = 洗（拉丁 lavare）→ 要洗的衣物、洗衣店。同族 lav「洗」：lavatory 盥洗室 / lavish 挥霍的（像水一样倒）/ lotion 洗剂。搭配：do the laundry 洗衣服。"
+  },
+  "hiss": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「嘶嘶」那声（读音本身就是）。拟声一族：hiss 嘶嘶 / buzz 嗡嗡 / sizzle 滋滋（煎东西）/ rustle 沙沙 / crash 哗啦。用法：hiss at sb 向某人发嘘声。"
+  },
+  "loosely": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "loose(松) + -ly = 松地、松散地；引申「粗略地」（loosely speaking 大致说来 / loosely based on 大致根据）。同族：loose 松的 / loosen 放松 / loose ends 未了结的琐事。"
+  },
+  "rip": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "猛力撕开那一声（也拟声）。搭配：rip up 撕碎 / rip off 宰客·剽窃 / let it rip 放手干。三个「撕」：tear 一般撕 / rip 猛撕 / shred 撕成条。"
+  },
+  "rear": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "三个同形词：① 名词「后部」（in the rear）；② 动词「抚养、饲养」（rear children 养孩子 / rear cattle 养牛）；③ 动词「（马）用后腿立起」→「竖起」。抚养义来自古英语 ræran「使立起」—— 把孩子「立」起来。"
+  },
+  "speculate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "spec = 看（拉丁 specere）。四处张望地琢磨 → 思索、推测（speculate about 猜测）；盯着行情看 → 投机（speculate in stocks 炒股）。同族：spectacle 景象 / inspect 检查 / prospect 前景。"
   }
  }
 }

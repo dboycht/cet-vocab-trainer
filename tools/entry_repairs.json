@@ -138,6 +138,24 @@
       "pos": ["n."],
       "def": "n.细菌",
       "evidence": "源 PDF 该格原文就是「bacterium n. 细菌；拳击迷」——**不是提取错，是源书把别的词条释义窜进了这一格**。判据两条：① bacterium 在英语里没有「拳击迷」这个义项；② 源书按中文拼音**倒序**排列，邻近词条的释义首字都在 xì/xǐ 音区（系列/戏剧/细菌/喜剧/熄灭），「拳击迷」(quán) 不可能出现在此位置。"
+    },
+    "essential": {
+      "kind": "sense_add",
+      "pos": ["a.", "n."],
+      "def": "a.本质的，必不可少的；特发的，原发性的（医学）n.要素，要点",
+      "evidence": "源书只收了「特发的；自发的」—— 那是医学专业义（essential hypertension 原发性高血压）。而 essential 的高频义是「本质的、必不可少的」（essential to 对…必不可少），漏掉它等于把这个词教成了冷僻词。"
+    },
+    "resignation": {
+      "kind": "sense_add",
+      "pos": ["n."],
+      "def": "n.辞职，辞呈；听从，屈从，顺从",
+      "evidence": "源书只收了引申义「听从、屈从、顺从」。而 resignation 的本义与高频义是「辞职、辞呈」（hand in one's resignation），构词是 re- + sign（签字交还）。"
+    },
+    "replace": {
+      "kind": "sense_add",
+      "pos": ["vt."],
+      "def": "vt.取代，代替；送还，归还，赔还",
+      "evidence": "源书只收了「送还，归还，赔还」。而 replace 在当代英语里几乎只用作「取代、代替」（replace the old model），把次义排在前面会误导。"
     }
   }
 }
