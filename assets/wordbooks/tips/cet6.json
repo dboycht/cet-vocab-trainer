@@ -4224,6 +4224,341 @@
    "kind": "family",
    "certainty": "high",
    "tip": "posit = 放、定（拉丁 ponere 的过去分词）→ 确定地、断然地（positively refuse 断然拒绝）；口语里也表示「确实、真的」（This is positively the best.）。同族：positive 肯定的·阳性的 / compose 组成 / deposit 存放。"
+  },
+  "claim": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "claim = 喊（拉丁 clamare）→ 喊出自己的权利 → 主张、索赔（lay claim to 声称对…有权利 / a claim for damages 索赔）。同族 clam「喊」：exclaim 惊呼 / proclaim 宣告 / acclaim 欢呼 / clamour 喧闹。"
+  },
+  "scarcity": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "scarce(稀少的) + -ity = 缺乏、稀缺（water scarcity 缺水 / scarcity of resources 资源稀缺）—— 经济学的第一课就是 scarcity。同族：scarce 稀少的 / scarcely 几乎不。"
+  },
+  "late": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "词义链：「迟」→「最近的」→「刚过去的」→「已故的」：the late president 已故总统 / the late 19th century 十九世纪末。⚠️ 「已故」义只放在名词前（my late father），不能作表语。"
+  },
+  "flaw": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古北欧语 flaga「石板上的裂缝」→ 瑕疵、缺陷（a fatal flaw 致命缺陷 / a flaw in the argument 论证中的漏洞）；宝石与金属的「裂隙」是它的本义。同族：flawed 有缺陷的 / flawless 完美的。"
+  },
+  "extract": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + tract(拉，拉丁 trahere) = 拉出来 → 取出、榨取（extract oil 采油 / extract a tooth 拔牙）；从文中「拉出来的一段」→ 摘录。同族 tract「拉」：tractor 拖拉机 / attract 吸引 / contract 合同·收缩 / distract 分心。"
+  },
+  "induce": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(向内) + duc(引导，拉丁 ducere) = 往里面引 → 劝诱（induce sb to do）；「引起」（induce sleep 引起睡意）；物理的「感应」也是它。同族 duct：produce 生产 / reduce 减少 / introduce 引入 / seduce 引诱。"
+  },
+  "crank": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 cranc「弯的」→ 曲柄（crank the engine 摇曲柄发动）；引申「脾气怪的人、偏执狂」（a crank / cranky 暴躁的）。同族：crinkle 起皱。"
+  },
+  "dissipate": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "dis-(分开) + sip(扔，拉丁 supare) = 扔得到处都是 → 驱散（dissipate the crowd）、浪费（dissipate one's fortune 挥霍家产）、消散（the fog dissipated）。同族：dissipated 放荡的。"
+  },
+  "persuasion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(彻底) + suas(劝，拉丁 suadere) = 彻底劝动 → 说服；「主张、信念」是引申（被说服后持有的看法）。同族：persuade 说服 / dissuade 劝阻（反着劝）/ suave 温和的。"
+  },
+  "expel": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + pel(推，拉丁 pellere) = 推出去 → 驱逐、开除（expel from school 开除学籍）、排出（expel air 排气）。同族 pel「推」：propel 推进 / repel 击退 / compel 强迫 / impulse 冲动。"
+  },
+  "spherical": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "spher = 球（希腊 sphaira）→ 球形的。同族：sphere 球体·领域 / atmosphere 大气层（气之球）/ hemisphere 半球。"
+  },
+  "Jupiter": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 Iuppiter 来自「天父」（Diu-pater，与 Zeus 同源）→ 罗马主神朱庇特，也是太阳系最大的行星木星。五个行星名的罗马对应：Mercury 水星 / Venus 金星 / Mars 火星 / Jupiter 木星 / Saturn 土星。"
+  },
+  "sight": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「看见」：视力（have good sight）；看见的东西 → 景象、情景（a sad sight）；值得一看的东西 → 名胜（see the sights 观光）。搭配：at first sight 乍看 / lose sight of 看不见·忘记。"
+  },
+  "mistress": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "master(主人) 的阴性形式 → 女主人、女教师（旧用法）；「情妇」义来自它指「（供养关系里的）女主人」。同族：master 主人 / Mrs 是 mistress 的缩略（夫人）。"
+  },
+  "plea": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古法语 plaid「诉讼、恳求」→ 恳求（a plea for help 求助）、法庭上的「抗辩、认罪」（a plea of not guilty 无罪抗辩）。同族：plead 恳求·辩护。"
+  },
+  "mosque": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "阿拉伯语 masjid「叩拜的地方」→ 清真寺。同类宗教建筑：mosque 清真寺 / temple 寺庙 / synagogue 犹太会堂 / cathedral 大教堂 / pagoda 佛塔。"
+  },
+  "petition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pet = 追求（拉丁 petere）→ 去争取 → 请愿（sign a petition 签请愿书 / petition for divorce 申请离婚）。同族 pet「追求」：compete 竞争（一起追）/ appetite 食欲 / repeat 重复（再追一次）。"
+  },
+  "cleanliness": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "cleanly(清洁的) + -ness = 清洁。英文谚语：Cleanliness is next to godliness.（清洁近乎圣洁）。同族：clean 干净的 / cleanse 净化 / cleaner 清洁剂。"
+  },
+  "global": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "glob = 球（拉丁 globus）→ 球状的、全球的（global warming 全球变暖 / the global economy）。同族：globe 地球·地球仪 / globalization 全球化 / globule 小球。"
+  },
+  "rap": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「嗒嗒」敲那声：rap at the door 敲门 / rap sb on the knuckles 打某人指节（责罚）；说唱音乐 rap 也来自「快速敲击式的说话」。同族：rappel 速降。"
+  },
+  "inclination": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(向) + clin(倾斜，拉丁 clinare) = 往一边倾 → 倾斜、斜坡；心里「倾向」→ 意向（an inclination to do）。同族 clin「倾」：incline 倾向 / decline 下降·拒绝 / recline 斜倚。"
+  },
+  "rash": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "中古英语 rash「急速的」→ 做事太急 → 轻率的、鲁莽的（a rash decision 轻率的决定）；⚠️ 同形名词 rash 是「皮疹」，来源不同。同族：rush 冲（同源）。"
+  },
+  "admiration": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ad-(向) + mir(惊奇，拉丁 mirari) = 对着某人惊叹 → 钦佩、赞美。同族 mir「惊奇」：admire 钦佩 / miracle 奇迹 / mirror 镜子（照见自己而惊奇）/ marvel 奇迹。"
+  },
+  "bronze": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经意大利语 bronzo 而来（一说源自波斯语「铜」）→ 青铜、青铜色。三个「金属时代」一起记：Bronze Age 青铜时代 / Iron Age 铁器时代 / Stone Age 石器时代。bronzed 晒成古铜色的。"
+  },
+  "slit": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 slitan「切」→ 切开、狭长的切口（slit the envelope open 把信封划开 / eyes like slits 眯成一条缝的眼睛）。同族：slice 切片。"
+  },
+  "industrious": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "industri = 勤勉（拉丁 industria）→ 勤劳的（an industrious student）。⚠️ 别与 industrial（工业的）混：industrious 指人勤快。同族：industry 工业·勤勉 / industrialize 工业化。"
+  },
+  "section": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sect = 切（拉丁 secare）→ 切下来的部分 → 部分、章节、剖面（the sports section 体育版）。同族 sect「切」：insect 昆虫（身体分节）/ sector 扇形·部门 / dissect 解剖 / segment 片段。"
+  },
+  "agreeable": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "a-(向) + gree(喜欢、感激，拉丁 gratus) + -able = 合人心意的 → 惬意的（an agreeable evening）；也指「愿意的、同意的」（agreeable to the plan）。同族：agree 同意 / grace 优雅 / grateful 感激的。"
+  },
+  "hardy": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "hard(硬) + -y = 硬朗 → 强壮的、耐寒耐劳的（a hardy plant 耐寒植物 / hardy settlers 吃苦耐劳的拓荒者）。同族：hard 硬的 / harden 使变硬 / hardware 硬件。"
+  },
+  "compulsory": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + puls(推，拉丁 pellere) = 推着你走 → 强制的、义务的（compulsory education 义务教育 / a compulsory course 必修课）。同族 puls「推」：compel 强迫 / impulse 冲动 / expel 驱逐。"
+  },
+  "denounce": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + nounce(宣布，拉丁 nuntiare) = 公开宣布某人有罪 → 谴责、告发。同族 nounce「宣布」：announce 宣布 / pronounce 发音·宣判 / renounce 放弃（宣布不要）。"
+  },
+  "segment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "seg = 切（拉丁 secare）→ 切出来的一段 → 部分、段（a segment of the market 市场份额 / orange segments 橘子瓣）。同族：section 部分 / insect 昆虫（分节）。"
+  },
+  "mighty": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "might(力量，与 may 同源) + -y = 强大的、巨大的（a mighty nation 强国 / high and mighty 趾高气扬）。副词用法很口语：mighty fine 非常好（美式口语）。"
+  },
+  "constraint": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + strain(拉紧，拉丁 stringere) = 把范围拉紧 → 约束、限制（financial constraints 资金限制 / under constraint 被迫）。同族 strict/strain「拉紧」：restrain 抑制 / strict 严格的 / restrict 限制。"
+  },
+  "pious": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "pi = 虔诚（拉丁 pius）→ 虔诚的（a pious man）；有时带贬义「伪善的」（a pious fraud 打着宗教幌子的骗局）。同族：piety 虔诚 / expiate 赎罪。"
+  },
+  "lobby": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 lobia「回廊」→ 前厅、门廊；「游说」义就是在这个门厅里产生的 —— 说客守在议会门厅堵议员（lobby the government 游说政府 / a lobbying group 游说团体）。"
+  },
+  "consistent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + sist(站，拉丁 sistere) = 始终站在同一边 → 前后一致的、连贯的（be consistent with 与…一致）。同族 sist「站」：insist 坚持（站在上面）/ resist 抵抗（反着站）/ persist 持续 / assist 协助（站在旁边）。"
+  },
+  "thoughtless": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "thought(思考) + -less(无) = 没动脑子的 → 欠考虑的、不顾别人的（a thoughtless remark 一句欠考虑的话）。反义 thoughtful 体贴的·深思的。"
+  },
+  "predecessor": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(前) + de-(离开) + cess(走，拉丁 cedere) + -or(人) = 先走一步的人 → 前任、前辈（反义 successor 继任者）。同族 ced/cess「走」：precede 先于 / proceed 进行 / recession 衰退。"
+  },
+  "visa": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 charta visa 是「已查验过的文件」（visa 是 videre「看」的过去分词）→ 签证（apply for a visa 申请签证）。同族 vis「看」：vision 视力 / visible 可见的 / revise 修订（再看一遍）。"
+  },
+  "migrate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "migr = 迁移（拉丁 migrare）→ 迁移、移居。三个方向分清：migrate 迁徙（中性）/ emigrate 移出（e- 出）/ immigrate 移入（im- 进）。同族：migrant 候鸟·移民 / migration 迁移。"
+  },
+  "gracious": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "grac = 恩惠、优雅（拉丁 gratia）→ 亲切的、谦和的（a gracious host 和蔼的主人）。同族：grace 优雅·恩典 / grateful 感激的 / gratitude 感恩 / graceful 优雅的。"
+  },
+  "modesty": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mod = 尺度（拉丁 modus）→ 不放纵、有分寸 → 谦逊、端庄（in all modesty 说句不自夸的话）。同族：modest 谦虚的 / moderate 适度的 / mode 方式 / modulate 调节。"
+  },
+  "pertinent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(完全) + tin(拿住，拉丁 tenere) + -ent = 牢牢抓住主题的 → 有关的、恰当的（pertinent to the question 与问题相关）。同族 tin/tain「拿住」：contain 包含 / maintain 保持 / retain 保留。"
+  },
+  "siren": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊神话里的塞壬（Seiren）用歌声诱惑水手触礁 —— 于是「发出诱人而危险声音」的东西叫 siren：警报器、汽笛；引申「妖妇、诱惑者」。"
+  },
+  "utensil": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ut = 用（拉丁 uti，同 use）→ 用的东西 → 器皿、用具（kitchen utensils 厨房用具）。同族：use 使用 / utilize 利用 / abuse 滥用。"
+  },
+  "maple": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 mapulder（可能与「斑点」有关，指树皮纹理）→ 枫树。文化联想：the maple leaf 枫叶（加拿大国旗图案）/ maple syrup 枫糖浆。"
+  },
+  "kilowatt": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "kilo(千，希腊 khilioi) + watt(瓦特，人名) = 千瓦。同类 kilo-：kilogram 千克 / kilometer 千米 / kilobyte 千字节；再往上：megawatt 兆瓦 / gigawatt 吉瓦。"
+  },
+  "follower": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "follow(跟随) + -er = 跟随者、追随者（社交媒体上的粉丝）；机械上的「从动件」（跟着主动件动）也是这个「跟随」义。反义 leader 领导者。"
+  },
+  "apt": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "apt = 适合（拉丁 aptus）→ 恰当的（an apt remark 恰当的话）；「易于…的」（apt to forget 容易忘）；「聪明的」（an apt pupil 悟性好的学生）。同族：adapt 适应（使适合）/ aptitude 天资。"
+  },
+  "garage": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古法语 garer「保护、停放」+ -age = 停车保护的地方 → 车库、汽车修理站。同族：garrison 驻军（守备）。读音：英式 /ˈɡærɑːʒ/，美式 /ɡəˈrɑːʒ/。"
+  },
+  "motel": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "motor(汽车) + hotel(旅馆) 的混成词 → 汽车旅馆（开车旅行的人住，车停门口）。同类混成词：smog = smoke + fog / brunch = breakfast + lunch / motel = motor + hotel。"
+  },
+  "pant": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是喘气那声。搭配：pant for breath 喘着气。同类呼吸词：gasp 因惊讶倒吸气 / puff 喷气 / wheeze 呼哧带喘。"
+  },
+  "hitherto": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "hither(到这里) + to = 到此处为止 → 迄今（hitherto unknown 此前未知的）。同类古雅副词：hitherto 迄今 / henceforth 今后 / theretofore 在此之前。多用于正式书面语。"
+  },
+  "jack": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "Jack（人名，泛指「家伙」）→ 代替人干活的工具：千斤顶（car jack）、插座（jack plug）、船头旗（Union Jack 英国国旗）。同类「人名变工具」：jenny 纺纱机 / derrick 起重机。"
+  },
+  "motorway": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "motor(汽车) + way(路) = 汽车专用道（英式 motorway = 美式 freeway / highway）。同类 way 构词：railway 铁路 / subway 地铁 / runway 跑道 / gateway 门户。"
+  },
+  "sitting-room": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sitting(坐) + room(房间) = 坐着待的房间 → 起居室（英式；美式多说 living room）。同类「用途 + room」：bedroom 卧室 / dining room 餐厅 / waiting room 候车室 / reading room 阅览室。"
+  },
+  "barometer": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "baro = 重、压（希腊 baros）+ meter(测量) = 测气压的 → 气压计；引申「晴雨表、指标」（a barometer of public opinion 民意的晴雨表）。同族 baro：baritone 男中音（重音）。"
+  },
+  "scratch": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "本义「抓、划痕」→ 赛跑的起跑线（从前是在地上划一条线）：from scratch 从零开始（从起跑线开始）/ start from scratch 白手起家 / up to scratch 达到标准。三个义项都从「划线」来。"
+  },
+  "count": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「数」：计数、重要（It doesn't count. 那不算）；法律上的「罪状」就是一条条数出来的指控（guilty on all counts 各项罪名成立）。搭配：count on 依靠 / count out 不算数。"
+  },
+  "message": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "miss(送，拉丁 mittere) + -age = 送来的东西 → 消息；文学作品「要传达的东西」→ 要旨、启示（the message of the film 影片的主旨）。同族 miss「送」：mission 使命 / messenger 信使 / transmit 传送。"
+  },
+  "enlighten": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(使) + light(光) + -en = 给人点亮 → 启发、开导（enlighten me 请指教）；the Enlightenment 是启蒙运动。同族：light 光 / lighthouse 灯塔 / delight 使高兴。"
+  },
+  "implore": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(向) + plor(哭喊，拉丁 plorare) = 哭着向人求 → 恳求、哀求（implore sb to do）。同族：deplore 谴责·哀叹（完全地哭）。"
+  },
+  "knight": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 cniht 本是「男孩、随从」→ 领主的武装随从 → 骑士；现代英国的「爵士」也是它。同源词德语 Knecht 仍指雇工。文化词：knight in shining armour 白衣骑士（救星）。"
+  },
+  "subsequently": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(接着) + sequ(跟随，拉丁 sequi) + -ently = 跟在后面 → 随后、后来（subsequently became 后来成为）。同族 sequ「跟随」：sequence 序列 / consequence 后果 / pursue 追求。"
+  },
+  "marvel": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "与 miracle、admire 同源（拉丁 mirari「惊奇」）→ 奇迹、惊叹（the marvels of science / marvel at 惊叹于）。同族：miracle 奇迹 / admire 钦佩 / mirror 镜子。"
+  },
+  "cheat": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自中古英语 escheat「（无主财产）没收」—— 管这事的人常中饱私囊，于是「没收」变成了「骗取」。搭配：cheat sb out of sth 骗走某人的东西 / cheat on sb 对某人不忠 / cheat in an exam 考试作弊。"
   }
  }
 }
