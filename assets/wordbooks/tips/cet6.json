@@ -9219,6 +9219,341 @@
    "kind": "sense",
     "certainty": "high",
    "tip": "两个读音、两个意思：① /ˈɪnvəlɪd/ 名词「病人、伤残者」（in- 不 + valid 强的）；② /ɪnˈvælɪd/ 形容词「无效的」（an invalid passport 失效护照）。同族 valid「有效」：valid 有效的 / validate 验证 / validity 有效性。"
+  },
+  "objective": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ob-(向) + ject(扔，拉丁 jacere) = 朝一个目标扔过去 → 目标（achieve the objective）；形容词「客观的」（objective analysis 客观分析，站在对象那边看）；语法上的「宾格」（被动作作用的那一方）。同族 ject「扔」：object 物体·反对 / project 投射 / subject 主体。"
+  },
+  "fluctuation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fluct = 波浪（拉丁 fluctus，同 flu 流）→ 波动（price fluctuations 价格波动 / fluctuations in temperature）。同族：fluctuate 波动 / fluid 流体 / fluent 流利的。"
+  },
+  "villa": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 villa 本是「乡间庄园」→ 别墅、城郊小屋（a seaside villa 海滨别墅）。同族：village 村庄（同源「乡间聚落」）/ villager 村民。"
+  },
+  "strength": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "strong 的名词 → 力气、强度；也指「兵力、人数」（the strength of the army 军队兵力）和「长处」（her strengths 她的优点）。搭配：on the strength of 凭借。"
+  },
+  "characterize": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "character(特征、字符) + -ize(使) = 描出特征 → 表示…的特性、把…定性为（be characterized by 以…为特征）。同族：character 性格·字符 / characteristic 特征的 / characteristically 典型地。"
+  },
+  "fluctuate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fluct = 波浪（拉丁 fluctus）→ 像波浪一样起伏 → 波动（Prices fluctuate with the season. / fluctuating demand 波动的需求）。同族：fluctuation 波动 / fluid 流体 / influx 涌入。"
+  },
+  "signify": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sign(记号) + -ify(使) = 用记号表示 → 表示、意味着（What does this signify? / a photo signifying the past）。同族：sign 标志 / significant 重要的 / signal 信号。"
+  },
+  "ward": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古英语 weard「看守」→ 被看守的地方 → 病房、监房（a hospital ward 医院病房）；后缀 -ward 是「朝向」（与这个词同源的另一支）。同族 ward「看守」：warden 看守人 / guard 卫兵 / award 奖品。"
+  },
+  "manifest": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mani = 手（拉丁 manus）+ fest(抓住) = 用手能抓住的 → 明白的、显然的（a manifest error 明显的错误）；动词「表明、显现」（manifest itself 显现出来）；名词「（船货）清单」。同族 manu「手」：manual 手册 / manipulate 操纵。"
+  },
+  "seemingly": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "seeming(表面上的) + -ly = 表面上、看起来（a seemingly simple task 看似简单的任务）；⚠️ 常暗示「其实未必」。同族：seem 似乎 / seemly 得体的。"
+  },
+  "norm": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 norma 本是「木匠的角尺」→ 标准、规范（social norms 社会规范）；「平均数」是它在中文学的引申。同族：normal 正常的 / enormous 巨大的（超出尺子）/ normalize 标准化。"
+  },
+  "superficial": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "super-(在上) + fici(表面，拉丁 facies 脸、面) + -al = 只在表面上的 → 表面的、肤浅的（superficial knowledge 一知半解 / a superficial wound 皮外伤）。同族：face 脸 / surface 表面 / facade 建筑物的正面。"
+  },
+  "heading": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "head(头) + -ing = 一篇文章的「头」 → 标题、题名（under the heading of 在…的标题下）。同族：head 头·率领 / header 页眉 / headline 头条。"
+  },
+  "criterion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "希腊 kriterion「判断的依据」（同 critic）→ 标准、准则（the criteria for selection 选拔标准）。⚠️ 复数特殊：criteria。同族 cri「判断」：critic 批评家 / critical 关键的 / crisis 危机。"
+  },
+  "discrimination": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(分开) + crimin(分辨，拉丁 discernere) + -ation = 分辨开 → 辨别力、识别力（racial discrimination 种族歧视）；「歧视」正是「把人分开对待」。同族：discriminate 区分·歧视 / crime 罪行（原义「指控」）。"
+  },
+  "advocate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ad-(向) + voc(喊，拉丁 vocare) + -ate = 朝人群喊话支持 → 拥护、提倡（advocate reform 主张改革）；名词「辩护者、倡导者」。同族 voc「叫」：vocal 嗓音的 / vocation 天职 / invoke 祈求。"
+  },
+  "transform": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "trans-(越过) + form(形状) = 换个形状 → 转变、改造（transform A into B 把 A 变成 B）；电学的「变压」也是它。同族：form 形状 / reform 改革 / uniform 制服。"
+  },
+  "alteration": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "alter(另一个，拉丁 alter) + -ation = 变成另一个样子 → 变更、改动（minor alterations 小改动 / an alteration to the plan）。同族：alter 改变 / alternative 替代的 / alternate 交替的。"
+  },
+  "reason": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「原因、理性」→ 动词「推理、辩论」（reason with sb 与某人讲理 / reason that… 推断…）。同族 rat「计算」：rational 理性的 / ratio 比率 / rate 比率。"
+  },
+  "loosen": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "loose(松) + -en(使) = 使变松、放松（loosen the tie 松开领带 / loosen restrictions 放宽限制）。同类 -en：tighten 收紧 / widen 加宽 / deepen 加深。"
+  },
+  "program": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(在前) + gram(写，希腊 gramma) = 事先写好的安排 → 节目、计划；动词「编制程序」（program a computer）。同族 gram「写」：telegram 电报 / diagram 图表 / grammar 语法。"
+  },
+  "fall": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「落下」→ 引申「变成、陷入」（fall asleep 睡着 / fall ill 生病 / fall silent 沉默）—— 从一种状态「落进」另一种。搭配：fall for 爱上·上当 / fall out 争吵 / fall back on 求助于。"
+  },
+  "edit": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + dit(给，拉丁 dare) = 把内容发布出去 → 编辑、校订（edit a newspaper 编辑报纸）。同族：editor 编辑 / edition 版本 / editorial 社论。"
+  },
+  "rim": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 rima「边缘」→ 边、边缘、（眼镜）框（the rim of the glass 杯沿 / rimmed glasses 有框眼镜）；也指车轮的「轮辋」。同族：brim 边缘（杯口）。"
+  },
+  "hearth": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 heorth「炉边」→ 壁炉地面、炉边；引申「家」（hearth and home 家与炉火）。同族：heart 心（同源，炉火是家的心）。"
+  },
+  "verge": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "verg = 倾斜、倾向（拉丁 vergere）→ 倾斜的边缘 → 边缘（on the verge of tears 快要哭出来 / on the verge of collapse 濒临崩溃）。同族：diverge 分岔 / converge 汇聚。"
+  },
+  "fireplace": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fire(火) + place(地方) = 生火的地方 → 壁炉。同类 place 构词：birthplace 出生地 / marketplace 集市 / workplace 工作场所。"
+  },
+  "patron": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pater = 父亲（拉丁 pater）→ 像父亲一样保护你的人 → 庇护人、赞助人（a patron of the arts 艺术赞助人）。同族 pater「父」：paternal 父亲的 / patronize 以高人一等的态度对待 / pattern 母版（同一个词根）。"
+  },
+  "diploma": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 diploma 本是「对折的文书」（di- 两 + ploma 折）→ 毕业文凭（a college diploma）。同族：diplomatic 外交的（外交官最初就是管文书的）/ triple 三倍。"
+  },
+  "indispensable": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + dispens(分发、免除，拉丁 dispensare) + -able = 不能免除的 → 必不可少的（an indispensable tool 不可或缺的工具）。同族 pens「称/付」：dispense 分发 / compensation 补偿 / expensive 昂贵的。"
+  },
+  "sullen": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "出自拉丁 solus「独自」（同 sole、solitary）→ 一个人闷着不说话 → 绷着脸不高兴的（a sullen silence 阴郁的沉默）。同族 sol「单独」：sole 唯一的 / solitary 孤独的 / solo 独奏。"
+  },
+  "breakdown": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "break(破) + down(下) = 垮下来 → 崩溃、倒塌、失败（a nervous breakdown 精神崩溃 / a breakdown of the talks 谈判破裂）；也指「分类明细」（a cost breakdown 成本明细 —— 拆开来看）。"
+  },
+  "essence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ess = 存在（拉丁 esse）→ 使一个东西成为它的那个东西 → 本质、精华（the essence of the argument 论证的核心 / vanilla essence 香草精）。同族：essential 本质的 / quintessence 精髓。搭配：in essence 本质上。"
+  },
+  "bandage": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "band(带子) + -age = 绑上去的带子 → 绷带（put a bandage on the wound 包扎伤口）。同族：band 带子·乐队 / bind 绑。"
+  },
+  "captive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "capt = 抓（拉丁 capere）→ 被俘虏的（a captive audience 不由自主要听的听众 —— 被「抓住」的观众）；名词「俘虏」。同族 cap「抓」：capture 捕获 / captive / capacity 容量 / accept 接受。"
+  },
+  "reverse": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "re-(回) + vers(转，拉丁 vertere) = 转回去 → 反面、相反（the reverse is true 反过来才对）；动词「逆转、倒车」；形容词「相反的」。搭配：in reverse 相反地 / reverse the decision 推翻决定。同族 vers「转」：convert 转换 / version 版本 / versatile 多面手。"
+  },
+  "deviation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(离开) + vi(路，拉丁 via) + -ation = 离开正路 → 偏离、偏差（standard deviation 标准差 / deviation from the norm 偏离常规）。同族 via「路」：deviate 偏离 / obvious 明显的 / previous 先前的。"
+  },
+  "arctic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊 arktos「熊」—— 指大熊星座，北极就在它下方 → 北极的（the Arctic 北极地区）。同族：antarctic 南极的（ant- 反 + arctic）/ Antarctica 南极洲。"
+  },
+  "tragic": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 tragos「山羊」+ oide「歌」—— 悲剧起源于献给酒神的「山羊歌队」→ 悲剧性的、悲惨的（a tragic accident 惨剧）。同族：tragedy 悲剧 / tragicomedy 悲喜剧。"
+  },
+  "grief": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 gravis「重」（同 grave 严重的）→ 心头的重压 → 悲痛（deep grief 深切悲痛 / come to grief 失败·遭难）。同族：grieve 悲伤 / grievous 严重的 / grave 严重的·坟墓。"
+  },
+  "firework": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fire(火) + work(制品) = 火做的玩意儿 → 爆竹、烟火（a firework display 烟花表演）；复数 fireworks 也指「激烈争吵」。同族：network 网络 / framework 框架。"
+  },
+  "wrath": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 wræththu「愤怒」（与 wroth 发怒的同源）→ 暴怒、愤慨（the wrath of God 上帝的震怒 / incur sb's wrath 招致某人的愤怒）。文学色彩比 anger 重得多。"
+  },
+  "storm": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「风暴」→ 动词「猛攻」（storm the building 突袭大楼）和「（气冲冲地）冲」（storm out 怒气冲冲地离开）；引申「（感情、议论的）风暴」（a storm of protest 一片抗议声）。"
+  },
+  "woe": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 wa「悲伤」→ 悲哀、苦恼（a tale of woe 悲惨的故事 / woe betide you 你会倒霉的）。同族：woeful 悲惨的。习语：weal and woe 祸福。"
+  },
+  "vengeance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "veng = 报复（拉丁 vindicare）→ 报复、复仇（take vengeance on sb 向某人报仇 / with a vengeance 猛烈地·变本加厉）。同族：revenge 复仇 / vindicate 证明…正确 / avenge 为…报仇。"
+  },
+  "tyrant": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 tyrannos 本是「（非世袭的）掌权者」，不一定含贬义；后来专指暴君（a cruel tyrant）。同族：tyranny 暴政 / tyrannical 专横的。"
+  },
+  "grumble": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是低声嘟囔抱怨那声 → 抱怨、发牢骚（grumble about the food 抱怨伙食 / grumble at sb）。辨析：grumble 低声抱怨（持续）/ complain 正式投诉 / mutter 嘟囔。"
+  },
+  "tyranny": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "tyrant(暴君) + -y(状态) = 暴政、专制（the tyranny of the majority 多数人的暴政）。同族：tyrant 暴君 / tyrannical 专横的。"
+  },
+  "assurance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "as-(向) + sur(确定，拉丁 securus) = 让对方放心 → 保证、把握（give an assurance that… 保证… / with assurance 有把握地）；也指「保险」（life assurance 人寿保险）。同族：assure 保证 / sure 确定的 / insurance 保险。"
+  },
+  "panther": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 panthera「豹」→ 豹、黑豹、美洲狮（the Black Panther 黑豹党）。同类猫科：leopard 豹 / panther 黑豹 / jaguar 美洲豹 / cheetah 猎豹。"
+  },
+  "fuse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fus = 融化、倒（拉丁 fundere）→ 保险丝（电流过大就熔断）、导火线；动词「熔合」（fuse the two metals / blow a fuse 暴跳如雷）。同族 fus「倒/熔」：confuse 混淆（倒在一起）/ refuse 拒绝 / transfusion 输血。"
+  },
+  "leopard": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 leopardos，古人误以为它是「狮（leo）+ 豹（pard）」的杂交 → 豹。习语：a leopard cannot change its spots 本性难移。"
+  },
+  "reservation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + serv(保持，拉丁 servare) + -ation = 留起来不动 → 保留、预订（make a reservation 预订 / without reservation 毫无保留）；美式英语里也指「（印第安人）保留地」。同族 serv「保持」：reserve 保留 / preserve 保护 / observe 观察。"
+  },
+  "announce": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "an-(向) + nounce(宣布，拉丁 nuntiare) = 向大家宣布 → 宣布、报告…的到来（announce a decision / announce a visitor）。同族 nounce「宣布」：pronounce 发音·宣判 / denounce 谴责 / renounce 放弃。"
+  },
+  "safeguard": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "safe(安全) + guard(守卫) = 守住安全 → 保护措施（safeguards against fraud 防欺诈措施）；动词「保护」。同族：guard 卫兵 / guardian 监护人。"
+  },
+  "fortress": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fort(强的，拉丁 fortis) + -ress = 造得结实的地方 → 堡垒、要塞（a mountain fortress 山间要塞）。同族 fort「强」：fort 要塞 / fortify 加固 / effort 努力 / comfort 安慰。"
+  },
+  "preservation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(先) + serv(保持，拉丁 servare) + -ation = 事先保住 → 保存、保持（the preservation of food 食品保存 / heritage preservation 文物保护）。同族 serv「保持」：preserve 保护 / conserve 保存 / reserve 保留。"
+  },
+  "saturation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "satur = 饱（拉丁 satur）→ 饱和状态、浸透（market saturation 市场饱和 / saturation point 饱和点）；色彩上的「饱和度」也是它。同族：satisfy 满足 / satiate 使饱足。"
+  },
+  "mist": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 mist「薄雾」→ 薄雾（morning mist 晨雾）；动词「下薄雾、蒙上雾气」（mist over 起雾·（眼睛）模糊）。同族：misty 有雾的。三档：mist 薄雾 / fog 浓雾 / haze 霾。"
+  },
+  "chip": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「薄片、碎片」（potato chips 薯片 / wood chips 木屑）→ 电脑的「芯片」（一块硅片）；习语：a chip on one's shoulder 好斗情绪 / when the chips are down 关键时刻。"
+  },
+  "siege": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "出自拉丁 sedere「坐」→ 坐在城外不走 → 围攻、围困（lay siege to the city 围攻城市 / a siege mentality 受困心态）。同族：besiege 围攻。"
+  },
+  "baseball": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "base(垒) + ball(球) = 打垒球的运动 → 棒球。同类球类构词：football 足球 / basketball 篮球 / volleyball 排球 / handball 手球。"
+  },
+  "inclusive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(在内) + clus(关，拉丁 claudere) + -ive = 关在里面的 → 包括的（the price is inclusive of tax 价格含税 / pages 1 to 10 inclusive 第 1 到 10 页含）；「包围住的」是它的字面义。同族 clus「关」：include 包括 / exclude 排除 / close 关。"
+  },
+  "scar": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自希腊 eskhara「结痂」（同 shell 硬壳）→ 瘢痕、伤疤（a scar on his arm）；引申「（心里的）创伤」（the scars of war 战争的创伤）。同族：scarce 稀少（另一支，别混）。"
+  },
+  "embrace": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "em-(进入) + brace(手臂，希腊 brakhion) = 用手臂圈起来 → 拥抱；引申「包括、接受」（embrace change 拥抱变化 / the report embraces three areas 报告涵盖三个方面）。同族：bracelet 手镯 / braces 牙箍。"
+  },
+  "radius": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 radius 本义是「车轮的辐条」，也是「光线」→ 从中心射出的长度 → 半径；引申「范围、界限」（within a radius of 5 km）。同族：radiate 辐射 / radio 无线电 / radial 放射状的。"
+  },
+  "tar": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 teru「焦油」→ 柏油、焦油（tar and feather 涂焦油粘羽毛，一种私刑）；口语 be tarred with the same brush 被看作一丘之貉。同族：tarpaulin 防水帆布。"
   }
  }
 }
