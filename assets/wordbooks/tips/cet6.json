@@ -3219,6 +3219,341 @@
    "kind": "family",
    "certainty": "high",
    "tip": "spec = 看（拉丁 specere）。四处张望地琢磨 → 思索、推测（speculate about 猜测）；盯着行情看 → 投机（speculate in stocks 炒股）。同族：spectacle 景象 / inspect 检查 / prospect 前景。"
+  },
+  "smuggle": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自低地德语 smokkelen「偷偷地搬运」→ 走私、偷带（smuggle goods 走私货物 / smuggle a knife into prison）。同族：smuggler 走私者。"
+  },
+  "confidence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(完全) + fid(信，拉丁 fidere) = 完全相信 → 信心；只对信得过的人说的话 → 私房话、秘密（in confidence 私下地 / exchange confidences 互诉心事）。同族 fid「信」：confide 倾诉·信赖 / fidelity 忠诚 / confident 自信的。"
+  },
+  "velvet": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 villus「绒毛」→ 天鹅绒；形容词「天鹅绒般的、柔软的」。引申义很地道：an iron fist in a velvet glove 天鹅绒手套里的铁拳（外柔内刚）。"
+  },
+  "treasurer": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "treasure(财宝) + -er(人) = 管财宝的人 → 司库、财务主管。同族：treasure 财宝 / treasury 国库·财政部（英国财政部 the Treasury）/ thesaurus 宝库·同义词词典（希腊语里就是「宝库」）。"
+  },
+  "exposition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + posit(放，拉丁 ponere) = 把东西/道理摆出来 → 说明、解释；摆出展品 → 博览会。同族 posit「放」：expose 暴露 / compose 组成 / deposit 存放 / impose 强加。"
+  },
+  "observe": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ob-(对着) + serv(看、守，拉丁 servare) = 对着看 → 观察；看过之后开口 → 「说、评论」（I observe that… 我注意到…）。同族：observation 观察·评论 / observatory 天文台 / preserve 保存（预先守住）。"
+  },
+  "preach": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 praedicare「公开宣称」（prae- 前 + dicare 宣称）→ 布道、说教；引申「鼓吹」（preach the value of…）。同族 dic「说」：predict 预言 / indicate 指示 / dedicate 献身。"
+  },
+  "momentary": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "moment(片刻) + -ary = 只持续片刻的（a momentary pause 短暂的停顿）。⚠️ 与 momentous（重大的）只差几个字母，意思差很远。同族：momentum 动量·势头（moment 的拉丁原义是「运动」）。"
+  },
+  "instantaneous": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(在) + stant(站，拉丁 stare) = 就站在眼前这一下 → 瞬间的、即时的（instantaneous response 瞬间反应）。同族 stant「站」：instant 瞬间 / constant 不变的 / circumstance 环境（周围站着的东西）。"
+  },
+  "couch": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自法语 coucher「躺下」→ 躺的家具 → 长沙发；动词义很地道：be couched in polite terms（用委婉的话表达）。同类家具词：couch 长沙发 / sofa 沙发（阿拉伯来源）/ settee 长靠椅。"
+  },
+  "slumber": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 slumerian → 睡眠、沉睡（a deep slumber），文学味比 sleep 重；引申「沉睡、休眠」（the volcano slumbers 火山在休眠 / a slumbering giant 沉睡的巨人）。"
+  },
+  "numerical": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "numer = 数（拉丁 numerus）→ 数字的、数值的（numerical value 数值 / numerical order 数字顺序）。同族：number 数字 / numerous 众多的 / enumerate 列举 / innumerable 无数的。"
+  },
+  "buffalo": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经意大利语 bufalo 来自希腊 bous「牛」→ 水牛；口语里水陆两用车也叫 buffalo。同族：buff 牛皮（buffle 水牛皮）。美国地名 Buffalo（布法罗）来自这个词。"
+  },
+  "rinse": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 rincer「冲洗」→ 用水涮、漱口（rinse one's mouth 漱口 / rinse the dishes 冲碗）；染发用的「护发素」也叫 rinse。搭配：rinse out 冲洗掉。"
+  },
+  "hydraulic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "hydr = 水（希腊 hydor）+ aul(管，希腊 aulos) = 用管子输送水的 → 水力的、液压的（hydraulic brakes 液压刹车）。同族 hydr：hydrogen 氢 / hydroelectric 水力发电的 / dehydrate 脱水。"
+  },
+  "harp": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 hearpe。习语很常用：harp on about sth 反复唠叨某事（像不停拨同一根弦）。同族：harper 竖琴师；Harp 也是天琴座。"
+  },
+  "watery": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "water(水) + -y = 水的、湿的；引申「（食物）水汪汪的、寡淡的」→「乏味的」（a watery speech 平淡的讲话 / watery soup 清汤）。同族：water 水 / watertight 防水的。"
+  },
+  "reckon": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语「数、讲述」→ 数、算账（reckon the cost 算成本）；算过之后下判断 → 认为（I reckon… 我认为，英式口语高频）。搭配：reckon with 应对 / reckon on 指望。"
+  },
+  "wrestle": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 wræstan「扭拧」（与 wrist 手腕同源）→ 摔跤、搏斗；引申「苦苦应付」（wrestle with a problem 苦苦思考一个问题）。同族：wrist 手腕 / wrest 夺取（拧过来）。"
+  },
+  "terminology": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "termin = 界限（拉丁 terminus）—— 术语就是给每个概念划好界限的词；-logy 是学问。同族：term 术语·学期 / terminal 终点站 / determine 确定（划定界限）/ exterminate 消灭（赶出边界）。"
+  },
+  "proficient": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + fic(做，拉丁 facere) + -ent = 做得出来、做得进 → 熟练的、精通的。同族 fic「做」：profit 利润 / efficient 高效的 / sufficient 充足的 / difficult 困难的。搭配：be proficient in 精通。"
+  },
+  "proficiency": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "proficient 的名词：熟练、精通（a proficiency test 水平测试 / English proficiency 英语水平）。同族：proficient 精通的 / profit 利润 / sufficient 充足的。"
+  },
+  "erect": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + rect(直，拉丁 regere) = 立直起来 → 竖起的；动词「竖立、建造」（erect a monument 立碑）。同族 rect「直/正」：direct 直接的 / correct 纠正（弄直）/ rectangle 矩形（直角）。"
+  },
+  "manuscript": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "manu = 手（拉丁 manus）+ script = 写 → 手写的稿子 → 手稿（缩写 MS，复数 MSS）。同族 manu「手」：manual 手册·手工的 / manufacture 制造（用手做）/ manage 管理（原义用手驾驭）。"
+  },
+  "input": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in(进) + put(放) = 放进去 → 输入、投入（input data 输入数据 / input of resources 资源投入）。同类 in + 动词：output 输出 / intake 摄入 / insight 洞察。"
+  },
+  "dependant": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "depend(依赖) + -ant(人) = 靠别人养活的人 → 受赡养者。⚠️ 英式拼写里名词用 dependant、形容词用 dependent；美式一律 dependent。同族：depend 依赖 / independent 独立的。"
+  },
+  "grant": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "古法语 graanter「允准」→ 授予物、拨款（a research grant 研究经费）；动词「授予、同意」。两个高频搭配：take sth for granted 想当然 / granted that… 就算…"
+  },
+  "handbook": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "hand(手) + book(书) = 随手能拿的书 → 手册（a handbook of chemistry 化学手册）。同类「随手能用」：handy 方便的 / handbag 手提包 / firsthand 第一手的。"
+  },
+  "miser": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 miser 是「可怜的」—— 守着钱却过得可怜的人 → 守财奴。同族：miserable 悲惨的 / misery 痛苦 / commiserate 同情。文学典型：狄更斯的斯克鲁奇（Scrooge）。"
+  },
+  "adoption": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ad-(向) + opt(选择，拉丁 optare) = 选过来 → 采纳（the adoption of new rules）；把孩子选进家门 → 收养。同族：opt 选择 / option 选项 / adopt 采纳·收养。"
+  },
+  "trolley": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "可能与 troll「滚动」有关 → 手推车、无轨电车（英式 trolleybus）；美式超市的手推车叫 shopping cart，英式叫 trolley。习语：off one's trolley 发疯（电车脱轨了）。"
+  },
+  "oath": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "古英语 ath「誓言」→ 宣誓（take an oath 宣誓 / under oath 立过誓的 / an oath of office 就职誓词）。三个「誓」分清：oath 誓词（对外）/ vow 誓愿（私人）/ pledge 保证（有担保感）。"
+  },
+  "vow": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 votum「许愿」（同 devote 的 vot）→ 誓言、誓愿（marriage vows 婚誓 / take a vow of silence 立誓沉默）。同族 vot「许愿」：devote 献身 / vote 投票 / devout 虔诚的。"
+  },
+  "wholesome": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "whole(完整、健全) + -some(有…性质的) = 有益健康的（wholesome food 健康食品）；引申「（道德上）健康的」（a wholesome film 内容健康的电影）。同族：whole 完整的 / handsome 英俊的（hand + some）。"
+  },
+  "revenue": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + ven(来，拉丁 venire) = 回来的钱 → 收入、税收（tax revenue 税收 / revenue and expenditure 收支）。同族 ven「来」：event 事件 / invent 发明 / convention 大会 / avenue 大道。"
+  },
+  "indoor": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in(内) + door(门) = 门里面的 → 室内的（indoor sports 室内运动）；副词形式是 indoors（待在屋里）。同族：outdoor 室外的 / doorman 门童。"
+  },
+  "pledge": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 plege「担保物」→ 誓言、保证（make a pledge 作出承诺 / pledge to do 承诺做）；也指「抵押」。三个「誓」：oath 誓词 / vow 誓愿 / pledge 保证（有担保感）。"
+  },
+  "moderately": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mod(尺度，拉丁 modus) + -erately = 按尺度来 → 适度地、适中地（moderately priced 价格适中）。同族：moderate 适度的 / mode 方式 / modest 谦虚的 / modulate 调节。"
+  },
+  "fitness": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fit(合适) + -ness = 合适、恰当；身体「合适」就是健康（physical fitness 体能）。同族：fit 合适的 / fitting 恰当的·试衣 / unfit 不合适的。搭配：fitness for purpose 适用性。"
+  },
+  "vision": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vis = 看（拉丁 videre）。看的能力 → 视力；看得远 → 眼光、远见（a man of vision 有远见的人）；眼前出现的景象 → 幻象。同族 vis「看」：visual 视觉的 / visit 拜访 / evident 明显的 / supervise 监督。"
+  },
+  "fitting": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fit(合适) + -ing = 恰当的、合适的（a fitting tribute 恰当的致敬）；名词「试衣、配件」（a fitting room 试衣间 / pipe fittings 管件）。同族：fit 合适 / fitness 适合·健康。"
+  },
+  "snob": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "原义是「鞋匠」（18 世纪牛津的市井俚语，指非贵族出身的人）→ 后来指一味攀附上层、看不起下面的人 → 势利小人。同族：snobbish 势利的 / snobbery 势利。"
+  },
+  "occurrence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "oc-(向) + curr(跑，拉丁 currere) + -ence = 跑到眼前的事 → 发生、事件（a common occurrence 常见的事）。同族：occur 发生 / current 当前的 / recur 复发（再跑回来）/ excursion 远足。"
+  },
+  "snobbish": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "snob(势利小人) + -ish = 势利的。同族：snob 势利眼 / snobbery 势利行为。搭配：a snobbish attitude 势利的态度。"
+  },
+  "influence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(向内) + flu(流，拉丁 fluere) = 某种力量流进你心里 → 影响、势力（under the influence of 在…影响下）。同族 flu「流」：fluent 流利的 / fluid 流体 / affluent 富裕的 / influenza 流感（古人以为星辰「流」入人体）。"
+  },
+  "attendant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "at-(向) + tend(伸，拉丁 tendere) = 把身子伸向某人、随时伺候 → 侍者、护理人员；形容词「伴随的」（attendant risks 随之而来的风险）。同族 tend「伸」：attend 出席·照料 / attention 注意 / extend 延伸。"
+  },
+  "municipal": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 munia 是「公共义务」（munus 职责）→ 承担公共事务的 → 市政的（municipal government 市政府 / municipal library 市立图书馆）。同族：munificent 慷慨的 / immune 免疫的·免除义务的。"
+  },
+  "automate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "auto(自己，希腊 autos) + mate(动) = 让它自己动 → 使自动化。同族 auto-「自」：automatic 自动的 / automobile 汽车 / autonomy 自治 / autobiography 自传。"
+  },
+  "conform": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + form(形状) = 大家同一个形状 → 遵守、符合（conform to the rules 遵守规则 / conform with 与…一致）。同族：form 形状 / reform 改革 / uniform 制服（统一形状）。"
+  },
+  "divert": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "di-(离开) + vert(转，拉丁 vertere) = 转开 → 使转向、转移（divert traffic 疏导交通 / divert attention 转移注意力）；「使娱乐」也是把注意力引开。同族 vert「转」：convert 转换 / reverse 反转 / avert 避开。"
+  },
+  "specialize": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "speci = 种类（拉丁 species）→ 专门化（specialize in 专攻）；生物学的「特化」也是它。同族：special 特殊的 / species 物种 / specific 具体的 / specify 明确规定。"
+  },
+  "hazard": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经西班牙语 azar 来自阿拉伯语 az-zahr「骰子」—— 掷骰子有风险，于是「骰子」变成了「危险」。搭配：a fire hazard 火灾隐患 / health hazard 健康危害 / hazard a guess 冒险一猜。"
+  },
+  "standardize": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "standard 来自 stand「立」+ -ard = 立起来的标杆（军旗）→ 标准；动词 standardize 是「使标准化」（standardize the process 使流程标准化）。同族：stand 站 / standard 标准 / standing 地位。"
+  },
+  "distinguish": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "di-(分开) + stingu(刺，拉丁 stinguere) = 用刺分开 → 区分、辨别（distinguish between A and B）；使自己「被分出来」→ 使杰出（distinguish oneself 出人头地）。同族：distinct 明显的 / instinct 本能 / extinguish 熄灭。"
+  },
+  "lengthen": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "length(长度) + -en(使) = 使变长（lengthen the skirt 把裙子放长）。⚠️ 注意拼写：length + en 不双写。同族：long 长的 / length 长度 / lengthy 冗长的。"
+  },
+  "evaporate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + vapor(蒸气，拉丁 vapor) + -ate = 变成蒸气出去 → 蒸发、脱水；引申「（希望、资金）逐渐消失」（the enthusiasm evaporated 热情消散了）。同族：vapour 蒸气。"
+  },
+  "shame": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「羞耻」→ 动词「使羞愧、玷辱」（shame sb into doing 羞得某人去做）。两个高频表达：What a shame! 真可惜！/ shame on you 你真丢脸。同族：shameful 可耻的 / shameless 无耻的。"
+  },
+  "resign": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + sign(签字，拉丁 signare) = 签字交还职位 → 辞职；「使听任」是引申（认命）（resign oneself to 听任、甘于）。同族：sign 签字 / design 设计 / assign 分配 / resignation 辞职·顺从。"
+  },
+  "freshen": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fresh(新鲜) + -en(使) = 使显得新鲜；也指「（风）变强」（the wind freshened）和「梳洗一下」（freshen up）。同族：fresh 新鲜的 / refresh 使恢复精神 / freshman 大一新生。"
+  },
+  "perfect": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(完全) + fect(做，拉丁 facere) = 完全做成了 → 完美的；动词「使完善、使熟练」（perfect one's English 精进英语）。同族 fect「做」：effect 效果 / defect 缺陷（没做好）/ infect 感染 / factory 工厂。"
+  },
+  "ventilate": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "vent = 风（拉丁 ventus，与 wind 同源）→ 使通风（ventilate the room 给房间通风）；引申「公开讨论」（ventilate an issue 把问题摊出来）。同族：vent 通风口 / ventilation 通风。"
+  },
+  "infect": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(在内) + fect(做，拉丁 facere) = 在身体里「做」起来 → 感染（infected wound 感染的伤口）；引申「（情绪、思想）传染」。同族：perfect 完美 / defect 缺陷 / disinfect 消毒（去掉感染）。"
+  },
+  "soften": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "soft(软) + -en(使) = 使变软；引申「（态度）软化」（soften one's stance 放软立场）和「（灯光、声音）变柔和」。同族：soft 软的 / softly 轻轻地 / softness 柔软。"
+  },
+  "blaze": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 blæse「火炬、火焰」→ 熊熊燃烧（The fire blazed all night）；「开辟道路」义很地道：blaze a trail（在树上刻记号引路 → 开创先河）。另有同形词 blaze 指马脸上的白斑。"
+  },
+  "acquaint": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ac-(向) + quaint(知道，拉丁 cognoscere 的变体) = 使知道 → 使认识、使熟悉。两个搭配必背：acquaint sb with sth 让某人了解某事 / be acquainted with 熟悉。同族：recognize 认出 / notice 注意 / quaint 古怪的（原义「熟知的」）。"
+  },
+  "facilitate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "facil = 容易（拉丁 facilis，来自 facere「做」，本义「做得动」）→ 使容易、促进（facilitate communication 促进沟通）。同族：facility 设施·便利 / facile 轻率的（太容易）/ difficult 困难的（dis- 不 + facil 容易）。"
+  },
+  "lubricate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "lubric = 滑（拉丁 lubricus）→ 加润滑油、使润滑（lubricate the engine 给发动机上油）；引申「（用酒食）使关系顺畅」。同族：lubricant 润滑剂 / lubricious 滑头的。"
   }
  }
 }
