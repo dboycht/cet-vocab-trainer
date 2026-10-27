@@ -22,20 +22,21 @@ const TMP = join(ROOT, ".tmp");
 mkdirSync(TMP, { recursive: true });
 
 /**
- * 动态挑一个「真的没有助记」的词。
+ * 「没有助记的词」这条断言的输入，演进过程（三次，都记下来因为每次的教训不同）：
  *
- * ⚠️ 曾经这里写死成 `overhang`；等助记写到第 327 个词时，它**有**助记了，
- * 于是断言「没有助记的词不显示助记块」凭空变红 —— 又是「断言编码了会变的现状」。
- * 判据：**"没有助记的词"必须当场从数据里算出，不许写死某一个词。**
+ *   1. 最初写死成 `overhang` —— 助记写到第 327 个词时它有助记了，断言凭空变红。
+ *      教训：**断言不许编码"某个词恰好没有助记"这种会变的事实。**
+ *   2. 改成"当场从数据里算出一个没有助记的词" —— 方向对，但助记覆盖到 100% 后
+ *      **算不出来了**，于是我当初埋的守卫按设计抛错：「这条断言已失去意义，需重写」。
+ *      教训：**依赖"数据里恰好存在某种情况"的输入，终究会随数据演进而失效。**
+ *   3. 试过"合成一个词库外的词"，**走不通**：队列是从词库生成的，词库外的词进不了队列
+ *      （实测 stateInfo().word === null）。
+ *   4. 最终方案：**从真实数据里临时摘掉一条助记**（`__cvt.dropTip`），走真实的渲染路径，
+ *      验完再还原。被测的仍是真实的守卫逻辑，输入却完全可控。
+ *
+ * 判据：**断言的输入要可控，不要寄望于"数据里恰好有那种情况"。**
  */
-function pickWordWithoutTip() {
-  const wb = JSON.parse(readFileSync(join(ROOT, "assets", "wordbooks", "cet6.json"), "utf8"));
-  const tips = JSON.parse(readFileSync(join(ROOT, "assets", "wordbooks", "tips", "cet6.json"), "utf8")).tips;
-  const hit = wb.words.map((w) => w.word).find((w) => !tips[w]);
-  if (!hit) throw new Error("词库里已经没有「没有助记」的词了 —— 这条断言本身失去意义，需重写");
-  return hit;
-}
-const NO_TIP_WORD = pickWordWithoutTip();
+const NO_TIP_WORD = "overhang";
 
 const argv = process.argv.slice(2);
 const arg = (f, d) => { const i = argv.indexOf(f); return i >= 0 && argv[i + 1] ? argv[i + 1] : d; };
@@ -533,8 +534,12 @@ check("徽记都写明了类别 + 确定度", seen.every((s) => /·\s*(确证|�
 check("每条助记都有实质内容（≥30 字）",
   seen.every((s) => s.text.length >= 30), `最短 ${Math.min(...seen.map((s) => s.text.length))} 字`);
 
-// 没助记的词：整块必须隐藏（不硬编不存在的助记）
-// ⚠️ 用现算出来的 NO_TIP_WORD，不写死具体词（写死过 overhang，被后来的助记批次弄假红）
+// 没有助记的词：整块必须隐藏（不硬编不存在的助记）
+// ⚠️ 输入方式的第三次演进（见文件开头）：
+//   助记覆盖到 100% 之后，队列里再也走不到"没有助记的词"这个分支 ——
+//   而"合成一个词库外的词"也行不通：队列是从词库生成的，词库外的词进不了队列（实测 null）。
+//   最终方案：**从真实数据里摘掉一条助记，再走真实的渲染路径**。
+//   被测的仍是真实的守卫逻辑，但输入完全可控、且绝不依赖"数据里恰好有这种词"。
 await seedAndReload({
   version: 2,
   cards: { [NO_TIP_WORD]: { s: 2, i: 5, e: 2.5, d: dayNum() - 1, r: 3, l: 0, a: 0, c: 0, k: 0, fd: 0, ld: 0, bd: 0, ms: 0, t: 0 } },
@@ -543,13 +548,29 @@ await seedAndReload({
   settings: { newPerDay: 0, reviewPerDay: 50, quizTypes: "en2cn", timeGate: false, memorizeMs: 0, autoSpeak: false, showPos: true },
 });
 const noTipWordNow = await evalJs(`window.__cvt.stateInfo().word`);
-check("挑中的确实是没有助记的词", noTipWordNow === NO_TIP_WORD, `${noTipWordNow} vs ${NO_TIP_WORD}`);
+check("队列里确实有这个词（说明种子生效）", noTipWordNow === NO_TIP_WORD, `${noTipWordNow} vs ${NO_TIP_WORD}`);
+// 前提确认：这个词**原本是有助记的**（否则下面的摘除没意义，断言会假绿）
+const before = await evalJs(`({ hasTip: !!window.__cvt.tipOf(${JSON.stringify(NO_TIP_WORD)}), tipCount: window.__cvt.tipCount() })`);
+check("被测词原本有助记（断言前提成立）", before.hasTip === true, JSON.stringify(before));
+const saved = await evalJs(`window.__cvt.tipOf(${JSON.stringify(NO_TIP_WORD)})`);
+// 摘掉助记后重画：学习卡上的助记块必须隐藏
+const dropped = await evalJs(`window.__cvt.dropTip(${JSON.stringify(NO_TIP_WORD)})`);
+const lnHidden = await evalJs(`document.getElementById('lnTip').hidden`);
+check("摘掉助记后：学习卡的助记块整块隐藏（不硬编）", lnHidden === true,
+  `dropTip=${JSON.stringify(dropped)} lnTipHidden=${lnHidden}`);
+// 判定之后，反馈里的助记块也必须隐藏
+await evalJs(`window.__cvt.dropTip(${JSON.stringify(NO_TIP_WORD)})`);
 const idxNoTip = await evalJs(`window.__cvt.stateInfo().answerIndex`);
 await evalJs(`document.querySelectorAll('.opt')[${idxNoTip}].click()`);
 await sleep(400);
 const noTip = await evalJs(`({ fbTipHidden: document.getElementById('fbTip').hidden })`);
-check("没有助记的词：判定后不显示助记块（不硬编）", noTip.fbTipHidden === true,
+check("没有助记的词：判定后也不显示助记块", noTip.fbTipHidden === true,
   `${NO_TIP_WORD}: ${JSON.stringify(noTip)}`);
+// 还原：证明"显示"与"隐藏"都由数据驱动，而不是块被永久关掉
+await evalJs(`window.__cvt.restoreTips(${JSON.stringify(NO_TIP_WORD)}, ${JSON.stringify(saved)})`);
+const restored = await evalJs(`({ hasTip: !!window.__cvt.tipOf(${JSON.stringify(NO_TIP_WORD)}), lnHidden: document.getElementById('lnTip').hidden })`);
+check("还原助记后：块重新显示（证明是数据驱动而非一次性的）",
+  restored.hasTip === true, JSON.stringify(restored));
 
 // 有助记的词：判定后必须显示，类别正确，且嵌在反馈块里
 await seedAndReload({

@@ -1455,6 +1455,23 @@ function installDebugHandle() {
     },
     tipOf: (w) => state.tips.get(w) || null,
     tipCount: () => state.tips.size,
+    /**
+     * 测试专用：临时把某个词的助记从内存里摘掉，并**走真实的渲染路径**重画当前卡。
+     *
+     * 为什么需要它：助记覆盖到 100% 之后，队列里**再也走不到"没有助记的词"**这个分支，
+     * 而那条守卫（没有助记就整块隐藏、不硬编）仍然必须被验证。合成一个词库外的词
+     * 行不通 —— 队列是从词库生成的，词库外的词根本进不了队列（实测走不通）。
+     * 所以改成"从真实数据里摘掉一条"：**被测的仍是真实的 fillTip 守卫，输入却可控**。
+     *
+     * 只动内存，不写 localStorage、不碰磁盘；用完请调 restoreTips() 还原。
+     */
+    dropTip: (w) => {
+      const had = state.tips.get(w) || null;
+      state.tips.delete(w);
+      renderCard();
+      return { hadTip: !!had, tipCount: state.tips.size };
+    },
+    restoreTips: (w, tip) => { if (tip) state.tips.set(w, tip); renderCard(); return state.tips.size; },
     masteredCount: () => countAll().mastered,
     isMastered: (w) => isMastered(getCard(w)),
     buildQuestion: (w, t) => {
