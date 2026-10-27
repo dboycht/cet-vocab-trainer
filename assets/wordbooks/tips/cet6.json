@@ -6554,6 +6554,341 @@
    "kind": "family",
    "certainty": "high",
    "tip": "termin = 界限、终点（拉丁 terminus）→ 终点站、终端（computer terminal 计算机终端）；医学上「晚期的」（terminal illness 绝症）也是「到终点」。同族：terminate 终止 / determine 确定 / terminology 术语。"
+  },
+  "extreme": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "extr = 外（拉丁 extra）+ -eme(最高级后缀) = 最外面的那一头 → 极端；形容词「极端的、极度的」（extreme weather 极端天气 / go to extremes 走极端）。同族 extr「外」：external 外部的 / extraordinary 非凡的 / extract 提取。"
+  },
+  "geometrical": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "geo(土地，希腊 ge) + metr(测量，希腊 metron) = 测地术 —— 古埃及尼罗河每年泛滥后要重新丈量土地，几何学由此诞生。同族：geography 地理 / geometry 几何 / meter 米·测量。"
+  },
+  "polarity": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "pol(极，希腊 polos) + -arity = 极性（magnetic polarity 磁极性）；引申「（意见的）两极分化、归向」。同族：polar 极的 / pole 极 / polarize 使两极分化。"
+  },
+  "bazaar": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "波斯语 bazar「市场」→ 集市（中东、印度的传统市场）；引申「义卖会」（a charity bazaar）和「杂货店」。同类从波斯或阿拉伯语来的商业词：caravan 商队 / tariff 关税。"
+  },
+  "guitar": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "源自希腊 kithara（一种古代竖琴），经阿拉伯语 qitar、西班牙语 guitarra 传入英语 → 吉他。同源词：zither 齐特琴 / sitar 西塔琴（印度）。"
+  },
+  "gathering": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "gather(聚集) + -ing = 集会、聚会（a family gathering 家庭聚会）；也指「收集、积累」（a gathering of data）。同族：gather 收集 / together 一起。"
+  },
+  "irritate": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 irritare「刺激」→ 使恼怒（His remarks irritated me.）；也指生理上的「刺激、发炎」（irritated skin）。同族：irritation 恼怒·发炎 / irritable 易怒的。"
+  },
+  "set": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "set 是英语里义项最多的词之一：名词「一套、集合」（数学的 set theory 集合论 / a set of tools 一套工具）；动词「放、设定、落下」（the sun sets）。搭配：set up 建立 / set off 出发。"
+  },
+  "timely": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "time(时间) + -ly = 及时的、适时的（a timely warning 及时的警告）。⚠️ 与 in time（及时地）区分：timely 是形容词，in time 是副词短语。同族：timeless 永恒的。"
+  },
+  "drastic": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "希腊 dran「行动、做」（同 drama）→ 下猛药的 → 激烈的、严厉的（drastic measures 严厉措施 / a drastic change 剧变）。同族：drama 戏剧（演出来）/ dramatize 戏剧化。"
+  },
+  "radical": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "radic = 根（拉丁 radix）→ 从根上来的 → 根本的、彻底的（radical change 根本性变革）；政治上「激进的」就是「要动根本」。同族：radish 萝卜（根菜）/ eradicate 根除 / radicle 胚根。"
+  },
+  "Christian": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "Christ(基督) + -ian(…的人/的) = 基督徒、基督教的。同族：Christ 基督 / Christianity 基督教 / Christmas 圣诞节 / christen 命名·洗礼。"
+  },
+  "energetic": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(在内) + erg(工作，希腊 ergon) + -etic = 体内有活儿 → 精力旺盛的、积极的（an energetic campaign 积极的运动）。同族 erg「工作」：energy 能量 / synergy 协同 / ergonomic 人体工学的。"
+  },
+  "elemental": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "element(元素、要素) + -al = 基本的、自然力的（elemental forces 自然力量 / elemental needs 基本需求）。⚠️ 与 elementary（初级的，如 elementary school 小学）区分。"
+  },
+  "mechanism": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mechan = 机械（希腊 mekhane）→ 机械装置、机制（the mechanism of the market 市场机制 / a defence mechanism 防御机制）。同族：machine 机器 / mechanic 机修工 / mechanics 力学。"
+  },
+  "severe": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 severus「严格、严肃」→ 严厉的、剧烈的（severe pain 剧痛 / severe weather 恶劣天气）；「简朴的」是引申（不加修饰）。同族：severity 严重 / persevere 坚持不懈。"
+  },
+  "dynamic(al)": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dynam = 力量（希腊 dynamis）→ 动态的、有活力的（a dynamic economy 有活力的经济）；也指「机能上的、动力学的」。同族：dynamite 炸药 / dynamo 发电机 / dynasty 王朝（有力量的家族）。"
+  },
+  "ultimate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ultim = 最远的（拉丁 ultimus）→ 最终的、根本的（the ultimate goal 终极目标 / ultimate responsibility 最终责任）。同族：ultimatum 最后通牒 / ultra- 超（ultraviolet 紫外线）。"
+  },
+  "witty": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "wit(机智、风趣) + -ty = 机智的、妙语连珠的（a witty remark 妙语）。同族：wit 智慧·风趣 / witness 目击者（知情的人）/ outwit 智胜。"
+  },
+  "muscular": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "muscul = 肌肉（拉丁 musculus，本义「小老鼠」—— 肌肉鼓动像老鼠在皮下跑）→ 肌肉发达的、强健的（muscular build 健壮的体格）。同族：muscle 肌肉。"
+  },
+  "fence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "中古英语 fens「防御」（同 defence）→ 围栏（防御用的）；动词「击剑」就是防与攻；也指「销赃」（fence stolen goods）。同族：defence 防御 / fend off 挡开。"
+  },
+  "ingenious": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(在内) + gen(生，拉丁 gignere) = 天生的才智在里面 → 机灵的；也指「（设计）精巧的」（an ingenious device 精巧的装置）。⚠️ 与 ingenuous（天真的）区分。同族：genius 天才 / genuine 真正的。"
+  },
+  "fellowship": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fellow(伙伴) + -ship(关系) = 伙伴关系、友谊；也指「（研究）奖学金、研究员职位」（a research fellowship）。同族：fellow 同伴 / friendship 友谊 / leadership 领导。"
+  },
+  "ingenuity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ingenious 的名词：机灵、独创性（the ingenuity of the design 设计的巧妙 / human ingenuity 人类的智慧）。同族：ingenious 机灵的 / genius 天才。"
+  },
+  "ham": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 hamm「腿弯」→ 后腿肉 → 火腿；引申「（业余）表演夸张的人」（a ham actor 蹩脚演员）。同族：hamstring 腘绳肌腱（腿弯处的筋）。"
+  },
+  "framework": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "frame(框架) + work(构造物) = 骨架结构 → 框架、体制（a legal framework 法律框架 / the framework of society 社会结构）。同族：frame 框架·陷害 / network 网络 / homework 作业。"
+  },
+  "Mars": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "罗马战神 Mars（对应希腊的阿瑞斯）→ 火星（红得像血）。同源词：martial 军事的（martial arts 武术）/ March 三月（战神月）。五个行星名的罗马对应：Mercury / Venus / Mars / Jupiter / Saturn。"
+  },
+  "stall": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古英语 steall「位置、站位」→ 摊位（market stall 市场摊位）、厩位（马的位置）；动词「（发动机）熄火、拖延」。同族：install 安装（放进位置）/ forestall 先发制人。"
+  },
+  "piston": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自意大利语 pistone「捣杵」（同 pestle 研杵）→ 在气缸里上下捣的东西 → 活塞。同族：pestle 研杵 / pistil 雌蕊（也是杵形）。"
+  },
+  "tact": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "tact = 触摸（拉丁 tangere）→ 知道怎么「摸」人 → 得体、圆滑（show tact 表现得体 / a tactful reply 得体的回答）。同族 tact「触摸」：tactile 触觉的 / contact 接触 / contagious 传染的。"
+  },
+  "vigour": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vig = 旺盛（拉丁 vigere）→ 活力、精力（full of vigour 精力充沛）；法律上「（文件的）效力」也用 vigour。同族：vigorous 有力的 / invigorate 使振奋。"
+  },
+  "mixer": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "mix(混合) + -er(器/人) = 搅拌器、调酒师；社交上的「交际场合」也叫 mixer（把陌生人混在一起）。同族：mix 混合 / mixture 混合物 / mixed 混合的。"
+  },
+  "bribe": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 bribe 本是「给乞丐的面包屑」→ 小恩小惠 → 贿赂（take bribes 受贿 / bribe sb with sth 用…贿赂）。同族：bribery 行贿。"
+  },
+  "engagement": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(使) + gage(抵押、保证) + -ment = 作出的承诺 → 婚约、约会、雇用（a speaking engagement 演讲邀约）；「债务」也是承诺。同族：engage 从事·订婚 / wager 打赌。"
+  },
+  "response": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + spons(承诺，拉丁 spondere) = 回应、答复（in response to 作为回应）；技术上的「响应、灵敏度」也是它。同族 spons「承诺」：respond 回应 / responsible 有责任的 / sponsor 赞助人。"
+  },
+  "cloudy": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "cloud(云) + -y = 多云的；引申「混浊的」（cloudy water 浑水）和「模糊不清的」（cloudy memory 模糊的记忆）。同族：cloud 云 / cloudless 无云的 / cloud computing 云计算。"
+  },
+  "wield": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "古英语 wealdan「统治、掌控」→ 挥舞（wield a sword 挥剑）；引申「行使（权力）」（wield power 行使权力 / wield influence 施加影响）。"
+  },
+  "badge": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古英语 bage「标志」→ 徽章、像章（a police badge 警徽）；引申「标志、象征」（a badge of honour 荣誉的标志）。"
+  },
+  "modification": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mod(尺度，拉丁 modus) + -ification = 按尺度调整 → 修改、缓和（minor modifications 小改动）；语法上的「修饰」也是它。同族：modify 修改 / mode 方式 / moderate 适度的。"
+  },
+  "corrupt": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cor-(完全) + rupt(断，拉丁 rumpere) = 彻底断坏 → 腐败的、贪污的（corrupt officials 腐败官员）；动词「贿赂、使腐化」；电脑文件「损坏」也是它。同族 rupt「断」：interrupt 打断 / erupt 爆发 / bankrupt 破产 / disrupt 扰乱。"
+  },
+  "environmental": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "environ(围绕，古法语) + -mental = 围绕我们的东西 → 环境的（environmental protection 环境保护）。同族：environment 环境 / environs 周边地区。"
+  },
+  "locust": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 locusta「蝗虫」（同 lobster 龙虾 —— 都有硬壳跳跃的形象）→ 蝗虫；Locust 也指洋槐。文化点：a plague of locusts 蝗灾。"
+  },
+  "fossil": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "foss = 挖（拉丁 fodere）→ 挖出来的东西 → 化石（fossil fuels 化石燃料）；引申「老古董、守旧的人」。同族：fossilize 使成为化石。"
+  },
+  "wasp": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 wæps「黄蜂」→ 黄蜂（比 bee 更凶、能多次蜇人）；缩写 WASP 指「白人盎格鲁-撒克逊新教徒」（美国的传统主流群体）。同族：waspish 刻薄的（像黄蜂）。"
+  },
+  "pregnant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(前) + gn(生育，拉丁 gignere) + -ant = 生之前的状态 → 怀孕的；引申「充满…的、意义深长的」（pregnant with meaning 意味深长 / a pregnant pause 意味深长的停顿）。同族 gn「生」：genesis 起源 / genetic 基因的。"
+  },
+  "desolate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + sol(单独，拉丁 solus) + -ate = 完全孤单 → 荒芜的、凄凉的（a desolate landscape）、孤独的。同族 sol「单独」：solitary 孤独的 / solo 独奏 / solitude 独处。"
+  },
+  "glider": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "glide(滑行) + -er(器) = 滑翔机（无动力靠气流滑行）；同类：hang glider 悬挂式滑翔机 / slider 滑块。同族：glide 滑行 / gliding 滑翔运动。"
+  },
+  "royalty": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "roy = 王（拉丁 rex, regis）→ 王室、王族；也指「版税」（royalties —— 付给作者的「王室费」）。同族 roy/reg「王」：royal 王室的 / regal 帝王般的 / reign 统治。"
+  },
+  "slide": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "动词「滑动」→ 名词「滑板、滑座、幻灯片」（a slide show 幻灯片演示）；引申「（价格、情况）下滑」（a slide in profits 利润下滑）。搭配：let things slide 放任不管。"
+  },
+  "illusion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "il-(在内) + lus(戏弄，拉丁 ludere) + -ion = 心里被戏弄 → 错觉、幻想（optical illusion 视错觉 / be under the illusion that 误以为）。同族 lus「玩」：ludicrous 荒唐的 / allude 暗示。"
+  },
+  "pulley": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自希腊 polos「轴」（同 pole 极）→ 滑轮、皮带轮。同类简单机械：lever 杠杆 / pulley 滑轮 / inclined plane 斜面 / wedge 楔。"
+  },
+  "correlate": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "cor-(一起) + relate(关联) = 彼此关联 → 互相关联的事物；动词「使相互关联」（correlate A with B）。同族：relation 关系 / correlation 相关性。"
+  },
+  "ruby": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 rubeus「红色」（同 rouge 口红）→ 红宝石。同族：rubicund 红润的 / rouge 胭脂。同类宝石：ruby 红宝石 / emerald 绿宝石 / sapphire 蓝宝石 / diamond 钻石。"
+  },
+  "granite": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "gran = 颗粒（拉丁 granum，同 grain）→ 有颗粒纹的石头 → 花岗岩；-ite 是岩石后缀。同族 gran「颗粒」：grain 谷物 / granular 颗粒状的。⚠️ 习语 take sth for granted（想当然）来自 grant，不是 granite。"
+  },
+  "outcome": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "out(出) + come(来) = 事情出来的那个结果 → 结果、成果（the outcome of the talks 会谈结果）。同类 out + 动词：outbreak 爆发 / outburst 爆发 / output 产出 / outcry 抗议。"
+  },
+  "walnut": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "wal-(古英语 wealh「外来的」) + nut(坚果) = 外来的坚果 → 核桃。同类 wal- 词：Wales 威尔士 / walrus 海象。"
+  },
+  "hit": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "动词「打、击中」→ 名词「成功之作」（a hit song 热门歌曲 / the show was a hit）；「点击量」（a million hits 百万访问量）也是「击中」。搭配：hit on 想出·搭讪。"
+  },
+  "arc": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "arc = 弓（拉丁 arcus）→ 弧形、弧光（an arc of light 一道弧光）；数学的「弧」、电学的「电弧」都是它。同族 arc「弓」：arch 拱 / archer 弓箭手 / arcade 拱廊。"
+  },
+  "transverse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "trans-(越过) + vers(转，拉丁 vertere) = 横过来切 → 横切的、横向的（a transverse section 横截面）。同族 vers「转」：reverse 反转 / convert 转换 / versatile 多面手。"
+  },
+  "exclamation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + clam(喊，拉丁 clamare) + -ation = 喊出来 → 呼喊、感叹（an exclamation of surprise 惊叫）；语法上的「感叹句」（exclamatory sentence）也是它。同族 clam「喊」：exclaim 惊呼 / claim 声称 / proclaim 宣告。"
+  },
+  "traverse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "tra-(越过) + vers(转) = 横着走过去 → 横越、穿过（traverse the desert 穿越沙漠）；登山里的「横切」也是它。同族：transverse 横向的 / reverse 反转 / convert 转换。"
+  },
+  "harmonious": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "harmon = 和谐（希腊 harmonia 本义「接合」）→ 和谐的（a harmonious family 和睦的家庭）。同族：harmony 和谐 / harmonize 使协调 / harmonic 和声的。"
+  },
+  "monk": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 monakhos「独居的人」（monos 单独，同 monopoly 的 mon）→ 修道士、僧侣（早期修士独居修行）。同族：monastery 修道院 / monastic 修道院的 / monologue 独白。"
+  },
+  "bed": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「床」→ 铺在底下的一层 → 河床、湖底（the river bed）、矿床（a coal bed 煤层）、花坛（a flower bed）。一个画面：底下铺着的那一层。搭配：bedrock 基岩·根本。"
+  },
+  "synthesis": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "syn-(一起) + thesis(放置) = 放在一起 → 综合、合成（the synthesis of proteins 蛋白质合成）；反义 analysis 分析（拆开）。同族：thesis 论点 / hypothesis 假设 / synthetic 合成的。"
+  },
+  "cooperative": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "co-(一起) + oper(工作，拉丁 operari) + -ative = 一起干活的 → 合作的（a cooperative effort 协作努力）；名词「合作社」（a farmers' cooperative 农业合作社）。同族 oper「工作」：operate 操作 / cooperation 合作。"
+  },
+  "applause": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ap-(向) + plaus(拍手，拉丁 plaudere) = 朝你拍手 → 掌声、喝彩（a round of applause 一阵掌声）。同族 plaus「拍手」：applaud 鼓掌 / plausible 貌似合理的（原义「值得鼓掌的」）。"
   }
  }
 }
