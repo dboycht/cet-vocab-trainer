@@ -151,7 +151,13 @@ body {
 }
 .rail-fill { width: 100%; background: var(--ink); border-radius: 4px; height: 0;
              transition: height .38s cubic-bezier(.2, .8, .2, 1); }
-.rail-label { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); writing-mode: horizontal-tb; }
+.rail-label {
+  font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3);
+  writing-mode: horizontal-tb;
+  /* 现在会显示「6/21 · 本批 3/10」，竖条旁边很窄 —— 允许换行但别把它挤成竖排 */
+  max-width: 74px; text-align: center; line-height: 1.5;
+  white-space: normal; word-break: keep-all;
+}
 
 .cardwrap { display: flex; flex-direction: column; align-items: center; gap: clamp(12px, 2.4vw, 22px); min-width: 0; }
 

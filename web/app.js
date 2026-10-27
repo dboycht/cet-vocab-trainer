@@ -486,6 +486,9 @@ function renderCard() {
   $('spellInput').className = '';
   $('spellSubmit').disabled = false;
   $('goNext').hidden = true;
+  // ⚠️ 必须重置：学完一张后「记住了，开始学」按钮会留在屏幕上，
+  //    下一张若是测验题，底部就会残留一个不该有的按钮（实测截图暴露）。
+  $('goLearn').hidden = true;
   $('goFlashBad').hidden = true;
   $('goFlashMeh').hidden = true;
   $('goFlashGood').hidden = true;
@@ -581,6 +584,13 @@ function renderCard() {
     $('goNext').hidden = true;
   }
   $('browseNav').hidden = !isBrowse;
+  // 卡片上方的「第 N 张 · 本批 x/10」—— 批次进度放这里，别挤在竖条旁
+  const b = state.batch;
+  $('cardIndex').textContent = state.mode === 'browse'
+    ? `第 ${state.browse.i + 1} 张`
+    : (b && b.size > 0
+        ? `第 ${state.idx + 1} 张 · 本批 ${Math.min(b.index, b.size)}/${b.size} 个新词`
+        : `第 ${state.idx + 1} 张`);
   $('hint').textContent = hintText(item);
   $('kbdHint').innerHTML = kbdHintHtml(item);
   updateRail();
@@ -678,10 +688,8 @@ function updateRail() {
   const total = state.mode === 'browse' ? state.browse.order.length : state.queue.length;
   const pos = state.mode === 'browse' ? state.browse.i + 1 : state.idx + 1;
   $('railFill').style.height = total ? `${Math.min(100, (pos / total) * 100)}%` : '0';
-  // 一批一批来：带上「本批已学 x/10」
-  const b = state.batch;
-  const batchTag = b && b.size > 0 ? ` · 本批 ${Math.min(b.index, b.size)}/${b.size}` : '';
-  $('railLabel').textContent = `${pos}/${total}${batchTag}`;
+  // ⚠️ 这里只放「第几张/共几张」—— 竖条旁边太窄，批次进度改放卡片上方的 cardIndex。
+  $('railLabel').textContent = `${pos}/${total}`;
 }
 
 function countAll() {
