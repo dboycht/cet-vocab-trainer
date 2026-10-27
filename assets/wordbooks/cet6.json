@@ -10661,11 +10661,14 @@
   },
   {
    "word": "souvenir",
-   "def": "n.纪念品，黄豆",
+   "def": "n.纪念品，纪念物",
    "pos": [
     "n."
    ],
-   "page": 19
+   "page": 19,
+   "source_def": "n.纪念品，黄豆",
+   "source_pos": [],
+   "entry_fix": "def_fix"
   },
   {
    "word": "documentary",

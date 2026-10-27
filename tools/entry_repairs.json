@@ -156,6 +156,12 @@
       "pos": ["vt."],
       "def": "vt.取代，代替；送还，归还，赔还",
       "evidence": "源书只收了「送还，归还，赔还」。而 replace 在当代英语里几乎只用作「取代、代替」（replace the old model），把次义排在前面会误导。"
+    },
+    "souvenir": {
+      "kind": "def_fix",
+      "pos": ["n."],
+      "def": "n.纪念品，纪念物",
+      "evidence": "源 PDF 该格原文是「souvenir n. 纪念品，黄豆」—— **又一处释义窜入**（黄豆是 soy 的释义）。判据同 bacterium：① souvenir 没有「黄豆」这个义项；② 源书按中文拼音倒序排列，邻近词条是技巧(jìqiǎo)、季度的(jìdù)、纪录的(jìlù)、疾病(jíbìng)，「黄豆」(huángdòu) 不可能出现在 jì 音区。"
     }
   }
 }

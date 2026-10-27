@@ -6224,6 +6224,336 @@
    "kind": "family",
    "certainty": "high",
    "tip": "ab-(离开) + brev(短，拉丁 brevis) + -iation = 把长的去掉一些 → 缩写、缩短（Dr. is an abbreviation of Doctor.）。同族 brev「短」：brief 简短的 / brevity 简洁 / abbreviate 缩写。"
+  },
+  "tutor": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 tueri「看护、照看」→ 照看学生的人 → 导师、家教；动词「辅导」（tutor sb in maths）。同族：tuition 学费·教学 / tutelage 指导 / tutelary 守护的。"
+  },
+  "thrifty": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "thrift(节俭) 与 thrive(兴旺) 同源 —— 会过日子才兴旺 → 节俭的。同族：thrive 兴旺 / thrift 节俭。"
+  },
+  "disillusion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(去除) + illusion(幻觉) = 把幻想拿掉 → 使醒悟、使失望（disillusioned with 对…失望）；名词「醒悟」。同族：illusion 幻觉 / illusive 虚幻的 / delusion 妄想。"
+  },
+  "economically": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "economy(经济·节约) + -ically = 在经济上；也指「节约地」（live economically 省着过）。同族：economy 经济·节约 / economical 节约的 / economic 经济的 / economics 经济学。"
+  },
+  "horn": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「（动物的）角」→ 角状物：号角、喇叭（blow the horn 按喇叭）、新月的尖角、半岛的角（the Horn of Africa 非洲之角）。习语：take the bull by the horns 不畏艰险。"
+  },
+  "interview": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "inter-(之间) + view(看，拉丁 videre) = 双方互相看 → 会见、面试、采访（a job interview 求职面试）。同族 view「看」：review 复习·评论（再看）/ preview 预览 / supervise 监督。"
+  },
+  "reef": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古北欧语 rif「脊」（同 rib 肋骨）→ 水下的「脊」→ 暗礁（the Great Barrier Reef 大堡礁）。同族：rib 肋骨（同源）。"
+  },
+  "receiver": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + ceive(拿，拉丁 capere) + -er = 接收的人或物 → 收受者、接待者；电话的「听筒」、无线电的「接收机」都是接的那一端。同族：receive 收到 / receipt 收据 / reception 接待。"
+  },
+  "coke": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古英语 colke「炭芯」（同 coal）→ 焦炭、炼焦；大写 Coke 是可口可乐（Coca-Cola 的缩写）。同族：coal 煤 / charcoal 木炭。"
+  },
+  "doctrine": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "doc = 教（拉丁 docere）→ 教出来的东西 → 教义、学说（the doctrine of free trade 自由贸易学说）。同族 doc「教」：doctor 博士·医生（有学问的人）/ document 文件 / docile 听话的（可教的）。"
+  },
+  "intercourse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "inter-(之间) + course(跑，拉丁 currere) = 双方之间来回跑 → 往来、交流（social intercourse 社交往来 / commercial intercourse 商业往来）。同族 cours「跑」：course 路线 / current 当前的 / occur 发生。"
+  },
+  "symphony": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sym-(一起，希腊 syn) + phon(声音，希腊 phone) = 很多声音一起响 → 交响乐。同族 phon「声音」：telephone 电话 / phonetics 语音学 / sympathy 同情（一起感受）。"
+  },
+  "degradation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + grad(级，拉丁 gradi) + -ation = 往下降级 → 降级、退化（environmental degradation 环境退化 / soil degradation 土壤退化）。同族：degrade 使降级 / grade 等级 / upgrade 升级。"
+  },
+  "soy": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经荷兰语从日语 shoyu「酱油」借入 → 酱油；后来 soy 也指大豆。同族：soybean 大豆 / soya 大豆（英式）/ soy sauce 酱油。"
+  },
+  "parachute": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "para-(防护) + chute(坠落，法语 chute) = 防坠落的东西 → 降落伞；植物靠风散播的「降落伞」结构也叫 parachute。同族：chute 滑道·坠落 / parachutist 跳伞者。"
+  },
+  "oar": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 ar「桨」→ 桨、划手；动词「划船」。两个习语：stick one's oar in 多管闲事 / put in one's oar 插嘴。"
+  },
+  "discourse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(来回) + cours(跑，拉丁 currere) = 话来回跑 → 交谈、论述（public discourse 公共讨论 / a discourse on ethics 关于伦理的论述）。同族 cours「跑」：course 路线 / intercourse 往来 / current 当前的。"
+  },
+  "ginger": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经拉丁 zingiberis 来自梵语（意为「角状根」）→ 姜。引申：「（头发）姜黄色的」和「活力」（ginger up 使有生气）。同族：ginger ale 姜汁汽水。"
+  },
+  "inspector": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(向内) + spect(看，拉丁 specere) + -or(人) = 往里看的人 → 检查员、巡官（an inspector of police 警督）。同族 spect「看」：inspect 检查 / respect 尊重 / suspect 怀疑。"
+  },
+  "architect": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "archi-(主、首，希腊 arkhi) + tect(建造，希腊 tekton) = 首席建造者 → 建筑师；引申「缔造者」（the architect of reform 改革的缔造者）。同族 tect「建造」：architecture 建筑 / technical 技术的 / tectonic 地壳构造的。"
+  },
+  "reserve": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + serv(保持，拉丁 servare) = 收住不放 → 保留、预订；「缄默、克制」是把自己收住（with reserve 有所保留 / reserved 矜持的）。同族 serv「保持」：preserve 保护 / conserve 保存 / observe 观察。"
+  },
+  "splash": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是水花「哗啦」那声 → 溅、泼（splash water on sb）；名词「溅起的水花」；新闻上的「醒目报道」（splash the story 头条报道）。同族：splashy 惹眼的。"
+  },
+  "challenge": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 calumnia「诬告、指控」→ 下战书、质疑（challenge the decision 质疑决定）；法律上的「要求（法官）回避」是它的古义。引申「艰巨任务」（a real challenge）。"
+  },
+  "clip": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "两个分化了的义项：① 「剪、修剪」（clip the hedge）→ 剪辑（a video clip 视频片段）；② 「夹住」→ 名词「夹子、回形针」（paper clip）。靠语境分。"
+  },
+  "enterprise": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "enter-(之间) + pris(拿，拉丁 prehendere) = 把事业拿在手里做 → 事业、企业（a state enterprise 国有企业）、事业心（a man of enterprise）。同族 pris「拿」：prison 监狱 / comprise 包含 / surprise 意外（突然拿住）。"
+  },
+  "theory": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "希腊 theorein「观看、观察」（同 theatre「看的地方」）→ 观察所得的体系 → 理论；口语里也指「看法、推测」（in theory 理论上 / my theory is that…）。同族：theorem 定理 / theatrical 戏剧的。"
+  },
+  "firmness": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "firm(坚固、坚定) + -ness = 坚固、坚定（with firmness 坚定地）。同族：firm 坚固的·公司 / confirm 确认（使更坚固）/ affirm 断言。"
+  },
+  "diminish": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "di-(离开) + min(小，拉丁 minuere) = 往小里去 → 减少、递减（diminishing returns 收益递减 / The pain diminished.）。同族 min「小」：minor 次要的 / minimum 最小 / minute 微小的。"
+  },
+  "resolute": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(加强) + solut(松开，拉丁 solvere) = 把犹豫解开 → 坚决的、果敢的（a resolute leader）。同族 solv/solut「松开」：resolve 决心·解决 / solution 方案 / dissolve 溶解。"
+  },
+  "lessen": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "less(更少) + -en(使) = 减少、变少（lessen the risk 降低风险 / The pain lessened.）。同类 -en 使动：deepen 加深 / shorten 缩短 / strengthen 加强。"
+  },
+  "sturdy": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自古法语 estourdi「鲁莽、眩晕的」—— 词义从「莽撞」变成了「结实」（莽撞的人看起来壮）。搭配：a sturdy table 结实的桌子 / sturdy resistance 顽强的抵抗。"
+  },
+  "steady": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "stead(立足处，同 instead「代替」里的 stead) + -y = 站得稳 → 稳定的、扎实的（a steady income 稳定收入 / a steady hand 稳的手）。同族：instead 代替 / steadfast 坚定的。"
+  },
+  "stability": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sta = 站（拉丁 stare）→ 站得住 → 稳定（economic stability 经济稳定）。同族 sta「站」：stable 稳定的 / establish 建立 / stand 站 / statue 雕像（站着的东西）。"
+  },
+  "persistence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(贯穿到底) + sist(站，拉丁 sistere) + -ence = 一直站着不倒 → 坚持不懈、持续（the persistence of the problem 问题的持续存在）。同族 sist「站」：persist 坚持 / insist 主张 / resist 抵抗。"
+  },
+  "shrill": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是尖利刺耳那声 → 尖声的（a shrill whistle 尖利的哨声）；引申「（抗议）尖锐的」。三类音色：shrill 尖利 / hoarse 嘶哑 / deep 低沉。"
+  },
+  "persevere": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(贯穿到底) + sever(严格，拉丁 severus) = 一直严格对待下去 → 坚持不懈（persevere with the task）。同族：severe 严厉的 / perseverance 毅力。"
+  },
+  "hypothesis": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "hypo-(在下面，希腊) + thesis(放置) = 放在下面当基础的说法 → 假设、前提（test a hypothesis 检验假设）。同族：thesis 论点 / synthesis 综合（放一起）。"
+  },
+  "bridge": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「桥」→ 动词「架桥、跨越」（bridge the river 在河上架桥）；引申「弥合（分歧）」（bridge the gap 弥合差距）；也指桥牌。一个画面：把两边连起来。"
+  },
+  "insistent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(在…上) + sist(站，拉丁 sistere) + -ent = 站在上面不走 → 坚持的（insistent demands 一再的要求 / an insistent ring 不停的铃声）。同族 sist「站」：insist 坚持 / persist 持续 / resist 抵抗。"
+  },
+  "rate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "rat = 计算（拉丁 rata「算定的份额」）→ 比率、价格（the rate of exchange 汇率 / at any rate 无论如何）；动词「评定、评级」（rate the film 给电影评分）。同族：ratio 比率 / rational 理性的 / ration 定量。"
+  },
+  "sham": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "可能是 sham（假）与 shame（羞耻）混用而来 → 假冒、赝品、假装（sham illness 装病 / a sham 骗局）。近义辨析：fake 假的（物）/ sham 假的（事）/ pretence 假装。"
+  },
+  "clamp": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "「夹紧」：clamp the two pieces together；名词「夹具、夹钳」；引申「（政府）强制实施」（clamp down on smuggling 严厉打击走私）。同类「夹」：clamp 夹钳 / clasp 扣住 / clip 夹子。"
+  },
+  "presume": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(提前) + sum(拿，拉丁 sumere) = 提前拿一个说法来用 → 假定、揣测（I presume you're ready. / presumed innocent 推定无罪）。同族 sum「拿」：assume 假定 / consume 消耗 / resume 恢复。"
+  },
+  "fake": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来源不明（一说出自 19 世纪伦敦黑话 feague）→ 假货、赝品、伪造（fake news 假新闻 / fake it 装作会）。近义辨析：fake 伪造的 / false 不真实的 / counterfeit 伪钞类的伪造。"
+  },
+  "beetle": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 bitela（出自 bitan「咬」）→ 甲虫（咬东西的虫）；「近视眼的人」是旧俚语（像眯眼的样子）。同族：bite 咬。"
+  },
+  "heater": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "heat(加热) + -er(器) = 加热器（a water heater 热水器）。同族：heat 热 / hot 热的 / heatwave 热浪。"
+  },
+  "deepen": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "deep(深) + -en(使) = 加深、加浓（deepen the colour 使颜色变深 / deepen understanding 加深理解）。同类 -en：heighten 提高 / lengthen 加长 / strengthen 加强。"
+  },
+  "homely": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "home(家) + -ly = 像家一样的 → 家常的、朴素的。⚠️ 英美差异：英式 homely 是「朴素亲切的」，美式常指「（长相）不好看的」，出国别用错。"
+  },
+  "heighten": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "height(高度) + -en(使) = 加高、提高（heighten the tension 加剧紧张 / heightened awareness 更强的意识）。同类 -en：deepen 加深 / widen 加宽 / lessen 减少。"
+  },
+  "fowl": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 fugol「鸟」（同德语 Vogel）→ 家禽、禽肉（现在多指鸡鸭鹅类）。同族：waterfowl 水禽。辨析：fowl 多指具体的禽 / poultry 是行业化的总称。"
+  },
+  "line": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "line 的第三个义项：① 线；② 排队；③ 加衬里（line the coat with silk 给大衣加丝衬里）；名词「衬里」（a warm lining 保暖衬里）。同族：liner 衬垫·班轮。"
+  },
+  "poultry": {
+   "kind": "family",
+   "certainty": "medium",
+   "tip": "古法语 poulet「小鸡」（拉丁 pullus「幼禽」）→ 家禽总称、禽肉（poultry farming 养禽业）。同族：pullet 小母鸡。"
+  },
+  "stillness": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "still(静止的) + -ness = 寂静、静止（the stillness of the night 夜的寂静）。同族：still 静止的·仍然（副词）。"
+  },
+  "lodging": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "lodge(寄宿、小屋) + -ing = 寄宿、住处（board and lodging 食宿 / lodgings 出租房）。同族：lodge 小屋·寄存 / lodger 房客。同源词：lobby 门厅（同出「小屋」义）。"
+  },
+  "succession": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "suc-(在下) + cess(走，拉丁 cedere) + -ion = 跟在后面走 → 继任、连续（in succession 接连地 / the succession to the throne 王位继承）。同族 cess「走」：succeed 接替·成功 / successor 继任者 / successive 连续的。"
+  },
+  "successor": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "suc-(在下) + cess(走) + -or(人) = 跟在后面走的人 → 继任者（反义 predecessor 前任）。同族：succeed 接替 / succession 继承 / successive 连续的。"
+  },
+  "craft": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古英语 cræft「力量、技艺」→ 手艺、技巧（the craft of writing 写作技艺）、行业；小船和飞机也叫 craft（有技艺造出来的东西）。同族：crafty 狡猾的 / handicraft 手工艺 / aircraft 飞机。"
+  },
+  "quarterly": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "quarter(四分之一，也指「季度」) + -ly = 每季的（a quarterly report 季报）。同类频率词：daily 每日 / weekly 每周 / monthly 每月 / annually 每年。"
+  },
+  "souvenir": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "法语 souvenir 是动词「记住」（源自拉丁 subvenire「来到心上」）→ 让人记住的东西 → 纪念品（a souvenir shop 纪念品店）。"
+  },
+  "documentary": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "doc = 文件、教（拉丁 documentum）→ 文献的、纪录的（a documentary film 纪录片）；名词「纪录片」就是它。同族：document 文件 / doctrine 教义 / docile 听话的。"
+  },
+  "disorder": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(不) + order(秩序) = 秩序被打乱 → 混乱、骚乱；身体秩序乱了 → 疾病、失调（a stomach disorder 胃病 / mental disorder 精神障碍）。同族：order 秩序 / disorderly 混乱的。"
+  },
+  "scheme": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 schema「形状、安排」→ 方案、计划（a pension scheme 养老金方案）；「阴谋」是贬义用法（scheme against sb 暗中算计）；英式英语里它常中性（= plan）。同族：schema 图式 / schematic 示意的。"
+  },
+  "complaint": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(加强) + plaint(捶胸哀叹，拉丁 plangere) = 诉苦 → 抱怨、投诉；医学上「主诉、病痛」就是病人诉说的症状（a chest complaint 胸部不适）。同族：complain 抱怨 / plaintive 哀怨的。"
+  },
+  "marginal": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "margin(页边、边缘) + -al = 页边的、边缘的（marginal notes 页边注）；引申「微小的、边际的」（a marginal improvement 微小的改进 / marginal cost 边际成本）。同族：margin 边缘·利润率 / marginalize 边缘化。"
+  },
+  "forthcoming": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "forth(向前) + coming(来) = 正走过来的 → 即将到来的（the forthcoming election 即将举行的选举）；另一个常用义是「愿意提供的」（no reply forthcoming 没有回应）。"
+  },
+  "terminal": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "termin = 界限、终点（拉丁 terminus）→ 终点站、终端（computer terminal 计算机终端）；医学上「晚期的」（terminal illness 绝症）也是「到终点」。同族：terminate 终止 / determine 确定 / terminology 术语。"
   }
  }
 }
