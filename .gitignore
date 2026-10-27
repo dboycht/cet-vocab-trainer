@@ -1,0 +1,17 @@
+# 运行时数据与开发产物 —— 一律不入库
+.tmp/
+*.log
+
+# 开发文档（只留开发副本，见工作区纪律 rules/03）
+DEVELOPMENT.md
+ERROR.md
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Python（提取脚本的缓存）
+__pycache__/
+*.pyc

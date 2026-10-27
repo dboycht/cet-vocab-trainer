@@ -1,0 +1,15 @@
+{
+  "name": "cet-vocab-trainer",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "description": "四六级词汇刷词器：离线网页版，SRS 间隔重复 + 乱序浏览，词库从词汇书 PDF 提取",
+  "scripts": {
+    "start": "node server.mjs",
+    "start:lan": "node server.mjs --lan",
+    "verify": "node tools/verify.mjs",
+    "verify:data": "node tools/verify.mjs --data",
+    "build:wordbook": "python tools/extract_pdf.py && python tools/build_wordbook.py"
+  },
+  "engines": { "node": ">=18" }
+}

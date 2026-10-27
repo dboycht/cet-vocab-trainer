@@ -1,0 +1,137 @@
+{
+  "_comment": "词条修正表。源词汇书本身有两类缺陷，这里逐条修，判据写在每条里。⚠️ 必须走这张表、由 build_wordbook.py 应用 —— 直接手改 cet6.json 会在下次重跑 PDF 提取时被冲掉。",
+  "_kinds": {
+    "pos_fix": "书里词性标错（机械审计 tools/audit_pos.py 的产物）",
+    "sense_add": "书里只收了一个义项，漏掉了更常用的那个（后缀审计 + 人工复核）"
+  },
+  "_audit_note": "tools/audit_pos.py 用「后缀 → 词性」做机械筛查。它只覆盖「漏了一个词性」这一类；「同一词性下漏了别的常用义项」（如 over/operation）无法机械检测，只能人工复核。",
+  "repairs": {
+    "dignity": {
+      "kind": "pos_fix",
+      "pos": ["n."],
+      "def": "n.尊贵；(举止)庄严",
+      "evidence": "-ity 是名词后缀；dignity 在英文里只有名词用法（a man of dignity）。源书标成 a. 是错的。"
+    },
+    "periodic": {
+      "kind": "pos_fix",
+      "pos": ["a."],
+      "def": "a.周期的，定期的；一定时期的",
+      "evidence": "释义「周期的；一定时期的」本身就是形容词，而源书标成 n.。-ic 是形容词后缀（periodic table 元素周期表）。后缀审计没抓到它 —— 我第一版把 -ic 排除了（garlic/clinic/panic 都是名词），这条是写助记时人工发现的。"
+    },
+    "eternal": {
+      "kind": "pos_fix",
+      "pos": ["a."],
+      "def": "a.永久的，永恒的；不朽的",
+      "evidence": "释义「永久的；不朽的」是形容词，源书标成 n.。eternal love / the Eternal City 都是形容词用法。同样是人工发现（-al 不在机械审计的规则里）。"
+    },
+    "notable": {
+      "kind": "pos_fix",
+      "pos": ["a.", "n."],
+      "def": "a.值得注意的，显著的；著名的 n.名人，要人",
+      "evidence": "源书标 n. 而释义写的是「值得注意的；著名的」——释义本身就是形容词。a notable exception 是高频搭配；作名词指「要人」也确实存在。"
+    },
+    "question": {
+      "kind": "sense_add",
+      "pos": ["n.", "vt."],
+      "def": "n.问题，疑问；问句 vt.问，询问，讯问；怀疑",
+      "evidence": "源书只收了 vt.「问，询问」，而 question 最常用的恰恰是名词「问题」（out of the question / a question of）。后缀审计（-tion）也指向名词。"
+    },
+    "doubtless": {
+      "kind": "sense_add",
+      "pos": ["ad.", "a."],
+      "def": "ad.无疑地，很可能 a.无疑的，确定的",
+      "evidence": "源书只收副词义；-less 指向形容词，且 doubtless 作形容词「无疑的」在书面语里常见（a doubtless fact）。"
+    },
+    "over": {
+      "kind": "sense_add",
+      "pos": ["prep.", "ad.", "a."],
+      "def": "prep.在…上方；超过；在…期间；关于 ad.结束；翻转 a.结束的",
+      "evidence": "源书只收了「在(做)…时」这一个义项 —— 而 over 是英语最高频的小词之一，其余义项（上方/超过/期间/关于）在日常阅读里出现频率远高于它。"
+    },
+    "operation": {
+      "kind": "sense_add",
+      "pos": ["n."],
+      "def": "n.运算；运行，操作；手术；行动",
+      "evidence": "源书只收了「运算」。而 operation 的高频义是「运行/操作」与「手术」，阅读里遇到 basic operations / undergo an operation 会踩空。"
+    },
+    "platform": {
+      "kind": "sense_add",
+      "pos": ["n."],
+      "def": "n.平台；站台；政纲，党纲，宣言",
+      "evidence": "源书只收了「政纲、党纲」——而 plat(平)+form(形)=平台 才是本义，也是当代最高频义（a digital platform / platform shoes）。"
+    },
+    "stalk": {
+      "kind": "sense_add",
+      "pos": ["n.", "vt.", "vi."],
+      "def": "n.主茎，叶柄；高烟囱 vt.悄悄跟踪，潜行 vi.高视阔步地走",
+      "evidence": "源书只收了名词义。stalk 的动词义「悄悄跟踪」在新闻与阅读里极常见（stalker 跟踪狂），且是两个不同的同形词，只收一个会让人读到时认不出。"
+    },
+    "second": {
+      "kind": "sense_add",
+      "pos": ["num.", "n.", "a.", "vt."],
+      "def": "num.第二 n.秒；片刻；支持者 a.第二的；另一的 vt.支持，附议",
+      "evidence": "源书只收了 vt.「支持」——而「第二」是这个词最基本、最高频的义项。会议用语 second a motion（附议）正是从「跟着第一后面」来的。"
+    },
+    "way": {
+      "kind": "sense_add",
+      "pos": ["n.", "ad."],
+      "def": "n.路，路线；方法，方式；状态，状况；规模 ad.远远地",
+      "evidence": "源书只收了「状态，状况，规模」。而 way 最常用的「路/方法」义项反而没收，刷词时会以为这是个冷僻词。"
+    },
+    "main": {
+      "kind": "sense_add",
+      "pos": ["a.", "n."],
+      "def": "a.主要的，最重要的 n.总管道，干线",
+      "evidence": "源书只收了名词「总管道」。而 main 作形容词「主要的」使用频率远高于名词义（main road / the main reason）。"
+    },
+    "workshop": {
+      "kind": "sense_add",
+      "pos": ["n."],
+      "def": "n.车间，工场；专题讨论会，工作坊",
+      "evidence": "源书只收了「专题讨论会」。而 work+shop 的本义「车间」更基础，且是这个词的构词来源。"
+    },
+    "check": {
+      "kind": "sense_add",
+      "pos": ["n.", "vt.", "vi."],
+      "def": "n.支票，帐单；检查，核对 vt.检查，核对；制止 vi.核对，查明",
+      "evidence": "源书只收了名词「支票，帐单」。而 check 的核心是「拦住、核对」（来自国际象棋的将军），动词义才是高频用法。"
+    },
+    "_note_2026_10_27": "下面 6 条是写助记时发现的同类问题（源书只收了一个偏门义项）。定下的规则是：**助记只管记忆，「与书不一致」一律由界面横幅统一提示** —— 所以不再让助记去谈源书，而是把义项补进数据。",
+    "significant": {
+      "kind": "sense_add",
+      "pos": ["a."],
+      "def": "a.重要的，显著的；有效的；有意义的",
+      "evidence": "源书只收「有效的」。而 significant 的高频义是「重要的、显著的」（a significant difference / statistically significant）。"
+    },
+    "availability": {
+      "kind": "sense_add",
+      "pos": ["n."],
+      "def": "n.可得性，可用性；有效性",
+      "evidence": "源书把「有效(性)」排在前面。而阅读里它几乎只表示「能不能拿到」（the availability of data）。"
+    },
+    "conservative": {
+      "kind": "sense_add",
+      "pos": ["a.", "n."],
+      "def": "a.保守的，守旧的；有保存力的，防腐的 n.保守派，保守党人",
+      "evidence": "源书只收了字面义「有保存力的，防腐的」，把最高频的「保守的」漏了；大写 Conservative 还是英国保守党。"
+    },
+    "through": {
+      "kind": "sense_add",
+      "pos": ["prep.", "ad."],
+      "def": "prep.穿过，通过；从头到尾；因为，由于 ad.从头到尾；接通",
+      "evidence": "源书只收了「因为，由于」这一个偏门义项 —— 而 through 最常用的是「穿过、通过」。只收这一条会让学习者以为 through 是个表原因的连词。"
+    },
+    "house": {
+      "kind": "sense_add",
+      "pos": ["n.", "vt."],
+      "def": "n.房子，住宅；议院，会议厅；商行 vt.容纳，收藏",
+      "evidence": "源书只收了「议院，会议厅」。而它最基础的是「房子」；动词「容纳、收藏」在博物馆、展馆语境里很常见（the museum houses…）。"
+    },
+    "baby": {
+      "kind": "sense_add",
+      "pos": ["n.", "a."],
+      "def": "n.婴儿；一家中年龄最小的人；宝贝 a.婴儿的；小型的",
+      "evidence": "源书只收了引申义「一家中年龄最小的人」，把本义「婴儿」漏了 —— 这属于收义项收偏了。"
+    }
+  }
+}

@@ -1,0 +1,1564 @@
+{
+ "_comment": "助记技巧（按词条首词索引）。与 cet6.json 分开放：词库是提取出来的事实数据，助记是生成的内容，混在一起会让『重新提取词库』把助记冲掉。每条必带 kind 与 certainty —— kind 说明「这是什么类型的助记」，certainty 说明「这条有多可信」。",
+ "_kinds": {
+  "root": "词根词缀（真实构词，可用于推断别的词）",
+  "family": "家族词串记（同一词根/前缀一起拿下）",
+  "sense": "义项串联（一个核心画面把多个看似无关的中文义项串起来）",
+  "story": "词源故事（真实的来历）",
+  "sound": "谐音助记（只为记音，不声称词源）",
+  "image": "画面联想（可能是民间词源，只作记忆钩子）",
+  "usage": "搭配用法（抽象词或小词，用搭配代替词源）"
+ },
+ "_certainty": {
+  "high": "依据能在词形/同族词/义项关联里自己验证（词根可见、义项关联明摆着）",
+  "medium": "事实可靠但看不见（历史演变、命名由来、拟声），不能当构词规则用",
+  "low": "纯联想（谐音 / 画面），只为帮你记住，不声称任何事实"
+ },
+ "tips": {
+  "statistics": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "词源直通 state（国家）：Statistics 最初是德语「国家事务之学」—— 给国家数人口、算税收用的。所以 state + -istics = 统计。注意词形里看不见 state（历史演变过），别拿它去推别的词。"
+  },
+  "instructor": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "struct = 建造（拉丁 struere）。in-(往里) + struct(建) + -or(人) = 往你脑子里「搭」知识的人。一串带走：instruct 教 / structure 结构 / construct 建造 / destruction 破坏（de- 拆掉）。"
+  },
+  "absurd": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ab-(离开) + surd(聋的，拉丁 surdus) = 聋子说的话 → 荒谬、不合理。同族：surd 在数学里叫「不尽根」，也是「说不清楚」的意思。"
+  },
+  "nought": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 nā(无) + wiht(一点点东西) = 一点也没有 → 零。wiht 今天还活着：not a whit（一点也没有）。同族：not / nothing / naught。英式拼 nought，美式常写 naught。"
+  },
+  "watt": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "以苏格兰工程师 James Watt 命名。物理单位里以人命名的可以一串带走：volt(Volta 伏打) / ampere(Ampère 安培) / ohm(Ohm 欧姆) / joule(Joule 焦耳) / newton(Newton 牛顿) / hertz(Hertz 赫兹)。"
+  },
+  "monopoly": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "mono-(单一) + polein(卖，希腊语) = 只有一家在卖 → 垄断、独占。mono- 家族一起记：monologue 独白 / monotonous 单调 / monorail 单轨。大富翁那个桌游就叫 Monopoly。"
+  },
+  "fragile": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "frag / fract = 打碎（拉丁 frangere）。fragile 就是「一碰就碎」。同族一串：fragment 碎片 / fraction 片段·分数 / fracture 骨折·断裂。快递箱上印的那个 FRAGILE 就是它。"
+  },
+  "pest": {
+   "kind": "sound",
+   "certainty": "low",
+   "tip": "谐音「拍死它」→ 害虫。这只帮你记音和义，不是词源。真词源是拉丁 pestis（瘟疫），同族 pesticide 杀虫剂、pestilence 瘟疫。"
+  },
+  "harbour": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 here(军队) + beorg(避难所) = 军队的宿营地 → 港口。港口能藏船，于是引申出「藏人、藏念头」：harbour a grudge（心怀怨恨）。英式 harbour，美式 harbor。"
+  },
+  "sandwich": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "以 Sandwich 伯爵命名：他为了不离开牌桌，让仆人把肉夹在两片面包里送来。所以它作动词就是「夹入、挤进」—— 像肉被两片面包夹住那样。"
+  },
+  "threshold": {
+   "kind": "image",
+   "certainty": "low",
+   "tip": "画面联想：thresh(打谷) + old —— 老屋门口那块被踩得发亮的踏板就是「门槛」；踏过它那一瞬 = 临界点、开端。搭配：cross the threshold（跨过门槛/起步）。（此词真实词源有争议，上面只作记忆钩子。）"
+  },
+  "utmost": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ut 是 out 的古老写法，+ most(最) = 出到最外面 → 最远的、极度的。同族：utter 完全的 / utterly 彻底地。所以 utmost = 「出到最外」那一档。"
+  },
+  "initially": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "init = 开始（拉丁 ire「走」→ 走进去）。同族一串：initial 最初的 / initiate 发起 / initiative 主动性。反着的 exit 正是「走出去」（ex- 出 + ire 走）。"
+  },
+  "makeup": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "就是短语 make up 的名词化，核心画面是「把东西凑/补上来」：往脸上补 → 化妆；把部分凑成整体 → 构成；一个人被凑成什么样 → 性格。三个义项共用一个画面。"
+  },
+  "optimum": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "optim = 最好（拉丁 optimus）。optimum = 最合适的那一点。同族一串：optimism 乐观主义（相信一切都会最好）/ optimist 乐天派 / optimize 优化 / optimal 最优的。"
+  },
+  "block": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "三个义项共用一个画面：一整块东西挡住。挡住路 → 阻塞；挡路的那块 → 障碍物；枪上那一整块铁 → 炮闩。搭配：block the way / a block of 一块。"
+  },
+  "damn": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心义就是咒骂。not worth a damn = 一文不值，用在否定句里就虚化成「丝毫」：I don't care a damn（我一点也不在乎）。所以「诅咒」和「丝毫」是同一来源的两种用法。"
+  },
+  "integral": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "integr = 完整（拉丁 integer）。它的两个义项是一件事的两面：构成整体所必需的（成分）+ 整体的。同族：integer 整数 / integrate 整合 / integrity 完整·正直。"
+  },
+  "composition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "posit / pon = 放（拉丁 ponere）。com-(一起) + posit(放) = 放在一起 → 构成。这是最值钱的一个词根：component 部件 / deposit 存款（往下放）/ expose 暴露（往外放）/ impose 强加（压上去）/ postpone 推迟（往后放）/ propose 提议（往前放）。"
+  },
+  "value": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "val = 强壮、有价值（拉丁 valere）。同族一串：valid 有效的 / invalid 无效 / evaluate 评价（把价值算出来）/ prevail 占上风（pre- 先 + val 强）/ valour 英勇。"
+  },
+  "dignity": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "dign = 值得、配得上（拉丁 dignus）。dignity = 一个人「配得上」被尊敬 → 尊贵、庄严。同族：dignify 使有尊严 / indignant 愤慨的（觉得对方不配这样对你）/ indignity 侮辱。"
+  },
+  "grunt": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，读出来就是猪那一声「咕噜」。同类一起记：grunt 猪哼 / growl 低吼 / groan 呻吟 / mumble 嘟囔 / grouse 抱怨 —— 全是喉咙里滚出来的音。"
+  },
+  "abide": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "a-(在) + bide(停留，古英语 bidan)。核心画面是「待着不走」：对规则待得住 → 遵守；对痛苦待得住 → 忍受。同族：bide one's time 等待时机 / abiding 持久的（abiding love 不变的爱）。"
+  },
+  "composer": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "和 composition 同根（com- 一起 + posit 放）：把音符「放在一起」的人 = 作曲家；把双方争执「摆到一起」的人 = 调停人。这两个中文义项其实是一回事。"
+  },
+  "slave": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "词源是族群名：中世纪拉丁 Sclavus 指斯拉夫人，当时大量斯拉夫人被卖为奴，于是族群名变成了「奴隶」。同类「族群名变普通词」的还有 Gypsy（吉普赛 → 流浪者）。"
+  },
+  "resultant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sult / sault = 跳（拉丁 saltare）。re-(回) + sult(跳) = 跳回来的东西 → 结果。这个词根家族很大：assault 袭击（扑上去）/ insult 侮辱（跳到人身上）/ consult 咨询（凑到一起商量）。"
+  },
+  "consequent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sequ / secut = 跟随（拉丁 sequi）。con-(一起) + sequ(跟) = 紧跟着来的 → 后果、必然的。家族一串：sequence 顺序 / sequel 续集 / consecutive 连续的 / subsequent 随后的 / pursue 追逐。"
+  },
+  "hike": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "核心画面是「抬腿往上/往前走」：远足（go hiking）是往前走；价格 hike 是往上走。搭配：a price hike 涨价 / go on a hike 去远足。"
+  },
+  "action": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "act = 做、驱动（拉丁 agere）。action 的本义就是「在动」：物理化学里起作用 → 作用；小说里动作推进 → 情节。同族：agent 代理人·剂（做事的那个）/ agile 敏捷的 / agenda 议程（要做的事）。"
+  },
+  "trade": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "trade 最早指「路径」（和 tread 踩同源）—— 商人沿着固定路线走，于是「路线」变成了「买卖」。所以它既是贸易也是交换，还留着行业义（the trade = 同业）。"
+  },
+  "deal": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "一个核心画面：分发、经手处理。deal with 处理·对付 / deal in 经营 / a good deal of 大量（一大份）。和 trade 对比记：trade 强调买卖，deal 强调「经手」。"
+  },
+  "lease": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "lease 和 release、relax 同出于拉丁 laxare「放松」：把地「松手」交给别人用 → 租约。所以 a new lease of life 是「生机被重新松绑」= 重获新生。"
+  },
+  "charter": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 charta 是「纸」。写在纸上的官方文件 → 宪章、特许状；而租船租飞机要凭这种特许文件，于是 charter 又成了「包租」（a charter flight 包机）。"
+  },
+  "headquarters": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "head(首脑) + quarters(住处) = 首脑住的地方 → 总部。它永远带 s（a headquarters 也是这个形式），同类带 s 的还有 quarters 住处、premises 房屋。"
+  },
+  "executive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "execut = 执行（ex- 出 + sequ 跟着 → 一路跟到底做完）。execute 执行·处决 / executive 就是「负责执行的（人）」→ 高管、行政。它和 consecut、persecut 共享 sequ「跟随」。"
+  },
+  "main": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "main 作名词是「干线、总管」（the mains 水电总管网），形容词「主要的」就是从这里来的：主干 = 最重要的那条。搭配：main road 主干道 / in the main 大体上。"
+  },
+  "overall": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(盖过) + all(全部) = 罩住全部 → 综合的；名词「工作服」就是罩在外面那件（罩衣）。两个义项都不用背，拆开就是。"
+  },
+  "conceit": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cept / ceive = 拿、抓（拉丁 capere）。con-(满满地) + ceit(拿) = 把自己拿得太满 → 自负。同族极多：conceive 构想·怀孕 / concept 概念 / accept 接受 / except 除外 / perceive 察觉。"
+  },
+  "ultraviolet": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ultra-(超出) + violet(紫色)：光谱里「比紫色还外」的那一段就是紫外。ultra- 家族一串：ultrasonic 超声的 / ultramodern 超现代的 / ultimate 最终的。"
+  },
+  "descendant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "scend = 爬（拉丁 scandere）。de-(向下) + scend = 往下传 → 后代。配上反义前缀一起记：ascend 上升 / descend 下降 / condescend 屈尊（跟别人一起往下）/ transcendent 超越的。"
+  },
+  "endow": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "en-(使有) + dow(嫁妆，拉丁 dos)：给出嫁妆 → 捐赠、赋予。同源词 dowry 嫁妆、donation 捐赠都出自同一个 dos「给」。搭配：be endowed with 天生具有。"
+  },
+  "datum": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dat = 给（拉丁 dare）。被「给出」的东西就是资料、已知数；datum 是单数、data 是复数（考试常考）。同族：date 日期 / donate 捐赠 / edit 编订 / tradition 传统（传下来）。"
+  },
+  "qualification": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "qual = 什么样的（拉丁 qualis）。使一个人「是那个样的」→ 资格；给一句话加上「什么样才行」→ 限制条件。同族：quality 品质 / qualify 使合格 / qualitative 定性的。"
+  },
+  "bourgeois": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自法语 bourg（城镇）：bourgeois 本是「城里人、有市民权的居民」，后来指有产的中产者，再到形容词就带上了「庸俗、市侩」的味道。同族：bourgeoisie 资产阶级 / borough 自治镇。"
+  },
+  "woodpecker": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "wood(木头) + peck(啄) + -er(者) = 啄木头的鸟。peck 是「用嘴啄」，同源的 pick（挑、捡）也是尖嘴一下一下地动。这类「动作 + er」的动物名都好拆：grasshopper 蚱蜢 / hummingbird 蜂鸟。"
+  },
+  "bump": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，读出来就是「嘣」那一下。三个义项是一个画面：撞上去（bump into 撞见）/ 撞出来的包（a bump on the head）/ 路上颠一下（a bumpy road 坑洼的路）。"
+  },
+  "crash": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「哗啦/轰」那一声。义项全靠搭配分：car crash 撞车 / the market crashed 暴跌 / the system crashed 死机 / a crash course 速成课（短期内猛灌）。"
+  },
+  "way": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "way 的核心是「路径」→「方式」，再由「走到哪一步」引申出状态与程度：in a bad way 情况不妙 / in a big way 大规模地 / by way of 经由·作为。这种小词不要背中文，要背搭配。"
+  },
+  "superb": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "super = 在上（拉丁 super）。superb 就是「高出在上面」→ 卓越、壮丽。同族一串：superior 优越的 / supreme 至高的 / supervise 监督（从上面看）/ superficial 表面的（只看上面）。"
+  },
+  "ornament": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "orn = 装备、装饰（拉丁 ornare）。ornament 就是装饰物。同族：adorn 装饰 / ornate 华丽繁复的 / suborn 收买（暗中「装备」）。搭配：a Christmas ornament 圣诞挂饰。"
+  },
+  "decorative": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "decor = 光彩、得体（拉丁 decus）。decorate 装饰 / decorative 装饰性的 / decorum 礼数得体 / decent 像样的 —— 都带「拿得出手、好看」这层意思。"
+  },
+  "ornamental": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "和 ornament 同根，形容词形式。ornamental 偏「起装饰作用的」（ornamental plants 观赏植物），decorative 偏「好看、装饰性强」；作名词就是装饰品。"
+  },
+  "mount": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mount = 山、往上登（拉丁 mons）。把零件「架上」去 → 装配、固定；架本身 → 支架。同族：mountain 山 / amount 总额（一级级加上去）/ surmount 克服（爬到上面）/ paramount 至高无上的。"
+  },
+  "shipment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ship 作动词是「装运、发货」（空运海运都用它），+ -ment 变成「一次装运 / 那批货」。平行记：payment 支付 / consignment 寄售 —— 都是「行为 + ment」。"
+  },
+  "can": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "can 作名词是「罐头（罐子）」，所以动词就是「装罐、做罐头」：canned fruit 水果罐头。注意它和情态动词 can 是同形不同源的两件事，别混。"
+  },
+  "array": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "array 和 ready 同源（古法语 arei「整理、准备」）：把人马「排整齐」→ 队列、排列；把身上「整理好」→ 装扮。搭配：an array of 一系列（a dazzling array of choices）。"
+  },
+  "diversion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vers / vert = 转（拉丁 vertere）。di-(离开) + vers(转) = 转开 → 转移、改道；把注意力转开就是「消遣」。同族：convert 转变 / reverse 反转 / versatile 多才多艺的 / adverse 不利的（转过来对着你）。"
+  },
+  "convert": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(完全) + vert(转) = 整个转过来 → 转变、兑换（convert A into B）。同根一族：divert 转移 / reverse 反转 / pervert 曲解 / versatile 多面手。"
+  },
+  "transition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "it = 走（拉丁 ire）。trans-(越过) + it(走) = 走过去那一段 → 过渡、变迁。同族：transit 过境·运输 / transient 短暂的 / initiate 发起 / exit 出口（走出去）。"
+  },
+  "torque": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "torqu = 扭（拉丁 torquere），torque 就是「扭的力」。同族：distort 扭曲 / contort 扭歪 / retort 反驳（把话扭回去）/ torture 折磨（拧扭）。物理上记住 torsion 扭矩、单位 N·m。"
+  },
+  "workshop": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "work(干活) + shop(场子) = 干活的地方 → 车间；一群人一起「动手做」某个题目 → 专题讨论会·工作坊。两个义项靠「一起动手做」连着。"
+  },
+  "patent": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "词源是拉丁 patens「敞开的」（和「明显的」那个义项同源）。专利的逻辑正是「公开你的技术，换一段独占期」—— 抓住「公开」这个核心，两个义项就统一了。"
+  },
+  "clutch": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心画面是「紧紧攥住」。攥住不放 → 抓住、攫取；汽车里那个把动力攥住/松开的部件 → 离合器。搭配：clutch at a straw 抓救命稻草 / in the clutch 关键时刻。"
+  },
+  "nest": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词转动词：nest 是「巢」，所以动词就是「筑巢/嵌套」。计算机里的 nested 嵌套（层层套起来，像巢）用的就是这个画面。搭配：nest egg 储备金。"
+  },
+  "coin": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "coin 是硬币，动词就是「铸币」；再引申为「凭空造出一个新东西」→ coin a word 造一个新词（写作能直接用）。记住这条引申，coin 就不只是硬币。"
+  },
+  "noted": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "not = 标记、知道（拉丁 notare）。noted = 被「标出来」的 → 有名。同族一串：note 笔记 / notice 注意·通知 / notable 显著的 / notify 通知 / notion 观念。"
+  },
+  "watchful": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "watch(守夜、看守) + -ful(充满) = 时刻盯着 → 警惕的。搭配：keep a watchful eye on 密切注视 / under the watchful eye of 在…眼皮底下。同类 -ful：careful 小心的 / mindful 留心的。"
+  },
+  "inject": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ject = 扔（拉丁 jacere）。in-(往里) + ject(扔) = 注射、注入。这是六级最值钱的词根之一：project 投射·项目 / reject 拒绝（扔回去）/ object 反对 / subject 主题·使服从 / eject 逐出（扔出去）。"
+  },
+  "storage": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "store(储存) + -age(行为/场所) = 贮藏、仓贮。同类 -age：baggage 行李 / package 包裹 / mileage 里程。搭配：storage space 存储空间 / cold storage 冷藏。"
+  },
+  "position": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "posit = 放（拉丁 ponere）。position 就是「被放的地方」：物理位置 → 立场（你站在哪边）→ 形势（局面摆在什么位置）。搭配：in a position to do 有能力做 / take the position that 主张。"
+  },
+  "metropolitan": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊语 meter(母亲) + polis(城邦) = 「母城」→ 大都市。所以 metropolitan 是「大都市的」；宗教里「母城的主教」就是大主教（n.）。同源：metropolis 大都市 / police 警察 / politics 政治 —— 全出自 polis 城邦。"
+  },
+  "principally": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "princip = 第一、首领（拉丁 princeps = primus 第一 + capere 拿）。principally = 首先地、主要地。串记三个易混词：principal 主要的·校长 / principle 原则 / prince 王子 —— 全是「第一」。"
+  },
+  "stalk": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "注意 stalk 是两个同形词，靠语境分：名词「茎、叶柄」（高烟囱也是「细长立着的东西」）；动词「悄悄跟踪、潜行」（stalker 跟踪狂），另有「高视阔步地走」。"
+  },
+  "preside": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sid / sed = 坐（拉丁 sedere）。pre-(在前) + sid(坐) = 坐在前面 → 主持（preside over a meeting）。同族：president 总统 / session 会议 / sediment 沉淀 / reside 居住（反复坐着）。"
+  },
+  "eject": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + ject(扔) = 扔出去 → 逐出、喷射。和 inject（往里扔）配对记，再带上 project / reject / object —— ject 一家全在「扔」。"
+  },
+  "bamboo": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "英语本没有竹子，这个词是从马来语 bambu 借来的（荷兰商人带进欧洲）。同类外来词：tea 茶（闽南语）/ typhoon 台风（粤语经阿拉伯语）/ ketchup 番茄酱（闽南语）。"
+  },
+  "jewellery": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "jewel(宝石) + -ellery = 珠宝总称（英式 jewellery，美式 jewelry）。不可数：a piece of jewellery。词源上 jewel 和 joy（欢乐）有关 —— 古人眼里宝石就是「让人高兴的东西」。"
+  },
+  "wrinkle": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "名词「皱纹」，动词「起皱」。引申义很实用：a wrinkle 还指「小窍门、新点子」（a new wrinkle in technology）。搭配：wrinkle one's nose 皱鼻子（嫌恶）。"
+  },
+  "axial": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "axi = 轴（拉丁 axis）。axial 轴向的 / axis 轴 / axle 车轴。物理搭配：axial load 轴向载荷 / axial symmetry 轴对称。"
+  },
+  "axis": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "axis 是「绕之旋转的那条线」：几何的坐标轴、政治的轴心国、解剖的第二颈椎（头绕它转）。复数特殊：axes，读音也变（/ˈæksiːz/）。"
+  },
+  "ambient": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ambi-(周围) + i(走，拉丁 ire) = 四处走动、围着你 → 周围的。同族故事感很强：ambition 野心（古罗马候选人四处走动拉票）/ ambiguous 含糊的（能往两边走）/ ambient music 环境音乐。"
+  },
+  "anniversary": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ann(年，拉丁 annus) + vers(转) + -ary = 年份转了一圈的日子 → 周年。同族：annual 每年的 / annuity 年金 / biennial 两年一次。记住 ann = 年，一年一度的词全能猜。"
+  },
+  "peripheral": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "peri-(周围) + pher(带，希腊 pherein) = 带到外围 → 外围的、末梢的。同族：periphery 外围 / perimeter 周长 / periscope 潜望镜 / period 时期（绕一圈的路）。电脑的「外设」就是 peripherals。"
+  },
+  "perimeter": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "peri-(周围) + meter(量) = 量一圈的长度 → 周长。「peri- 一圈」家族：perimeter 周长 / periscope 潜望镜（往四周看）。军事上的「周边警戒线」也叫 perimeter。"
+  },
+  "anybody": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "anybody 作名词特指「有头有脸的人」，而且只用在否定句/疑问句里：He isn't anybody. 他不是什么人物。/ Is she anybody? 她有来头吗？这个名词化用法是阅读常见坑。"
+  },
+  "responsible": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "spons = 承诺（拉丁 spondere）。re-(回) + spons(承诺) = 能兑现承诺的 → 可靠、负责。同族：response 回应 / sponsor 赞助者 / spouse 配偶（互相许诺的人）。搭配：be responsible for 对…负责。"
+  },
+  "consequence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + sequ(跟随) = 紧跟着来的 → 后果；后果大 = 重要（a matter of consequence）。of no consequence 无关紧要 —— 抓住「跟着来的」这个核心，两个义项都通。"
+  },
+  "category": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊语 agora 是「广场、集会」。cata-(下) + agor(集会) → 当众把人/物分门别类 → 种类、范畴（哲学里的「范畴」就是它）。同源词 agoraphobia 广场恐惧症。"
+  },
+  "species": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "spec = 看（拉丁 specere）。「看上去相同的一群」→ 物种。生物分类链一起记：species 种 / genus 属 / family 科 / order 目 / class 纲 / phylum 门 / kingdom 界。单复数同形。"
+  },
+  "hearty": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "heart(心) + -y = 有心的 → 衷心的（a hearty welcome 热烈欢迎）；「丰盛的」是让人吃得心里满足（a hearty meal 饱餐一顿）。还有 hearty laugh 开怀大笑。"
+  },
+  "neutron": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "neutr = 中性（拉丁 neuter = ne- 不 + uter 二者之一）。neutron 就是「不偏不倚、不带电」的粒子。同族：neutral 中立的 / neutrino 中微子；同后缀 -on 的粒子：proton 质子 / electron 电子 / photon 光子。"
+  },
+  "intermediate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "medi = 中间（拉丁 medius）。inter-(之间) + medi(中) + -ate = 处在中间的 → 中间体·调解人。同族：medium 媒介 / mediate 调解 / immediate 立即的（中间没隔东西）/ Mediterranean 地中海（陆地中间的海）。"
+  },
+  "proton": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "prot = 第一（希腊 protos）。proton 是「第一位的」那种粒子（带正电）。同族：prototype 原型 / protagonist 主角 / protocol 协议（最初粘在卷轴上的第一页）。"
+  },
+  "qualitative": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "qual = 什么样 → qualitative 定性的；配对的 quant = 多少 → quantitative 定量的。研究方法里这对必考：qualitative research 质性研究 / quantitative analysis 定量分析。同根还有 quality 质量 / quantity 数量。"
+  },
+  "fabricate": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fabr = 工匠、做（拉丁 faber）。造实物 → 制作、装配；凭空造出不存在的事 → 捏造。同族 fabric 织物（被织出来的东西）。fabricated evidence 伪造的证据是高频搭配。"
+  },
+  "fabrication": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fabricate 的名词，两个义项靠语境分：the fabrication of parts 零件制造 / a complete fabrication 一派胡言（纯捏造）。同族 fabric 织物 / fabricator 制作者·造假者。"
+  },
+  "volunteer": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "volunt = 意愿（拉丁 voluntas）。出于自愿的人 → 志愿者。同族：voluntary 自愿的 / involuntary 不随意的（生理上「不由自主」）/ benevolent 仁慈的（盼人好）。"
+  },
+  "rebuke": {
+   "kind": "usage",
+   "certainty": "medium",
+   "tip": "核心是「当面拦住并斥责」。搭配：rebuke sb for (doing) sth 因…斥责某人 / a sharp rebuke 严厉指责。同义一族按强度：rebuke 斥责 < reprimand（上级对下级）训斥 < condemn 谴责。"
+  },
+  "indicative": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dic / dict = 说（拉丁 dicere）。in-(向) + dic(说) = 指着说出来 → 指示的。同族一串：dictate 口述·命令 / predict 预言 / contradict 反驳 / dedicate 奉献（郑重说出）。语法里的「陈述语气」就是 indicative mood。"
+  },
+  "denote": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(加强) + not(标记，拉丁 notare) = 明确标出来 → 表示、意味着。同族：note 记录 / notice 注意 / notable 显著的 / notion 观念。常考对比：denote 表示（字面所指）vs connote 暗示（言外之意）。"
+  },
+  "designate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(出) + sign(记号) + -ate = 做出记号来 → 指出、指定（designate sb as 指定某人为）。同族：sign 记号 / signal 信号 / design 设计（做记号）/ significant 重要的（有意义的）。"
+  },
+  "colonial": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "colon = 耕种、拓殖（拉丁 colere / colonus）。去别人土地上「开垦定居」→ 殖民地。同族：colony 殖民地 / colonist 殖民者 / agriculture 农业（同源 colere 耕种）。"
+  },
+  "vocation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "voc = 叫（拉丁 vocare）。被「召唤」去做的事 → 天职、职业。易混对比：vocation 职业 / vacation 假期（vac = 空）。同族：vocal 嗓音的 / evoke 唤起 / provoke 激怒 / advocate 倡导（朝着…喊）。"
+  },
+  "notable": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "not(标记) + -able = 值得被标出来的 → 显著的、著名的（a notable exception 显著的例外）；作名词指「要人、名人」。同族：note 注意 / noted 著名的 / notice 通知 / notion 观念。"
+  },
+  "merit": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "merit 的核心是「应得」：名词「优点、价值」（merits and demerits 优缺点），动词「值得」（The plan merits consideration）。同族 meritocracy 精英治国（按 merit 分配权力）。"
+  },
+  "weaver": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "weave(编织) + -er(人) = 织布工。同族：web 网（织出来的）/ cobweb 蛛网 / weave one's way 迂回穿行（像穿线一样走）。"
+  },
+  "brace": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "brace 出自希腊 brachion「手臂」：用胳膊撑住 → 撑牢、支柱。同族很好记：bracelet 手镯（绕手腕）/ embrace 拥抱（两臂合起来）/ braces 牙箍·背带。短语：brace oneself for 振作起来迎接。"
+  },
+  "check": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "check 的家族全靠「将军」这个源头（波斯语 shah 王 → 国际象棋的 check）：将军要「拦住」→ 核对、制止；餐馆账单、银行支票都是「要核对的单子」。英式拼 cheque 只用于支票。"
+  },
+  "symptom": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "sym-(一起) + pt(落，希腊 piptein) = 和病一起出现的东西 → 症状、征兆。搭配：show symptoms of 显出…的症状 / a symptom of a deeper problem 深层问题的征兆。"
+  },
+  "regime": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "reg = 统治（拉丁 rex 王 / regere 统治）。regime 就是统治的整套制度 → 政权、体制。同族一串：regal 王室的 / regulate 管制 / reign 统治 / regiment 团（被管的一群）。"
+  },
+  "second": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "second(第二) 和「支持」是一个来源：拉丁 sequi「跟随」—— 排在后面的就是第二；会议上「跟在别人后面说我也赞成」就是附议、支持（second a motion）。同族：sequence 顺序 / subsequent 随后的。"
+  },
+  "bearing": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "bear 一身多职，所以 bearing 也是：bear(承受) → 支承·忍受；bear(指向) → 方位（take a bearing 测方位）；bear(举止) → 风度（a man of dignified bearing）。一个 -ing 三套意思，靠语境分。"
+  },
+  "politics": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "polit = 城邦（希腊 polis）。治理城邦的学问 → 政治；一个人的政治主张 → 政见、策略。同族：policy 政策 / police 警察（原来也是「城邦管理」）/ metropolis 大都市。"
+  },
+  "platform": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "plat(平) + form(形) = 平台。引申链很清楚：站上去讲话的台子 → 讲出来的主张就是政纲·宣言（an election platform）；现在又回到「平台」义（a digital platform / platform shoes 厚底鞋）。"
+  },
+  "confirmation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "firm = 坚固（拉丁 firmus）。con-(加强) + firm = 把它坐实 → 证实、确认。同族：firm 坚定的·商号 / affirm 断言 / infirm 虚弱的（不坚固）/ farm 农场（原义「固定租约的地」）。"
+  },
+  "testify": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "test = 见证（拉丁 testis 证人）。testify 就是出庭作证。同族：testament 遗嘱·证言 / contest 竞赛·争辩（双方各找证人）/ protest 抗议（当众作证）/ testify to 证明。"
+  },
+  "audience": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "audi = 听（拉丁 audire）。audience 本是「听的人」→ 观众、听众；「正式会见」是「获准来听的人」（an audience with the Pope）。同族：audio 音频 / audit 审计（听人报账）/ audible 听得见的。"
+  },
+  "correctly": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "rect = 直、正（拉丁 rectus）。cor-(加强) + rect = 把它弄直 → 正确。同族一串：direct 直接的 / erect 竖立（立直）/ rectangle 矩形（全是直角）/ rectify 纠正。"
+  },
+  "positive": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "posit = 放、立（拉丁 ponere 的过去分词 positus）。已经「立」在那里的事实 → 确定的、正的。所以 positive 既是「肯定的」也是「阳性的」。同族：position 位置 / deposit 存款 / compose 组成。"
+  },
+  "normalization": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "norm = 规范、直角尺（拉丁 norma 木匠的角尺）→ 合乎角尺就是「正常」。同族：normal 正常的 / enormous 巨大的（e- 出 + norm 尺 → 超出尺子）/ abnormal 反常的。"
+  },
+  "sign": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "一个核心：做出标记让人知道。标记 → 符号、招牌；身体做出的标记 → 病症、迹象；签下标记 → 签名（sign a contract）。搭配：a sign of 迹象 / sign up 报名。"
+  },
+  "conqueror": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "con-(完全) + quer(寻求、取得，拉丁 quaerere) = 彻底拿到手 → 征服。同族：conquest 征服 / query 询问·疑问 / inquire 打听 / require 要求（反复求）/ exquisite 精致的（精心求来的）。"
+  },
+  "controversy": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "contra-(相反) + vers(转，拉丁 vertere) = 双方朝相反方向转 → 争论。同族：controversial 有争议的 / reverse 反转 / convert 转变 / versatile 多面手。"
+  },
+  "suppress": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sup-(=sub 在下面) + press(压) = 往下压 → 镇压、抑制、隐瞒。同族压字辈：express 压出来=表达 / impress 压进去=印刻·印象 / depress 压下去=沮丧 / oppress 对着压=压迫 / compress 一起压=压缩。"
+  },
+  "gust": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "一阵突发的风。引申成「一阵」的通用量词：a gust of wind 一阵风 / a gust of laughter 一阵大笑 / a gust of anger 一股怒火。同类「一阵」：a fit of / a burst of / a flush of。"
+  },
+  "clinic": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "希腊 kline 是「床」，klinikos 是「临床的」—— 到病人床边去看 → 临床·诊所。同族：clinical 临床的·冷静客观的 / incline 倾向（往…斜靠）/ recline 斜倚。"
+  },
+  "diagnose": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "dia-(穿过) + gno(知道，希腊 gignoskein) = 看透病情 → 诊断。同族：diagnosis 诊断 / ignore 忽视（i- 不 + gno 知 → 不知道）/ recognize 认出（重新知道）/ prognosis 预后。"
+  },
+  "sincerity": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "sincere 有一种流传很广的解释：拉丁 sine(无) + cera(蜡) —— 古罗马陶器有裂纹时用蜡填补，无蜡的就是「没掺假」→ 真诚。同族：sincere 真诚的 / sincerely yours 谨启（信件结尾）。"
+  },
+  "cherish": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "cher = 亲爱（法语 cher 亲爱的，和 charity 同源）。cherish 就是「当宝贝一样待着」：cherish a hope 心怀希望 / cherish the memory 珍藏回忆。同族：caress 爱抚 / charity 慈善（出于爱）。"
+  },
+  "detective": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "de-(去掉) + tect(盖子，拉丁 tegere) = 把盖子揭开 → 察觉、侦查。同族：detect 察觉 / protect 保护（pro- 在前面挡着）/ tectum 屋顶 / integument 覆盖物。"
+  },
+  "underline": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "under(下面) + line(线) = 在下面画线 → 强调；引申为「预告、预示着」（画线标出后面要发生的事）。同族同类构词：underestimate 低估 / undermine 暗中破坏（在下面挖）。"
+  },
+  "grind": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义是「磨」：磨面 → 碾磨；把人放在磨盘下磨 → 折磨、压榨（the daily grind 日常苦活）。同族：ground 磨过的=地面·磨碎的 / grinder 磨床·研磨机。"
+  },
+  "discount": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "dis-(去掉) + count(计算) = 从总数里减掉 → 折扣。引申义很实用：discount his story 对他的说法打折扣=不全信。搭配：at a discount 打折 / a 20% discount 八折（注意英文说减 20%）。"
+  },
+  "literally": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "liter = 字母（拉丁 littera）。literally 就是「按字母来、照字面」：It literally means… 字面意思是…。口语里它常被当强调用（I literally died. 我笑死了），但正式写作里仍取「字面上」。"
+  },
+  "illuminate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "il-(=in 使) + lumin(光，拉丁 lumen) = 给光 → 照明；给道理加光 → 阐明。同族：luminous 发光的 / luminary 发光体·名人 / illustrate 说明（把光照上去）。"
+  },
+  "summon": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sum-(=sub 暗中) + mon(提醒，拉丁 monere) = 暗中提醒你来 → 召唤。同族：monitor 监视器·班长（提醒的人）/ monument 纪念碑（提醒你的东西）/ admonish 告诫。搭配：summon up courage 鼓起勇气。"
+  },
+  "marsh": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "marsh 和 marine（海的）同源（拉丁 mare 海）—— 低洼积水、像海一样的地方 → 沼泽。同族：marine 海洋的 / maritime 海事的 / submarine 潜水艇。"
+  },
+  "entertainment": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "enter-(=inter 之间) + tain(拿住，拉丁 tenere) = 把客人留在中间 → 招待。所以它既是「招待会」也是「娱乐」。同族 ten/tain「拿住」：maintain 保持 / contain 包含 / obtain 获得 / retain 保留。"
+  },
+  "hindrance": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "hind(后面，如 hindsight 后见之明) + -rance = 把你往后拖的东西 → 障碍。同族：hinder 阻碍 / behind 在后面。搭配：a hindrance to progress 进步的障碍。"
+  },
+  "hose": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "hose 原指「腿的包裹物」→ 长筒袜；后来指「像袜子一样的管子」→ 软管。同族：hosiery 袜类 / hosier 袜商。一个词两个义项靠「管状」这个共同点连着。"
+  },
+  "sofa": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "借自阿拉伯语 suffah（铺着垫子的长凳），经法语进入英语。同类「从阿拉伯语借来的日常词」：algebra 代数 / alcohol 酒精 / sugar 糖 / cotton 棉 / magazine 杂志。"
+  },
+  "tensile": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "tens / tend = 拉紧（拉丁 tendere）。tensile 就是「能承受拉力的」：tensile strength 抗拉强度。同族：tension 张力·紧张 / tension / extend 伸出 / intend 打算（把心拉向）/ intense 强烈的。"
+  },
+  "warfare": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "war(战争) + fare(过日子、进行) = 打仗这件事 → 战争、交战。同族 fare 的构词：welfare 福利（过得好）/ farewell 再见（好好过）/ seafaring 航海的。"
+  },
+  "battle": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "batt = 打（拉丁 battuere 击打）。同族：battery 电池·一组（打人的一排炮）/ combat 战斗 / debate 辩论（de- 彻底 + bat 打 → 打嘴仗）/ battalion 营。"
+  },
+  "predominant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(在前) + domin(统治，拉丁 dominus 主人) = 在前面统着 → 占优势的、主要的。同族：dominant 支配的 / dominate 统治 / dominion 领地 / dame 夫人（女主人）。"
+  },
+  "unfold": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "un-(反) + fold(折) = 把折着的打开 → 展开；故事「展开」→ 呈现、展现（The story unfolds.）。对比 fold 家族：fold 折 / folder 文件夹 / manifold 多方面的。"
+  },
+  "cling": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心画面是「紧紧贴着不放」：贴在物体上 → 粘住；贴在人身上 → 依附；贴在想法上 → 坚持（cling to one's view）。过去式特殊：clung。"
+  },
+  "viscous": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "visc = 槲寄生（拉丁 viscum，用它的黏液做粘鸟胶）→ 粘的。viscous 就是「粘滞的」（物理里的粘滞系数 viscosity）。同族：viscosity 粘度。"
+  },
+  "coherent": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "co-(一起) + her(粘，拉丁 haerere) = 粘在一起的 → 连贯的、紧凑的。同族：adhere 粘附·坚持 / cohesion 凝聚力 / hesitate 犹豫（粘住不动）/ inherent 固有的。"
+  },
+  "album": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 albus 是「白」。古罗马人用涂白的木板公布名单，后来指「贴东西的白本子」→ 粘贴簿、相册、唱片集。同族：albino 白化病患者 / alb 白袍。"
+  },
+  "glue": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "glue 来自拉丁 glus「胶」，和 gluten（面筋，也就是「粘的东西」）同源。作动词就是「粘牢」，引申为「盯着看」：his eyes were glued to the screen。"
+  },
+  "cement": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "cement 来自拉丁 caementum「碎石」—— 碎石加水结成一体。所以它既是水泥、也是动词「粘结」，还能指「巩固关系」：cement a friendship。同族 concrete 混凝土。"
+  },
+  "adhere": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ad-(朝向) + her(粘，拉丁 haerere) = 粘上去 → 粘附；粘在原则上 → 坚持（adhere to a rule）。同族：coherent 连贯的 / cohesion 凝聚力 / adhesive 胶带·粘性的。"
+  },
+  "strip": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "一个核心画面：把一条撕下来。名词是被撕下来的那条 → 窄条、长带；动词是撕的动作 → 剥去、剥夺（strip sb of power）。搭配：a strip of paper 一条纸 / comic strip 连环漫画。"
+  },
+  "further": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "far 的比较级之一（另一个是 farther）：farther 多指距离，further 多指程度 —— 推得更远 → 增进、促进（further one's career）；作副词是「进一步地」。搭配：further more 而且。"
+  },
+  "multiplication": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "multi-(多) + plic(折，拉丁 plicare) = 折很多层 → 倍增；数学上就是乘法。同族：multiply 乘·繁殖 / multiple 多个的 / complicate 使复杂（叠在一起）/ duplicity 两面派（两层）。"
+  },
+  "liability": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "li = 捆、绑（拉丁 ligare）。liable 是「被绑住的」→ 有责任的、易于…的；liability 就是「要负的责任 / 债务 / 拖累」。同族：ligament 韧带 / oblige 迫使（绑住）/ ally 结盟（绑在一起）。"
+  },
+  "shipbuilding": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ship(船) + building(建造) = 造船业。这类「名词 + 动名词」的行业词很好懂：shipbuilding 造船 / housekeeping 持家 / sightseeing 观光 / window-shopping 只逛不买。"
+  },
+  "grasshopper": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "grass(草) + hop(单脚跳) + -er = 在草里蹦的东西 → 蚱蜢。hop 是「单脚跳」，jump 是「双脚跳」，skip 是「蹦蹦跳跳地走」—— 三个跳跃词一起记。"
+  },
+  "wink": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "一只眼快速地眨 = 使眼色（递暗号）。和 blink（双眼眨，生理性）区别开：wink at sb 向某人眨眼示意 / forty winks 打个盹。习语：not sleep a wink 一夜没合眼。"
+  },
+  "mint": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "注意这是两个同形词，别混：① 造币厂（拉丁 moneta，罗马铸币厂在朱诺神庙，Moneta 是朱诺的别号）→ 引申「巨额、富源」（a mint of money）；② 薄荷（希腊神话里的仙女 Minthe）。"
+  },
+  "hollow": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "hollow 是「中空的」→ 动词「凿空、变空」；引申为「空洞的、不真实的」：hollow words 空话 / hollow victory 惨胜。同族：hole 洞（同一来源）。"
+  },
+  "hymn": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自希腊 hymnos「赞歌」。作名词是赞美诗、圣歌；作动词是「颂扬」。同族：hymnology 赞美诗学。搭配：a hymn of praise 一首赞歌。"
+  },
+  "glorify": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "glor(荣耀，拉丁 gloria) + -ify(使) = 使…得荣耀 → 赞美、颂扬。同族：glory 光荣 / glorious 光荣的 / vainglory 虚荣（van 空的 + glory）。"
+  },
+  "fore": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fore = 前面（古英语）。它在英语里到处出现：before 在…前 / forecast 预报（先算）/ forehead 前额 / foreword 前言 / foresee 预见。记住 fore = 前，一大批词不用背。"
+  },
+  "therein": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "there + in = 在那里、在那里面（法律文书常用）。同类「there + 介词」的正式文体词：thereof 其 / thereto 对此 / thereby 因此 / therein 其中。看到 there- 开头就往「那件事的某个方面」理解。"
+  },
+  "overseas": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(越过) + seas(海) = 越过海 → 在海外、向国外。同类 over- 的方位词：overseas 海外 / overland 陆路 / overlook 俯瞰·忽视 / overboard 往船外（go overboard 走极端）。"
+  },
+  "ashore": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "a-(在…上) + shore(岸) = 在岸上、上岸（go ashore 上岸）。同类 a- + 名词的方位副词：aboard 在船上 / aside 在旁边 / ahead 在前头 / ashore 在岸上。"
+  },
+  "outside": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "out + side = 外面，也可作介词「在…之外」。注意它与 out of 的区别：outside the house 在房子外面（静态位置），out of the house 从房子里出来（移动）。"
+  },
+  "brand": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义是「烧红的铁印」：在牛身上打烙印 → 打标记；打上谁家的标记就是谁家的货 → 品牌。引申：brand sb as 给某人扣帽子 / a brand-new car 全新的（像刚出厂打了标记）。"
+  },
+  "alongside": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "along(沿着) + side(边) = 沿着旁边 → 在…旁边，也指「与…一起合作」（work alongside sb）。航海里指「靠舷并排」。"
+  },
+  "Roam": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「没有固定目标地走」→ 漫游、漫步。搭配：roam the streets 在街上闲逛 / roam free 自由游荡。同类「走」的强度阶梯：wander 徘徊 < roam 漫游 < ramble 闲逛 < stroll 散步。"
+  },
+  "over": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "over 是英语里最能打的小词，核心画面是「在上方 / 越过」，其余义项都是从这里长出来的：over the weekend 整个周末（跨过） / over 100 超过 / talk over coffee 边喝咖啡边聊 / get over 克服。这类小词要背搭配，不要背中文。"
+  },
+  "reproduction": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "re-(再) + pro-(向前) + duct(引导，拉丁 ducere) = 再生产出来 → 繁殖、复制、复制品。同族 duct「引导」：introduce 引入 / produce 生产 / reduce 减少 / conduct 引导·指挥 / seduce 引诱。"
+  },
+  "operation": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "oper = 工作（拉丁 opus 作品、operari 干活）。义项链很清楚：干活 → 运行、手术（在身体上干活）、运算（数学上的操作）、军事行动。同族：operate 操作·动手术 / cooperate 合作 / opera 歌剧（作品）。"
+  },
+  "freight": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "本指「船装的东西」→ 货运、运费；引申为「压在心上的东西」= 负担。同源词 fraught 是同一个画面：fraught with danger 充满了危险（被装得满满的）。"
+  },
+  "specification": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "spec = 看（拉丁 specere）。把要求一条条「摆出来让人看」→ 载明、详述；摆出来的条目就是规格（specifications）。同族：specify 明确规定 / specific 具体的 / specimen 样本 / aspect 方面（看的角度）。"
+  },
+  "disastrous": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "astr = 星（希腊 astron）。古人认为灾祸是「星位不好」→ disaster。所以 disastrous 就是「星象不利的」。同族一串：astronomy 天文学 / asterisk 星号 / asteroid 小行星 / astronaut 宇航员。"
+  },
+  "locomotive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "loc(地方) + mot(动) = 换地方地动 → 运动的、机动的；名词是「火车头」。同族两串：loc- 地方（local 当地的 / locate 定位 / dislocate 脱臼）；mot- 动（motion 运动 / promote 促进 / emotion 情绪）。"
+  },
+  "lunar": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "lun = 月（拉丁 luna）。同族有个很有意思的词：lunatic 疯子 —— 古人相信月圆会让人发狂（lunar 与 lunatic 同源）。三个「天体形容词」一起记：lunar 月的 / solar 日的 / stellar 星的。"
+  },
+  "dome": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dom = 家、房子（拉丁 domus）。dome 就是「房子的顶」→ 圆屋顶。同族：domestic 家庭的·国内的 / domicile 住所 / domesticate 驯化（带回家）。注意 dom 另有「主人」义（dominate 统治），来自 dominus。"
+  },
+  "cylinder": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "出自希腊 kylindein「滚动」：能滚的东西 → 圆柱、圆筒；发动机里活塞来回滚的腔 → 汽缸。几何体一起记：cone 锥 / sphere 球 / cube 立方体 / prism 棱柱。"
+  },
+  "undertake": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "under(在下面) + take(拿) = 把事情接到自己手上、扛下来 → 承担、从事（undertake a task）。同类 under- 的比喻构词：understand 理解（在下面托住）/ undermine 暗中破坏（下面挖）/ undergo 经历。"
+  },
+  "primitive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "prim = 第一、最初（拉丁 primus）。primitive 就是「最初那副样子」→ 远古的、原始的（也可以是中性的：primitive tools 原始工具，the primitive church 早期教会）。同族：prime 首要的 / primary 初级的 / premier 首相 / principle 原则。"
+  },
+  "prototype": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "proto-(最初) + type(型) = 第一个型 → 原型。proto- 家族：protocol 协议（最初那页）/ protagonist 主角 / proton 质子 / protozoa 原生动物。type 家族：typical 典型的 / typist 打字员。"
+  },
+  "vowel": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 vocalis「能发声的」→ 元音（a e i o u 能独立发音）。同族全是「声音」：vocal 嗓音的 / voice 声音 / vocabulary 词汇 / vocalist 歌手。对比 consonant 辅音（con- 一起 + son 声音 → 得跟元音一起才响）。"
+  },
+  "satisfactorily": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "satis(足够，拉丁) + fact(做) = 做得够足 → 满意、圆满。同族：satisfy 满足 / satisfaction 满意 / saturate 使饱和（也是「装够」）/ satiety 饱足。记住 satis = 足够，一串词都好办。"
+  },
+  "nucleus": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "nuc = 果仁、核（拉丁 nux 坚果）。nucleus 就是「中间那颗核」：细胞的核、原子的核。同族：nuclear 核的 / nut 坚果 / nugget 金块（小块）。复数特殊：nuclei。"
+  },
+  "marshal": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 mareschal 本是「管马的人」（mare 马 + 仆役）—— 军营里管马的是大人物，一路升成「元帅」。动词义是「整顿、引导」：marshal the facts 把事实理清 / marshal troops 集结部队。"
+  },
+  "subscription": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(下面) + script(写) = 在单据下面签名表示认账 → 订阅、认购。同族「写」字辈：describe 描述（写下来）/ prescribe 开处方（提前写）/ manuscript 手稿 / script 剧本。"
+  },
+  "prophet": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "pro-(在前) + phet(说) = 提前把话说出来的人 → 先知。三兄弟必须分清：prophet 先知（人）/ prophecy 预言（名词）/ prophesy 预言（动词）。"
+  },
+  "prophecy": {
+   "kind": "family",
+   "certainty": "medium",
+   "tip": "prophet 的「事」版：名词，预言、预言能力。三兄弟：prophet 先知（人）/ prophecy 预言（名词，读 -see）/ prophesy 预言（动词，读 -sigh）。同根 pro-(提前) + phet(说)。"
+  },
+  "prediction": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(提前) + dict(说) = 提前说 → 预言、预报。同族 dic/dict「说」：predict 预测 / dictate 口述·命令 / contradict 反驳 / indicate 指示 / verdict 裁决（ver- 真 + dict 说）。"
+  },
+  "preset": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "pre-(提前) + set(设定) = 预先设好。同类 pre- + 动词：preset 预设 / preview 预览 / prepay 预付 / precaution 预防（提前小心）/ precede 先于 / predict 预言。"
+  },
+  "beforehand": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "before(在前) + hand(手头) = 事情到手之前 → 预先、提前（Let me know beforehand.）。同类「时间 + 方位」的副词：afterwards 后来 / henceforth 今后 / beforehand 事先。"
+  },
+  "budget": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 bougette 是「小皮袋」—— 英国财政大臣开会时打开皮袋（open the budget）公布收支，于是「袋子」变成了「预算」。同源词 bulge 鼓起（袋子鼓起来）。搭配：on a tight budget 预算很紧。"
+  },
+  "foresee": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fore(前面) + see(看) = 提前看到 → 预见。fore- 这个前缀极常见：forecast 预报 / foresee 预见 / forehead 前额 / foreword 前言 / foremost 最重要的 / forefather 祖先。"
+  },
+  "prevention": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(提前) + vent(来，拉丁 venire) = 提前来到（挡住）→ 预防。同族 vent「来」：prevent 预防 / invent 发明（想出来）/ event 事件（出来）/ convention 集会 / avenue 大道（向…来）。谚语：Prevention is better than cure."
+  },
+  "tulip": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "借自土耳其语 tülbent（缠头巾）：欧洲人觉得这花像土耳其人的头巾，就叫它 tulip。同源词 turban 头巾更明显。荷兰「郁金香泡沫」是人类第一次金融危机，阅读里会出现。"
+  },
+  "intonation": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ton = 音调（希腊 tonos）。intonation 是说话时「音调的起伏」→ 语调。同族：tone 音色 / monotone 单调 / tonal 音调的 / tune 曲调（同源）。"
+  },
+  "cosmic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊 kosmos 原义是「秩序、齐整」—— 后来指「有序的整个宇宙」。所以 cosmic 既指宇宙的，也指「广大无边的」。同族很意外：cosmetic 化妆品（让外表变齐整的）/ cosmos 宇宙 / microcosm 微观世界。"
+  },
+  "cosmos": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "同 cosmic 的词源：希腊 kosmos 本义「秩序、齐整」，反义正是 chaos（混乱）。所以它的两个义项 —— 宇宙、秩序和谐 —— 其实是同一个意思：古人眼里的宇宙就是「有秩序的那一整套」。"
+  },
+  "overlap": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(上面) + lap(膝、衣摆) = 一片搭在另一片上 → 重叠、交搭。引申义很实用：their duties overlap 职责有交叉 / overlapping interests 利益重叠。"
+  },
+  "excuse": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ex-(出) + cus(原因，拉丁 causa，就是 cause) = 把原因摆出来 → 辩解；把责任从你身上「拿出去」→ 免除。同族：accuse 指控（向人给个说法）/ cause 原因 / because。"
+  },
+  "senseless": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sense(知觉、意义) + -less(无) = 没知觉的、没意义的 → 愚蠢的。同族 -less 很有意思：careless 粗心的 / hopeless 无望的 / priceless 无价的（不是「没价值」，是「无法定价」）/ worthless 一文不值的。"
+  },
+  "amusement": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "a-(不) + muse(沉思) = 不用费脑想 → 消遣、娱乐。同族很有意思：muse 缪斯女神·沉思 / museum 博物馆（缪斯的神殿）/ music 音乐 / bemused 困惑的。搭配：amusement park 游乐场。"
+  },
+  "torpedo": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 torpedo 是「电鳐」—— 那种会放电把人麻住的鱼。于是「让人瞬间失去知觉」的武器就叫 torpedo（鱼雷）。同族 torpor 麻木 / torpid 迟钝的。记住画面：电鳐 → 一击麻住。"
+  },
+  "margin": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "marg = 边缘（拉丁 margo）。书页的边 → 页边空白 → 「留出的余地」；买卖两边的差 → 幅度、赚头（profit margin 利润率）。理解成「边上那一圈」，三个义项都通。同族：marginal 边缘的·微小的。"
+  },
+  "roundabout": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "round(绕圈) + about(周围) = 绕着走的 → 迂回的；说话绕圈子 → 转弯抹角的。名词义很实用：英式英语里「环岛」就叫 roundabout（美式 traffic circle），游乐场的旋转木马也叫 roundabout。"
+  },
+  "kidnap": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "kid(小孩) + nap(抓走，与 nab 同源) = 抓小孩 → 绑架。词源本身就是「偷孩子」，后来泛指绑票。同族 nab 逮住 / kidnapper 绑匪。"
+  },
+  "guilt": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「该受罚」：法律上 → 有罪；心里 → 内疚。搭配：a sense of guilt 负罪感 / guilt-ridden 满心愧疚的。注意与 guild（行会）只差一个字母，别混。"
+  },
+  "shadowy": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "shadow(影子) + -y = 有影子的 → 幽暗的；引申为「来路不明的、模糊的」：a shadowy figure 一个鬼祟的身影 / shadowy dealings 见不得光的交易。这条引申在新闻里很常见。"
+  },
+  "avail": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vail = 价值（拉丁 valere，和 value 同根）。avail 就是「有用、顶用」。三个词组必背：avail oneself of 利用 / of no avail 毫无用处 / to no avail 徒劳。同族：value 价值 / valid 有效的 / prevail 占上风。"
+  },
+  "ambitious": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ambi-(周围) + it(走，拉丁 ire) = 四处走动 —— 古罗马候选人到处走拉票，所以 ambition 是「野心」。同族：ambient 周围的 / ambiguous 含糊的（能往两边走）/ ambidextrous 双手同利的。"
+  },
+  "significant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sign(记号) + fic(做，拉丁 facere) + -ant = 做出记号来 → 有意义的、显著的、重要的（a significant difference / statistically significant）。同族 fic「做」：magnify 放大 / efficient 高效的 / suffice 足够。"
+  },
+  "validity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "val = 强壮、有价值（拉丁 valere）。valid 是「站得住的」→ 有效的；validity 就是有效性、正确性。同族：invalid 无效的·病人 / validate 验证 / value 价值 / valour 英勇。"
+  },
+  "availability": {
+   "kind": "usage",
+   "certainty": "medium",
+   "tip": "avail(可用) + -ability = 可得性、可用性。阅读里它几乎只有一个意思：「能不能拿到」（the availability of data 数据是否可得 / the availability of funds 资金是否到位）。按「可得性」理解最稳。"
+  },
+  "finite": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fin = 界限、终点（拉丁 finis）。finite 是「有界限的」→ 有限的；反义 infinite 无限的。同族一串：finish 结束 / final 最终的 / define 划定（彻底划界）/ confine 限制 / finance 财政（结清账目）。"
+  },
+  "magnet": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "来自地名：古希腊 Magnesia（马格尼西亚）产天然磁石，所以叫 magnet。引申义常用：a magnet for tourists 游客的磁石。同族：magnetic 磁的·有魅力的 / magnetism 磁性·吸引力。"
+  },
+  "profitable": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + fit(做) = 做出进展 → 有利可图。注意 profitable 首先是「赚钱的」，其次才是「有益的」。同族 fit/fic「做」：profit 利润 / proficient 熟练的 / sufficient 充足的 / factory 工厂。"
+  },
+  "advantageous": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "advant = 在前面（拉丁 ante 之前 → 古法语 avant）。占在前面就是「优势」：take advantage of 利用 / at an advantage 处于有利地位。同族：advance 前进 / advantage 优势 / disadvantage 劣势 / vanguard 先锋。"
+  },
+  "courteous": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "court(宫廷) + -eous = 「宫廷里那套举止」→ 有礼貌的、谦恭的。同族：courtesy 礼貌 / courtly 宫廷式的 / court 法庭·宫廷·求爱。记住画面：宫里有宫里的规矩。"
+  },
+  "bead": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 gebed 是「祈祷」—— 数着念珠祈祷，于是「念珠」变成了「珠子」；露珠也是「一串小珠子」（beads of dew）。同源词 bid 最初也是「祈祷、命令」。习语：draw a bead on 瞄准。"
+  },
+  "commonsense": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "common(共同的) + sense(判断力) = 大家共有的判断力 → 常识。18 世纪苏格兰哲学把「人人共有的判断」叫 common sense。写作里 a commonsense approach 是「务实的做法」。"
+  },
+  "conservative": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "serv = 保持、守护（拉丁 servare）。con-(加强) + serv = 牢牢保住 → 保守的、守旧的；大写 Conservative 是英国保守党。同族：conserve 保存 / preserve 保护 / reserve 保留 / observe 观察（对着看住）。"
+  },
+  "liable": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "li = 捆、绑（拉丁 ligare）。被绑住的 → 有责任的；被绑在某结果上 → 易于…的（be liable to catch cold 容易感冒）。同族：liability 责任·债务 / oblige 迫使 / ally 结盟 / ligament 韧带。常考：be liable for（对…负责）/ be liable to（易于）。"
+  },
+  "yacht": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "借自荷兰语 jacht「狩猎用的快船」（jagen = 追猎）。最初是海盗与海军追人的快船，后来才变成有钱人的游艇。荷兰语给英语贡献了大量航海词：cruise 巡航 / skipper 船长 / dock 船坞 / buoy 浮标。"
+  },
+  "uranium": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "1789 年发现铀，用刚发现不久的天王星 Uranus 命名 —— 元素常跟着行星命名：uranium 铀 / neptunium 镎 / plutonium 钚。记忆钩：天空的行星 → 元素周期表。"
+  },
+  "tanker": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "tank(罐、箱) + -er(器) = 装着大罐子的船或飞机 → 油轮、空中加油机。同类 -er 工具名：cutter 切割机 / container 集装箱 / boiler 锅炉 / printer 打印机。"
+  },
+  "postal": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "post 最初是「驿站」—— 古罗马沿路设站换马传信，所以 post 成了「邮政」；postal 就是邮政的。同族：postage 邮资 / postcode 邮编 / postman 邮差。注意 post 另有「柱子」「岗位」义（各站一个岗）。"
+  },
+  "superiority": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "super(在上) + -ior(比较级) + -ity = 更高的那个状态 → 优越性、优势。搭配：superiority complex 优越感 / superiority in numbers 数量优势。同族：superior 优越的 / supreme 至高的 / supervise 监督（从上面看）。"
+  },
+  "elbow": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "eln(前臂) + bow(弯) = 前臂的弯 → 肘。作动词是「用肘挤」：elbow one's way through the crowd 用肘挤过人群。习语：elbow room 活动余地 / rub elbows with 与…接触。"
+  },
+  "paper": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词转动词：paper 是纸，所以动词是「用纸包/糊」：paper over the cracks 用纸把裂缝糊上 = 掩盖问题（社论里极常见）。同类名词转动词：net 用网捕 / hook 用钩挂 / head 用头顶 / elbow 用肘挤。"
+  },
+  "cutter": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "cut(切) + -er = 切割器械或切割工；它还指一种独桅小艇（船首像刀一样切开水面）。同类 -er 兼「器/人」：cutter 切割机 / tanker 油轮 / printer 打印机 / grinder 磨床。"
+  },
+  "net": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "net 是网，动词就是「用网捕/罩住」；引申成「净得」（net profit 净利润 = 网住之后剩下的）。一对必考：net weight 净重 / gross weight 毛重。"
+  },
+  "head": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "head 的核心是「头」，引申出一大片：用头顶球 / 站在最前面 → 率领（head a team）/ 朝某方向走（head for home）/ 文件的开头（header 页眉）。搭配：head off 拦住 / go to one's head 冲昏头脑。"
+  },
+  "tug": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是用力拽那一下的声音。搭配：tug at one's sleeve 拽袖子 / tug of war 拔河 / a tug 拖船。三个「拉」一起记：tug 用力拽 / drag 拖重物 / haul 长距离拖运。"
+  },
+  "hook": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "hook 是钩子，动词是「钩住、挂上」；引申为「吸引住」（the opening line hooked me / be hooked on 上瘾）。短语：hook up 连接 / off the hook 脱身 / by hook or by crook 不择手段。"
+  },
+  "formulate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "form(形式) + -ulate = 把想法「弄成形」→ 明确表达、制定（formulate a policy 制定政策）；数学上就是用公式表示。同族：form 形式 / formula 公式 / formal 正式的 / format 格式 / conform 符合（共同成形）。"
+  },
+  "sniff": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是鼻子吸气那声「哼」。拟声一族：sniff 嗅 / sniffle 抽鼻子 / snort 喷鼻息 / sneeze 打喷嚏 / snore 打鼾 —— 全是鼻子和喉咙的音。引申：sniff at 嗤之以鼻 / sniff out 嗅出。"
+  },
+  "courageous": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "cour = 心（拉丁 cor，heart 的老亲戚）。courage 是「拿出心来」→ 勇气；加 -ous 成形容词。同族：encourage 鼓励（给心）/ discourage 使泄气 / core 核心。对比：brave 偏天生胆大，courageous 偏在害怕时仍然去做。"
+  },
+  "emigrate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + migr(迁移) = 移出去 → 移居国外。方向最容易搞混，记一句：emigrant 是「走出去的」、immigrant 是「走进来的」—— 看你站在哪个国家的门口。同族：migrate 迁徙 / migration 迁移 / migrant 候鸟·移民。"
+  },
+  "perpetual": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "per-(贯穿到底) + pet(追求，拉丁 petere) = 一直追下去 → 永久的、不断的。同族 pet「追求」：petition 请愿 / compete 竞争 / appetite 食欲 / repeat 重复。搭配：perpetual motion 永动。"
+  },
+  "everlasting": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ever(永远) + lasting(持续) = 永远持续 → 永久的。同类 ever- 构词：evergreen 常青的 / evermore 永远。区别：eternal 无始无终（哲学、宗教味），everlasting 有起点但不会停，permanent 长期不变。"
+  },
+  "periodic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "period(周期) + -ic(形容词后缀) = 周期的、定期的（the periodic table 元素周期表 / periodic checks 定期检查）。同族：period 时期 / periodical 期刊。"
+  },
+  "stiffness": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "stiff(僵硬的) + -ness(名词) = 硬度、僵硬。同族：stiffen 使变硬 / stiffly 僵硬地。物理里的「刚度」也是它：stiffness matrix 刚度矩阵。"
+  },
+  "comply": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(完全) + ply(填满，拉丁 plere) = 把要求完全填满 → 遵照、照做。同族 ply/ple「填满」：supply 供应 / complement 补足 / complete 完整 / implement 实施。搭配必背：comply with 遵守（不能接 to）。"
+  },
+  "bound": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "bind(绑) 的过去分词：被绑住的 → 必定会…的（be bound to do）、有义务的。名词「界限」是另一个同形词（out of bounds 越界）。同族：bind 捆 / bond 纽带·债券 / bundle 捆。"
+  },
+  "salute": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sal = 健康（拉丁 salus）。见面祝对方健康 → 敬礼、致意；军队的「敬礼」就是它。同族：salutary 有益的（对健康好的）/ salutation 招呼。注意词根 sal 另有「盐」义（salary 薪水），两回事别混。"
+  },
+  "cater": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义是「供应饭菜」（caterer 餐饮承办商）→ 引申为「顺着别人的口味来」→ 迎合、投合。搭配必背：cater to/for sb 迎合某人 / cater to all tastes 老少咸宜。"
+  },
+  "press": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「压」：印刷机把字压到纸上 → 印刷机、印刷所 → 出版业、新闻界（the press 报界，freedom of the press 新闻自由）。同族压字辈：express 表达 / impress 印象 / compress 压缩 / depress 沮丧。"
+  },
+  "printer": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "print(印) + -er(人/器) = 印刷工、印刷机、打印机。同族：imprint 印刻·印记 / blueprint 蓝图（蓝底设计图）/ fingerprint 指纹 / footprint 脚印。"
+  },
+  "eternal": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "etern = 永恒（拉丁 aeternus）→ 永久的、不朽的（eternal love / the Eternal City 罗马）。三个「永久」分清：eternal 无始无终（哲学、宗教味）/ everlasting 有起点但不会停 / permanent 长期不变。"
+  },
+  "tempt": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "tempt = 试探（拉丁 temptare）。试着勾引你 → 引诱。同族：attempt 尝试（朝着去试）/ temptation 诱惑 / tentative 试探性的。习语：be tempted to do 很想做。"
+  },
+  "cite": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cit = 召唤（拉丁 citare）。把别人的话「叫」出来 → 引用、举证。同族极多：excite 激起（叫出来）/ recite 背诵（再叫一遍）/ incite 煽动 / solicit 恳求。写作常用：citing data from…"
+  },
+  "ignite": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ign = 火（拉丁 ignis）。ignite 就是点火、引燃；汽车的「点火装置」就是 ignition。同族：igneous rock 火成岩。引申义：ignite a debate 点燃一场争论。"
+  },
+  "derivation": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "de-(从) + riv(河，拉丁 rivus) = 从河里引水 → 引出、衍生。同族很有意思：river 河 / derive 源自 / rival 对手（古时共用一条河的人会争水）。语言学里的「派生」就叫 derivation。"
+  },
+  "banker": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "bank 出自意大利语 banca「长凳」—— 中世纪钱商在长凳上做买卖；长凳被砸了就是 bankrupt（破产，banca rotta 断凳）。所以 banker 就是坐在那条长凳上的人。同族：bankrupt 破产 / bench 长凳（同源）。"
+  },
+  "obscure": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "ob-(对着) + scur(遮盖) = 被盖住的 → 阴暗的；引申为「晦涩难懂的、不出名的」（an obscure poet 无名诗人 / obscure meaning 晦涩的含义）。动词义：obscure the issue 把问题搞模糊。"
+  },
+  "inasmuch": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "只用在固定词组里：inasmuch as = 因为、就…而言（正式书面连词）。同类正式连词：insofar as（在…范围内）/ in that（因为）。看到 inasmuch 就往 as 上找 —— 它永远跟着 as。"
+  },
+  "through": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "核心义是「穿过、通过」，其余义项从它长出来：从中间穿过 → 从头到尾（read it through）/ 经由某个过程 → 表原因（through carelessness 由于粗心）/ 电话接通（be through to sb）。搭配：go through 经历 / get through 完成。"
+  },
+  "observation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ob-(对着) + serv(守住、看) = 盯着看 → 观察；观察之后说出来的话 → 意见、短评（make an observation 发表看法）。同族：observe 观察·遵守 / observant 敏锐的 / observatory 天文台。"
+  },
+  "consciousness": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + sci(知道，拉丁 scire) = 心里一起知道 → 意识、觉悟。同族「知道」字辈：science 科学 / conscience 良心（共同知道善恶）/ conscious 有意识的 / subconscious 潜意识的 / omniscient 无所不知的。"
+  },
+  "cross": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「交叉成十字」：两条线交叉 → 十字、横穿；两个品种交叉 → 杂交（cross-breed）；脾气「横」过来 → 易怒的（be cross with sb）。一个画面串起三个义项。"
+  },
+  "refrain": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "re-(回) + frain(马嚼子，拉丁 frenum) = 把马拉住 → 忍住。搭配必背：refrain from doing 忍住不做。注意它还有个名词义「副歌」（歌曲反复那段）—— 同形不同源。"
+  },
+  "restrain": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + strain(拉紧) = 往回拉 → 抑制、约束。同族 strict/strain「拉紧」：strain 拉紧·压力 / strict 严格的 / restrict 限制 / district 区（划出来的一块）/ stringent 严厉的。区分：restrain 抑制（可对人对己）/ refrain 自己忍住不做。"
+  },
+  "singular": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "singul = 单个（拉丁 singulus）。只有一个 → 独一无二 → 奇异的、异常的；语法上就是「单数」。同族：single 单个 / singularity 奇点·独特性。逻辑链很好记：唯一 → 少见 → 奇怪。"
+  },
+  "house": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「房子」→ 议事的地方 → 议院（the House of Commons 下议院 / the White House 白宫）；动词是「容纳、收藏」（the museum houses 5000 works）。一个画面串起三个义项。"
+  },
+  "obligation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ob-(朝) + lig(绑，拉丁 ligare) = 被绑在别人身上 → 义务。同族「绑」字辈：oblige 迫使·施恩 / liable 有责任的 / league 联盟（绑在一起）/ ligament 韧带。搭配：be under an obligation to 有义务…"
+  },
+  "formerly": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "former(以前的) + -ly = 从前。⚠️ 极易与 formally（正式地，来自 formal）混：formerly 读 /ˈfɔːməli/ 是「以前」，formally 是「正式地」。一个是 former，一个是 formal，看清词根。"
+  },
+  "desert": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(离开) + sert(连接，拉丁 serere) = 把联系解开 → 抛弃、擅离。同族 sert「连接」：insert 插入（接进去）/ assert 断言（把主张接上）/ series 系列。⚠️ 另有同形词 desert 沙漠，重音不同：名词 /ˈdezət/、动词 /dɪˈzɜːt/。"
+  },
+  "transmission": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "trans-(越过) + miss(送) = 送过去 → 传送、传染、遗传；汽车的「变速箱」就是 transmission。同族 miss/mit「送」：transmit 传送 / mission 使命 / dismiss 解散（送走）/ promise 承诺（先送出话）。"
+  },
+  "veil": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "veil 是面纱，动词就是「罩起来」；引申为「掩盖」（a veil of secrecy 一层神秘的帷幕 / draw a veil over 对…避而不谈）。习语：take the veil 当修女。反义 unveil 揭幕·公布。"
+  },
+  "forsake": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "for-(否定) + sake(古英语「争执、诉讼」) = 当众否认关系 → 遗弃、摒弃。同族 for- 表否定的古词：forbid 禁止 / forgo 放弃 / forget 忘记。过去式特殊：forsook，过去分词 forsaken。"
+  },
+  "displace": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(离开) + place(位置) = 把东西挪离原位 → 移置、取代（displaced workers 被替代的工人 / displaced refugees 流离失所者）；物理里「排开的水量」就是 displacement。对比 replace（放回去·替换）。"
+  },
+  "displacement": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "displace 的名词，三个义项靠语境分：物理的「位移/排水量」（a ship's displacement 排水量）、社会的「流离失所」、职位的「撤换」。同族：displace 取代 / replace 替换 / placement 安置。"
+  },
+  "garment": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "gar = 装饰、装备（古法语 garnir）。用来装扮的东西 → 衣服（比 clothes 正式，多用于行业：the garment industry 服装业）。同族：garnish 装饰配菜 / garniture 饰物。"
+  },
+  "colonist": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "colon = 耕种、拓殖（拉丁 colere）。去新地方开垦定居的人 → 殖民者、移民。同族：colony 殖民地 / colonial 殖民地的 / colonialism 殖民主义 / agriculture（同源 colere 耕种）。"
+  },
+  "Islam": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "阿拉伯语 islām 意思是「顺从（真主）」，与 salām（和平）同根 —— 所以穆斯林见面说 as-salamu alaykum（愿你平安）。同类宗教名：Buddhism 佛教 / Christianity 基督教 / Judaism 犹太教。"
+  },
+  "instrumental": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "和 instructor 同一个 struct「建造」：instrument 是被造出来的「工具」→ instrumental 是「起工具作用的」→ 有帮助的（be instrumental in 对…起了关键作用）。同族：instruct 教 / structure 结构 / construct 建造 / destruction 破坏。"
+  },
+  "evenly": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "even = 平的、「扯平的」→ evenly 均匀地、平静地：spread evenly 涂匀 / evenly matched 势均力敌 / speak evenly 平静地说。同族：even 平的·偶数的 / uneven 不平的 / even out 拉平。"
+  },
+  "wardrobe": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "ward(看守，与 guard 同源) + robe(长袍) = 看管衣袍的地方 → 衣柜；引申为「一个人的全部衣服」（a new summer wardrobe）。同族 ward「看守」：guard 卫兵 / warden 看守人 / ward 病房（被看管的）/ award 奖品。"
+  },
+  "compatible": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + pati(忍受、感受) = 能一起相处 → 相容的、兼容的。同族 pati「感受/忍受」：patient 病人·耐心的 / passion 激情 / sympathy 同情 / pathetic 可怜的。电脑的「兼容」就是这个 compatible。"
+  },
+  "stitch": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 stice「刺一下」→ 一针、缝。两个习语很值得记：A stitch in time saves nine 及时一针省九针（防微杜渐）；in stitches 笑破肚皮。同族「尖刺」：stick 棍·刺 / stake 桩 / distinct（分开的）。"
+  },
+  "concert": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + cert(努力、较量) = 大伙一起使劲 → 协作、一致（in concert with 与…协同）；一群人一起演奏就是「音乐会」。同族 cert：certain 确定的 / certify 证明 / concert 音乐会。"
+  },
+  "chop": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「砍」：砍的动作 → 剁、砍；砍下来那块肉 → 排骨、肉块（pork chop 猪排）；砍出的印记 → 印章、许可证。习语：chop and change 反复无常。"
+  },
+  "baby": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "本义「婴儿」→ 引申为「最小的那个」（the baby of the family 家里最小的）/「稚嫩的」（a baby company 新创公司）。作动词是「当宝贝一样呵护」。"
+  },
+  "troop": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "本义就是「一群人」，后来专指部队（troops 军队）。搭配：a troop of monkeys 一群猴子 / troop into 成群涌入。同源词 troupe 剧团（也是一群人）。"
+  },
+  "episode": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊 eisodos 是「进入」（eis 进 + hodos 路）：剧里「进来」的一段 → 一集、一段情节；人生里插进来的一段 → 插曲（an episode of illness 一段病期）。同族 hodos「路」：method 方法 / period 时期 / exodus 出走。"
+  },
+  "cluster": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "核心画面是「长在一起的一团」：一串葡萄 a cluster of grapes；一群 a cluster of stars/people；动词是「聚成一团」（clustered around 围聚）。计算机的「集群」就是 cluster。"
+  },
+  "generalization": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "gener = 种类、产生（拉丁 genus）。从许多个别里「生出」一条通则 → 概括。逻辑学常考：a hasty generalization 草率的以偏概全。同族：general 一般的 / generate 产生 / generous 慷慨的 / genus 属。"
+  },
+  "burglar": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中世纪拉丁 burgare「破门而入」（burg = 城堡、城镇，就是 borough 那个词根）→ 入室盗窃者。四个贼分清楚：burglar 破门入室 / thief 泛指贼 / robber 抢夺 / pickpocket 扒手。"
+  },
+  "amateur": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "amat = 爱（拉丁 amare）。出于爱好而做的人 → 业余爱好者；引申「不专业的」（an amateurish job 外行活）。同族「爱」字辈：amiable 和蔼可亲的 / amorous 多情的。反义 professional 职业的。"
+  },
+  "Jesus": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希伯来语 Yeshua（约书亚）经希腊语 Iesous 变成拉丁 Jesus，意思是「耶和华是拯救」。同类宗教专名：Christ 基督（希腊语「受膏者」）/ Messiah 弥赛亚 / Christian 基督徒。"
+  },
+  "metallurgy": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "metall(金属) + urg(工作，希腊 ergon) = 加工金属 → 冶金学。同族 urg/erg「工作」：energy 能量（内在的活）/ synergy 协同（一起干）/ ergonomic 人体工学的 / surgeon 外科医生（用手干活的人）。"
+  },
+  "fort": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fort = 强壮（拉丁 fortis）。fort 就是「建得结实的那个地方」→ 要塞。同族：fortify 加固 / fortress 要塞 / effort 努力（把力使出来）/ comfort 安慰（一起使力）/ force 力量。"
+  },
+  "prescription": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(提前) + script(写) = 医生提前写好的那张单子 → 处方。同族 script「写」：prescribe 开处方·规定 / describe 描述 / subscribe 订阅 / manuscript 手稿。法律上它还有个「时效取得」义。"
+  },
+  "postulate": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "拉丁 postulare「要求」→ 假定（先要求它成立才能往下推）。学术写作高频：Let us postulate that… 我们假定… / a basic postulate 一条基本假设。同族：expostulate 规劝。"
+  },
+  "wag": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "特指「来回摆」：狗摇尾巴（the dog wagged its tail）/ 摇手指（wag one's finger 表示责备）。习语：the tail wagging the dog 尾巴摇狗（本末倒置）。三个「晃」分清：shake 泛指晃 / swing 摆动 / wag 专指左右摇。"
+  },
+  "cradle": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "摇篮 → 引申「发源地」（the cradle of civilization 文明的摇篮），也指「婴儿时期」（from the cradle to the grave 从生到死）。"
+  },
+  "oxide": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ox = 酸、氧（希腊 oxys「酸」—— 古人以为酸里都含氧）→ oxygen 氧；-ide 是化合物后缀 → oxide 氧化物。同族：dioxide 二氧化物 / oxidize 氧化 / carbon monoxide 一氧化碳。"
+  },
+  "waver": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "wave(波浪) + -er = 像波浪一样来回晃 → 摇摆；引申为「犹豫、动摇」（waver between A and B 在两者间摇摆 / never wavered 从不动摇）。区分同音异形词 waiver 弃权（法律）。"
+  },
+  "domestic": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dom = 家（拉丁 domus）。domestic 的核心是「家里的」：养在家里的（domestic animals 家畜）/ 家庭的（domestic chores 家务）/ 本国的（domestic market 国内市场）/ 国内的（domestic flight）。同族：dome 圆顶 / domicile 住所 / domesticate 驯化。"
+  },
+  "oxidize": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "oxide(氧化物) + -ize(使…) = 使变成氧化物 → 氧化、生锈。同族：oxide 氧化物 / oxidation 氧化作用 / antioxidant 抗氧化剂（护肤品常见）。"
+  },
+  "banquet": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 banquet 本是「小长凳」—— 大家坐在小凳上吃喝，于是「凳子」变成了「宴会」。同源词 bank/bench（都是「长条」）。搭配：a state banquet 国宴 / banquet hall 宴会厅。"
+  },
+  "foster": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「喂养、抚养」（foster parents 养父母）；引申为「促进、培养」（foster cooperation 促进合作 / foster talent 培养人才）。六级写作的高频动词，比 help 高级得多。"
+  },
+  "anode": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊 ana-(向上) + hodos(路) = 电流进来的那条路 → 阳极；反义 cathode 阴极（cata- 向下）。同族 hodos「路」：method 方法 / period 时期 / episode 一段情节。记忆钩：anode 阳极 / cathode 阴极，一上一下。"
+  },
+  "balcony": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "意大利语 balcone（由 balco「木架」增大而来）→ 阳台；剧院的「楼座」也是它。同类来自意大利语的建筑词：corridor 走廊 / fresco 壁画 / studio 工作室 / casino 赌场。"
+  },
+  "scope": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "scop = 看（希腊 skopein）。scope 就是「能看到的范围」→ 眼界、范围（beyond the scope of 超出…范围）；-scope 结尾的仪器都是「用来看的」：telescope 望远镜 / microscope 显微镜 / periscope 潜望镜 / horoscope 星座运程。"
+  }
+ }
+}

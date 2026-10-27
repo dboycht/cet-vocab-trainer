@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f2ece0">
+<title>四六级词汇刷词器</title>
+<link rel="stylesheet" href="./styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23f2ece0'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Georgia,serif' text-anchor='middle' fill='%231c1a16'%3E%E8%AF%8D%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<div class="bg-rules" aria-hidden="true"></div>
+<div class="bg-grain" aria-hidden="true"></div>
+<div class="bg-watermark" aria-hidden="true">大学英语六级词汇 · 乱序</div>
+
+<div class="app" id="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-seal">词</span>
+      <span class="brand-text">
+        <b>刷词器</b>
+        <i id="wbName">—</i>
+      </span>
+    </div>
+
+    <nav class="modes" id="modes" role="tablist" aria-label="模式">
+      <button class="mode-btn" data-mode="quiz" role="tab" aria-selected="true">测验</button>
+      <button class="mode-btn" data-mode="flash" role="tab" aria-selected="false">快速过词</button>
+      <button class="mode-btn" data-mode="browse" role="tab" aria-selected="false">乱序浏览</button>
+      <button class="mode-btn" data-mode="stats" role="tab" aria-selected="false">统计</button>
+    </nav>
+
+    <div class="counters" id="counters">
+      <span class="ctr"><i>待复习</i><b id="ctrDue">0</b></span>
+      <span class="ctr"><i>待学新词</i><b id="ctrNew">0</b></span>
+      <span class="ctr"><i>今日已答</i><b id="ctrToday">0</b></span>
+      <span class="ctr"><i>记住了</i><b id="ctrKnown">0</b></span>
+    </div>
+  </header>
+
+  <!-- ================= 测验 / 过词 / 浏览 ================= -->
+  <main class="stage" id="stage">
+
+    <aside class="rail" id="rail" aria-hidden="true">
+      <div class="rail-track"><div class="rail-fill" id="railFill"></div></div>
+      <span class="rail-label" id="railLabel">0 / 0</span>
+    </aside>
+
+    <section class="cardwrap">
+      <article class="card" id="card" tabindex="0" aria-live="polite">
+
+        <div class="card-tab">
+          <span id="cardIndex">第 1 张</span>
+          <span class="tab-dot"></span>
+          <span id="typeBadge" class="type-badge">—</span>
+          <span id="cardState" class="card-state">新词</span>
+        </div>
+
+        <div class="stamp" id="stamp" aria-hidden="true"><span id="stampText"></span></div>
+
+        <div class="card-body">
+          <!-- 题干（英→中：英文词；中→英 / 拼写：中文释义） -->
+          <h1 class="word" id="word">—</h1>
+          <p class="prompt-cn" id="promptCn" hidden></p>
+
+          <div class="word-meta">
+            <button class="speak" id="speakBtn" title="朗读 (S)">🔊</button>
+            <span class="pos-badges" id="posBadges"></span>
+          </div>
+
+          <!-- 揭示区：学习卡（新词首见）自动摊开；过词模式按空格摊开 -->
+          <div class="learn-note" id="learnNote" hidden>
+            <p class="ln-title" id="lnTitle">这是新词，先看一遍</p>
+            <p class="ln-def" id="lnDef"></p>
+            <div class="tip" id="lnTip" hidden>
+              <span class="tip-kind" id="lnTipKind"></span>
+              <span class="tip-text" id="lnTipText"></span>
+            </div>
+            <p class="ln-sub" id="lnSub"></p>
+          </div>
+
+          <!-- 选项（选择题） -->
+          <div class="options" id="options" hidden></div>
+
+          <!-- 拼写输入 -->
+          <div class="spell-box" id="spellBox" hidden>
+            <input type="text" id="spellInput" autocomplete="off" autocapitalize="off"
+                   spellcheck="false" placeholder="按释义打出英文单词，回车提交" aria-label="拼写答案">
+            <div class="spell-actions">
+              <button class="btn primary" id="spellSubmit">提交 (Enter)</button>
+            </div>
+          </div>
+
+          <!-- 「我不会」：不让你被迫瞎蒙。选择题和拼写题共用这一个入口 -->
+          <div class="dunno-row" id="dunnoRow" hidden>
+            <button class="dunno" id="dunnoBtn">
+              我不会，直接看答案 <kbd>0</kbd>
+            </button>
+          </div>
+
+          <!-- 判定反馈（会停在这里等你记完） -->
+          <div class="feedback" id="feedback" hidden>
+            <p class="fb-verdict" id="fbVerdict"></p>
+            <p class="fb-answer" id="fbAnswer"></p>
+            <p class="fb-note" id="fbNote"></p>
+            <div class="tip" id="fbTip" hidden>
+              <span class="tip-kind" id="fbTipKind"></span>
+              <span class="tip-text" id="fbTipText"></span>
+            </div>
+            <p class="fb-hold" id="fbHold"></p>
+          </div>
+
+          <div class="divider"><span></span></div>
+
+          <p class="fix-note" id="fixNote" hidden></p>
+          <p class="hint" id="hint">—</p>
+        </div>
+
+        <div class="card-foot">
+          <span id="cardPage"></span>
+          <span id="cardReps"></span>
+        </div>
+      </article>
+
+      <!-- 学习卡 / 判定后的推进按钮 -->
+      <div class="grades" id="grades">
+        <button class="grade g2" id="goLearn"><b>记住了，开始学</b><i>空格</i></button>
+        <button class="grade g2" id="goNext" hidden><b>下一个</b><i>空格</i></button>
+        <button class="grade g0" id="goFlashBad" hidden><b>不认识</b><i>1</i></button>
+        <button class="grade g1" id="goFlashMeh" hidden><b>模糊</b><i>2</i></button>
+        <button class="grade g2" id="goFlashGood" hidden><b>认识</b><i>3</i></button>
+      </div>
+
+      <div class="browse-nav" id="browseNav" hidden>
+        <button class="bnav" data-nav="-1">← 上一个</button>
+        <button class="bnav bnav-mark" data-mark="1">标记「不认识」</button>
+        <button class="bnav" data-nav="1">下一个 →</button>
+      </div>
+
+      <p class="kbd-hint" id="kbdHint">
+        <kbd>空格</kbd> 继续 · <kbd>1</kbd>~<kbd>4</kbd> / <kbd>A</kbd>~<kbd>D</kbd> 选答案 · <kbd>S</kbd> 朗读
+      </p>
+    </section>
+
+    <section class="done" id="done" hidden>
+      <h2 id="doneTitle">这一轮做完了</h2>
+      <p id="doneText"></p>
+      <div class="done-grid" id="doneGrid"></div>
+      <div class="done-actions">
+        <button class="btn primary" id="doneMore">再来一轮</button>
+        <button class="btn" id="doneMistakes">只刷错词</button>
+        <button class="btn" id="doneStats">看统计</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= 统计 ================= -->
+  <main class="panel" id="panel" hidden>
+    <div class="panel-inner">
+      <h2 class="panel-title">学习统计</h2>
+
+      <div class="progress-block" id="progressBlock"></div>
+
+      <h3 class="panel-sub">累计</h3>
+      <div class="stat-row" id="statRow"></div>
+
+      <h3 class="panel-sub">最近 30 天 <span class="muted">柱高 = 当天答题数，绿色是答对的部分</span></h3>
+      <div class="history" id="history"></div>
+
+      <h3 class="panel-sub">题型正确率 <span class="muted">再认 vs 产出，差距最能说明问题</span></h3>
+      <div class="typerow" id="typeRow"></div>
+
+      <h3 class="panel-sub">未来 14 天到期量</h3>
+      <div class="forecast" id="forecast"></div>
+
+      <h3 class="panel-sub">最该复习的 20 个词 <span class="muted">按客观正确率排，不按感觉</span></h3>
+      <div class="weakest" id="weakest"></div>
+
+      <h3 class="panel-sub">错词本 <span class="muted" id="mistakeCount"></span></h3>
+      <div class="mistakes" id="mistakes"></div>
+
+      <h3 class="panel-sub">设置</h3>
+      <div class="settings">
+        <label>每日新词上限 <input type="number" id="setNew" min="0" max="200" step="5"></label>
+        <label>每日复习上限 <input type="number" id="setReview" min="0" max="1000" step="20"></label>
+        <label>题型
+          <select id="setTypes">
+            <option value="mix">智能混合（推荐）</option>
+            <option value="en2cn">只考「英→中」</option>
+            <option value="cn2en">只考「中→英」</option>
+            <option value="spell">只考「拼写」</option>
+          </select>
+        </label>
+        <label>答对后的记忆停顿
+          <select id="setMemorize">
+            <option value="0">手动（我自己按空格）</option>
+            <option value="3000">3 秒</option>
+            <option value="5000">5 秒</option>
+            <option value="8000">8 秒</option>
+          </select>
+        </label>
+        <label class="chk"><input type="checkbox" id="setTimeGate"> 选择题答得慢也算「模糊」</label>
+        <label class="chk"><input type="checkbox" id="setSpeak"> 自动朗读单词</label>
+        <label class="chk"><input type="checkbox" id="setPos"> 显示词性徽记</label>
+      </div>
+
+      <h3 class="panel-sub">学习记录</h3>
+      <p class="muted small">
+        进度保存在本机浏览器里。换电脑或清缓存会丢，建议定期导出备份。
+        「记住了」= 连续答对 ≥3 次 <b>且</b> 这 3 次跨了至少两天 —— 单次答对不算（4 选 1 有 25% 蒙对率）。
+      </p>
+      <div class="data-actions">
+        <button class="btn" id="exportBtn">导出备份</button>
+        <button class="btn" id="importBtn">导入备份</button>
+        <button class="btn danger" id="resetBtn">清空进度</button>
+        <input type="file" id="importFile" accept="application/json" hidden>
+      </div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <span id="footInfo"></span>
+    <span class="foot-sep">·</span>
+    <span id="footTip">快捷键 <kbd>?</kbd></span>
+  </footer>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

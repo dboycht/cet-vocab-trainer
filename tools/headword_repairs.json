@@ -1,0 +1,59 @@
+{
+  "_comment": "源 PDF 首词损坏的人工修复表。每一条都给出判据，便于日后复核；key 为 PDF 里读到的原样首词。",
+  "_method": "候选由 tools/spellcheck.py（vim 离线拼写词典）给出，最终以「中文释义必须与之对上」为定夺依据。",
+  "repairs": {
+    "rmost": {
+      "word": "utmost",
+      "reason": "首词丢了开头的 ut（原文应为 utmost）",
+      "evidence": "释义 a.最外面的，最远的 = utmost 的第一义项；rmost 不是英文词（spellcheck 标记）"
+    },
+    "outeintegral": {
+      "word": "integral",
+      "reason": "首词前多了碎片 oute",
+      "evidence": "释义 a.组成的；整的 = integral；outeintegral 不是英文词"
+    },
+    "iinfinitely": {
+      "word": "infinitely",
+      "reason": "首词开头多了一个 i",
+      "evidence": "释义 ad.无限地，无边地 = infinitely；iinfinitely 不是英文词"
+    },
+    "ndefinite": {
+      "word": "indefinite",
+      "reason": "首字符损坏（n 应为 i）",
+      "evidence": "释义 a.无限期的 = indefinite；ndefinite 不是英文词；同段相邻词为 infinitely / unlimited / infinite"
+    },
+    "ile": {
+      "word": "tile",
+      "reason": "首词丢了开头的 t（该 t 迁移到了同一行右格 watt 前面）",
+      "evidence": "释义 n.瓦片，瓷砖；贴砖 = tile；同行右格 twatt n.瓦(特) 正好多了一个 t"
+    },
+    "twatt": {
+      "word": "watt",
+      "reason": "首词前多了左格 tile 迁移过来的 t",
+      "evidence": "释义 n.瓦(特) = watt；twatt 不是英文词"
+    },
+    "statistics主因": {
+      "word": "statistics",
+      "reason": "格子里窜入了相邻格子的中文碎片（的 / 主因）",
+      "evidence": "原格文本 '的 statistics 主因 n. 统计，统计数字'，剥掉碎片即为完整词条"
+    },
+    "mishief": {
+      "word": "mischief",
+      "reason": "首词丢了 c",
+      "evidence": "释义 n.调皮，捣蛋，胡闹 = mischief；mishief 不是英文词"
+    },
+    "f scout i": {
+      "word": "scout",
+      "def": "vt.搜索，侦察，跟踪",
+      "reason": "格子里窜入了相邻格子的碎片（f / i / 穗 / 毛边 / 边缘）",
+      "evidence": "原格文本 'f scout i vt. 穗 搜索，侦察，跟踪 毛边 边缘'，剥掉碎片后释义为 vt.搜索，侦察，跟踪 = scout"
+    },
+    "i": {
+      "word": "instructor",
+      "def": "n.指导者，教员",
+      "reason": "首词在源文件里基本丢失（该格文字被行边界裁掉，只剩一个 i）",
+      "confidence": "inference",
+      "evidence": "唯一残留的英文是 'i'；释义 '指导者 教员' 对应 instructor。⚠️ 这一条是推断，不是逐字恢复，已在词库中标记 _repair_confidence"
+    }
+  }
+}
