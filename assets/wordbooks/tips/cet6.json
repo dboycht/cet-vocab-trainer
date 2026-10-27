@@ -5224,6 +5224,336 @@
    "kind": "family",
    "certainty": "high",
    "tip": "ov = 卵（拉丁 ovum）→ 卵形的（an oval face 瓜子脸 / an oval mirror）。同族 ov「卵」：ovum 卵细胞 / ovary 卵巢 / ovate 卵形的。体育场常是 oval（椭圆形球场）。"
+  },
+  "Roman": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自 Roma（罗马城名）。同族：romance 浪漫（原指「罗马式的」语言与故事）/ romantic 浪漫的 / Romania 罗马尼亚（罗马人的地方）。"
+  },
+  "video": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 videre「看」的第一人称是 video（我看见）—— 所以 video 是「看得见的东西」→ 录像的、视频。同族 vid/vis「看」：vision 视力 / visible 可见的 / evident 明显的 / provide 提供（预先看到）。"
+  },
+  "thesis": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "希腊词根 the「放置」（tithenai）：放出来的中心命题 → 论点、论文（a doctoral thesis 博士论文）；复数特殊：theses。同族：theme 主题 / hypothesis 假设（放在下面）/ synthetic 合成的。"
+  },
+  "reed": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 hreod「芦苇」→ 芦苇；因为牧人用芦苇做笛子，所以 reed 也指芦笛、簧片（乐器的「簧」就是它）。同族：reedy 芦苇丛生的·声音尖细的。"
+  },
+  "forum": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "拉丁 forum 是古罗马的「公共广场」（集市场与法庭于一处）→ 讨论的场所 → 论坛、讨论会；网上论坛也叫 forum。同族：forensic 法庭的（原指广场上的辩论）。"
+  },
+  "box": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「盒子」→ 剧院里像盒子一样隔开的位置 → 包厢、专席（a box at the theatre）；法庭的「陪审席」、球场的「罚球区」都叫 box。搭配：box office 票房（卖票的那个「盒子」）。"
+  },
+  "hug": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古北欧语 hugga「安慰」→ 拥抱（hug sb tightly）；引申「紧靠」（a boat hugging the shore 船紧靠着岸 / hug the road 紧贴路面行驶）。搭配：bear hug 熊抱。"
+  },
+  "leakage": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "leak(漏) + -age = 泄漏、漏出量（leakage of information 信息泄露 / a leakage of gas 漏气）。同族：leak 漏 / leaky 漏的。"
+  },
+  "stairway": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "stair(梯级) + way(通道) = 楼梯、楼梯间。同族：stair 一级台阶 / staircase 楼梯（含扶手结构）/ upstairs 楼上 / downstairs 楼下。"
+  },
+  "bridle": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 bridel「马笼头、缰绳」→ 马笼头、约束；动词「抑制」（bridle one's anger）和「昂首（表示不满）」（bridle at the suggestion）。⚠️ 别与 bridal（新娘的）混。"
+  },
+  "exile": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + ile(跳、走，拉丁 salire) = 把人赶出去 → 流放、流亡（be sent into exile 被流放 / a government in exile 流亡政府）。同族 sal/sil「跳」：assault 袭击（扑上去）/ resilient 有弹性的（跳回来）。"
+  },
+  "streamline": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "stream(水流) + line(线) = 顺着水流的形状 → 流线型；动词「精简流程」（streamline the procedure 简化程序）—— 把多余的阻力去掉。同族：stream 溪流 / line 线。"
+  },
+  "flux": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "flu = 流（拉丁 fluere）→ 流动、流量（物理的「通量」就是它）、涨潮；习语 be in flux 处于变动之中。同族 flu「流」：fluent 流利的 / fluid 流体 / influence 影响 / flush 冲。"
+  },
+  "willow": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 welig「柳」。文化联想：weeping willow 垂柳（「哭泣的柳」）/ willow pattern 柳树图案（中国风瓷器纹样）。同族：willowy 苗条的（像柳条）。"
+  },
+  "track": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「足迹、轨道」→ 动词「跟踪、留下足迹」（track the animal 追踪动物）；引申「（按进度）跟踪」（track progress）。搭配：keep track of 掌握…的动态 / lose track of 失去联系。"
+  },
+  "rascal": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 rascaille「乌合之众」→ 无赖、捣蛋鬼；口语里常带亲昵（You little rascal! 你这个小捣蛋）。同族：rascally 无赖的。"
+  },
+  "otherwise": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "other(别的) + -wise(方式) = 用别的方式 → 否则、另外、在其他方面（Hurry up, otherwise we'll be late.）。同类 -wise：clockwise 顺时针 / likewise 同样地 / sidewise 斜着。"
+  },
+  "prevalent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(前) + val(强，拉丁 valere) + -ent = 势力占上风 → 盛行的、普遍的（the prevalent view 流行的观点）。同族 val「强/值」：prevail 盛行·战胜 / valid 有效的 / value 价值。"
+  },
+  "gramophone": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "gram = 记录（希腊 gramma）+ phone(声音) = 把声音记下来的机器 → 留声机（英式说法；美式多说 phonograph）。同族：grammar 语法（「写」的技艺）/ telephone 电话 / photograph 照片。"
+  },
+  "province": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(前) + vinc(征服，拉丁 vincere) = 罗马征服下来的地方 → 行省、省；引申「职权范围、领域」（That's not my province. 那不归我管）。同族 vinc「征服」：convince 说服 / victory 胜利 / invincible 无敌的。"
+  },
+  "vicinity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vicin = 邻居（拉丁 vicinus）→ 邻近、附近（in the vicinity of 在…附近 / 大约）。辨析：vicinity 附近一带（较正式）/ neighbourhood 街区（英式）。"
+  },
+  "consul": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 consul 是罗马共和国的「执政官」（两人共治）→ 后来指驻外领事。同族：consulate 领事馆 / consul general 总领事。同源词：consult 咨询（向执政官请教）。"
+  },
+  "grove": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 grafa「小树丛」→ 小树林；地名与街名里极常见。三个「树」分清：grove 小树林 / thicket 灌木丛 / forest 森林。文化点：orange grove 橘园。"
+  },
+  "retail": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(再) + tail(切，法语 tailler) = 整批再切小份卖 → 零售（retail price 零售价）；反义 wholesale 批发。同族 tail「切」：tailor 裁缝 / detail 细节（切碎）/ entail 使必要。"
+  },
+  "fission": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fiss = 裂（拉丁 findere）→ 裂开、分裂（nuclear fission 核裂变）；生物学上的「分裂生殖」也是它。同族：fissure 裂缝 / fissile 可裂变的。对比：fusion 聚变（融合）。"
+  },
+  "flexible": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "flex = 弯（拉丁 flectere）→ 能弯的 → 灵活的、可变通的（a flexible schedule 灵活的安排 / flexible working 弹性工作）。同族 flect「弯」：reflect 反射·反思 / deflect 使偏斜 / inflection 屈折。"
+  },
+  "prey": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 praeda「战利品、猎物」→ 猎物；动词「捕食」（prey on 捕食·折磨）。两个短语必记：be prey to 深受…之害 / fall prey to 成为…的牺牲品。同族：predator 捕食者 / predatory 掠夺的。"
+  },
+  "inspiration": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(向内) + spir(呼吸，拉丁 spirare) + -ation = 神灵往你体内吹了一口气 → 灵感、鼓舞（draw inspiration from 从…汲取灵感）。同族 spir「呼吸」：inspire 鼓舞 / spirit 精神 / expire 到期·断气 / conspire 密谋。"
+  },
+  "martyr": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 martys 本是「见证人」—— 早期基督徒为信仰作证以致殉道，于是「见证人」变成了「殉难者」；引申「（为事业）受难的人」（a martyr to duty 为职责受苦的人）。同族：martyrdom 殉难。"
+  },
+  "neighbouring": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "neighbour(邻居) + -ing = 邻近的、接壤的（neighbouring countries 邻国）。同族：neighbour 邻居 / neighbourhood 街区。⚠️ 英式拼写有 u，美式是 neighbor。"
+  },
+  "grin": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "古英语 grennian 本是「龇牙（因痛苦或愤怒）」→ 后来指咧着嘴笑（grin at sb）；引申「（因痛苦）龇牙咧嘴」。习语：grin and bear it 苦笑着忍受。⚠️ 别与 giggle（咯咯笑）混。"
+  },
+  "expect": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + spect(看，拉丁 specere) = 向外张望等着 → 期待、料想（expect sb to do 指望某人做）。同族 spect「看」：inspect 检查 / prospect 前景 / respect 尊重（回头看）/ suspect 怀疑（从下面看）。"
+  },
+  "blush": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "古英语 blyscan「发红」→ （因害羞）脸红（blush with embarrassment）；引申「羞愧」（spare my blushes 别让我难为情）。辨析：blush 因害羞脸红 / flush 因激动或发热脸红。"
+  },
+  "attachment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "at-(向) + tach(钉住，法语 attacher) + -ment = 钉上去的东西 → 附件（email attachment 邮件附件）；感情上「钉住」→ 依恋（attachment to one's hometown）。同族：attach 附上 / detach 拆卸 / detached 超然的。"
+  },
+  "ripple": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是水面泠泠的细响 → 涟漪、波纹；引申「（影响）扩散开」（ripples of laughter 一阵阵笑声 / the ripple effect 连锁反应）。同类水波：ripple 细波 / wave 浪 / surge 涌。"
+  },
+  "quantitative": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "quant = 多少（拉丁 quantus）→ 定量的（quantitative analysis 定量分析）；反义 qualitative 定性的。同族：quantity 数量 / quantify 量化 / quantum 量子。"
+  },
+  "junction": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "junct = 连接（拉丁 jungere）→ 连接处、交叉路口（at the junction of two roads）；铁路的「枢纽」、电学的「接头」都是它。同族 junct「连」：join 加入 / joint 关节 / adjoin 毗连 / conjunction 连词。"
+  },
+  "allied": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ally(结盟) + -ed = 联合的、同盟的（the Allied forces 盟军）；「联姻的」是引申（家族通过婚姻结盟）。同族：ally 盟友 / alliance 联盟。大写 Allied 特指一战、二战的「盟国」。"
+  },
+  "mitten": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "法语 mitaine（可能与「一半」有关 —— 只盖住一半手指）→ 连指手套、露指手套。对比：glove 分指手套 / mitten 连指手套。"
+  },
+  "chestnut": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "chest(箱子) + nut(坚果) = 长在像箱子一样的壳里的坚果 → 栗子；引申「栗色」（chestnut hair 栗色头发）。习语：an old chestnut 老掉牙的笑话。"
+  },
+  "solar": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sol = 太阳（拉丁 sol）→ 太阳的、太阳能的（solar energy 太阳能 / solar system 太阳系）。同族 sol「太阳」：solstice 至日（sol 太阳 + stit 站 → 太阳停住）/ parasol 遮阳伞。三个天体形容词：solar 日的 / lunar 月的 / stellar 星的。"
+  },
+  "exceptional": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + cept(拿，拉丁 capere) + -ional = 被单独拿出去的 → 例外的；「优越的」是引申（超出一般水平）（exceptional talent 出众的才华）。同族 cept「拿」：except 除…之外 / accept 接受 / intercept 拦截。"
+  },
+  "impose": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(向) + pos(放，拉丁 ponere) = 往别人身上放 → 强加（impose a tax 征税 / impose on sb 麻烦某人·占便宜）；「利用、欺骗」就是 impose on 的贬义。同族 posit「放」：expose 暴露 / compose 组成 / deposit 存放。"
+  },
+  "utilization": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ut = 用（拉丁 uti）→ 利用、使用率（the utilization of resources 资源利用率 / capacity utilization 产能利用率）。同族：utilize 利用 / useful 有用的 / utensil 用具。"
+  },
+  "stereo": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "stere = 固体、立体（希腊 stereos）→ 立体声（a stereo system 音响）。同族：stereotype 刻板印象（固定的「立体印版」）/ stereoscope 立体镜。对比：mono 单声道 / stereo 立体声。"
+  },
+  "cubic": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cub = 立方（希腊 kybos「骰子」）→ 立方体的、立方的（cubic metre 立方米）。同族：cube 立方体·立方 / cubicle 小隔间（像小方块）。一起记：square 平方 / cubic 立方。"
+  },
+  "legislation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "leg = 法律（拉丁 lex, legis）→ 立法、法规（pass legislation 通过立法）。同族 leg「法」：legal 合法的 / legislate 立法 / legitimate 合法的·正当的 / privilege 特权（私人的法）。"
+  },
+  "historian": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "histor = 历史（希腊 historia 本义「探究所得的知识」）→ 历史学家。同族：history 历史 / historic 历史性的 / historical 历史的。"
+  },
+  "historic": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "⚠️ 与 historical 必辨：historic 指「有历史意义的」（a historic moment 历史性时刻）；historical 指「与历史有关的」（historical research 历史研究 / a historical novel 历史小说）。同族：history 历史 / historian 历史学家。"
+  },
+  "mechanics": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mechan = 机械、装置（希腊 mekhane）→ 力学、机械学；引申「（做事的）方法、结构」（the mechanics of the process 流程的具体机制）。同族：machine 机器 / mechanism 机制 / mechanic 机修工。"
+  },
+  "intellect": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "intel-(在…之间) + lect(选、读，拉丁 legere) = 能在事物之间分辨挑选 → 智力、才智。同族 lect「选/读」：intelligent 聪明的 / elect 选举 / select 挑选 / collect 收集。"
+  },
+  "ideally": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ideal(理想的) + -ly = 理想地；更常用的是「理论上、最好」（Ideally, we should start now.）。同族：ideal 理想的 / idealism 理想主义 / idealize 理想化。"
+  },
+  "abstract": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "abs-(离开) + tract(拉，拉丁 trahere) = 从具体事物里把共性的部分「拉出来」→ 抽象的（abstract concepts 抽象概念）；名词「摘要」也是提取出来的要点。同族 tract「拉」：attract 吸引 / extract 提取 / contract 合同 / distract 分心。"
+  },
+  "slang": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "18 世纪出现的词，来源不明（可能出自流浪者的行话）→ 俚语、行话（teenage slang 青少年俚语）。三个「非正式语言」分层：slang 俚语 / jargon 行业术语 / dialect 方言。"
+  },
+  "courtesy": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "court(宫廷) + -esy = 宫廷里的那套举止 → 礼貌、谦恭（a courtesy call 礼节性拜访）。习语：courtesy of 由…提供 / by courtesy of 承蒙…允许。同族：courteous 有礼的 / courtly 宫廷式的。"
+  },
+  "ion": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 ion 是「行走者」（ienai 走）—— 法拉第把电解液里移动的带电粒子叫 ion（会走的粒子）→ 离子。同族：ionic 离子的 / ionize 电离 / anion 阴离子 / cation 阳离子。"
+  },
+  "excursion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + curs(跑，拉丁 currere) + -ion = 跑出去 → 远足、短途旅行（a day excursion 一日游）；「离题」是引申（说话跑出去了）。同族 curr「跑」：current 当前的 / occur 发生 / course 路线。"
+  },
+  "twilight": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "twi-(二) + light(光) = 处在两种光之间 → 黄昏、黎明（the twilight of one's life 晚年）；引申「衰落期」（the twilight of the empire 帝国的黄昏）。同族 twi「二」：twin 双胞胎 / twice 两次。"
+  },
+  "prism": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 prizein「锯」→ 锯出来的多面体 → 棱柱、棱镜（光通过棱镜分成七彩）。同族：prismatic 棱柱的·多彩的。几何体一起记：prism 棱柱 / pyramid 棱锥 / sphere 球 / cylinder 圆柱。"
+  },
+  "grim": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 grimm「凶猛、残酷」→ 严峻的、无情的（a grim expression 严峻的表情 / grim prospects 前景黯淡）。同族：grimace 鬼脸 / grin 咧嘴笑（同源「龇牙」）。搭配：like grim death 死死地。"
+  },
+  "troublesome": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "trouble(麻烦) + -some(令人…的) = 令人麻烦的、棘手的（a troublesome issue）。同类 -some：tiresome 令人厌倦的 / quarrelsome 好争吵的 / wholesome 有益健康的。"
+  },
+  "similarity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "simil = 相似（拉丁 similis）→ 相似、相似点（similarities between A and B）。同族 simil「相似」：similar 相似的 / simulate 模拟 / resemble 相似 / assimilate 同化（使相似）。"
+  },
+  "flank": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 flanc「侧面」→ 肋腹、侧面；军事上的「侧翼」（attack the left flank 攻左翼）；动词「位于…侧面」（the road is flanked by trees 路两旁是树）。"
+  },
+  "analogue": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ana-(按照) + log(道理，希腊 logos) = 按同一道理的东西 → 类似物；技术上的「模拟」（analogue signal 模拟信号，与 digital 数字相对）是引申。同族：analogy 类比 / analogous 类似的 / logic 逻辑。"
+  },
+  "optimism": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "optim = 最好（拉丁 optimus）→ 相信事情会最好 → 乐观主义；反义 pessimism 悲观主义。同族：optimum 最适条件 / optimal 最优的 / optimize 优化。"
+  },
+  "sophisticated": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "soph = 智慧（希腊 sophos）→ 被智慧泡过的 → 老练的、世故的；也指「（机器、技术）精密的、高级的」（sophisticated equipment 精密设备）。同族：philosophy 哲学（爱智慧）/ sophomore 大二学生（聪明的傻瓜）。"
   }
  }
 }
