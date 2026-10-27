@@ -8888,7 +8888,337 @@
   "waggon": {
    "kind": "story",
    "certainty": "medium",
-   "tip": "中古荷兰语 wagen「车」→ 敞篷车厢、货车（英式拼 waggon 或 wagon，美式 wagon）。同源词：wagon 货车 / way 路（车走的路）。习语：on the wagon 戒酒。"
+   "tip": "中古荷兰语 wagen「车」→ 敞篷车厢、货车（英式拼 waggon 或 wagon，美式 wagon）。同源词：way 路（车走的路）。习语：on the wagon 戒酒。"
+  },
+  "spectacle": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "spect = 看（拉丁 specere）→ 给人看的大场面 → 景象、奇观（a spectacular view 壮观的景色）；复数 spectacles 是「眼镜」（用来看的东西）。同族 spect「看」：spectator 观众 / inspect 检查 / perspective 视角。"
+  },
+  "haunt": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「反复出现」：鬼魂出没（a haunted house 凶宅）、常去某处（haunt the café 常泡那家咖啡馆）；记忆和念头「反复来」→ 萦绕（the memory haunts me 那记忆挥之不去）。名词 a haunt 是「常去的地方」。"
+  },
+  "visit": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「去看」：拜访、参观；也指「常去」（visit the library 常去图书馆）；名词「访问」。搭配：pay a visit to 拜访 / visit with sb 与某人叙谈（美式）。"
+  },
+  "frequent": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "frequ = 拥挤、频繁（拉丁 frequens）→ 常见的、频繁的（a frequent visitor 常客）；动词读 /frɪˈkwent/，意为「常去」（frequent a bar 常去一家酒吧）。同族：frequency 频率 / frequently 经常。"
+  },
+  "shovel": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 scofl「铲」→ 铲、铁铲；动词「铲、大量投入」（shovel the snow / shovel money into 往…里大把投钱）。同族：scuffle 扭打（同源「推」义）。"
+  },
+  "toad": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 tadige「蟾蜍」→ 癞蛤蟆。辨析：toad 蟾蜍（皮肤干、有疙瘩，多在陆地）/ frog 青蛙（皮肤湿、善跳）。习语：toady 马屁精（原指吃蟾蜍的江湖郎中帮手）。"
+  },
+  "diesel": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "以德国工程师狄塞尔（Rudolf Diesel）命名 → 柴油发动机、柴油（a diesel engine 柴油机）。同类「发明人变物名」：diesel 柴油 / watt 瓦特 / braille 盲文 / sandwich 三明治。"
+  },
+  "horizon": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "希腊 horizein「划界」→ 天地的界限 → 地平线（on the horizon 在地平线上·即将到来）；引申「眼界、范围」（broaden one's horizons 开阔眼界）。同族：horizontal 水平的。"
+  },
+  "errand": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 ærende「消息、使命」→ 差使、跑腿的事（run errands 跑腿 / an errand boy 跑腿的）；习语 a fool's errand 徒劳的任务。"
+  },
+  "ascertain": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "as-(向) + certain(确定的) = 弄到确定 → 查明、弄清（ascertain the facts 查明事实）。同族：certain 确定的 / certify 证明 / certificate 证书。"
+  },
+  "groove": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "古北欧语 grothi「槽」→ 沟槽、纹路（唱片上的纹路就是 groove）；口语 in the groove 状态正佳、in a rut 是反义。动词「开槽」。同族：engrave 雕刻。"
+  },
+  "tactics": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "希腊 tassein「排列、布置」→ 排兵布阵的学问 → 战术、策略（delaying tactics 拖延策略）。辨析：tactics 战术（短期具体）/ strategy 战略（长期全局）。同族：tactical 战术的 / tactic 一招。"
+  },
+  "grassy": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "grass(草) + -y = 草多的、草似的（a grassy slope 长满草的斜坡）。同类 -y 表「多…的」：windy 多风的 / rocky 多岩石的 / dusty 满是灰尘的。"
+  },
+  "herb": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 herba「草」→ 草本植物、香草（herbal tea 花草茶 / herbs and spices 香草和香料）。⚠️ 美式发音 /ɜːrb/ 的 h 不发音，英式 /hɜːb/ 要发音。同族：herbivore 食草动物 / herbaceous 草本的。"
+  },
+  "manipulate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mani = 手（拉丁 manus）+ pul(填满) + -ate = 用手摆弄 → 操作、操纵（manipulate the machine 操作机器 / manipulate public opinion 操纵舆论）。同族 manu「手」：manual 手册 / manufacture 制造 / manuscript 手稿。"
+  },
+  "cruelty": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "cruel(残酷的) + -ty = 残酷、残酷行为（cruelty to animals 虐待动物）。同族：cruel 残酷的 / cruelly 残酷地。"
+  },
+  "warehouse": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ware(货物) + house(房子) = 放货的房子 → 仓库、货栈（a warehouse worker 仓库工人）。同族 -ware：software 软件 / hardware 五金·硬件 / earthenware 陶器。"
+  },
+  "hatch": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "三个义项：① 舱盖、舱口（escape hatch 逃生舱口）；② 孵化（hatch an egg / the chicks hatched）；③ 策划（hatch a plot 密谋）—— 「在暗处孵出来」的画面串起后两个。"
+  },
+  "participate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "part(部分) + cip(拿，拉丁 capere) + -ate = 拿到一份 → 参与（participate in the discussion 参与讨论）。同族 cip「拿」：receive 接收 / anticipate 预期（提前拿）/ occupy 占据。搭配固定用 in。"
+  },
+  "participant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "part(部分) + cip(拿) + -ant(人) = 拿到一份的人 → 参加者（a participant in the study 研究参与者）。同族：participate 参与 / participation 参与。"
+  },
+  "napkin": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 mappa「布」（同 map 地图）→ 餐巾、餐巾纸（a paper napkin 纸巾）；英式 nappy 是「尿布」（同一来源）。"
+  },
+  "senator": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sen = 老（拉丁 senex）→ 元老 → 参议员（古罗马元老院由长者组成）。同族 sen「老」：senior 年长的 / senate 参议院 / senile 年老的。"
+  },
+  "reference": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + fer(带，拉丁 ferre) + -ence = 带回去查 → 参考文献、参照（for reference 供参考 / in reference to 关于 / a reference frame 参照系）。同族 fer「带」：refer 提及 / prefer 更喜欢 / transfer 转移。"
+  },
+  "spectator": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "spect(看) + -ator(人) = 看的人 → 观众、旁观者（spectators at the match 比赛的观众）。同族 spect「看」：spectacle 景象 / inspect 检查 / spectacular 壮观的。辨析：spectator 看体育赛事 / audience 看演出·听众 / viewer 看电视。"
+  },
+  "parameter": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "para-(旁边) + meter(测量) = 旁边用来衡量的量 → 参数、参量（set the parameters 设定参数）；引申「界限、范围」（beyond the parameters of 超出…的范围）。同族 metr「测量」：meter 米 / geometry 几何 / thermometer 温度计。"
+  },
+  "recipe": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 recipere「取回」的祈使式（同 receive）—— 古时药方开头就写「取…」，于是成了「处方」→ 菜谱、烹饪法（a recipe for success 成功的秘诀）。同族 cept/ceive「拿」：receive 接收 / concept 概念 / recipient 接受者。"
+  },
+  "assumption": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "as-(向) + sumpt(拿，拉丁 sumere) + -ion = 先拿过来当前提 → 假定（on the assumption that 假定…）；也指「承担」（the assumption of power 掌权）和「傲慢」（古义）。同族 sumpt「拿」：assume 假定 / consume 消耗 / resume 恢复。"
+  },
+  "rule": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心「规则」→ 动词「统治、裁定」（The court ruled that… 法院裁定…）；名词「裁决」（a ruling 裁决）。搭配：as a rule 通常 / rule out 排除 / rule of thumb 经验法则。"
+  },
+  "substance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(下面) + stant(站，拉丁 stare) = 站在底下撑着的东西 → 物质、实质（a chemical substance 化学物质）；「财产」和「本旨」都是「实质」。同族 stant「站」：constant 不变的 / circumstance 环境 / substantial 实质的·大量的。"
+  },
+  "friction": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fric = 摩擦（拉丁 fricare）→ 摩擦、摩擦力（friction between the two teams 两队间的摩擦）。同族：frictionless 无摩擦的。物理上「擦热皮肤」就是它的字面义。"
+  },
+  "sermon": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "拉丁 sermo「谈话、讲论」→ 布道、讲道；引申「长篇说教」（give sb a sermon 训某人一顿）。同族：sermonize 说教。"
+  },
+  "absent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ab-(离开) + sent(存在，拉丁 esse 的现在分词) = 人不在 → 缺席的；「不在意的」是引申（心不在这里：an absent look 心不在焉的神情 / absent-minded 健忘的）。同族：absence 缺席 / present 在场的。"
+  },
+  "awkward": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古北欧语 afugr「反着转的」→ 方向不对 → 笨拙的、不雅观的（an awkward silence 尴尬的沉默 / awkward questions 棘手的问题）。同族 -ward「朝向」：forward 向前 / backward 向后 / homeward 向家。"
+  },
+  "wretched": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "wretch(不幸的人、可怜虫) + -ed = 不幸的、悲惨的（a wretched life 悲惨的生活）；也指「糟糕透顶的」（wretched weather 鬼天气）和「卑鄙的」。同族：wretch 可怜虫 / wretchedness 悲惨。"
+  },
+  "disagreement": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "dis-(不) + agree(同意) + -ment = 不一致、争论（in disagreement with 与…不一致 / a disagreement over pay 关于薪酬的争执）。同族：agree 同意 / agreeable 令人愉快的 / agreement 协议。"
+  },
+  "immortal": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(不) + mort(死，拉丁 mors) + -al = 不死的 → 不朽的、永生的（immortal words 不朽的名言）。同族 mort「死」：mortal 会死的 / mortality 死亡率 / mortgage 抵押（死契）。"
+  },
+  "misfortune": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "mis-(坏) + fortune(运气) = 厄运、灾祸（suffer a misfortune 遭遇不幸）。同族 mis-：misunderstand 误解 / mislead 误导 / mistrust 不信任。"
+  },
+  "incompatible": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + compatible(相容的) = 不相容的（incompatible with 与…不相容 / incompatible software 不兼容的软件）。同族 pati「忍受」：compatible 兼容的 / patient 病人·耐心的 / passion 激情。"
+  },
+  "stuffy": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "stuff(填塞) + -y = 塞得满满的 → 不透气的、闷热的（a stuffy room 闷热的房间）；引申「古板的」（stuffy ideas 陈腐的观念）。同族：stuff 东西·填塞 / stuffing 填料。"
+  },
+  "instability": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + stability(稳定) = 不稳定性（political instability 政局不稳）。同族 sta「站」：stable 稳定的 / establish 建立 / constant 不变的。"
+  },
+  "incomplete": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in-(不) + complete(完整的) = 不完全的、未完成的（an incomplete application 不完整的申请）。同族 ple「填满」：complete 完整 / complement 补足 / supplement 补充。"
+  },
+  "improper": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(不) + proper(适当的) = 不适当的、不合理的（improper conduct 不当行为 / improper fraction 假分数）。同族：proper 恰当的 / property 财产 / propriety 礼节。"
+  },
+  "dissatisfaction": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "dis-(不) + satisfaction(满意) = 不满（dissatisfaction with the service 对服务不满）。同族：satisfy 满足 / satisfactory 令人满意的 / dissatisfied 不满的。"
+  },
+  "irrespective": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "ir-(不) + respective(各自的) = 不顾各自的差别 → 只用在固定搭配 irrespective of（不论、不顾）：irrespective of age 不论年龄。同族：respect 尊重 / respective 各自的 / respectively 分别地。"
+  },
+  "opaque": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 opacus「阴暗的」→ 不透明的（an opaque glass 不透明的玻璃）；引申「晦涩难懂的」（opaque prose 晦涩的文风）。反义 transparent 透明的。物理上「不传导的」也是它。"
+  },
+  "inevitably": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + evit(避开，拉丁 evitare) + -ably = 躲不开地 → 不可避免地（Inevitably, prices rose.）。同族：inevitable 不可避免的 / evitable 可避免的。"
+  },
+  "watertight": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "water(水) + tight(紧) = 水进不去 → 不漏水的、防水的（a watertight box 防水箱）；引申「（论证）严密的」（a watertight argument 无懈可击的论证）。同类 tight：airtight 密封的 / lighttight 不透光的。"
+  },
+  "undesirable": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "un-(不) + desirable(合意的) = 不合需要的、讨厌的（undesirable effects 不良影响 / undesirable residents 不受欢迎的住户）。同族：desire 渴望 / desirable 令人向往的。"
+  },
+  "inaccurate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + accurate(准确的) = 不准确的（inaccurate data 不准确的数据）。同族：accurate 精确的 / accuracy 准确性 / cure 治疗（原义「用心照料」）。"
+  },
+  "unreasonable": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "un-(不) + reasonable(合理的) = 不讲道理的；也指「过度的」（an unreasonable demand 过分的要求 / an unreasonable price 离谱的价格）。同族：reason 理由 / reasonable 合理的。"
+  },
+  "irregularity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ir-(不) + regular(规则的) + -ity = 不规则、不整齐（irregularities in the accounts 账目上的违规）。同族：regular 规则的 / regulate 调节 / rule 规则。"
+  },
+  "unfit": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "un-(不) + fit(合适) = 不合适的、无能力的（unfit for duty 不适合执勤 / unfit to drive 不宜驾车）；也指「身体不健康的」。同族：fit 合适的 / fitness 健康 / fitting 恰当的。"
+  },
+  "uncertain": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "un-(不) + certain(确定的) = 不定的、无常的（uncertain weather 多变的天气 / in no uncertain terms 毫不含糊地）。同族：certain 确定的 / certainty 确定性 / certainly 当然。"
+  },
+  "impurity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(不) + pur(纯，拉丁 purus) + -ity = 不纯、杂质（chemical impurities 化学杂质）；也指「不道德」。同族 pur「纯」：pure 纯的 / purify 提纯 / purge 清除。"
+  },
+  "disregard": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "dis-(不) + regard(看待) = 不予理会 → 不管、不顾（disregard the rules 无视规则 / with disregard for safety 不顾安全）。同族：regard 认为·注视 / regardless 不管怎样。"
+  },
+  "inadequate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + adequate(充足的) = 不充足的、不适当的（inadequate supplies 供应不足 / feel inadequate 感到能力不够）。同族 equ「相等」：adequate 足够的 / equal 相等的 / equator 赤道。"
+  },
+  "invariably": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + vari(变化，拉丁 variare) + -ably = 不变地 → 总是、一贯地（He is invariably late. 他总是迟到）。同族 vari「变」：vary 变化 / various 各种各样的 / variable 变量。"
+  },
+  "uneasy": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "un-(不) + easy(安心) = 不安的、拘束的（feel uneasy about 对…感到不安 / an uneasy silence 令人不安的沉默）。同族：easy 容易的·安心的 / ease 安逸 / disease 疾病（dis-ease 不舒适）。"
+  },
+  "mammal": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "mamm = 乳房（拉丁 mamma）→ 有乳腺的动物 → 哺乳动物（Whales are mammals. 鲸是哺乳动物）。同族：mammary 乳房的。动物分类：mammal 哺乳 / reptile 爬行 / amphibian 两栖 / bird 鸟 / fish 鱼。"
+  },
+  "supplement": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sup-(=sub 下面) + ple(填满，拉丁 plere) + -ment = 从下面补满 → 补充、补充物（a vitamin supplement 维生素补充剂 / supplement one's income 补贴收入）；数学上的「补角」也是它。同族 ple「填满」：complete 完整 / complement 补足 / supply 供应。"
+  },
+  "complement": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(完全) + ple(填满，拉丁 plere) + -ment = 把它填满所缺的那部分 → 补充、补足物（a perfect complement 完美的补充 / the complement system 补体系统）。⚠️ 经典易混：complement 带 e 是「补充」，compliment 带 i 是「赞美」。同族：complete 完整 / supplement 补充。"
+  },
+  "compensation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + pens(称量、支付，拉丁 pendere) + -ation = 称出等量的东西还给你 → 补偿、赔偿（compensation for the loss 损失赔偿 / as compensation 作为补偿）。同族 pens「称/付」：pension 养老金 / expensive 昂贵的 / dispense 分发。"
+  },
+  "barge": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "出自拉丁 barca「小船」→ 驳船、大型游船；动词短语 barge in 闯进来（像驳船一样横冲直撞）/ barge into 撞上。同族：barque 三桅帆船 / embark 上船。"
+  },
+  "humanitarian": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "human(人) + -itarian = 为人着想的 → 博爱的、人道主义的（humanitarian aid 人道援助）；名词「慈善家」。同族：humanity 人类·人道 / humane 人道的。"
+  },
+  "icy": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ice(冰) 的形容词形式 → 冰冷的（icy roads 结冰的路）；引申「冷冰冰的」（an icy stare 冷冷的目光）。同族：ice 冰 / iced 冰镇的 / iceberg 冰山。"
+  },
+  "invalid": {
+   "kind": "sense",
+    "certainty": "high",
+   "tip": "两个读音、两个意思：① /ˈɪnvəlɪd/ 名词「病人、伤残者」（in- 不 + valid 强的）；② /ɪnˈvælɪd/ 形容词「无效的」（an invalid passport 失效护照）。同族 valid「有效」：valid 有效的 / validate 验证 / validity 有效性。"
   }
  }
 }
