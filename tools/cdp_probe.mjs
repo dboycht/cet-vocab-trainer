@@ -12,7 +12,7 @@
  * 用法：node tools/cdp_probe.mjs [--url http://127.0.0.1:8710/] [--keep]
  */
 import { spawn } from "node:child_process";
-import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -20,6 +20,22 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, "..");
 const TMP = join(ROOT, ".tmp");
 mkdirSync(TMP, { recursive: true });
+
+/**
+ * 动态挑一个「真的没有助记」的词。
+ *
+ * ⚠️ 曾经这里写死成 `overhang`；等助记写到第 327 个词时，它**有**助记了，
+ * 于是断言「没有助记的词不显示助记块」凭空变红 —— 又是「断言编码了会变的现状」。
+ * 判据：**"没有助记的词"必须当场从数据里算出，不许写死某一个词。**
+ */
+function pickWordWithoutTip() {
+  const wb = JSON.parse(readFileSync(join(ROOT, "assets", "wordbooks", "cet6.json"), "utf8"));
+  const tips = JSON.parse(readFileSync(join(ROOT, "assets", "wordbooks", "tips", "cet6.json"), "utf8")).tips;
+  const hit = wb.words.map((w) => w.word).find((w) => !tips[w]);
+  if (!hit) throw new Error("词库里已经没有「没有助记」的词了 —— 这条断言本身失去意义，需重写");
+  return hit;
+}
+const NO_TIP_WORD = pickWordWithoutTip();
 
 const argv = process.argv.slice(2);
 const arg = (f, d) => { const i = argv.indexOf(f); return i >= 0 && argv[i + 1] ? argv[i + 1] : d; };
@@ -518,18 +534,22 @@ check("每条助记都有实质内容（≥30 字）",
   seen.every((s) => s.text.length >= 30), `最短 ${Math.min(...seen.map((s) => s.text.length))} 字`);
 
 // 没助记的词：整块必须隐藏（不硬编不存在的助记）
+// ⚠️ 用现算出来的 NO_TIP_WORD，不写死具体词（写死过 overhang，被后来的助记批次弄假红）
 await seedAndReload({
   version: 2,
-  cards: { overhang: { s: 2, i: 5, e: 2.5, d: dayNum() - 1, r: 3, l: 0, a: 0, c: 0, k: 0, fd: 0, ld: 0, bd: 0, ms: 0, t: 0 } },
+  cards: { [NO_TIP_WORD]: { s: 2, i: 5, e: 2.5, d: dayNum() - 1, r: 3, l: 0, a: 0, c: 0, k: 0, fd: 0, ld: 0, bd: 0, ms: 0, t: 0 } },
   mistakes: [], days: {}, streak: 0, lastDay: "",
   types: { en2cn: { a: 0, c: 0, ms: 0 }, cn2en: { a: 0, c: 0, ms: 0 }, spell: { a: 0, c: 0, ms: 0 } },
   settings: { newPerDay: 0, reviewPerDay: 50, quizTypes: "en2cn", timeGate: false, memorizeMs: 0, autoSpeak: false, showPos: true },
 });
+const noTipWordNow = await evalJs(`window.__cvt.stateInfo().word`);
+check("挑中的确实是没有助记的词", noTipWordNow === NO_TIP_WORD, `${noTipWordNow} vs ${NO_TIP_WORD}`);
 const idxNoTip = await evalJs(`window.__cvt.stateInfo().answerIndex`);
 await evalJs(`document.querySelectorAll('.opt')[${idxNoTip}].click()`);
 await sleep(400);
 const noTip = await evalJs(`({ fbTipHidden: document.getElementById('fbTip').hidden })`);
-check("没有助记的词：判定后不显示助记块（不硬编）", noTip.fbTipHidden === true, JSON.stringify(noTip));
+check("没有助记的词：判定后不显示助记块（不硬编）", noTip.fbTipHidden === true,
+  `${NO_TIP_WORD}: ${JSON.stringify(noTip)}`);
 
 // 有助记的词：判定后必须显示，类别正确，且嵌在反馈块里
 await seedAndReload({
