@@ -7889,6 +7889,341 @@
    "kind": "root",
    "certainty": "high",
    "tip": "di-(二) + oxide(氧化物) = 二氧化碳（carbon dioxide）等；化学后缀 -ide 表化合物。同族：oxide 氧化物 / monoxide 一氧化物 / carbon dioxide 二氧化碳。"
+  },
+  "offspring": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "off(离开) + spring(涌出) = 从身上涌出去的人 → 子孙、后代（the offspring of… 的后代）；⚠️ 单复数同形（one offspring / two offspring），也用于动物的「幼崽」。"
+  },
+  "bait": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古北欧语 beita「咬」→ 让鱼去咬的东西 → 饵、引诱物（rise to the bait 中圈套）；动词义「故意激怒」（bait sb 招惹某人，原义「放狗去咬」）。"
+  },
+  "youngster": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "young(年轻) + -ster(人) = 年轻人、少年。同类 -ster：gangster 匪徒 / trickster 骗子 / mobster 匪徒（这个后缀常带点轻蔑或口语色彩）。"
+  },
+  "whereas": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "where + as = 而、却（对比两件事）：He is quiet, whereas his brother is loud. —— 法律文书里也表示「鉴于」（Whereas the parties agree… 鉴于双方同意…）。⚠️ 它是连词，连接两个完整分句。"
+  },
+  "malice": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mal = 坏（拉丁 malus）→ 恶意（with malice 存心不良 / malice aforethought 预谋恶意）。同族 mal「坏」：malignant 恶性的 / malnutrition 营养不良 / malfunction 故障。"
+  },
+  "subsequent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(接着) + sequ(跟随，拉丁 sequi) + -ent = 跟在后面的 → 随后的（subsequent events 随后的事件 / subsequent to 在…之后）。同族 sequ「跟随」：sequence 序列 / consequence 后果 / pursue 追求。"
+  },
+  "nightmare": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "night(夜) + mare(古英语「梦魇女妖」，与 mare 母马无关) = 夜里压人的妖 → 噩梦；引申「可怕的经历」（a logistical nightmare 后勤噩梦）。记住 mare 在这个词里是「妖」，不是「母马」。"
+  },
+  "spite": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "出自 despite「尽管」的缩略（原义「轻视」）→ 恶意、怨恨（out of spite 出于恶意）；三个必背短语：in spite of 尽管 / in spite of oneself 不由自主地 / cut off one's nose to spite one's face 赌气害自己。"
+  },
+  "yoke": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 geoc「轭」—— 架在两头牛脖子上的横木 → 牛轭、枷锁、束缚（throw off the yoke 摆脱枷锁）；动词「给…套上轭」。同源词：yoga 瑜伽（梵语「结合」，与 yoke 同源）。"
+  },
+  "deprive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + prive(私有的，拉丁 privus) = 把属于他的拿走 → 剥夺（deprive sb of sth 剥夺某人的某物）。⚠️ 固定搭配用 of。同族 priv「私有」：private 私人的 / privilege 特权 / privacy 隐私。"
+  },
+  "mountainous": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "mountain(山) + -ous = 多山的（a mountainous region 山区）；也指「山一般的、巨大的」（mountainous waves 巨浪）。同类 -ous 表「多的」：dangerous 危险的 / poisonous 有毒的。"
+  },
+  "windy": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "wind(风) + -y = 多风的（a windy day）；引申「（讲话）冗长空洞的」（a windy speech）和「（路）蜿蜒的」（a windy road）。同族：wind 风 / windmill 风车。"
+  },
+  "versatile": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vers(转，拉丁 vertere) + -atile = 能转很多方向 → 多才多艺的、多用途的（a versatile actor 戏路宽的演员 / a versatile tool 多用途工具）。同族 vers「转」：convert 转换 / reverse 反转 / version 版本。"
+  },
+  "stew": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自古法语 estuver「在热汽里蒸」→ 炖、炖肉（beef stew 炖牛肉）；习语 in a stew 心急如焚（像在锅里炖）。同族：stove 炉子（同源）。"
+  },
+  "mop": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "可能与拉丁 mappa「布」有关 → 墩布、拖把；动词「擦、拖」（mop the floor）；习语 mop up 清理·扫尾。同族：map 地图（原义「布」）。"
+  },
+  "halve": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "half(一半) 的动词形式 → 对分、减半（halve the price 价格减半 / halve the distance 把距离缩短一半）；「平摊」义同 share。⚠️ 拼写：half → halve（f 变 v）。"
+  },
+  "provoke": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + voke(喊，拉丁 vocare) = 冲着人喊出来 → 挑衅、激起（provoke anger 激怒 / provoke a debate 引发争论）。同族 voke「喊」：vocation 天职 / advocate 提倡 / evoke 唤起。"
+  },
+  "symmetry": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sym-(一起) + metr(测量，希腊 metron) = 两边量起来一样 → 对称、匀称；反义 asymmetry 不对称。同族：geometry 几何 / meter 米·测量 / thermometer 温度计。"
+  },
+  "symmetrical": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "symmetry(对称) 的形容词：对称的、匀称的（a symmetrical design 对称设计）。同族：symmetry 对称 / asymmetrical 不对称的 / geometry 几何。"
+  },
+  "resent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(反复) + sent(感觉，拉丁 sentire) = 反复感觉到不舒服 → 对…不满、怨恨（resent being treated unfairly 对不公待遇耿耿于怀）。同族 sent「感觉」：sentence 句子·判决 / sentiment 情感 / consent 同意。"
+  },
+  "assert": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "as-(向) + sert(连接，拉丁 serere) = 把自己的主张接上去 → 断言、维护（assert one's rights 维护权利 / assert oneself 表现自我）。同族 sert「连」：insert 插入 / series 系列 / desert 抛弃（断开连接）。"
+  },
+  "affirm": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "af-(加强) + firm(坚固，拉丁 firmus) = 咬定 → 断言、批准（affirm the decision 维持决定）；反义 deny。同族 firm「坚固」：confirm 确认 / firm 坚定的 / infirm 虚弱的。"
+  },
+  "shortage": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "short(短、不足) + -age = 短缺、不足额（a food shortage 粮食短缺 / a shortage of teachers）。同族：short 短的 / shorten 缩短 / in short supply 供应不足。"
+  },
+  "alignment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "a-(向) + lign(线，拉丁 linea) + -ment = 排成一条线 → 队列、结盟（the alignment of the wheels 车轮定位 / military alignment 军事同盟）；「对齐」也是它。同族：line 线 / linear 线性的。"
+  },
+  "jealousy": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自希腊 zelos「热情、争胜」（同 zeal 热忱）→ 妒忌（an outburst of jealousy 醋意大发）。⚠️ 辨析：jealous 指「怕失去已有的」（jealous of）而 envious 指「羡慕别人有的」（envious of）。同族：zeal 热情 / zealous 热心的。"
+  },
+  "cuckoo": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声：布谷鸟的叫声就是它的名字（读起来就是「咕咕」）→ 杜鹃、布谷鸟。文化点：cuckoo 把蛋下在别的鸟窝里 → 引申「侵入别人家的人」；口语里「疯疯癫癫」是 cuckoo 的俚语义。"
+  },
+  "gamble": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 gamenian「玩耍、游戏」→ 赌博、冒险（gamble on the stock market / take a gamble 冒一次险）。同族：game 游戏（同源）。搭配：gamble away 赌光。"
+  },
+  "jam": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "三个义项靠语境分：① 果酱（英国习语 jam tomorrow 空头支票）；② 堵塞（a traffic jam 交通拥堵）；③ 卡住（the door jammed）。动词「塞满」和「（信号）干扰」也是同一「挤住」画面。"
+  },
+  "ferry": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古英语 ferian「运送」（与 fare「行」同源）→ 渡船、渡口；动词「（用船、飞机）运送」（ferry passengers 运送乘客）。同族：fare 车费 / ford 浅滩。"
+  },
+  "solo": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sol = 单独（拉丁 solus）→ 独唱、独奏（play a solo 独奏 / a solo flight 单飞）。同族 sol「单独」：solitary 孤独的 / solitude 独处 / desolate 荒凉的。"
+  },
+  "linger": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 lengan「延长」→ 逗留、徘徊（linger at the door 在门口徘徊 / The smell lingered. 气味久久不散）；引申「拖延、苟延」（lingering doubts 挥之不去的疑虑）。"
+  },
+  "distinct": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "di-(分开) + stinct(刺，拉丁 stinguere) = 用刺划清界限 → 明显的、独特的（distinct from 与…截然不同 / a distinct sound 清晰可辨的声音）。同族 stinct「刺」：distinguish 区分 / instinct 本能 / extinguish 熄灭。"
+  },
+  "dictator": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dict = 说（拉丁 dicere）—— 古罗马的独裁官由元老院授权，一人说了算 → 独裁者；同族：dictate 口述·命令 / dictionary 词典 / predict 预言。"
+  },
+  "fighter": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fight(打斗) + -er = 战士、斗士（a freedom fighter 自由战士）；也指「战斗机」（a fighter plane）。同族：fight 战斗 / firefighter 消防员。"
+  },
+  "champion": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "拉丁 campus「战场」+ -ion = 在战场上出战的人 → 斗士、冠军（the world champion 世界冠军）；引申「提倡者」（a champion of reform 改革的倡导者）—— 为某事而战。同族：campus 校园（同一词根「场地」）。"
+  },
+  "insight": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in(向内) + sight(看) = 看到里面 → 洞察力、见识（insight into human nature 对人性的洞察 / gain insight 获得洞见）。同族：sight 视力 / sightseeing 观光 / oversight 疏忽·监督。"
+  },
+  "jelly": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "出自拉丁 gelare「冻结」（同 gel、jell）→ 果冻、胶状物（jelly beans 软糖豆）。同族：gel 凝胶 / gelatin 明胶 / congeal 凝结。"
+  },
+  "tease": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「轻轻撩拨」：开玩笑地逗（tease sb about sth 拿某事打趣某人）、梳理（tease the wool 梳理羊毛）、强求（tease out the answer 套出答案）。辨析：tease 善意的逗 / mock 嘲笑 / bully 欺凌。"
+  },
+  "cavity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cav = 空的（拉丁 cavus）→ 洞、空腔（a cavity in a tooth 蛀洞 / the chest cavity 胸腔）。同族 cav「空」：cave 洞穴 / excavate 挖掘 / concave 凹的。"
+  },
+  "grease": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "出自拉丁 crassus「肥厚」→ 动物脂、油脂；动词「给…涂油」（grease the pan 给锅抹油）。同族：greasy 油腻的。习语：a grease monkey 机修工（口语）。"
+  },
+  "disturbance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(打乱) + turb(搅动，拉丁 turbare) + -ance = 搅乱 → 动乱、干扰（a disturbance of the peace 扰乱治安 / sleep disturbance 睡眠障碍）。同族 turb「搅」：disturb 打扰 / turbulent 动荡的 / turbine 涡轮机。"
+  },
+  "mobilize": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mob(动的，拉丁 mobilis) + -ize(使) = 让大家都动起来 → 动员（mobilize the troops 动员部队 / mobilize support 争取支持）。同族：mobile 移动的 / mob 暴民 / automobile 汽车。"
+  },
+  "kinetic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "kinet = 运动（希腊 kinetos）→ 动力学的、活动的（kinetic energy 动能）。同族：cinema 电影（同源「运动」）/ kinesiology 运动学。对比：potential energy 势能。"
+  },
+  "location": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "loc = 地方（拉丁 locus）→ 位置、定位（the location of the factory 工厂位置）；电影的外景地也叫 location。同族 loc「地方」：local 当地的 / locate 定位 / dislocate 脱臼。"
+  },
+  "theorem": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "theor = 观看、思辨（希腊 theorein）→ 看出来的道理 → 定理（Pythagorean theorem 勾股定理）；同族：theory 理论 / theoretical 理论的。"
+  },
+  "subscribe": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(下面) + scribe(写，拉丁 scribere) = 在单据下面签名 → 订阅、认购（subscribe to a magazine 订阅杂志）；引申「赞同」（I subscribe to that view.）。同族 script「写」：describe 描述 / prescribe 开处方 / manuscript 手稿。"
+  },
+  "orient": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ori = 升起（拉丁 oriri）—— 太阳升起的方向就是东方 → 东方、远东；动词「使适应、确定方向」（orient oneself 熟悉环境）。同族：orientation 方向·入学教育 / origin 起源。"
+  },
+  "summit": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "summ = 最高的（拉丁 summus）→ 顶点、山顶；引申「峰会」（a summit meeting 首脑会议 —— 最高层的会）。同族：sum 总和（原来的「最高数」）/ summary 摘要。"
+  },
+  "pressure": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "press(压) + -ure = 压力（atmospheric pressure 大气压 / blood pressure 血压 / under pressure 在压力下）；电学里的「电压」也是它。同族压字辈：express / impress / compress / depress / oppress。"
+  },
+  "sculpture": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sculp = 雕刻（拉丁 sculpere）→ 雕刻术、雕塑品（a marble sculpture 大理石雕像）。同族：sculptor 雕塑家 / sculpt 雕刻 / scalpel 手术刀（同源「刻」）。"
+  },
+  "capacitance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cap = 容纳（拉丁 capere）→ 能装多少电 → 电容、电容量。同族 cap「容纳」：capacity 容量 / capable 有能力的 / capacitor 电容器 / capsule 胶囊。"
+  },
+  "electronics": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "electron(电子) + -ics(学科) = 电子学；⚠️ 作学科时用单数动词（Electronics is my major.）。同族：electric 电的 / electron 电子 / electrician 电工。"
+  },
+  "electrode": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "electr(电) + ode(路径，希腊 hodos) = 电流进出的路 → 电极（a negative electrode 负极）；同类：anode 阳极 / cathode 阴极。同族 hodos「路」：method 方法 / period 时期 / episode 一集。"
+  },
+  "capacitor": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "capacity(容量) + -or(器) = 存��的器 → 电容器。同族 cap「容纳」：capacitance 电容 / capacity 容量 / capable 有能力的。"
+  },
+  "electrician": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "electric(电的) + -ian(人) = 电工、电气技师。同类 -ian 职业：physician 内科医生 / musician 音乐家 / technician 技术员。"
+  },
+  "telex": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "tel(远，希腊 tele) + ex(交换，exchange 的缩写) = 远程换文 → 电传（telegraph exchange）。同族 tele「远」：telephone 电话 / television 电视 / telescope 望远镜。"
+  },
+  "first-rate": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "first(第一) + rate(等级) = 第一等的 → 优秀的（a first-rate education 一流教育）。同类 rate 构词：second-rate 二流的 / third-rate 三流的 / rated 评级的。"
+  },
+  "kindle": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古北欧语 kynda「点火」→ 点燃、激起（kindle a fire / kindle interest 激起兴趣）；反义「熄灭」是 extinguish。⚠️ 电子阅读器 Kindle 也取「点燃（阅读之火）」之意。同族：candle 蜡烛（同源「发光」）。"
+  },
+  "basement": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "base(底部) + -ment = 底下的那层 → 地下室、地窖。同族：base 基础 / basic 基本的 / basis 根据。"
+  },
+  "geology": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "geo(地，希腊 ge) + -logy(学问) = 地质学。同族 geo「地」：geography 地理 / geometry 几何（测地）/ geothermal 地热的。"
+  },
+  "mortgage": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "mort(死，拉丁 mors) + gage(抵押) = 「死契」—— 还不上钱抵押物就归债主（或债务到死为止）→ 抵押、按揭（pay off the mortgage 还清房贷）。同族 mort「死」：mortal 会死的 / immortal 不朽的 / mortality 死亡率。"
+  },
+  "geographical": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "geo(地) + graph(写、描) + -ical = 描述大地的 → 地理的（geographical distribution 地理分布）。同族：geography 地理 / graph 图表 / photograph 照片。"
+  },
+  "hostile": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "host = 敌人（拉丁 hostis；注意与「主人」的 host 同形不同源）→ 敌对的、不友好的（a hostile reception 敌意接待 / hostile takeover 恶意收购）。同族：hostility 敌意 / hostage 人质。"
+  },
+  "magistrate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "magistr = 长官（拉丁 magister，同 master）→ 地方行政长官、治安法官。同族：master 主人 / magistrate 长官 / magnify 放大（同为「大」）。"
+  },
+  "underestimate": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "under(不足) + estimate(估计) = 低估（underestimate the difficulty 低估难度）；反义 overestimate 高估。同类 under-：underrate 低估 / undersell 低价销售 / undervalue 轻视。"
+  },
+  "whisper": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「嘶嘶」的低语声 → 低声说、私下说（whisper in sb's ear 在耳边低语 / It is whispered that… 据传…）。辨析：whisper 耳语 / murmur 低沉的连续声 / mutter 嘀咕（带不满）。"
+  },
+  "murmur": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是低沉连续的声音 → 低语、喃喃（murmur a reply / the murmur of the stream 溪水潺潺）；医学上的「心脏杂音」也是它。同族：mumble 含糊地说 / mutter 嘀咕。"
   }
  }
 }

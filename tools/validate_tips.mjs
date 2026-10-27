@@ -53,7 +53,9 @@ for (const [w, t] of Object.entries(tips)) {
   if (/"/.test(t.tip || "")) hasQuote.push(w);
   // 助记只管记忆，「与书不一致」由界面横幅统一提示（entry_repairs + fixNote）。
   // 助记里写「书里只收了 X」有两个毛病：数据补齐后它变成假话；学习者也并不关心版本学。
-  if (/(书里|源书|书本)/.test(t.tip || "")) metaTalk.push(w);
+  // ⚠️ 必须排除「文书里」「说明书里」这类合法搭配 —— 第一版正则把
+  //    「法律文书里也表示『鉴于』」判成了谈论源书（假红，产品与文案都没问题）。
+  if (/(?<![文说])书里|源书|书本/.test(t.tip || "")) metaTalk.push(w);
 }
 
 const certCount = {};
