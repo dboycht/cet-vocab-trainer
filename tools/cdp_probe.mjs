@@ -210,18 +210,48 @@ await shot("cdp-1-learn.png");
 console.log("\n--- B. 学完新词：排期 1 天、不写客观成绩 ---");
 const learnWord = A.wordText;
 await evalJs(`document.getElementById('goLearn').click()`);
-await sleep(800);
+await sleep(900);
 const B = await evalJs(`(() => {
-  const c = window.__cvt.cardOf(${JSON.stringify(learnWord)});
+  const LW = ${JSON.stringify(learnWord)};
+  const c = window.__cvt.cardOf(LW);
   const raw = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
   const d = raw.days[Object.keys(raw.days)[0]] || {};
-  return { card: c, day: d, nextWord: document.getElementById('word').textContent };
+  const st = window.__cvt.stateInfo();
+  return {
+    card: c, day: d, nextWord: document.getElementById('word').textContent,
+    nextIsQuizOfLearned: st.word === LW && st.kind === 'quiz',
+    nextKind: st.kind,
+    batch: st.batch,
+  };
 })()`);
 check("已排到 1 天后", B.card && B.card.i === 1 && B.card.s === 2, JSON.stringify(B.card));
 check("没有写任何答题成绩（a=0、c=0、k=0）", B.card && B.card.a === 0 && B.card.c === 0 && B.card.k === 0,
   `a=${B.card?.a} c=${B.card?.c} k=${B.card?.k}`);
 check("今日新学计数 +1", B.day.n === 1, JSON.stringify(B.day));
-check("已翻到下一张", B.nextWord !== learnWord, `${learnWord} -> ${B.nextWord}`);
+check("⭐ 学完立刻就地考这道词（不是等到明天）", B.nextIsQuizOfLearned === true,
+  `next=${B.nextWord} kind=${B.nextKind} 期望 quiz of ${learnWord}`);
+check("⭐ 本批进度已 +1（一批一批来的核心）", B.batch && B.batch.index >= 1 && B.batch.size > 0,
+  JSON.stringify(B.batch));
+
+/* ---------- B2. ⭐ 整队不会「全是记忆卡、一题练习都没有」 ---------- */
+// 这正是用户报的问题：今天没有到期复习词时，旧逻辑会排出一整队只教不考的学习卡。
+console.log("\n--- B2. 队列编排：学必有考（不会只剩记忆） ---");
+const B2 = await evalJs(`window.__cvt.queueSnapshot ? window.__cvt.queueSnapshot() : null`);
+check("调试句柄能读到队列快照", !!(B2 && Array.isArray(B2.queue)), B2 ? 'ok' : '无 queueSnapshot');
+if (B2 && Array.isArray(B2.queue)) {
+  const kinds = B2.queue.map((x) => x.kind);
+  const learnCount = kinds.filter((k) => k === 'learn').length;
+  const quizCount = kinds.filter((k) => k === 'quiz').length;
+  check("队列里既有学习卡也有测验题", learnCount > 0 && quizCount > 0, `learn=${learnCount} quiz=${quizCount}`);
+  let unpaired = 0;
+  for (let i = 0; i < B2.queue.length; i++) {
+    if (B2.queue[i].kind !== 'learn') continue;
+    const nxt = B2.queue[i + 1];
+    if (!nxt || nxt.kind !== 'quiz' || nxt.word !== B2.queue[i].word) unpaired++;
+  }
+  check("⭐ 每个学习卡后面都紧跟着它自己的测验（学必有考）", unpaired === 0, `未配对 ${unpaired} 个`);
+  check("⭐ 每批新词数 ≤ BATCH_SIZE(10)", B2.batch && B2.batch.size <= 10, JSON.stringify(B2.batch));
+}
 
 /* ---------- C. 测验题：4 选项、恰好 1 个正确 ---------- */
 console.log("\n--- C. 到期卡 → 测验题（英→中） ---");
@@ -501,24 +531,36 @@ await send("Page.reload", { ignoreCache: false });
 await sleep(2600);
 await send("Page.removeScriptToEvaluateOnNewDocument", { identifier: inj4.identifier });
 
-// 逐张走一部分学习卡（每张有 260ms 盖章动画）。走 40 张足够覆盖渲染路径。
-const WALK = Math.min(40, tipCount);
+// 逐张走学习卡。⚠️ 现在「学必有考」—— 学完一张紧跟的是它自己的测验题，
+// 所以不能在遇到非 learn 时就 break，而要**把中间的测验答掉、继续找下一张学习卡**。
+const BATCH = 10;                                  // 与 app.js 的 BATCH_SIZE 对齐
+const WALK = Math.min(BATCH, tipCount);            // 一批最多 10 个新词
 const seen = [];
-for (let i = 0; i < WALK; i++) {
+const walkStart = Date.now();
+while (seen.length < WALK && Date.now() - walkStart < 60000) {
   const s = await evalJs(`(() => ({
     word: document.getElementById('word').textContent,
     phase: window.__cvt.stateInfo().phase,
+    kind: window.__cvt.stateInfo().kind,
     shown: !document.getElementById('lnTip').hidden,
     chip: document.getElementById('lnTipKind').textContent.trim(),
     cls: document.getElementById('lnTipKind').className,
     text: document.getElementById('lnTipText').textContent,
     cert: window.__cvt.tipOf(document.getElementById('word').textContent)?.certainty || null,
   }))()`);
-  if (s.phase !== 'learn') break;
-  seen.push(s);
-  if (seen.length === 1) await shot("cdp-9-tip-learn.png");
-  await evalJs(`document.getElementById('goLearn').click()`);
-  await sleep(420);
+  if (s.phase === 'done' || s.kind === null) break;   // 这一批走完了
+  if (s.kind === 'learn') {
+    seen.push(s);
+    if (seen.length === 1) await shot("cdp-9-tip-learn.png");
+    await evalJs(`document.getElementById('goLearn').click()`);
+    await sleep(420);
+  } else {
+    // 学完后的那道测验：随便选一个把它答掉，好继续走到下一个新词
+    await evalJs(`document.querySelectorAll('.opt')[0]?.click()`);
+    await sleep(360);
+    await evalJs(`document.getElementById('goNext')?.click()`);
+    await sleep(360);
+  }
 }
 console.log("      走完 %d 张学习卡；示例: %s", seen.length,
   JSON.stringify(seen[0] && { w: seen[0].word, chip: seen[0].chip, len: seen[0].text.length }));

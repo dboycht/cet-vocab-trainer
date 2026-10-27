@@ -64,6 +64,13 @@ const TIP_CERT = { high: '确证', medium: '可信', low: '联想' };
 /** 「记住了」的硬判据 */
 const MASTER_STREAK = 3;
 
+/**
+ * 一批多少个新词。
+ * 用户要求「搞一批一批的」：不是一口气把当天额度灌完，而是一批走完就停下看成绩。
+ * 10 个新词 ≈ 学 10 次 + 考 10 次 ≈ 5 分钟，是个能"坐下来完成一段"的量。
+ */
+const BATCH_SIZE = 10;
+
 function localDayNum(d = new Date()) {
   return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / DAY);
 }
@@ -338,6 +345,7 @@ const state = {
   tips: new Map(),            // 首词 → { kind, tip }；词库与助记分开存（重新提取词库不会冲掉助记）
   mode: 'quiz',
   queue: [], idx: 0,
+  batch: null,                // { size, index }：本批计划多少个新词、已学几个（一批一批来）
   phase: 'asking',            // asking | answered | learn
   question: null,
   questionStart: 0,
@@ -374,18 +382,32 @@ function buildQueue(opts = {}) {
   const newBudget = opts.onlyMistakes ? fresh.length : Math.max(0, st.newPerDay - learnedToday);
   const reviewBudget = opts.onlyMistakes ? learning.length + review.length : st.reviewPerDay;
 
-  const chosenNew = shuffle(fresh).slice(0, newBudget);
+  // ---- 一批一批来 ----
+  // 用户要求「搞一批一批的」：每批固定 BATCH_SIZE 个新词，学完立刻就地考一遍，
+  // 一批走完就停下看成绩，而不是一口气把当天额度全灌进一个长队列。
+  const batchNew = Math.min(BATCH_SIZE, newBudget);
+  const chosenNew = shuffle(fresh).slice(0, batchNew);
+  // 复习词照样排在最前面（先把该巩固的巩固掉），但每学一个新词就紧跟一道它的测验
   const chosenReview = shuffle([...learning, ...review]).slice(0, reviewBudget);
 
   const q = [];
   let a = 0, b = 0;
   while (a < chosenReview.length || b < chosenNew.length) {
+    // 每轮：至多 3 道复习题 + 1 组「学 + 立刻考」
     for (let k = 0; k < 3 && a < chosenReview.length; k++) {
       const w = chosenReview[a++];
       q.push({ word: w, kind: 'quiz', type: pickType(getCard(w)) });
     }
-    if (b < chosenNew.length) q.push({ word: chosenNew[b++], kind: 'learn' });
+    if (b < chosenNew.length) {
+      const w = chosenNew[b++];
+      // ⭐ 学必有考：新词的学习卡后面**在排队阶段就直接跟着它自己的测验**。
+      //    原来只在 confirmLearn 里临时 splice 插入，导致"计划队列"快照里全是学习卡，
+      //    既没法验证，也让"学完一批要考一批"的节奏不可见。
+      q.push({ word: w, kind: 'learn' });
+      q.push({ word: w, kind: 'quiz', type: pickType(getCard(w)), afterLearn: true });
+    }
   }
+  state.batch = { size: batchNew, index: 0 };
 
   state.queue = q;
   state.idx = 0;
@@ -656,7 +678,10 @@ function updateRail() {
   const total = state.mode === 'browse' ? state.browse.order.length : state.queue.length;
   const pos = state.mode === 'browse' ? state.browse.i + 1 : state.idx + 1;
   $('railFill').style.height = total ? `${Math.min(100, (pos / total) * 100)}%` : '0';
-  $('railLabel').textContent = `${pos}/${total}`;
+  // 一批一批来：带上「本批已学 x/10」
+  const b = state.batch;
+  const batchTag = b && b.size > 0 ? ` · 本批 ${Math.min(b.index, b.size)}/${b.size}` : '';
+  $('railLabel').textContent = `${pos}/${total}${batchTag}`;
 }
 
 function countAll() {
@@ -891,6 +916,15 @@ function confirmLearn() {
   bumpDay('n');
   flushProgress();
   showStamp('g2', '学过');
+  // ⭐ 学完**立刻就地考一道**。
+  //    正常路径下，排队时已经把这个新词的测验排在它后面了（见 buildQueue 的「学必有考」），
+  //    所以这里**只在缺失时才补**——幂等，避免同一词被排两道测验。
+  const next = state.queue[state.idx + 1];
+  const paired = next && next.kind === 'quiz' && next.word === item.word;
+  if (!paired) {
+    state.queue.splice(state.idx + 1, 0, { word: item.word, kind: 'quiz', type: pickType(getCard(item.word)) });
+  }
+  if (state.batch) state.batch.index++;
   setTimeout(advance, 260);
 }
 
@@ -964,8 +998,18 @@ function showDone() {
       : '所有词都排到未来的复习计划里了。明天见。';
   } else {
     const acc = Math.round((state.stats.ok / total) * 100);
-    $('doneTitle').textContent = '这一轮做完了';
-    $('doneText').textContent = `本轮答 ${total} 题 · 答对 ${state.stats.ok} · 正确率 ${acc}%`;
+    // 一批一批来：明确告诉用户"这是这一批走完了"，而不是"今天全做完了"
+    const bs = state.batch?.size || 0;
+    if (bs > 0 && total > 0) {
+      $('doneTitle').textContent = `这一批做完了 · ${bs} 个新词`;
+      const more = s.fresh > 0
+        ? `还剩 ${s.fresh} 个新词。歇一会儿再点「再来一批」，下一批还是 ${Math.min(BATCH_SIZE, s.fresh)} 个。`
+        : '词库里的新词已经学完了。';
+      $('doneText').textContent = `本批答 ${total} 题 · 答对 ${state.stats.ok} · 正确率 ${acc}%。${more}`;
+    } else {
+      $('doneTitle').textContent = '这一轮做完了';
+      $('doneText').textContent = `本轮答 ${total} 题 · 答对 ${state.stats.ok} · 正确率 ${acc}%`;
+    }
   }
 
   $('doneGrid').innerHTML = `
@@ -974,7 +1018,7 @@ function showDone() {
     <div><b>${(d.ok || 0) + (d.bad || 0)}</b><i>今日已答</i></div>
     <div><b>${s.mastered}</b><i>记住了</i></div>
     <div><b>${progress.streak || 0}</b><i>连续天数</i></div>`;
-  $('doneMore').textContent = total === 0 ? '开始一轮' : '再来一轮';
+  $('doneMore').textContent = total === 0 ? '开始一轮' : (state.batch?.size > 0 ? '再来一批' : '再来一轮');
   updateCounters();
 }
 
@@ -1443,6 +1487,14 @@ function installDebugHandle() {
       answerIndex: state.question?.answerIndex ?? -1,
       optionCount: state.question?.options?.length ?? 0,
       word: currentItem()?.word || null,
+      kind: currentItem()?.kind || null,
+      batch: state.batch ? { ...state.batch } : null,
+    }),
+    /** 队列快照：用于验证「学必有考」的编排（每张学习卡后面必须紧跟它自己的测验） */
+    queueSnapshot: () => ({
+      queue: state.queue.map((x) => ({ word: x.word, kind: x.kind, type: x.type || null })),
+      idx: state.idx,
+      batch: state.batch ? { ...state.batch } : null,
     }),
     cardOf: (w) => {
       const c = getCard(w);
