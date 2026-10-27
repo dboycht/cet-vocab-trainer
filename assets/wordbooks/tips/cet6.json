@@ -7554,6 +7554,341 @@
    "kind": "family",
    "certainty": "high",
    "tip": "de-(完全) + dic(宣布，拉丁 dicare) + -ate = 郑重宣布献出去 → 奉献、献身（dedicate oneself to 献身于 / a dedicated teacher 尽职的教师）；书的「题献」也是它。同族 dic「说」：dictate 口述 / indicate 指示 / predict 预言。"
+  },
+  "obedient": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ob-(向) + ed(听，拉丁 audire) + -ient = 听对方的话 → 服从的，形容词（an obedient child / be obedient to 服从）。⚠️ 记词性：-ient 是形容词后缀，同 convenient / patient。同族 ed/aud「听」：obey 服从 / audience 听众 / audio 音频。"
+  },
+  "pineapple": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "pine(松) + apple(苹果) = 长得像松果的苹果 → 菠萝（早期欧洲人觉得它像松塔）。同类「长得像什么就叫什么」的果蔬：pineapple 菠萝 / grapefruit 葡萄柚 / eggplant 茄子。"
+  },
+  "flatter": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来源不确定（一说与古法语 flater「抚平」有关）。两个常用义：奉承（flatter sb 恭维某人）和反身用法「自以为」（flatter oneself that…）。习语：be flattered 感到荣幸。"
+  },
+  "seam": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 seam「缝」→ 接缝（the seams of the dress）、煤层（a coal seam 煤层 —— 像地层里的一条缝）。同族：sew 缝 / sewer 缝纫师·下水道。搭配：come apart at the seams 彻底崩溃。"
+  },
+  "landscape": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "land(土地) + -scape(景象，同 -ship 那一类构词) = 一片土地的景象 → 风景、景观（a landscape painting 风景画）；引申「（某领域的）局面」（the political landscape 政治格局）。同族：seascape 海景 / cityscape 城市景观。"
+  },
+  "windmill": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "wind(风) + mill(磨坊) = 靠风转的磨坊 → 风车。同族 mill：mill 磨坊·碾磨 / watermill 水磨 / millstone 磨石。习语：tilt at windmills 与假想敌作战（出自《堂吉诃德》）。"
+  },
+  "abundance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ab-(离开) + und(波浪，拉丁 unda) + -ance = 水多得漫出来 → 丰富、充裕（in abundance 大量地 / an abundance of 大量的）。同族 und「波」：undulate 起伏 / abundant 丰富的 / inundate 淹没。"
+  },
+  "indignation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + dign(值得，拉丁 dignus) + -ation = 觉得某人「不配」而生的火 → 义愤（righteous indignation 义愤）。同族 dign「值得」：dignity 尊严 / dignify 使有尊严 / indignant 愤慨的。"
+  },
+  "plump": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「扑通」掉进软东西那声 → 圆胖的、鼓起的（a plump chicken）；动词「扑通坐下」（plump down on the sofa）。⚠️ plump 是褒义的「丰满」，fat 才偏贬义。"
+  },
+  "molecular": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "molecul = 小团（拉丁 moles「团块」+ -cula 小）→ 分子的（molecular biology 分子生物学）。同族：molecule 分子 / mole 摩尔（化学量）。"
+  },
+  "shatter": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「哗啦」碎掉那声 → 粉碎、毁坏（The glass shattered. / shatter one's hopes 使希望破灭）。同族：scatter 散开（同源「散碎」）。四个「碎」：break 破 / crack 裂 / smash 猛击碎 / shatter 完全粉碎。"
+  },
+  "limb": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「四肢」→ 树的「大枝」→「（体系的）分支、突出物」（a limb of the tree）。习语：out on a limb 处境孤立·冒险 / risk life and limb 冒着生命危险。"
+  },
+  "offset": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "off(离开) + set(放) = 放到另一边去抵 → 抵消（offset the losses 抵消损失）；「分支」义来自「长出去的一支」；印刷的「胶印」也是 offset。同族 offset 的复合词法：set off 出发 / offset the cost。"
+  },
+  "fraction": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fract = 折、碎（拉丁 frangere）→ 碎片 → 分数、小部分（a fraction of the cost 成本的一小部分）；化学里的「分馏」也是把东西分开。同族 fract「折/碎」：fracture 骨折 / fragment 碎片 / fragile 易碎的。"
+  },
+  "analytic(al)": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ana-(分开) + lyt(松开，希腊 lyein) = 拆开来解 → 分析的；反义 synthetic 综合的。同族 lyt「松」：analyse 分析 / paralysis 瘫痪（松开一侧）/ catalyst 催化剂。"
+  },
+  "distract": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(分开) + tract(拉，拉丁 trahere) = 把注意力拉到别处 → 分散、使分心（distract sb from work 使某人分心）。同族 tract「拉」：attract 吸引 / extract 提取 / contract 收缩 / abstract 抽象。"
+  },
+  "installment": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in-(进) + stall(位置) + -ment = 一次放进一点 → 分期付款（pay in installments 分期付款）；连载的「一期」也是它。同族：install 安装 / stall 摊位。"
+  },
+  "split": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「劈开」：分裂（split into two）、分配（split the bill 分摊账单）、派系（a split in the party）；名词「裂口」。搭配：split up 分手 / split hairs 吹毛求疵。"
+  },
+  "detach": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(离开) + tach(钉住，法语 attacher) = 把钉住的取下来 → 分开、拆卸；军事上的「派遣」就是把人分出去。同族：attach 附上 / attachment 附件·依恋 / detached 超然的。"
+  },
+  "interface": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "inter-(之间) + face(面) = 两个东西接触的那个面 → 分界面、接口（user interface 用户界面）；动词「（与…）相互作用」。同族 inter-：interact 互动 / internet 互联网 / intervene 干预。"
+  },
+  "partition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "part(部分) + -ition = 分成部分 → 分割（the partition of India 印巴分治）、隔墙（a glass partition 玻璃隔断）；电脑的「分区」也是它。同族：part 部分 / partial 部分的 / participate 参与。"
+  },
+  "relay": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "re-(再) + lay(放，古法语 laier) = 换一班人接替放 → 分程传递、转播（relay the news 转达消息）；体育的「接力」就是 relay race。同族：relay 中继器。"
+  },
+  "diverge": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "di-(分开) + verg(转、倾斜，拉丁 vergere) = 往两边拐 → 分岔、分歧（opinions diverge 意见分歧）；反义 converge 汇聚。同族：converge 汇聚 / verge 边缘（倾斜的那条边）。"
+  },
+  "litter": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "出自拉丁 lectus「床」→ 抬人的「轿子」→ 铺开的杂物 → 垃圾、乱扔（Drop litter. 乱丢垃圾）；动物一胎生的崽也叫 litter（一「铺」）。同族：litter bin 垃圾箱。"
+  },
+  "abolish": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "ab-(离开) + ol(生长，拉丁 olescere) = 让它停止生长 → 废除、取消（abolish slavery 废除奴隶制）。同族：adolescent 青少年（正在生长）/ adult 成年人 / prolific 多产的。"
+  },
+  "gangster": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "gang(一伙) + -ster(人，常带贬义) = 结伙的人 → 匪徒（a gangster film 黑帮片）。同类 -ster 贬义：trickster 骗子 / prankster 恶作剧者 / mobster 匪徒。"
+  },
+  "fly": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "除了「飞」，fly 还有「飞跑、逃跑、时间飞逝」（The time flew by. / fly the country 逃亡国外）和「（旗）飘扬」。搭配：fly into a rage 勃然大怒 / let fly 猛投·破口大骂。"
+  },
+  "indulge": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "拉丁 indulgere「纵容」→ 放纵（indulge one's appetite 大吃特吃）；反身用法「让自己享受一下」（indulge in a hot bath）。同族：indulgent 纵容的 / indulgence 放纵·嗜好。⚠️ 拼写双 l 前有 d 时要双写：indulged。"
+  },
+  "herd": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「兽群」（尤指牛、象）→ 动词「放牧、成群」（herd the sheep 赶羊 / herd instinct 从众心理）。量词分清：herd 牛/象 / flock 羊/鸟 / pack 狼/狗 / school 鱼。"
+  },
+  "extraordinarily": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "extra-(超出) + ordinary(平常) + -ily = 超出平常地 → 非常地（extraordinarily beautiful 美得非凡）。同族：extraordinary 非凡的 / ordinary 普通的。⚠️ 拼写容易漏字母：extra-ordin-arily。"
+  },
+  "aviation": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "avi = 鸟（拉丁 avis）→ 像鸟一样飞 → 航空、飞行（the aviation industry 航空业）。同族 avi「鸟」：aviator 飞行员 / aviary 鸟舍 / avian 鸟类的。"
+  },
+  "pattern": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「（做模子的）母版、花样」→ 模式、图案（behaviour patterns 行为模式）；动词「仿制、照着做」（be patterned on 仿照…而做）。同族：patron 赞助人（同一个「母版」来源）。"
+  },
+  "imitation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(入) + it(走，拉丁 ire) + -ation = 跟着走 → 模仿、仿制品（imitation leather 人造革 / in imitation of 模仿）。同族 it「走」：imitate 模仿 / exit 出口 / initial 最初的。"
+  },
+  "reproduce": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(再) + produce(生产) = 再造一个 → 复制、仿造、繁殖（reproduce the original 复制原件 / reproduce the sound 重现声音）。同族：produce 生产 / product 产品 / reproduction 繁殖·复制品。"
+  },
+  "magnify": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "magn = 大（拉丁 magnus）+ -ify(使) = 放大（magnify the image 放大图像）；引申「夸大」（magnify the problem 夸大问题）。同族 magn「大」：magnificent 壮丽的 / magnitude 量级 / magnate 巨头。"
+  },
+  "handicap": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "hand in cap（手放在帽子里）—— 旧时赛马为公平起见让强者多负重，抽签决定，于是 handicap 成了「不利条件、障碍」（a serious handicap）和「使处于不利」。♿ 词义演变：从「让负」到「残障」（现代更常用 disability）。"
+  },
+  "hamper": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "动词「妨碍、牵制」（hampered by bad weather 为坏天气所阻）；⚠️ 另有同形名词 hamper 指「（带盖的）大篮子」（a picnic hamper 野餐篮），来源不同。"
+  },
+  "estate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + stat(站，拉丁 stare) = 一个人站立的位置、身家 → 财产、房地产（real estate 房地产 / an estate agent 房产中介）；「庄园」和「遗产」都是它。同族 sta「站」：stable 稳定的 / status 地位 / establish 建立。"
+  },
+  "handy": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "hand(手) + -y = 顺手能用的 → 方便的（a handy tool）、手边的（keep it handy）。同族 hand 构词：handbook 手册 / handmade 手工的 / firsthand 第一手的。"
+  },
+  "reactor": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + act(做) + -or(器) = 作出反应的东西 → 反应堆、反应器（a nuclear reactor 核反应堆）。同族：react 反应 / reaction 反应 / reactor core 反应堆核心。"
+  },
+  "blunder": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "可能出自古北欧语 blundra「闭着眼乱撞」→ 犯大错（blunder into a trap 误入陷阱）、大错（a costly blunder）。同类「错」的强度：mistake 错误 / error 差错 / blunder 大错（不可挽回）。"
+  },
+  "mirror": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mir = 惊奇、看（拉丁 mirari，同 admire）→ 让人照见自己而惊奇的镜子；动词「反映、借鉴」（The results mirror the trend.）。同族：admire 钦佩 / miracle 奇迹 / mirage 海市蜃楼。"
+  },
+  "offence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "of-(对着) + fens(打，拉丁 fendere) = 朝人打过去 → 冒犯、犯罪（a criminal offence 刑事罪 / take offence at 因…生气）。同族 fens「打」：defend 防御 / offensive 冒犯的·进攻的。⚠️ 英式 offence，美式 offense。"
+  },
+  "echo": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊神话里的山林仙女 Echo（厄科）—— 她因话多被罚只能重复别人的话尾，于是成了「回声」。动词「反射声音、附和」（echo sb's views 附和某人的观点）。"
+  },
+  "contrary": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "contra-(相反) + -ry = 相反的；名词「相反的事物、反对命题」（on the contrary 恰恰相反 / to the contrary 相反地）。同族 contra：contradict 反驳 / contrast 对比 / controversy 争论。"
+  },
+  "contradict": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "contra-(相反) + dict(说，拉丁 dicere) = 说反话 → 反驳、否认；也指「与…矛盾」（The two accounts contradict each other.）。同族 dict「说」：predict 预言 / dictate 口述 / dictionary 词典。"
+  },
+  "propagation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + pag(固定、插枝，拉丁 pangere) + -ation = 插枝让它长出去 → 繁殖、传播（the propagation of the species 物种繁衍 / the propagation of ideas 思想传播）。同族：propagate 繁殖·传播 / propaganda 宣传（同源，但带贬义）。"
+  },
+  "propagate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 propagare 本是「插枝繁殖」→ 繁殖、传播（propagate the species 繁衍物种 / propagate ideas 传播思想）。同族：propagation 繁殖·传播 / propaganda 宣传。"
+  },
+  "decree": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + cree(裁定，拉丁 cernere「分辨」) = 定下来的判决 → 法令、政令（an emergency decree 紧急法令）；动词「颁布、裁定」。同族 cern「分辨」：discern 辨别 / certain 确定的 / secret 秘密。"
+  },
+  "toss": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "核心是「轻抛、翻动」：扔（toss the ball）、翻来覆去（toss and turn 辗转反侧）、拌（toss the salad 拌沙拉）、掷硬币（toss a coin）。搭配：toss out 丢弃 / toss off 一饮而尽·一挥而就。"
+  },
+  "flannel": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自威尔士语 gwlanen「羊毛制品」（同 wool）→ 法兰绒。⚠️ 英式口语里 flannels 指「法兰绒长裤」；bath flannel 是「洗脸毛巾」。"
+  },
+  "valve": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 valva「折页」，与 volvere「转」同源 —— 会转动的开合件 → 阀门、电子管、心脏瓣膜（a heart valve 心脏瓣膜）。同族 volv「转」：revolve 旋转 / volume 卷·体积。"
+  },
+  "originate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ori = 升起、开始（拉丁 oriri，「日出」）→ 发源、首创（originate from 起源于 / originate a new style 开创一种新风格）。同族：origin 起源 / original 最初的 / orient 东方（日出之地）。"
+  },
+  "spokesman": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "spoke(说话，古英语 specan 的过去式) + -s-man(人) = 说话的人 → 发言人（a government spokesman）。同类 -sman：tradesman 商人 / statesman 政治家 / craftsman 工匠。⚠️ 现代多用中性 spokesperson。"
+  },
+  "outlet": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "out(出) + let(让) = 让出去的地方 → 出口、销路（a retail outlet 零售点）；引申「发泄途径」（an outlet for anger 出气筒）。同族：inlet 入口 / let 让。"
+  },
+  "incidence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(在上) + cid(落，拉丁 cadere) + -ence = 落在人身上的事 → 发生率（the incidence of the disease 发病率）；物理上的「入射」（angle of incidence 入射角）也是「打在面上」。同族 cid「落」：incident 事件 / accident 事故 / coincide 巧合。"
+  },
+  "generate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "gener = 产生、种类（拉丁 genus）→ 生成、产生（generate electricity 发电 / generate income 产生收入）。同族：generation 一代·产生 / generous 慷慨的 / genetic 基因的。"
+  },
+  "flame": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 flamma「火焰」→ 火焰、燃烧（in flames 在燃烧）；引申「（情感）爆发」（flames of passion）和「（网络）骂战」（a flame war）。同族：flammable 易燃的 / inflame 使发炎·激怒。"
+  },
+  "invoice": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "in-(进) + voice(说，法语 vois) = 把货单「说」给对方 → 发票、发货清单（issue an invoice 开发票）。同族 voice「说」：vocal 嗓音的 / vocation 职业（calling 的意味）。"
+  },
+  "detector": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(去掉) + tect(盖子，拉丁 tegere) + -or(器) = 揭开盖子的东西 → 探测器（a smoke detector 烟雾报警器）、发觉者。同族 tect「盖」：detect 察觉 / protect 保护（在前面盖住）/ detective 侦探。"
+  },
+  "luminous": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "lumin = 光（拉丁 lumen）→ 发光的（luminous paint 夜光涂料）。同族：illuminate 照明·阐明 / luminary 发光体·名人 / luminescence 发光。"
+  },
+  "exert": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + ert(编织、动，拉丁 serere 的变体) = 把力气使出来 → 施加、发挥（exert pressure 施加压力 / exert oneself 努力）。同族 ert「技艺」：inert 惰性的 / artisan 工匠。"
+  },
+  "beam": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「梁、横木」→ 光的「一束」（a beam of light）、无线电的「波束」（beam the signal 定向发射）；引申「眉开眼笑」（beam with joy）。一个画面：直直的一条。"
+  },
+  "motive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mot = 动（拉丁 movere）+ -ive = 推动你的东西 → 动机（the motive for the crime 作案动机）；也指「发动的、运动的」（motive power 动力）。同族 mot「动」：motion 运动 / emotion 情绪 / promote 促进。"
+  },
+  "dynamo": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dynam = 力量（希腊 dynamis）→ 发电机；口语里也指「精力充沛的人」（She's a real dynamo.）。同族：dynamic 动态的 / dynamite 炸药 / dynasty 王朝。"
+  },
+  "rattle": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「嘎啦嘎啦」那声 → 发出格格声、使慌乱（rattle sb 使某人紧张 —— 被声响扰乱了）；婴儿的「摇铃」也叫 rattle。同族：rattlesnake 响尾蛇。"
+  },
+  "dioxide": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "di-(二) + oxide(氧化物) = 二氧化碳（carbon dioxide）等；化学后缀 -ide 表化合物。同族：oxide 氧化物 / monoxide 一氧化物 / carbon dioxide 二氧化碳。"
   }
  }
 }

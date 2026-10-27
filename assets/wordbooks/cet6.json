@@ -12358,11 +12358,14 @@
   },
   {
    "word": "obedient",
-   "def": "n.服从的，顺从的",
+   "def": "a.服从的，顺从的",
    "pos": [
-    "n."
+    "a."
    ],
-   "page": 22
+   "page": 22,
+   "source_def": "n.服从的，顺从的",
+   "source_pos": [],
+   "entry_fix": "pos_fix"
   },
   {
    "word": "pineapple",
@@ -12422,11 +12425,16 @@
   },
   {
    "word": "plump",
-   "def": "vt.丰满的；鼓起的",
+   "def": "a.丰满的，圆胖的；鼓起的 vt./ vi.使鼓起；（扑通）坐下",
    "pos": [
-    "vt."
+    "a.",
+    "vt.",
+    "vi."
    ],
-   "page": 22
+   "page": 22,
+   "source_def": "vt.丰满的；鼓起的",
+   "source_pos": [],
+   "entry_fix": "pos_fix"
   },
   {
    "word": "molecular",

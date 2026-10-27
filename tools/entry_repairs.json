@@ -168,6 +168,18 @@
       "pos": ["n."],
       "def": "n.公爵；君主",
       "evidence": "源 PDF 该格原文是「duke n. 公爵，君主；手」—— **第三处释义窜入**（「手」是 hand 的释义）。判据同前两处：源书按中文拼音倒序排列，邻近词条是拱顶(gǒngdǐng)、巩固(gǒnggù)、公鸡(gōngjī)，全在 gōng/gǒng 音区，「手」(shǒu) 不可能出现在此位置。"
+    },
+    "obedient": {
+      "kind": "pos_fix",
+      "pos": ["a."],
+      "def": "a.服从的，顺从的",
+      "evidence": "释义「服从的，顺从的」本身带「的」，是形容词；源书标成 n. 是错的。-ient 也是形容词后缀（同 convenient / patient / ancient）。"
+    },
+    "plump": {
+      "kind": "pos_fix",
+      "pos": ["a.", "vt.", "vi."],
+      "def": "a.丰满的，圆胖的；鼓起的 vt./vi.使鼓起；（扑通）坐下",
+      "evidence": "源书标 vt.，而释义「丰满的；鼓起的」是形容词。plump 作形容词是最常见用法（a plump chicken），作动词是 plump down（扑通坐下）。"
     }
   }
 }
