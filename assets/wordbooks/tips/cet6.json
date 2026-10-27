@@ -3889,6 +3889,341 @@
    "kind": "root",
    "certainty": "high",
    "tip": "希腊 myein 是「闭上（眼、嘴）」—— 神秘教派的入教仪式要闭口不言，所以 myst = 神秘；出版业里 a murder mystery 就是「谋杀悬疑小说」。同族：mystic 神秘的 / mysterious 神秘的。"
+  },
+  "deliberate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + liber(天平，拉丁 libra，同 Libra 天秤座) = 反复称量 → 深思熟虑的、审慎的；也作动词「仔细考虑」。⚠️ 形容词重音在前，动词重音在后。"
+  },
+  "profound": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + found(底，拉丁 fundus) = 一直探到底 → 深刻的、渊博的（a profound influence 深远影响 / profound knowledge 渊博的学识）。同族 fund「底」：fund 基金 / foundation 基础 / fundamental 根本的。"
+  },
+  "trench": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古法语 trenchier「切」（同 truncate 截断）→ 切出来的沟 → 深沟、战壕（一战里的 trench warfare 堑壕战）。同族：trenchant 一针见血的（切得利落）。"
+  },
+  "editorial": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + dit(给，拉丁 dare) = 把内容「给出」去 → 出版；editor 是编辑，editorial 作名词是「社论」（编辑写的评论）、作形容词是「编辑的」。同族：edit 编辑 / edition 版本 / editor 编辑。"
+  },
+  "photography": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "photo = 光（希腊 phos）+ graph(写) = 用光写下来 → 摄影术。同族 photo：photograph 照片 / photon 光子 / photosynthesis 光合作用 / photocopy 复印。"
+  },
+  "sociology": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "socio = 同伴、社会（拉丁 socius）+ -logy(学问) → 社会学。同族 soci「同伴」：social 社会的 / society 社会 / associate 联系·伙伴 / socialist 社会主义者。"
+  },
+  "conceive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + ceive(拿，拉丁 capere) = 把想法收拢到一起 → 构想、设想；生物学上「受孕」也是它。同族 ceive/cept「拿」：receive 接收 / perceive 察觉 / deceive 欺骗 / concept 概念。"
+  },
+  "divine": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "div = 神（拉丁 divus）→ 神的、神圣的；动词义「占卜、猜到」（divine the truth）来自「靠神力推知」。同族：divinity 神性·神学 / divination 占卜。"
+  },
+  "reject": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + ject(扔，拉丁 jacere) = 扔回去 → 拒绝、抛弃；医学上的「排异」（reject the transplant 排斥移植器官）也是它。同族 ject「扔」：project 投射 / inject 注射 / subject 使隶属 / object 反对。"
+  },
+  "serpent": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "serp = 爬（拉丁 serpere）→ 爬行的东西 → 蛇（尤指大蛇）。同族：serpentine 蜿蜒的 / herpetology 爬行动物学。文学里 the old serpent 指撒旦。"
+  },
+  "maid": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "maid 是 maiden 的缩略（古英语 mægden）→ 少女、未婚女子；后来主要指「女仆」。同族：maiden 少女·首次的（maiden voyage 处女航）。"
+  },
+  "maiden": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 mægden → 少女、未婚女子；形容词义「首次的」很常用：a maiden voyage 处女航 / a maiden speech 首次演说。同族：maid 女仆·少女。"
+  },
+  "extravagant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "extra-(外) + vag(游荡，拉丁 vagari) = 游到界限之外 → 过度的、奢侈的（extravagant spending 挥霍）。同族 vag「游荡」：vagabond 流浪汉 / vagrant 流浪者 / vague 模糊的（游移不定）。"
+  },
+  "scorch": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "「表面烧焦」（不烧成灰）：scorched earth policy 焦土政策；口语里 scorching 是「热得要命」（a scorching day）。「挖苦」义是引申（用话把人烤焦）。"
+  },
+  "context": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + text(编织，拉丁 texere) = 编在一起的那些话 → 上下文、语境（out of context 断章取义 / in the context of 在…背景下）。同族 tex「织」：text 文本 / textile 纺织品 / texture 质地。"
+  },
+  "Heaven": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "本义「天、天堂」→ 转喻「上帝」（Heaven forbid! 上天不许 / Thank Heaven! 谢天谢地）。⚠️ 大写 Heaven 常指上帝，小写 heavens 指天空。同族：heavenly 天堂般的。"
+  },
+  "counsel": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "拉丁 consilium「商议」→ 商议、忠告（keep one's own counsel 守口如瓶）；法律上的「辩护律师」也用这个词。⚠️ 与 council（委员会）同音不同词：counsel 是建议，council 是机构。"
+  },
+  "trader": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "trade(贸易) + -er(人/物) = 商人；也指「商船」。同族：trade 贸易 / tradesman 零售商·手艺人 / trademark 商标 / trade union 工会。"
+  },
+  "tradesman": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "trade(行业) + -s-man(人) = 靠一门手艺或行当吃饭的人 → 手艺人、零售商。同类 -sman：craftsman 工匠 / spokesman 发言人 / statesman 政治家。"
+  },
+  "dealer": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "deal(分发、交易) + -er = 做交易的人 → 商人（a car dealer 汽车经销商）；牌桌上的「发牌者」也是「分发」义。同族：deal 交易 / dealing 交易行为 / dealership 经销权。"
+  },
+  "merchandise": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "merch = 交易（拉丁 mercari）→ 商品、货物；动词义「推销」。同族 merc「交易」：market 市场 / merchant 商人 / commerce 商业 / Mercury 墨丘利（商神）。"
+  },
+  "blue": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "颜色引申两条链：① 脸色发青 → 忧郁的（feel blue / the blues 布鲁斯音乐）；② 蓝色曾与「淫秽」挂钩 → 下流的（a blue joke 黄色笑话 / blue movie 色情片）。两条引申在阅读里都常见。"
+  },
+  "ware": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 waru「货物」→ 商品、器皿；现在主要活在后缀里：software 软件 / hardware 硬件 / earthenware 陶器 / warehouse 仓库（放货的房子）。"
+  },
+  "shark": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "词源不明（一说来自玛雅语 xoc）。引申义很常用：a loan shark 放高利贷的人；动词「行骗」（shark sb out of sth）。"
+  },
+  "goodness": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "good(好) + -ness = 善良、美德；也用作感叹（Goodness me! 天哪 / For goodness' sake! 看在老天份上）。同族：good 好的 / goods 货物（好东西）。"
+  },
+  "gravel": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 gravele「岸边的小石子」→ 砂砾；医学上的「结石」（kidney gravel 肾结石）就是小石子。同族：gravelly 沙哑的（像砂砾的声音）。"
+  },
+  "underwear": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "under(里面) + wear(衣物) = 穿在里面的 → 内衣。同族 -wear：sportswear 运动装 / footwear 鞋类 / knitwear 针织品。"
+  },
+  "sardine": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自地中海撒丁岛（Sardinia）的名字 → 沙丁鱼。习语很形象：packed like sardines 挤得像沙丁鱼罐头。同族：sardonic 讥讽的（撒丁岛的一种毒草，吃了会苦笑而死）。"
+  },
+  "cancel": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 cancelli 是「格子栏」—— 在写错的字上画格子线划掉 → 删去、取消。同族：chancellor 大臣（站在格子栏后的人）。搭配：cancel out 抵消。"
+  },
+  "tone": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ton = 拉伸的程度（希腊 tonos）—— 弦的松紧决定音调，所以 tone 是音调；引申到色彩 → 色调（tones of grey 各种灰）；引申到社会 → 风气（the tone of the meeting）。同族：intonation 语调 / monotonous 单调的 / tonic 补药·主音。"
+  },
+  "gap": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "古北欧语 gap「裂口」→ 缝隙、缺口；地理上的「山口」就是山的裂口；抽象的「差距、代沟」都是缺口（the gap between rich and poor / generation gap / bridge the gap 弥合差距）。"
+  },
+  "scan": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 scandere「按格律诵读」（一行行读）→ 细看、浏览、扫描（scan the document / scan the crowd 扫视人群）；医学的「扫描」（CT scan）也是它。"
+  },
+  "sift": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 siftan「筛」→ 筛、过滤；引申「仔细审查」（sift through the evidence 梳理证据 / sift out the truth 筛出真相）。同族：sieve 筛子。"
+  },
+  "uproar": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "up(上) + roar(吼叫) = 一片吼起来 → 喧嚣、骚动（the hall was in an uproar 大厅一片哗然）。同族：roar 吼叫 / roaring 咆哮的。"
+  },
+  "stroll": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "可能与德语 strollen「闲逛」有关 → 散步、溜达。四个「走」的强度：wander 徘徊 < ramble 闲逛 < roam 漫游 < stroll 散步（最悠闲）。同族：stroller 婴儿推车。"
+  },
+  "choice": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "choose(选) 的名词 → 选择、入选者；形容词义「上等的」（choice meat 上等肉）来自「挑出来的」。搭配：have no choice but to 别无选择只能 / by choice 出于自愿。同族：choosy 挑剔的。"
+  },
+  "triangular": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "tri(三) + angul(角，拉丁 angulus) + -ar = 三角的；引申「三者之间的」（triangular trade 三角贸易）。同族 tri-「三」：triangle 三角形 / tricycle 三轮车 / trilogy 三部曲 / trio 三重奏。"
+  },
+  "prose": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 prosa oratio 是「直着往前说的话」（pro- 向前 + vers 转，与 verse 相对）→ 散文。记忆钩：prose 直说，verse 拐着弯押韵。同族：verse 诗 / versus 对。"
+  },
+  "emission": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + miss(送，拉丁 mittere) = 送出去 → 散发、排放（carbon emissions 碳排放 / emission of light 发光）。同族 miss「送」：emit 发出 / mission 使命 / transmit 传送 / admit 承认。"
+  },
+  "tolerant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "toler = 忍受（拉丁 tolerare）→ 容忍的、有耐性的（be tolerant of 对…宽容）；生物学上「耐…的」（drought-tolerant 耐旱的）。同族：tolerate 容忍 / tolerance 宽容·公差 / intolerable 无法忍受的。"
+  },
+  "mute": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "mut = 不出声（拉丁 mutus）→ 哑的、不发声的；名词「弱音器」（给乐器消音）、语言学上的「闭止音」；引申「（电视）静音」。同族：mutter 嘀咕 / murmur 低语。⚠️ mute 与「变异」的 mutate 不同源。"
+  },
+  "commodity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + mod(尺度、便利，拉丁 modus) = 合人用的东西 → 日用品、商品（commodity prices 大宗商品价格）。同族 mod：mode 方式 / moderate 适度的 / accommodate 容纳·适应（使人方便）。"
+  },
+  "routine": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "route(路线) + -ine = 走熟了的路线 → 常规、例行公事（daily routine 日常 / a routine check 例行检查）；形容词「日常的」。同族：route 路线。"
+  },
+  "deem": {
+   "kind": "family",
+   "certainty": "medium",
+   "tip": "古英语 deman「判断」（与 doom 同源，doom 原义就是「判决」）→ 认为、相信（deem it necessary 认为有必要）。同族：doom 厄运·判决。"
+  },
+  "recognition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(再) + cogn(知道，拉丁 cognoscere) = 再次知道 → 认出、识别；「重视、赏识」是引申（承认其价值）（in recognition of 为表彰）。同族 cogn「知道」：recognize 认出 / cognition 认知 / diagnose 诊断。"
+  },
+  "merciful": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "mercy(仁慈) + -ful(充满) = 仁慈的（be merciful to 对…仁慈）；反义 merciless 无情的。同族：mercy 怜悯 / at the mercy of 任凭…摆布。"
+  },
+  "awake": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「醒来」（形容词「醒着的」）→ 引申「意识到、认识到」（awake to the danger 意识到危险）。⚠️ 变化特殊：awake-awoke-awoken；作形容词时只作表语（be awake，不说 an awake boy）。"
+  },
+  "undertaking": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "undertake(承担) + -ing = 承担下来的事 → 任务、事业（a risky undertaking 一项有风险的事业）；也指「承诺」（give an undertaking）。⚠️ undertaker 是「殡葬承办人」。"
+  },
+  "identification": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ident = 同一（拉丁 idem）→ 确认「是同一个」→ 认出、鉴定；证明「你是你」的东西 → 身份证件（ID）。同族：identify 识别 / identity 身份 / identical 相同的。"
+  },
+  "personnel": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "person(人) + -nel(法语表「全体」的后缀) = 全体人员 → 人事部门、员工（personnel manager 人事经理）。⚠️ 与 personal（个人的）只差一个字母：personnel 双 n 双 l 是「人员」。"
+  },
+  "pitch": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "四个同形词：① 名词「沥青、树脂」（pitch-black 漆黑的）；② 名词「音高」；③ 动词「投掷」；④ 名词「球场」。它们来源各异，只能靠语境分辨。"
+  },
+  "hostage": {
+   "kind": "family",
+   "certainty": "medium",
+   "tip": "出自古法语 ostage「抵押的人」→ 人质（take sb hostage 扣押某人作人质）。同源词 host / hotel / hospital 都出自拉丁 hospes「主人兼客人」—— 古时人质就是留在对方家里的客人。"
+  },
+  "humanity": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "human(人) + -ity = 人类（全体）、人性、人道（crimes against humanity 反人类罪）。⚠️ 三个词分清：human 人的 / humane 人道的（仁慈的）/ humanity 人类·人性。humanities 是人文学科。"
+  },
+  "thermal": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "therm = 热（希腊 thermos）→ 热的、保温的（thermal insulation 隔热 / thermal springs 温泉）。同族：thermometer 温度计 / thermos 保温瓶 / thermostat 恒温器 / thermonuclear 热核的。"
+  },
+  "tropic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "trop = 转（希腊 tropos）—— 太阳到这里就「转回来」，所以是回归线（the Tropic of Cancer 北回归线）；两条回归线之间就是热带。同族：tropical 热带的 / trope 转义·修辞。"
+  },
+  "personality": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "person(人) + -ality = 作为「人」的样子 → 人格、个性（a strong personality 个性强）；也指「名人」（a TV personality 电视名人）。同族：personal 个人的 / personnel 人员 / personify 拟人化。"
+  },
+  "tropical": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "tropic(回归线·热带) + -al = 热带的（tropical rainforest 热带雨林 / tropical disease 热带病）。同族：tropic 回归线 / the tropics 热带地区。"
+  },
+  "concession": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + cess(走，拉丁 cedere) = 双方各让一步 → 让步、妥协（make a concession）；政府批的「特许权」也是它（oil concessions 石油开采权）。同族 ced/cess「走」：concede 承认·让与 / proceed 进行 / access 接近。"
+  },
+  "combustion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(完全) + bust(烧) = 完全烧起来 → 燃烧（internal combustion engine 内燃机）；引申「骚动」。同族：combustible 易燃的。"
+  },
+  "flock": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "古英语 flocc「一群（羊、鸟）」→ 名词「群」，动词「群集」（tourists flock to 蜂拥而至）。量词分清：flock 羊/鸟 / herd 牛/象 / school 鱼 / swarm 蜂。"
+  },
+  "whisker": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "whisk(扫、拂) + -er = 扫来扫去的东西 → 连鬓胡子；猫的「胡须」也叫 whisker。习语：by a whisker 差一点点（赛马以一个胡须之差）。同族：whisk 搅拌·拂。"
+  },
+  "conviction": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(完全) + vict(征服，拉丁 vincere) = 把对方彻底说服 → 确信、信念（a strong conviction 坚定的信念）；法律上的「定罪」也是它（a previous conviction 前科）。同族 vict「征服」：convince 说服 / victory 胜利 / convict 定罪 / evict 驱逐。"
+  },
+  "certainty": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cert = 确定（拉丁 certus）→ 确实性、必然的事（with certainty 确定地 / a certainty 必然的事）。同族：certain 确定的 / certainly 当然 / certify 证明 / certificate 证书。"
+  },
+  "deficiency": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(不) + fic(做，拉丁 facere) + -iency = 做得不够 → 缺乏、不足（vitamin deficiency 维生素缺乏）。同族 fic「做」：deficient 缺乏的 / sufficient 充足的 / efficient 高效的 / deficit 赤字。"
+  },
+  "quantify": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "quant = 多少（拉丁 quantus）+ -ify(使) = 使有数量 → 量化（quantify the results 量化结果）。同族：quantity 数量 / quantitative 定量的 / quantum 量子（最小的量）。"
+  },
+  "deficient": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(不) + fic(做) + -ient = 做得不够的 → 缺乏的（be deficient in 缺乏 / mentally deficient 智力有缺陷的）。同族：deficiency 缺乏 / deficit 赤字 / sufficient 充足的。"
+  },
+  "positively": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "posit = 放、定（拉丁 ponere 的过去分词）→ 确定地、断然地（positively refuse 断然拒绝）；口语里也表示「确实、真的」（This is positively the best.）。同族：positive 肯定的·阳性的 / compose 组成 / deposit 存放。"
   }
  }
 }
