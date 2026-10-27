@@ -5889,6 +5889,341 @@
    "kind": "story",
    "certainty": "medium",
    "tip": "拉丁 mobile vulgus「易变的群众」的缩写 → 暴民、人群（a mob of fans 一群粉丝）；动词「聚众闹事、围堵」（fans mobbed the star）。同族：mobile 流动的 / mobilize 动员。"
+  },
+  "bugle": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 buculus「小公牛」→ 牛角做的号角 → 军号、喇叭（blow the bugle 吹号）。同族：bugler 号手。同源词：bucolic 田园的（牧牛的）。"
+  },
+  "decisive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + cis(切，拉丁 caedere) = 一刀切下 → 决定性的（a decisive victory 决定性胜利）、果断的（a decisive leader）。同族 cis「切」：decide 决定 / precise 精确的 / scissors 剪刀 / excise 切除。"
+  },
+  "extinct": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + stinct(刺灭，拉丁 stinguere) = 把火扎灭 → 熄灭的；物种被「灭掉」→ 灭绝的（an extinct species 灭绝物种 / an extinct volcano 死火山）。同族 stinct「刺/灭」：extinguish 熄灭 / distinct 明显的 / instinct 本能。"
+  },
+  "polymer": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "poly-(多，希腊 polys) + mer(部分，希腊 meros) = 由很多小单元连成 → 聚合物（塑料、蛋白质都是 polymer）；单个单元是 monomer。同族 poly-：polygon 多边形 / polytechnic 理工学院的 / monopoly 垄断。"
+  },
+  "govern": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 gubernare「掌舵」（同 cybernetics 控制论）→ 统治、支配；「决定」义很常用：the rules that govern the game（支配这场比赛的规则）。同族：government 政府 / governor 州长·调速器。"
+  },
+  "hurricane": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自加勒比原住民语的 huracan（风暴之神）→ 飓风。三个「台风」按海域分：大西洋的 hurricane / 太平洋的 typhoon / 印度洋的 cyclone。"
+  },
+  "winding": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "wind(缠绕，读 /waɪnd/) + -ing = 卷绕的、弯曲的（a winding road 蜿蜒的路 / a winding staircase 旋转楼梯）。⚠️ wind 读 /wɪnd/ 时是「风」，这里的 winding 来自「缠绕」义。"
+  },
+  "sting": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「（蜂）刺」：sting sb on the arm；引申「刺痛、刺激」（stung by criticism 被批评刺痛）和「（警方）设圈套」（a sting operation 钓鱼执法）。过去式：stung。"
+  },
+  "curly": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "curl(卷) + -y = 卷曲的（curly hair 卷发）；动词 curl 指「卷起来、蜷缩」（curl up on the sofa 蜷在沙发上）。同族：curler 卷发器 / curling 冰壶（石头滑出弯曲路线）。"
+  },
+  "gigantic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "gigant = 巨人（希腊 gigas）→ 巨大的（a gigantic effort 巨大的努力）。同族：giant 巨人 / gigabyte 吉字节。四个「大」的递进：big < large < huge < gigantic。"
+  },
+  "repel": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + pel(推，拉丁 pellere) = 推回去 → 击退、拒绝；「使厌恶」是引申（把好感推开）；物理上的「排斥」也是它。同族 pel「推」：expel 驱逐 / propel 推进 / compel 强迫。"
+  },
+  "uphold": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "up(上) + hold(持) = 举起来撑着 → 支撑、维持；法律上「维持原判」（uphold the verdict）和「支持」（uphold the law）都是这个「撑住」。同族：hold up 举起·抢劫 / holder 持有者。"
+  },
+  "exemplify": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + empl(拿，拉丁 emere) + -ify = 拿出来当例子 → 举例说明、是…的典型。同族：example 例子 / sample 样品 / exempt 免除（拿出来）。"
+  },
+  "rectangle": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "rect(直，拉丁 rectus) + angle(角) = 四个角都是直角 → 矩形。同族 rect「直」：direct 直接的 / erect 竖立 / correct 纠正 / triangle 三角形。"
+  },
+  "reside": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + sid(坐，拉丁 sedere) = 安定地坐下来 → 居住（reside in 居住于）；「（权力）属于」是引申（The power resides in the people.）。同族 sid「坐」：residence 住所 / resident 居民 / preside 主持。"
+  },
+  "administration": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ad-(向) + ministr(服务，拉丁 ministrare) + -ation = 为大家服务 → 管理、行政；具体指「（政府的）局、署」（the Food and Drug Administration 食品药品管理局）。同族：minister 部长 / ministry 部 / administer 管理。"
+  },
+  "induction": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(进入) + duct(引导，拉丁 ducere) + -ion = 把人引进去 → 就职典礼；逻辑上「从个别引入一般」→ 归纳推理（反义 deduction 演绎）。同族 duct「引导」：induce 引起 / introduce 引入 / conduct 引导。"
+  },
+  "Christ": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 christos「涂过油的人」（受膏者，即希伯来语的「弥赛亚」）→ 基督。同族：Christian 基督徒 / Christmas 圣诞节（Christ + mass 弥撒）/ christen 命名·洗礼。"
+  },
+  "second-hand": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "second(第二) + hand(手) = 从第二个人手里来的 → 二手的（a second-hand car 二手车）；引申「（消息）间接得来的」。同族：firsthand 第一手的 / hand-me-down 旧衣服。"
+  },
+  "dwell": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 dwellan「停留、耽搁」→ 住下来 → 居住（dwell in the countryside）；心思停在一处 → 细想（dwell on the past 老是想着过去）。同族：dwelling 住所 / dweller 居民。"
+  },
+  "symposium": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "sym-(一起) + pos(喝，希腊 posis) = 古希腊人边喝边聊 → 座谈会、研讨会；「酒会」义就是它的本义。同族 sym-「一起」：sympathy 同情 / symphony 交响乐 / synthesis 综合。"
+  },
+  "whoever": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "两种用法：① 引导名词性从句（Whoever comes is welcome. 谁来都欢迎）；② 加强语气的疑问（Whoever did this? 究竟是谁干的？）。同类 -ever：whatever 无论什么 / whenever 无论何时 / wherever 无论哪里。"
+  },
+  "rectify": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "rect(直，拉丁 rectus) + -ify(使) = 弄直 → 纠正、矫正（rectify the mistake）；化学上的「精馏」是让它变纯。同族：correct 纠正 / direct 直接的 / erect 竖立。"
+  },
+  "vein": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "拉丁 vena「血管」→ 静脉、血管；「矿脉」（a vein of gold）和「（说话、写作的）基调」（in a humorous vein 以幽默的口吻）都是「像血管一样贯通的线」。同族：venous 静脉的。"
+  },
+  "competitor": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + pet(追求，拉丁 petere) + -itor(人) = 一起追同一个目标的人 → 竞争者。同族 pet「追求」：compete 竞争 / competition 竞争 / appetite 食欲 / petition 请愿。"
+  },
+  "competitive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + pet(追求) + -itive = 一起追的 → 竞争的、有竞争力的（a competitive salary 有竞争力的薪资 / competitive edge 竞争优势）。同族：compete 竞争 / competitor 竞争者。"
+  },
+  "contend": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + tend(拉伸，拉丁 tendere) = 双方一起使劲拉 → 争夺、竞争（contend for the prize）；「坚决主张」是引申（contend that…）。同族 tend「伸」：extend 延伸 / intend 打算 / tension 紧张。"
+  },
+  "alert": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "出自意大利语 all'erta「到高处去」（哨兵上塔警戒）→ 警惕的（stay alert 保持警觉）；名词「警报」（a red alert）；动词「使警觉」。同族：erect 竖立（同源「直、高」）。"
+  },
+  "warning": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "warn(警告) + -ing = 警告、警示（a warning sign 警示标志 / without warning 毫无预兆地）。同族：warn 警告（warn sb of sth 提醒某人注意）。"
+  },
+  "whale": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 hwæl。习语很地道：have a whale of a time 玩得非常开心 / a whale of a difference 天大的差别。商业里的「大买家」也叫 whale（游戏业指高消费客户）。"
+  },
+  "selection": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "se-(分开) + lect(选，拉丁 legere) + -ion = 挑出来 → 选择、精选品（a selection of wines 精选葡萄酒）。同族 lect「选」：select 挑选 / elect 选举 / collect 收集 / intellect 智力。"
+  },
+  "literary": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "liter = 字母（拉丁 littera）→ 与文字作品有关的 → 文学的（literary criticism 文学批评）。同族：literature 文学 / literate 识字的 / literal 字面的 / illiterate 文盲的。"
+  },
+  "thorough": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "与 through 同源（「从头穿到尾」）→ 彻底的、详尽的（a thorough investigation 彻底调查 / a thorough knowledge 全面的了解）。同族：through 穿过 / thoroughfare 大道。"
+  },
+  "refinery": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(再) + fin(精细) + -ery(场所) = 让东西变精纯的地方 → 炼油厂、精炼厂（an oil refinery 炼油厂）。同族：refine 提炼·改进 / refined 精炼的·文雅的 / fine 精细的。"
+  },
+  "finely": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fine(精细) + -ly = 精细地、细微地（finely chopped 切得很细的 / finely balanced 微妙平衡的）。同族：fine 精细的·好的 / refine 提炼 / finery 华丽服饰。"
+  },
+  "vigorous": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vigor = 活力（拉丁 vigere「旺盛」）→ 精力旺盛的、有力的（a vigorous debate 激烈的辩论 / vigorous growth 茁壮生长）。同族：vigour 活力 / invigorate 使振奋。"
+  },
+  "fright": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 fyrhto「恐惧」→ 惊吓（give sb a fright 吓某人一跳 / stage fright 怯场）。同族：frighten 使害怕 / frightful 可怕的。⚠️ 与 flight（飞行·逃跑）别混。"
+  },
+  "dismay": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(去除) + may(力量，古德语 magan「有能力」) = 把力气拿走 → 惊慌、沮丧（to one's dismay 令某人沮丧的是）。同族：may 可以（原义「有能力」）/ might 力量。"
+  },
+  "astonishment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "as-(加强) + ton(雷，拉丁 tonare) + -ishment = 像被雷劈了一下 → 惊讶、震惊（to my astonishment 令我惊讶的是）。同族：thunder 雷 / stun 使震惊（同源「雷」）。"
+  },
+  "empirical": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "em-(在内) + pir(试，希腊 peira) + -ical = 从实际经验里试出来的 → 经验的、实证的（empirical evidence 实证证据）；反义 theoretical 理论的。同族：experience 经验 / experiment 实验 / expert 专家。"
+  },
+  "support": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sup-(在下) + port(搬，拉丁 portare) = 在下面扛着 → 支撑、供养；「经受、忍受」就是「扛得住」（support the pain 忍住疼痛）。同族 port「搬」：transport 运输 / portable 便携的。"
+  },
+  "longitude": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "long(长) + -itude = 长度方向上的线 → 经线、经度（与 latitude 纬度相对：lat 是宽）。历史上经度难测，「经度奖」催生了航海钟。同族：latitude 纬度 / prolong 延长。"
+  },
+  "economics": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "eco(家) + nom(管理，希腊 nomos) = 管家之道 → 经济、经济学。⚠️ 辨析：economics 经济学（学科）/ economy 经济·节约 / economical 节约的 / economic 经济的。"
+  },
+  "notwithstanding": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "not + withstanding(抵抗) = 不因为…而受阻 → 尽管（Notwithstanding the rain, we went out.）—— 正式书面词，可作介词、副词、连词。同族：withstand 抵抗（with + stand 顶着站）。"
+  },
+  "prohibition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(在前) + hibit(拿住，拉丁 habere) = 挡在前面不让过 → 禁止、禁令；大写 the Prohibition 特指美国 1920–1933 年的禁酒令。同族 hibit「拿」：exhibit 展出 / inhibit 抑制 / inhabit 居住。"
+  },
+  "perfection": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(完全) + fect(做，拉丁 facere) + -ion = 完全做成了 → 尽善尽美（to perfection 完美地 / a perfectionist 完美主义者）。同族 fect「做」：perfect 完美的 / effect 效果 / defect 缺陷。"
+  },
+  "shortcut": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "short(短) + cut(切) = 切出一条短路 → 近路、捷径（take a shortcut 抄近路）；电脑里的「快捷方式」也是它。同类 cut 构词：haircut 理发 / cold cut 冷盘。"
+  },
+  "prudent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "prud = 有远见（拉丁 providere「预见」的缩略，同 provide）→ 有远见所以谨慎 → 审慎的、精明的（a prudent decision 审慎的决定）。同族：prudence 审慎 / provide 提供 / providence 天意。"
+  },
+  "inlet": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in(进) + let(让) = 让进来的地方 → 入口、水湾（a sheltered inlet 避风的水湾）；工程上的「进气口」（air inlet）也是它。反义 outlet 出口·发泄途径。"
+  },
+  "compact": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + pact(固定，拉丁 pangere) = 紧紧合在一起 → 紧凑的、紧密的（a compact car 小型车 / a compact disc 光盘）；动词「使紧凑」。同族 pact「固定」：pact 协定 / impact 冲击。"
+  },
+  "tightly": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "tight(紧) + -ly = 紧紧地（hold tightly 紧握 / tightly packed 塞得满满的）。同族：tight 紧的 / tighten 收紧 / tight-fisted 吝啬的。"
+  },
+  "barely": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "bare(仅仅、光秃) + -ly = 仅仅、勉强（barely enough 勉强够 / I barely know him. 我几乎不认识他）。⚠️ barely 含否定意味，常与 enough、any 连用。"
+  },
+  "metallic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "metall = 金属（希腊 metallon）→ 金属的、有金属光泽的（a metallic sound 金属般的声音 / metallic paint 金属漆）。同族：metal 金属 / metallurgy 冶金学。"
+  },
+  "interpret": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "inter-(之间) + pret(拉丁 pretium「价格、交易」) = 在双方之间沟通 → 解释、口译（interpret the data 解读数据 / interpret for sb 为某人翻译）。同族：interpreter 口译员 / interpretation 解释。"
+  },
+  "tuna": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经西班牙语 atún 来自阿拉伯语 al-tun（al- 是阿拉伯语定冠词）→ 金枪鱼。同类带阿拉伯语 al- 的英语词：algebra 代数 / alcohol 酒精 / albatross 信天翁。"
+  },
+  "untie": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "un-(去除) + tie(系、绑) = 解开（untie the knot 解开绳结）；引申「解除束缚」。同类 un- 表「去除」：unlock 开锁 / undo 撤销 / unbutton 解纽扣。"
+  },
+  "henceforth": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "hence(从此) + forth(向前) = 从今往后（Henceforth, all requests must be in writing.）—— 正式书面词。同类古雅副词：henceforth 今后 / thenceforth 从那时起 / hitherto 迄今。"
+  },
+  "tackle": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古英语 takel 本是「船上的索具、用具」→ 名词「用具、阻截」；动词「对付、解决」（tackle the problem）来自「抓住（对手）」—— 橄榄球的擒抱就是 tackle。"
+  },
+  "presentation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(前) + sent(存在、送) + -ation = 呈现在别人面前 → 演示、陈述、赠送（give a presentation 做演示）。同族：present 呈现·礼物 / represent 代表。"
+  },
+  "dissolve": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(分开) + solv(松开，拉丁 solvere) = 松开、化开 → 溶解（sugar dissolves in water）；引申「解散、解除」（dissolve the marriage 解除婚姻 / dissolve parliament 解散议会）。同族 solv「松开」：solve 解决 / solution 溶液·方案 / solvent 溶剂。"
+  },
+  "mustard": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 mustum「新酒」（芥末最初用未发酵的葡萄汁调）→ 芥末。习语：cut the mustard 达到要求（这个习语来源不明，别硬猜词源）。"
+  },
+  "tuberculosis": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "tuber = 块茎、肿块（拉丁 tuber）→ 结核病（结核就是组织里长的小结节）；缩写 TB。同族：tuber 块茎 / tubercle 结节。同类病名后缀 -osis 表「病变状态」：neurosis 神经症 / osmosis 渗透。"
+  },
+  "version": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vers = 转（拉丁 vertere）→ 把事情「转」成另一种说法 → 版本、说法（your version of events 你对事件的说法）；软件版本也是它。同族 vers「转」：convert 转换 / reverse 反转 / versatile 多面手。"
+  },
+  "incorporate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(进) + corpor(身体，拉丁 corpus) + -ate = 纳入同一个身体 → 合并、包含（incorporate A into B）；公司注册也叫 incorporate（组成一个「法人身体」）。同族 corpor「身体」：corporation 公司 / corporal 肉体的 / corps 军团。"
+  },
+  "construction": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + struct(建造，拉丁 struere) + -ion = 建起来的东西 → 建造、结构；数学的「作图」也是「构造出来」。同族 struct「建」：construct 建造 / structure 结构 / instruct 教 / destruction 破坏。"
+  },
+  "yeast": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 gist，与「沸腾、起泡」同源（发酵时冒泡）→ 酵母。同族：yeasty 发酵的·浮躁的。同类发酵词：ferment 发酵 / leaven 发酵剂。"
+  },
+  "abbreviation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ab-(离开) + brev(短，拉丁 brevis) + -iation = 把长的去掉一些 → 缩写、缩短（Dr. is an abbreviation of Doctor.）。同族 brev「短」：brief 简短的 / brevity 简洁 / abbreviate 缩写。"
   }
  }
 }
