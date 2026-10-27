@@ -2229,6 +2229,336 @@
    "kind": "usage",
    "certainty": "medium",
    "tip": "本义「熄灭」（quench a fire）；引申「解（渴）」（quench one's thirst 解渴 —— 把渴「浇灭」）；冶金里的「淬火」也是它（把烧红的金属放进水里）。搭配比词源更有用。"
+  },
+  "tape": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「带子、胶带、磁带」→ 动词「用带子系/捆」（tape the box shut）、「录音录像」。两个必记搭配：red tape 官僚作风（红带子捆公文）/ tape measure 卷尺。"
+  },
+  "assault": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "as-(向) + sault(跳，拉丁 saltare) = 朝你扑上去 → 袭击。同族 sult/sault「跳」：result 结果（跳回来的）/ insult 侮辱（跳到人身上）/ consult 咨询（凑到一起商量）。法律上的「人身攻击」就是 assault。"
+  },
+  "usage": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "us(用) + -age = 使用的方式 → 用法、惯用法；语言上的 usage 强调「实际怎么用」（比 grammar 更贴实际）。同族：use 用 / usual 通常的 / abuse 滥用 / utilize 利用。"
+  },
+  "extinguish": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + stingu(刺) = 把（火）扎灭 → 熄灭、消灭。同族 stinct「刺」：distinct 明显的（刺分开）/ distinguish 区分 / instinct 本能（内在的刺）。名词 extinguisher 就是灭火器。"
+  },
+  "absorption": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ab-(离开) + sorpt(吸，拉丁 sorbere) = 吸走 → 吸收；注意力被吸走 → 专注（total absorption in one's work）。同族：absorb 吸收·使全神贯注 / absorbent 吸水的。"
+  },
+  "intake": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in(进) + take(拿) = 拿进来的量 → 摄入量（daily intake of salt 每日盐摄入量）、进气口、招生人数（the intake of students）。同类 in + 动词的名词：income 收入 / input 输入 / insight 洞察。"
+  },
+  "substantial": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(下面) + stant(站，拉丁 stare) = 在下面站着的 → 实体的、坚固的；引申「大量的」（a substantial amount 相当大的量）。同族 stant「站」：substance 物质·实质 / constant 不变的（一直站着）/ instant 瞬间 / obstacle 障碍（挡在对面站着）。"
+  },
+  "physically": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "phys = 自然（希腊 physis）。physically 是「身体上、物质上」。同族：physics 物理（研究自然）/ physician 内科医生 / physical 身体的·物理的。写作高频：physically and mentally 身心两方面。"
+  },
+  "luncheon": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "lunch 的正式说法（原形 nuncheon 是「中午的一口」）→ 午宴、便宴，多用于请柬与正式场合（a luncheon meeting 午餐会）。同类「正式版」：luncheon 午宴 / dinner 晚宴 / supper 便餐。"
+  },
+  "body": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「身体」→ 一团实体：物体（a solid body）、主体部分（the body of the text 正文）、团体（a governing body 管理机构）。搭配：body and soul 全心全意 / in a body 全体一起。"
+  },
+  "ignorance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "i-(不) + gno(知道) = 不知道 → 无知。同族 gno「知道」：ignore 忽视（不知道）/ recognize 认出（重新知道）/ diagnose 诊断（看透）。搭配：ignorance of 对…的无知。"
+  },
+  "insignificant": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in-(不) + significant(重要的) = 不重要的、微不足道的。同族：significant 重要的 / signify 表示 / significance 意义。记忆钩：in- 表否定时后面常跟形容词 —— insignificant / incapable / infinite / invalid。"
+  },
+  "doubtless": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "doubt(怀疑) + -less(无) = 无疑地。注意它既可作副词（Doubtless he will come.）也可作形容词（a doubtless fact）。同族：doubt 怀疑 / doubtful 可疑的 / undoubtedly 毫无疑问地（语气更强）。"
+  },
+  "infinitely": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + fin(界限，拉丁 finis) + -itely = 没有界限地 → 无限地。同族 fin：finite 有限的 / define 划定 / finish 结束 / confine 限制。口语常用它加强比较级：infinitely better 好得多。"
+  },
+  "indefinite": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in-(不) + definite(明确的) = 不确定的、无限期的（an indefinite period 一段不确定的时期 / indefinite article 不定冠词 a、an）。同族：define 定义 / definite 明确的 / definition 定义。"
+  },
+  "unlimited": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "un-(不) + limited(受限的) = 无限的、无限制的（unlimited access 无限访问权限）。同族：limit 限制 / limited 有限的 / limitation 局限。"
+  },
+  "infinite": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + fin(界限) = 无限的；数学里的「无穷大」（符号 ∞）就是它。同族：finite 有限的 / infinity 无穷 / define 划定界限。⚠️ 它更常作形容词（infinite patience 无限的耐心），记词性比记释义更要紧。"
+  },
+  "incapable": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + capable(有能力的) = 无能力的。搭配：be incapable of doing 无法做（注意是 of + doing，不是 to do）。同族 cap「抓、容纳」：capable 有能力的 / capacity 容量 / capture 捕获。"
+  },
+  "fearless": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fear(恐惧) + -less(无) = 无畏的；搭配介词是 of（fearless of danger 不怕危险）。同族 -less：careless 粗心的 / hopeless 无望的 / priceless 无价的。"
+  },
+  "unique": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "uni = 一（拉丁 unus）。unique 是「唯一的、独一无二的」。⚠️ 语法点：前面习惯用 a 而不是 an（a unique…），因为读音以辅音 /j/ 开头。同族 uni-：unify 统一 / unit 单位 / union 联合。"
+  },
+  "innumerable": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + numer(数，拉丁 numerus) + -able = 数不过来的 → 无数的。同族 numer「数」：number 数字 / numerical 数字的 / enumerate 列举（一个一个数出来）。"
+  },
+  "faultless": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fault(过错) + -less(无) = 无过失的。⚠️ 注意拼写不双写 t。同族：fault 缺点·断层 / faulty 有毛病的 / default 违约·默认。"
+  },
+  "inorganic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "in-(不) + organic(有机的) = 无机的（inorganic chemistry 无机化学）。同族 organ「器官、工具」：organ 器官 / organic 有机的 / organize 组织 / organism 生物体。"
+  },
+  "foreign": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 foris「门外」→ 门外的 → 外国的；「与…无关」是引申义：This is foreign to our discussion. 同族：forest 森林（门外之地）/ forum 广场。搭配：foreign exchange 外汇。"
+  },
+  "ruthless": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "ruth 是个古词，意思是「怜悯」（今天只剩在 ruthless 里），所以 ruthless = 无情的。搭配：a ruthless dictator 冷酷的独裁者 / ruthless competition 残酷竞争。"
+  },
+  "filth": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "与 foul（肮脏的）同源 → 污秽、污物；引申为「下流的东西」。同族：foul 脏的·犯规 / filthy 肮脏的·下流的。口语：filthy rich 富得流油。"
+  },
+  "snail": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 snægl。两个习语很常见：at a snail's pace 蜗牛速度（慢吞吞）/ snail mail 蜗牛邮件（对电子邮件的戏称）。同类慢速比喻：turtle 龟 / slug 鼻涕虫。"
+  },
+  "compliment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(完全) + pli(填满) = 把礼数做满 → 恭维、祝贺。⚠️ 极易与 complement（补充物，complementary 互补的）混：compliment 带 i 是「赞美」，complement 带 e 是「补足」。搭配：pay sb a compliment 赞美某人。"
+  },
+  "question": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "quest = 寻求（拉丁 quaerere，和 require、inquire 同根）。核心是「寻求答案」：名词「问题」、动词「提问·质疑」（question his motives 质疑他的动机）。两个易混短语：out of the question 不可能 / in question 有疑问的·正被讨论的。"
+  },
+  "hum": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是「嗡嗡/哼哼」那声。拟声一族：hum 嗡嗡 / buzz 蜂鸣 / murmur 低语 / mumble 嘟囔 / mutter 嘀咕。搭配：hum with activity 一片忙碌。"
+  },
+  "literal": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "liter = 字母（拉丁 littera）。按字母来 → 字面的、逐字的（a literal translation 直译）；引申「缺乏想象力的」（a literal-minded person）。同族：literature 文学 / literate 识字的 / illiterate 文盲的。"
+  },
+  "illiterate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "il-(=in 不) + literate(识字的) = 不识字的。同族：literate 识字的 / literature 文学 / literal 字面的。⚠️ il- 是 in- 在 l 前的变体：illegal / illogical / illiterate。"
+  },
+  "stationery": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "出自 stationer（原指有固定摊位 station 的书商）→ 文具、信笺。⚠️ 经典易混：stationery 带 e 是「文具」（e 想成 envelope 信封）；stationary 带 a 是「静止的」（a 想成 stay 不动）。"
+  },
+  "plague": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 plaga「打击」→ 上天打下来的一击 → 瘟疫、天灾；动词义「折磨、困扰」（plagued by doubts 被疑虑困扰）。搭配：avoid sb like the plague 像躲瘟疫一样躲着某人。"
+  },
+  "situated": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "situ = 位置（拉丁 situs）。situated 是「位于…的」（conveniently situated 位置便利），常与 be 连用。同族：site 地点·网站 / situation 形势·位置。"
+  },
+  "graze": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "gras = 草（同 grass）→ 吃草、放牧（graze cattle 放牛）。⚠️ 另有同形词 graze 是「擦伤」（The bullet grazed his arm），来源不同。"
+  },
+  "latitude": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "lat = 宽（拉丁 latus）。纬线是「横着量宽」的线 → 纬度；引申「自由度、回旋余地」（give sb latitude 给某人自由）。同族：lateral 侧面的 / dilate 扩张（加宽）。对比 longitude 经度（long 长）。"
+  },
+  "softness": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "soft(软) + -ness = 柔和、软弱。搭配：softness of tone 音色柔和 / a softness in the market 市场疲软。同族：soften 使变软 / software 软件（软 = 易改）。"
+  },
+  "commission": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + miss(送，拉丁 mittere) = 把事交出去 → 委托、委员会（a commission of inquiry 调查委员会）、佣金。同族 miss「送」：mission 使命 / dismiss 解散 / promise 承诺 / submit 提交。"
+  },
+  "locality": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "loc = 地方（拉丁 locus）。locality 是「某个地方、发生地」（people living in the locality 住在这片的人）。同族：local 当地的 / locate 定位 / locomotive 火车头 / dislocate 脱臼。"
+  },
+  "vitamin": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "vit = 生命（拉丁 vita）+ amine（胺）—— 最初以为这类物质都是胺，就叫「生命的胺」。同族 vit/viv「生命」：vital 至关重要的 / vitality 活力 / survive 幸存 / vivid 生动的。"
+  },
+  "stern": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "两个同形词：① 形容词「严厉的」（a stern look）；② 名词「船尾」（出自古北欧语「掌舵」，与 steer 同源）。记船尾配套：bow 船首 / stern 船尾 / port 左舷 / starboard 右舷。"
+  },
+  "idealism": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "idea(理念) + -ism(主义) = 理想主义；哲学上译「唯心主义」（与 materialism 唯物主义相对）。同族：ideal 理想的 / ideology 意识形态 / realism 现实主义。记这一对：idealism 唯心 / materialism 唯物。"
+  },
+  "unpaid": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "un-(不) + paid(已付的) = 未付的；「不支薪的」指义务工作（unpaid work 无薪工作 / unpaid volunteers 无报酬的志愿者）。同族：pay 支付 / payment 付款 / payable 应付的。"
+  },
+  "Venus": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "罗马神话的爱与美之神 Venus（对应希腊的阿佛洛狄忒）。天文上金星也叫 Venus（夜空中最亮）。同族：venerate 崇敬 / venereal 性病的（出自 Venus，「爱与美」的阴暗面）。"
+  },
+  "bachelor": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 baccalarius 本是「年轻仆从」→ 低级骑士 → 学徒 → 学士（学位的第一级）；「未婚男子」义可能来自「尚未成家」。搭配：bachelor's degree 学士学位 / bachelor party 单身派对。"
+  },
+  "mast": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 mæst（桅杆）。搭配：at half-mast 降半旗（旗挂在旗杆一半处致哀）。同族另有同形词 mast 指橡果（喂猪用）。"
+  },
+  "violation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "viol = 力量、暴力（拉丁 vis）。用力去破坏规则 → 违犯、侵犯（a violation of human rights 侵犯人权）。同族：violate 违犯 / violence 暴力 / violent 猛烈的。"
+  },
+  "towards": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「朝向」：朝某地 → 朝…方向；朝某目标 → 为了、有助于（efforts towards peace 为和平所做的努力）；朝某人 → 对…的态度（his attitude towards me）。一个「朝」字串起来。"
+  },
+  "enclosure": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(使) + clos(关，拉丁 claudere) + -ure = 圈起来 → 围场、围栏；信里的「附件」也叫 enclosure（一同封在里面的东西）。同族：close 关 / disclose 揭露 / closet 壁橱。"
+  },
+  "catalogue": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cata-(向下) + log(说/数，希腊 logos) = 一条条列下来 → 目录；动词「编目录」。同族 log「说」：dialogue 对话 / monologue 独白 / logic 逻辑 / analogy 类比。英式 catalogue，美式 catalog。"
+  },
+  "violate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "viol(力量，拉丁 vis) + -ate = 用力去破坏 → 违犯、侵犯（violate the law 违法 / violate privacy 侵犯隐私）。同族：violence 暴力 / violent 猛烈的 / violation 违犯。"
+  },
+  "subtle": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sub-(下面) + tle(织，拉丁 texere) = 织得又细又密 → 微妙的、精巧的（a subtle difference 微妙的差别 / subtle humour 含蓄的幽默）。⚠️ 注意 b 不发音。同族 tex「织」：textile 纺织品 / texture 质地。"
+  },
+  "plead": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "出自古法语 plaidier「打官司」→ 辩护、恳求。三个必背搭配：plead with sb 恳求某人 / plead for mercy 求饶 / plead guilty 认罪（法庭常考）。同族：plea 恳求·抗辩。"
+  },
+  "microprocessor": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "micro-(微) + processor(处理器) = 微处理器。同族 micro-：microscope 显微镜 / microwave 微波 / microbe 微生物 / microeconomics 微观经济学。"
+  },
+  "calculus": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "calc = 小石子（拉丁 calx 石灰）—— 古人用小石子算数，所以 calculus 是「计算」→ 微积分；而「结石」就是身体里的小石子，两个义项都来自「石子」。同族：calculate 计算 / calculator 计算器 / calcium 钙。"
+  },
+  "awful": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "awe(敬畏) + -ful = 令人敬畏的 → 可怕的 → 现代口语「很糟的」（词义一路弱化，和 nice 的走向相反）。同族：awe 敬畏 / awesome 令人敬畏的（现在也成了「棒极了」）。"
+  },
+  "atom": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "a-(不) + tom(切，希腊 temnein) = 不可再分 → 原子；引申「极小的量」（not an atom of truth 一点真话都没有）。同族 tom「切」：anatomy 解剖 / epitome 摘要 / tome 大本书。"
+  },
+  "microwave": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "micro-(微) + wave(波) = 微波；也指微波炉（microwave oven，口语直接叫 microwave）。同族 micro-：microscope 显微镜 / microprocessor 微处理器 / microphone 麦克风。"
+  },
+  "negligible": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "neg-(不) + lig(拾取，拉丁 legere) = 不值得捡起来 → 微不足道的、可忽略的（a negligible effect 可忽略的影响）。同族 lig/lect「拾取」：neglect 忽视 / select 挑选 / collect 收集 / elegant 优雅的（会挑的）。"
+  },
+  "majesty": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "maj = 大（拉丁 maior，同 major）→ 伟大、威严；对君主的尊称就是 Your Majesty（陛下）。同族：major 主要的 / majority 多数 / mayor 市长（major 的变体）。"
+  },
+  "gleam": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古英语 glæm「光」→ 微光、闪光。同族 gl- 光家族：glow 发光 / glitter 闪闪 / glimmer 微弱的光 / glance 一瞥（光一闪）。搭配：a gleam of hope 一线希望。"
+  },
+  "endanger": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "en-(使) + danger(危险) = 使陷入危险 → 危及（endangered species 濒危物种）。同类 en- + 名词变动词：enlarge 扩大 / enrich 使富裕 / enslave 奴役 / enclose 围住。"
+  },
+  "prestige": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "pre-(前) + stig(绑紧，拉丁 stringere) = 绑住众人目光的东西 → 威望、声望（a prestige university 名校）。同族 strict/strain「拉紧」：strict 严格的 / restrict 限制 / stringent 严厉的。"
+  },
+  "peril": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "拉丁 periculum「危险」—— 和 experience（原义「试验、冒险经历」）同源。搭配：in peril of 处于…的危险中 / at one's peril 后果自负。形容词 perilous 危险的。"
+  },
+  "crisis": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cri「分辨、判断」（希腊 krinein）—— 到了必须做判断的关头 → 危机、转折点（中文「危机」= 危 + 机，意思相通）。复数特殊：crises。同族：critic 批评家 / critical 关键的 / criterion 标准。"
   }
  }
 }
