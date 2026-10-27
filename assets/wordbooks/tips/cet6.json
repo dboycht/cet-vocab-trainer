@@ -1628,7 +1628,7 @@
   "velocity": {
    "kind": "root",
    "certainty": "high",
-   "tip": "veloc = 快（拉丁 velox）。物理里 velocity 是「速度」（有方向，区别于 speed）；书里收的「迅速、快速」是它的一般义。同族：velocipede 早期的脚踏车。"
+   "tip": "veloc = 快（拉丁 velox）。物理里 velocity 特指「速度」（有方向，区别于 speed），一般义就是「迅速、快速」。同族：velocipede 早期的脚踏车。"
   },
   "compression": {
    "kind": "family",
@@ -1873,7 +1873,7 @@
   "coefficient": {
    "kind": "root",
    "certainty": "high",
-   "tip": "co-(一起) + efficient(起作用的) = 一起起作用的那个数 → 系数（物理化学里到处都是：coefficient of friction 摩擦系数 / coefficient of expansion 膨胀系数）。书里的「协同因素」正是这个构词的字面义。"
+   "tip": "co-(一起) + efficient(起作用的) = 一起起作用的那个数 → 系数。字面义是「协同起作用的因素」，物理化学里到处都是：coefficient of friction 摩擦系数 / coefficient of expansion 膨胀系数。"
   },
   "wedge": {
    "kind": "sense",
@@ -1893,7 +1893,7 @@
   "paragraph": {
    "kind": "family",
    "certainty": "high",
-   "tip": "para-(旁边) + graph(写) = 古书里在文字旁边画的记号（分段用）→ 段落。同族 graph「写」：photograph 照片（光写）/ telegraph 电报 / biography 传记 / diagram 图表。"
+   "tip": "para-(旁边) + graph(写) = 古代抄本里在文字旁边画的记号（分段用）→ 段落；报纸上「一小段」又引申出「短评、小新闻」义。同族 graph「写」：photograph 照片（光写）/ telegraph 电报 / biography 传记 / diagram 图表。"
   }
  }
 }
