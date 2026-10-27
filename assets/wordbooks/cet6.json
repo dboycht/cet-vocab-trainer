@@ -3536,11 +3536,14 @@
   },
   {
    "word": "bacterium",
-   "def": "n.细菌；拳击迷",
+   "def": "n.细菌",
    "pos": [
     "n."
    ],
-   "page": 7
+   "page": 7,
+   "source_def": "n.细菌；拳击迷",
+   "source_pos": [],
+   "entry_fix": "def_fix"
   },
   {
    "word": "systematically",

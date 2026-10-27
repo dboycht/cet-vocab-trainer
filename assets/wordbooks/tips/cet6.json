@@ -1894,6 +1894,341 @@
    "kind": "family",
    "certainty": "high",
    "tip": "para-(旁边) + graph(写) = 古代抄本里在文字旁边画的记号（分段用）→ 段落；报纸上「一小段」又引申出「短评、小新闻」义。同族 graph「写」：photograph 照片（光写）/ telegraph 电报 / biography 传记 / diagram 图表。"
+  },
+  "caution": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "caut = 小心（拉丁 cautio）。名词「小心」与「告诫」是一件事的两面：提醒别人小心 → 警告。搭配：with caution 小心地 / a word of caution 一句提醒 / caution against doing 告诫不要做。"
+  },
+  "suitcase": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "suit(一套衣服) + case(箱) = 装西装的箱子 → 手提箱。同类「装什么就叫什么」：briefcase 公文包（装 brief 摘要）/ bookcase 书柜 / showcase 陈列柜。"
+  },
+  "decimal": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "decim = 十（拉丁 decem）。十进制的、小数的（decimal point 小数点）。同族「十」：decade 十年 / December 十二月（罗马历的第十月）/ decimeter 分米。"
+  },
+  "puppy": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自法语 poupée「玩偶」（同源 puppet 木偶）—— 像玩偶一样的小东西 → 小狗。同类幼崽词：puppy 小狗 / kitten 小猫 / calf 小牛 / foal 小马 / cub 幼兽。"
+  },
+  "footpath": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "foot(脚) + path(路径) = 只能走人的小径 → 人行道（英式常用，美式多作 sidewalk）。同类 foot- 构词：footprint 脚印 / footnote 脚注 / footbridge 人行天桥。"
+  },
+  "closet": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "clos = 关闭（拉丁 claudere）+ -et(小) = 一个小关起来的空间 → 壁橱、储藏室。同族「关」：close 关 / enclose 围住 / disclose 揭露（把关着的打开）/ closure 关闭。习语：come out of the closet 公开承认。"
+  },
+  "pamphlet": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "源自 12 世纪一首流传很广的拉丁情诗 Pamphilus（薄薄一本），后来「薄册子」就叫 pamphlet。同类出版物：pamphlet 小册子 / brochure 宣传册 / leaflet 传单 / booklet 小书。"
+  },
+  "disappearance": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "dis-(不) + appear(出现) + -ance = 不出现 → 消失、失踪。同族：appear 出现 / apparent 显然的（表面看得见的）/ appearance 外貌·出现。"
+  },
+  "recreation": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "re-(再) + cre(创造，拉丁 creare) = 把精力重新创造出来 → 消遣、娱乐。同族：create 创造 / creature 生物。⚠️ 与同形词 re-creation（重新创造）拼写几乎一样，靠连字符区分。"
+  },
+  "slack": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「松」：绳子松 → 松弛的；人松 → 懈怠的（slack off 偷懒）；生意松 → 萧条的（slack season 淡季）。同族：slacken 放松 / slacks 宽松裤。"
+  },
+  "consumption": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(完全) + sumpt(拿，拉丁 sumere) = 拿光 → 消耗、消费；「拿光」到极端就是「灭绝」。同族 sumpt「拿」：consume 消耗 / assume 假定·承担（拿过来）/ resume 恢复（再拿起）/ presumption 推测。"
+  },
+  "consumer": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "consume(消耗) + -er(人) = 消耗的人 → 消费者。同族：consume 消费 / consumption 消费量 / consumerism 消费主义。对比 producer 生产者 / customer 顾客（强调交易）。"
+  },
+  "token": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "古英语 tacen「记号」（与 teach 同源）→ 用来代表某物的东西：纪念品、辅币（代币）、象征。三个义项共用一个画面：「能代表某个东西的小物件」。搭配：a token of gratitude 一点谢意 / by the same token 同样地 / token gesture 象征性姿态。"
+  },
+  "depression": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "de-(向下) + press(压) = 往下压 → 情绪被压低（消沉、抑郁）、经济被压低（大萧条 the Great Depression）、地形被压低（洼地）。同族压字辈：express 表达 / impress 印象 / compress 压缩 / oppress 压迫。一个「压」字串三个义项。"
+  },
+  "forward": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fore(前) + -ward(朝向) = 向前；动词「转递」（把邮件往前送一程）。同族 -ward：backward 向后 / onward 向前 / homeward 向家 / awkward 笨拙的（原义「朝错的」）。搭配：look forward to 期待 / put forward 提出。"
+  },
+  "ivory": {
+   "kind": "usage",
+   "certainty": "medium",
+   "tip": "词源（拉丁 ebur 象牙）帮助不大，靠搭配记更划算：ivory tower 象牙塔（脱离现实的地方）/ Ivory Coast 象牙海岸（科特迪瓦）/ an ivory complexion 乳白色的肤色。"
+  },
+  "onward(s)": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "on(向前) + -ward(朝向) = 向前（的）。同族 -ward：onward 向前 / forward 向前·转递 / homeward 回家 / southwards 向南。搭配：from that day onward 从那天起。"
+  },
+  "orientation": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ori = 升起（拉丁 oriri，「日出」）。古人靠日出定方向 —— 太阳升起处就是东方，所以 orient 是东方、orientation 是「定方向」；新生入学教育也叫 orientation，因为要帮人找方向。同族：origin 起源 / original 最初的。"
+  },
+  "defy": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(离开) + fy(信，拉丁 fidus) = 不守（对方的权威/信义）→ 公然违抗、蔑视（defy the law 抗法 / defy description 难以形容）。同族 fid「信」：fidelity 忠诚 / confident 自信的 / defiance 违抗。"
+  },
+  "southwards": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "south(南) + -wards(朝向) = 向南方。四个方向一起记全：northwards 向北 / southwards 向南 / eastwards 向东 / westwards 向西。"
+  },
+  "northward(s)": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "north(北) + -ward(s)。区分：-ward 偏形容词或方向（a northward journey 向北的旅程），-wards 偏副词（travel northwards 向北走）；英式英语更爱用 -wards。"
+  },
+  "yearn": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "古英语 giernan「渴望」→ 念念不忘、向往。搭配：yearn for 渴望 / yearn to do 渴望做。近义词强度阶梯：want < long for < yearn for（最带感情，常含惆怅）。"
+  },
+  "hail": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "两个来源别混：① 名词冰雹，动词「像冰雹一样砸下来」（hail blows on sb）；② 欢呼、招呼（hail a taxi 招手叫出租车 / hail from 来自某地）—— 义项②出自古北欧语「健康」（同 heal），即「祝你健康」。"
+  },
+  "pilgrim": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 peregrinus「异乡人」（per- 穿过 + ager 田地 = 穿过田野的人）→ 远行者 → 朝圣者。同源词 peregrine falcon 游隼（也是「到处飞的」）。美国感恩节故事里的清教徒就叫 the Pilgrims。"
+  },
+  "spice": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "出自拉丁 species「种类」（香料是各种干东西的统称）→ 香料。引申义很实用：variety is the spice of life 变化是生活的调味品 / spice up 给…添点味道。同源：species 物种 / specific 具体的 / specimen 样本。"
+  },
+  "fragrant": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "fragr = 散发气味（拉丁 fragrare）。fragrant 是香的、芬芳的；名词 fragrance 香味（香水广告常用）。⚠️ 别与 flagrant（臭名昭著的）混，只差一个字母。"
+  },
+  "analogy": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ana-(按照) + log(道理/比例) = 按同一个道理 → 类似、类比。同族：analogous 类似的 / logic 逻辑 / dialogue 对话 / catalogue 目录。学术写作高频：by analogy with 用…来类比 / draw an analogy between A and B。"
+  },
+  "incense": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(在内) + cens(燃烧，拉丁 candere) = 点着烧（冒香）→ 熏香。同族「烧」：candle 蜡烛 / incendiary 纵火的。⚠️ 同形动词 incense 是「激怒」（原义「烧起来」），重音也变。"
+  },
+  "uniformly": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "uni-(一) + form(形) = 同一个形状 → 一致的、统一的（校服 uniform 就是「统一的衣服」）；副词「一致地、一贯地」。同族 uni-「一」：unify 统一 / unique 独特的 / unilateral 单方面的 / universe 宇宙（合成一个整体）。"
+  },
+  "resemblance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(加强) + sembl(相似，拉丁 similis) = 长得像 → 相似、相似性。同族 sembl/simul「像」：resemble 像 / similar 相似的 / simulate 模拟 / assemble 集合（聚到一起）。搭配：bear a resemblance to 与…相像。"
+  },
+  "correlation": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "cor-(一起) + relation(关系) = 一起变化的关系 → 相关性。统计里必考的一句：correlation does not imply causation（相关不等于因果）。搭配：a correlation between A and B。"
+  },
+  "interact": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "inter-(之间) + act(做) = 彼此之间做点什么 → 相互作用、交流。同族：act 行动 / react 反应 / agent 剂·代理人 / interaction 交互作用。"
+  },
+  "coincide": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "co-(一起) + in-(上) + cid(落，拉丁 cadere) = 一起落在同一点上 → 相符合、同时发生（巧合）。同族 cid「落」：accident 事故（偶然落下来的）/ incident 事件 / occasion 场合 / decay 衰败（落下去）。"
+  },
+  "inversely": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(反) + vers(转，拉丁 vertere) = 反过来 → 相反地。数学高频：inversely proportional 成反比的 / inversely related 负相关。同族 vers「转」：reverse 反转 / convert 转变 / versatile 多面手。"
+  },
+  "striking": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "strike(打) + -ing = 「打到你的眼睛」→ 显著的、惊人的（a striking resemblance 惊人的相似 / a striking contrast 鲜明的对比）。同族：strike 打击·罢工 / striker 罢工者。"
+  },
+  "qualify": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "qual = 什么样的（拉丁 qualis）。给一句话加上「什么样才行」→ 限制、限定；语法上的「修饰」就是它（adverbs qualify verbs）。另一条常见义是「使合格」（qualify for 取得资格）。同族：quality 品质 / qualification 资格·限定条件。"
+  },
+  "reciprocal": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "re-(回) + pro-(向前) = 来回地 → 相互的、互惠的（a reciprocal agreement 互惠协议；数学的「倒数」也叫 reciprocal）。同族：reciprocate 回报。"
+  },
+  "devotion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + vot(誓愿，拉丁 vovere) = 完全把自己许出去 → 献身、热诚。同族 vot「许愿」：devote 奉献 / vote 投票（表达意愿）/ vow 誓言 / devout 虔诚的。"
+  },
+  "microscopic": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "micro-(小) + scop(看) + -ic = 用来看小东西的 → 显微镜的；引申「极小的、微观的」。同族 micro-：microscope 显微镜 / microwave 微波 / microphone 麦克风 / microbe 微生物。"
+  },
+  "realistic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "real(真实) + -istic = 按真实来的 → 现实的、现实主义的（a realistic plan 切实可行的计划）。四个「现实」分清：real 真实的 / realistic 切实的 / idealistic 理想主义的 / practicable 可实行的。"
+  },
+  "distinctly": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "di-(分开) + stinct(刺) = 用刺分开 → 界限分明 → 清楚地、显然地。同族 stinct「刺」：distinct 明显的 / distinguish 区分 / instinct 本能（内在的刺）/ extinguish 熄灭（把刺拔掉）。"
+  },
+  "linear": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "lin = 线（拉丁 linum 亚麻，搓成线）→ linear 线性的、直线的。同族：line 线 / linen 亚麻布 / lineage 血统（一条线传下来）/ underline 下划线。数学高频：linear equation 线性方程。"
+  },
+  "bacon": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自古法语 bacon（与「背、脊」有关，即背部的肉）。两个习语很值得记：bring home the bacon 挣钱养家 / save one's bacon 使某人免遭损失。人名 Bacon（培根）也来自这个词。"
+  },
+  "apparent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ap-(向) + par(出现，拉丁 parere) = 显现出来 → 显然的。⚠️ 两个义项容易混：① 显然的（It is apparent that…）；② 表面上的（an apparent advantage 看似有利）—— 后者常暗示「其实未必」。同族：appear 出现 / transparent 透明的。"
+  },
+  "gossip": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 godsibb 本是「教父教母」（god 神 + sibb 亲属）—— 洗礼上熟人凑在一起说话，于是从「干亲」变成了「闲聊、碎嘴子」。同族 sibling 兄弟姐妹（同出 sibb）。"
+  },
+  "ramble": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「没有固定路线地走」：走路 → 闲逛、漫步（ramble through the woods）；说话 → 漫谈、东拉西扯（ramble on about sth）。同族「走」的阶梯：wander 徘徊 < ramble 闲逛 < roam 漫游 < stroll 散步。"
+  },
+  "shower": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「阵雨、淋浴」→ 动词「下阵雨、使湿透」；引申「大量给予」（shower sb with gifts 给某人送一堆礼物）。搭配：a shower of praise 一片赞扬 / take a shower 洗澡。"
+  },
+  "priority": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "prior(在前的，拉丁 prior) + -ity = 排在前面这件事 → 优先、重点。同族：prior 先前的·优先的（prior to 在…之前）/ primary 初级的 / prime 首要的。搭配：top priority 头等大事 / set priorities 定优先级。"
+  },
+  "decline": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + clin(倾斜，拉丁 clinare) = 往下倾 → 下降、衰退；「拒绝」这个义项也来自「把话推开」。同族 clin「倾斜」：incline 倾向 / recline 斜倚 / climate 气候（与日照「倾斜」有关）/ climax 高潮（爬到顶）。"
+  },
+  "precede": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pre-(先) + cede(走，拉丁 cedere) = 走在前面 → 先于、领先。同族 ced/cess「走」：precedent 先例 / proceed 继续进行 / recede 后退 / exceed 超过 / succeed 成功·接替。"
+  },
+  "descent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + scent(爬) = 往下爬 → 下降、下坡；「出身」是「从上面传下来」（of noble descent 出身贵族）。同族 scend「爬」：descend 下降 / ascend 上升 / descendant 后代 / transcendent 超越的。"
+  },
+  "subordinate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(下面) + ordin(次序，拉丁 ordo) = 排在下一级 → 下级的、从属的（be subordinate to 从属于）；动词「使服从」。同族 ordin「次序」：order 顺序 / ordinary 普通的 / coordinate 协调（同级的）/ ordinance 法令。"
+  },
+  "slim": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「细」：身材细 → 苗条；数量细 → 微小（a slim chance 机会渺茫 / a slim margin 微弱优势）；动词「减肥」（slimming 瘦身）。搭配：slim down 缩减。"
+  },
+  "taper": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "本义是「细长的蜡烛」（所以有「微光」义）→ 动词「逐渐变细、递减」（taper off 逐渐减少 / tapered trousers 锥形裤）。一个画面：像蜡烛一样从粗到细。"
+  },
+  "petty": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自法语 petit「小」→ 细小的、琐碎的（petty details 细枝末节）；「小」到人品上 → 器量小的（petty jealousy 小心眼的嫉妒）。搭配：petty crime 轻微犯罪 / petty cash 小额备用金。"
+  },
+  "inferior": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "infer = 下面的（拉丁 inferus）+ -ior 比较级 = 更下面的 → 下级的、次等的（inferior quality 质量差 / inferior to 不如）；反义 superior。同源：infernal 地狱的（下面的世界）/ infer 推断（把结论「带进」下面）。"
+  },
+  "nice": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 nescius「无知」（ne- 不 + scire 知道）→ 原义「愚笨的」→ 后来「挑剔的」→「精细的、微妙的」（a nice distinction 细微的区别）→ 现代最常用的「好的」。词义一路「变好」。"
+  },
+  "filament": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fil = 线（拉丁 filum）。filament 是细丝、灯丝（灯泡里那根）。同族：file 文件（原指穿文件的线）/ profile 侧面像（画一条轮廓线）/ defile 污损。"
+  },
+  "bacterium": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "希腊 baktron 是「棍子」—— 最早观察到的细菌是杆状的，所以叫「小棍子」。复数特殊：bacteria（单数 bacterium）。同族：bacteriology 细菌学 / antibiotic 抗生素（抗生命的）。"
+  },
+  "systematically": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "system(系统) + -atically = 有系统地。同族：system 系统 / systematic 系统的 / scheme 方案。搭配：systematically review 系统地回顾 / systematically biased 系统性偏差。"
+  },
+  "lace": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "出自拉丁 laqueus「绳套」→ 带子、鞋带 → 动词「系带」（lace up one's shoes）；也指蕾丝（一种网状的织法）。同族：lasso 套索 / latch 门闩。"
+  },
+  "spectrum": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "spect = 看（拉丁 specere）。光谱是「看到的像」，于是引申为「整个范围」（a broad spectrum of opinions 各种意见 / at the other end of the spectrum 在另一端）。同族：spectacle 景象 / inspect 检查 / prospect 前景 / aspect 方面。"
+  },
+  "drama": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊 dran「做、演」→ 演出来的东西 → 戏剧；引申「戏剧性事件」（the drama of the trial 审判的戏剧性）。同族：dramatic 戏剧性的·剧烈的 / dramatize 改编成剧。"
+  },
+  "germ": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "拉丁 germen「芽、胚」→ 幼芽；微生物像「看不见的种子」，于是 germ 成了病菌。同族：germinate 发芽 / germ warfare 细菌战 / wheat germ 麦芽。"
+  },
+  "theatre": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 theatron = 「观看的地方」（theaomai 看）→ 剧场；引申「戏剧效果、做戏」（theatre of war 战区也用它）。同族：theatrical 戏剧的·夸张的。英式 theatre，美式 theater。"
+  },
+  "comedy": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 komos（狂欢游行）+ oide（歌）= 狂欢歌 → 喜剧；反义 tragedy 悲剧（希腊 tragos 山羊 + oide 歌，据说源自山羊奖品的歌队）。顺便记住 tragicomic 悲喜剧。"
+  },
+  "quench": {
+   "kind": "usage",
+   "certainty": "medium",
+   "tip": "本义「熄灭」（quench a fire）；引申「解（渴）」（quench one's thirst 解渴 —— 把渴「浇灭」）；冶金里的「淬火」也是它（把烧红的金属放进水里）。搭配比词源更有用。"
   }
  }
 }
