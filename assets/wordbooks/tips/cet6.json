@@ -7219,6 +7219,341 @@
    "kind": "family",
    "certainty": "high",
    "tip": "as-(向) + sess(坐，拉丁 sedere) + -ment = 坐在旁边定价 → 评估、估价（a tax assessment 估税 / environmental assessment 环境评估）；教育上的「考核」也是它。同族 sess「坐」：assess 评估 / session 会议 / sediment 沉淀。"
+  },
+  "hound": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古英语 hund「狗」（同 hunt 打猎）→ 猎犬；动词义「追逼、纠缠」（hound sb 不断骚扰某人）；hound 也指角鲨（另一种「猎手」）。同族：hunt 打猎 / hunter 猎人。"
+  },
+  "tribute": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "tribut = 给予、分配（拉丁 tribuere）→ 交给统治者的东西 → 贡物；引申「致敬、献礼」（pay tribute to 向…致敬 / a tribute concert 纪念音乐会）。同族 tribut「给予」：attribute 归因于 / contribute 贡献 / distribute 分配。"
+  },
+  "gutter": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 gutta「水滴」→ 接水的东西 → 排水沟、檐槽；引申「（社会的）底层」（raised from the gutter 从底层爬起来）。同族：gutter press 低俗小报。"
+  },
+  "number": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「数字」→ 动词「共计、达…之数」（The crowd numbered 5,000.）；也指「编号」（numbered seats 对号入座）和「（数量上）比…多」。搭配：a number of 若干 / any number of 许多。"
+  },
+  "arch": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "与 arc(弓) 同源 → 拱门、拱形（the Arch of Triumph 凯旋门）；动词「横跨」；前缀 arch- 是另一支（主要的，如 archbishop 大主教）。同族 arc「弓」：archer 弓箭手 / arcade 拱廊。"
+  },
+  "commonwealth": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "common(共同) + wealth(财富、福祉) = 共同的福祉 → 共和国、联邦（the Commonwealth 英联邦）；原义是「公共福利」（common weal），后来指以共同利益结合的政体。"
+  },
+  "impartial": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(不) + partial(偏袒的，来自 part「部分」) = 不站在某一部分 → 公正的、无偏见的（an impartial judge 公正的法官）。同族：part 部分 / partial 部分的·偏袒的。"
+  },
+  "vault": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 volvere「转」（拱是转出来的弧）→ 拱顶、穹顶；也指「（银行）金库」（因金库多为拱顶）；「撑竿跳」是另一个同形词。同族 volv「转」：revolve 旋转 / volume 卷。"
+  },
+  "duke": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "拉丁 dux「领袖」（同 conduct、educate 的 duc）→ 公爵（英国贵族最高一级）。同族 duc「引导」：conduct 引导 / educate 教育。爵位由高到低：duke > marquis > earl > viscount > baron。"
+  },
+  "consolidate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + solid(坚固，拉丁 solidus) + -ate = 合起来变结实 → 巩固（consolidate one's position 巩固地位）、合并（the two firms consolidated）。同族：solid 坚固的 / solidarity 团结 / solder 焊接。"
+  },
+  "rooster": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "roost(栖息处) + -er = 待在鸡窝里的那只 → 公鸡（美式英语，英式多说 cock）；引申「狂妄自负的人」（像公鸡昂首）。同族：roost 栖息 / rule the roost 当家做主。"
+  },
+  "mercury": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "来自罗马商神兼信使之神 Mercurius（墨丘利，脚上有翅膀跑得飞快）→ 流动极快的液态金属 → 汞（水银）；也指「水银柱」（气温）和行星水星。同族：merchant 商人 / commerce 商业。"
+  },
+  "studio": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 studium「钻研、热情」（同 study）→ 钻研的地方 → 工作室、演播室（a film studio 电影制片厂 / a studio flat 单间公寓）。同族：study 学习·书房 / student 学生 / studious 好学的。"
+  },
+  "convention": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + vent(来，拉丁 venire) + -ion = 大家聚到一起 → 会议、大会；聚在一起商定的事 → 公约、惯例（by convention 按照惯例 / the Geneva Convention 日内瓦公约）。同族 vent「来」：convene 召集 / event 事件 / prevent 预防 / intervene 干预。"
+  },
+  "implement": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(在内) + ple(填满，拉丁 plere) + -ment = 用来把需要填满的东西 → 工具、用具（farm implements 农具）；动词「贯彻、实施」（implement the policy 落实政策）。同族 ple「填满」：complete 完成 / supply 供应 / complement 补足。"
+  },
+  "earnings": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "earn(挣) + -ings = 挣来的钱 → 收入、收益（annual earnings 年收入 / earnings per share 每股收益）。同族：earn 赚取。"
+  },
+  "combat": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + bat(打，拉丁 battuere) = 对着打 → 战斗、格斗（combat the disease 与疾病作斗争）。同族 bat「打」：battle 战役 / debate 辩论（打嘴仗）/ battery 炮组。"
+  },
+  "impart": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(在内) + part(部分，拉丁 pars) = 把自己的一部分分出去 → 传递、告知（impart knowledge 传授知识 / impart the news 告知消息）。同族 part「部分」：particle 微粒 / depart 离开（分出去）。"
+  },
+  "workpiece": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "work(加工) + piece(件) = 正在加工的部件 → 工件（机械加工术语）。同类 work 构词：workshop 车间 / workbench 工作台 / framework 框架 / network 网络。"
+  },
+  "energize": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(使) + erg(工作，希腊 ergon) + -ize = 给上劲 → 给…能量、使有活力（energize the team 给团队打气）；电学上「通电」也是它。同族 erg「工作」：energy 能量 / energetic 精力旺盛的 / synergy 协同。"
+  },
+  "reveal": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(反) + veal(面纱，拉丁 velum，同 veil) = 把面纱揭开 → 揭示、泄露（reveal the truth 揭示真相）。同族：veil 面纱 / revelation 启示·揭露。"
+  },
+  "flavour": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 flatus「吹、气」（同 inflate）→ 飘出来的气味 → 味道、风味（a flavour of garlic 蒜味）；动词「调味」；引申「特色」（a local flavour 地方特色）。同族：inflate 充气。"
+  },
+  "dove": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 dufe「鸽子」→ 鸽子。文化象征：和平鸽（the dove of peace）、温和派（doves vs hawks 鸽派与鹰派）。同族：dovecote 鸽舍。⚠️ 与 dive 的过去式 dove（美式）同形。"
+  },
+  "insulator": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "insul = 岛（拉丁 insula）→ 让电流成「孤岛」的东西 → 绝缘体（a ceramic insulator 陶瓷绝缘体）。同族 insul「岛」：insulate 绝缘 / isolate 隔离 / island 岛 / peninsula 半岛。"
+  },
+  "plateau": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自法语 plat「平的」（同 plate、platform）→ 平顶高地 → 高原；引申「（增长后的）平稳期」（reach a plateau 进入平台期 —— 学习曲线里常见）。同族 plat「平」：plate 板 / platform 平台 / flat 平的。"
+  },
+  "vaccinate": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "vacc = 牛（拉丁 vacca）→ 用牛痘（cowpox）接种预防天花 → 接种疫苗（vaccinate against flu 打流感疫苗）。同族：vaccine 疫苗 / vaccination 接种。词根 vacc 的「牛」义只活在这些医学词里。"
+  },
+  "tower": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「塔」→ 动词「高耸、矗立」（The building towers over the city.）；引申「（在能力上）远超」（tower above one's rivals）。搭配：a tower of strength 中流砥柱。"
+  },
+  "elevation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + lev(举起，拉丁 levare) + -ation = 举起来的高度 → 海拔、标高（an elevation of 2,000 metres）；也指「提升、隆起」。同族 lev「举/轻」：elevate 提升 / lever 杠杆 / relieve 减轻。"
+  },
+  "lofty": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "loft(阁楼、高处，与 lift 同源) + -y = 高耸的；引申「（思想）高尚的」（lofty ideals 崇高的理想）和贬义的「高傲的」。同族：lift 举起 / loft 阁楼 / aloft 在高处。"
+  },
+  "intervene": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "inter-(之间) + ven(来，拉丁 venire) = 到中间来插一手 → 干预、介入（intervene in the dispute 介入争端）；「（时间上）发生在中间」也是它。同族 ven「来」：prevent 预防 / convention 会议 / event 事件 / avenue 大道。"
+  },
+  "lattice": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古英语 latis「窗格条」→ 格子、格架；物理与材料学的「晶格、点阵」（crystal lattice 晶体点阵）就是它。同族：lattice window 格子窗。"
+  },
+  "olive": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 oliva（经希腊语）→ 橄榄、橄榄树。文化象征：olive branch 橄榄枝（和平）/ olive oil 橄榄油 / 橄榄色（黄绿色）。女名 Olivia 也来自它。"
+  },
+  "dry": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「干的」→ 引申「（言谈、书）干巴巴的、枯燥的」（a dry lecture）；也指「冷淡的」（dry humour 冷幽默）和「（酒）不甜的」（dry wine 干白）。搭配：dry out 戒酒。"
+  },
+  "perception": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(完全) + cept(拿，拉丁 capere) + -ion = 完全接收到 → 感知、理解力（visual perception 视觉感知 / public perception 公众认知）。同族 cept「拿」：perceive 察觉 / concept 概念 / accept 接受 / except 除…之外。"
+  },
+  "Thanksgiving": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "thanks(感谢) + giving(给予) = 感谢上天的赐予 → 感恩节（美国 11 月第四个星期四，加拿大 10 月第二个星期一）。同类节日构词：Christmas 圣诞节 / Halloween 万圣节前夜 / Easter 复活节。"
+  },
+  "sentiment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sent = 感觉（拉丁 sentire）→ 情感、情绪（anti-American sentiment 反美情绪）；反义 sentimentality 滥情。同族：sense 感觉 / sentimental 多愁善感的 / consent 同意（共同感觉）。"
+  },
+  "sensation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sens = 感觉（拉丁 sentire）→ 感觉、知觉（a burning sensation 灼热感）；引申「轰动」（cause a sensation 引起轰动）—— 让所有人都「感觉到」。同族：sense 感觉 / sensational 轰动的 / sensitive 敏感的。"
+  },
+  "outline": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "out(外) + line(线) = 勾出外轮廓 → 轮廓、提纲（an outline of the plan）；动词「概述」（outline the main points）。同类 out + 名词：outlook 前景 / outlet 出口 / output 产出。"
+  },
+  "conception": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + cept(拿，拉丁 capere) + -ion = 把想法收拢成形 → 概念、构想（the conception of the project）；也指「受孕」。同族 cept「拿」：concept 概念 / perceive 察觉 / receive 接收。"
+  },
+  "notion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "not = 知道（拉丁 notus）→ 知道的东西 → 概念、看法（a vague notion 模糊的想法 / have no notion of 完全不知道）。同族 not「知道」：note 笔记 / notice 注意 / notify 通知。"
+  },
+  "chill": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 cele「寒冷」→ 发冷、使变冷（chill the wine 冰镇酒）；引申「（气氛）冷淡、扫兴」和「放松」（chill out）。冶金上的「冷淬」是技术义。同族：chilly 寒冷的。"
+  },
+  "summary": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sum = 总和（拉丁 summa）→ 归结起来的 → 摘要、概括的（a summary of the report）；法律上的「速决的」（summary justice 即决审判）也是「从简」。同族：sum 总和 / summarize 总结 / in summary 总之。"
+  },
+  "generalize": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "gener = 种类（拉丁 genus）→ 从个别到种类 → 概括、归纳（generalize from the data 从数据归纳）；也指「泛泛而谈」。同族：general 一般的 / generate 产生 / genus 属。"
+  },
+  "mend": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "与 amend 同源（拉丁 emendare「除缺点」）→ 修补、改正（mend the fence 修篱笆 / mend one's ways 改过自新）。习语：on the mend 在康复中。同族：amend 修正（法律条文）。"
+  },
+  "impress": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(上) + press(压) = 压上去 → 盖印、打记号（这是本义）；引申「给人深刻印象」（impress the interviewer）。同族压字辈：express 表达 / compress 压缩 / depress 沮丧 / oppress 压迫。"
+  },
+  "by-product": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "by(旁边) + product(产物) = 主产品旁边出来的 → 副产品（useful by-products）；引申「附带结果」（a by-product of success）。同类 by- 构词：bypass 旁路 / bylaw 附则 / bystander 旁观者。"
+  },
+  "complication": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + plic(折，拉丁 plicare) + -ation = 层叠在一起 → 复杂化；医学上的「并发症」（complications after surgery 术后并发症）就是「多出来的麻烦」。同族 plic「折」：complicate 使复杂 / complex 复杂的 / multiply 乘。"
+  },
+  "duplicate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "du(二) + plic(折，拉丁 plicare) + -ate = 折成一模一样的两层 → 复制品、复制（a duplicate key 配的钥匙 / in duplicate 一式两份）。同族 du「二」：duplex 双工的 / double 双倍 / duplicity 两面派。"
+  },
+  "satellite": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "拉丁 satelles「随从、护卫」→ 绕着行星转的「随从」→ 卫星；引申「附属机构、卫星国」（a satellite state）和「附属物」。"
+  },
+  "complexity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + plex(缠绕，拉丁 plectere) + -ity = 缠在一起的状态 → 复杂性（the complexity of the problem）。同族 plex「缠」：complex 复杂的 / perplex 使困惑 / complexion 肤色·局面。"
+  },
+  "appendix": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ap-(向) + pend(挂，拉丁 pendere) + -ix = 挂在书后面的东西 → 附录；解剖上「挂在」大肠末端的那段 → 阑尾（appendicitis 阑尾炎）。同族 pend「挂」：depend 依赖 / pendant 吊坠 / suspend 悬挂。"
+  },
+  "extra": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 extra「在外面」→ 额外的、外加的（extra charge 附加费）；名词「附加物、临时演员」（a crowd of extras）。同族 extr「外」：extraordinary 非凡的 / extract 提取 / extreme 极端。"
+  },
+  "emerge": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + merg(浸没，拉丁 mergere) = 从水里冒出来 → 浮现、显露（the sun emerged / emerge from the crisis 走出危机）。同族 merg「浸」：submerge 淹没 / merge 合并 / emergency 紧急情况（突然冒出的事）。"
+  },
+  "charge": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 carricare「装车」（同 car）→ 装东西：装弹药（charge the gun）、充电（charge the battery）、装费用（收费）、装罪名（charge sb with 指控）。四个义项都是「装」。搭配：in charge of 负责 / free of charge 免费。"
+  },
+  "coach": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "来自匈牙利村庄 Kocs（那里造的四轮马车叫 kocsi）→ 马车；马车「把人送到目的地」，于是引申为「辅导、训练」（coach sb in English）。同源词：carriage 马车。"
+  },
+  "incidentally": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(在上) + cid(落，拉丁 cadere) + -entally = 落在主要事情上面的 → 附带地、顺便一提（Incidentally, I saw him yesterday.）。同族 cid「落」：incident 事件 / accident 事故 / coincide 巧合。"
+  },
+  "obedience": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ob-(向) + ed(听，拉丁 audire) + -ience = 听对方的话 → 服从（in obedience to 服从于）。同族 ed/aud「听」：obey 服从 / audience 听众 / audio 音频 / audition 试镜（听审）。"
+  },
+  "negative": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "neg = 否定（拉丁 negare）→ 否定的、负的、阴性的（a negative answer / negative charge 负电荷 / HIV negative 检测阴性）；名词「底片」也是它（明暗相反）。同族 neg「否」：negate 否定 / neglect 忽视 / negotiate 谈判。"
+  },
+  "maintenance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "main(手，拉丁 manus) + ten(持，拉丁 tenere) + -ance = 用手一直扶着 → 维持、保养（road maintenance 道路养护）；「扶养」和「坚持主张」都是「撑着」。同族 ten「持」：maintain 维持 / contain 包含 / retain 保留。"
+  },
+  "corrosion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cor-(完全) + ros(啃，拉丁 rodere) + -ion = 一点点啃掉 → 腐蚀、锈蚀（metal corrosion 金属腐蚀）。同族 ros「啃」：corrode 腐蚀 / rodent 啮齿动物 / erode 侵蚀。"
+  },
+  "veto": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "拉丁 veto 字面就是「我禁止」（vetare 的第一人称形式）—— 古罗马护民官用这个词否决法案，于是整个词原样进了英语 → 否决权（exercise the veto）。"
+  },
+  "erosion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + ros(啃，拉丁 rodere) + -ion = 一点点啃掉 → 侵蚀（soil erosion 水土流失 / the erosion of confidence 信心的削弱）。同族 ros「啃」：erode 侵蚀 / corrode 腐蚀 / rodent 啮齿动物。"
+  },
+  "denial": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + ni(不，拉丁 negare) + -al = 一口说不 → 否认、拒绝（a denial of the charge 否认指控 / in denial 拒绝接受现实）。同族 neg/ni「否」：deny 否认 / negative 否定的 / negate 否定。"
+  },
+  "subsidiary": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(下面) + sid(坐，拉丁 sedere) + -iary = 坐在下面帮忙的 → 辅助的、附属的（a subsidiary company 子公司）。同族 sid「坐」：subsidy 补贴（坐着给的援手）/ reside 居住。"
+  },
+  "Buddhism": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "梵语 budh「觉悟、觉醒」→ 觉悟者（Buddha 佛陀）→ 佛教。同族：Buddha 佛陀 / Buddhist 佛教徒。同类宗教名：Christianity 基督教 / Islam 伊斯兰教 / Hinduism 印度教。"
+  },
+  "answer": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「回应」：回答 → 回应需要 → 符合、适合（answer the description 与描述相符 / answer to the name of 名叫）。搭配：answer for 对…负责 / answer back 顶嘴。"
+  },
+  "dedicate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + dic(宣布，拉丁 dicare) + -ate = 郑重宣布献出去 → 奉献、献身（dedicate oneself to 献身于 / a dedicated teacher 尽职的教师）；书的「题献」也是它。同族 dic「说」：dictate 口述 / indicate 指示 / predict 预言。"
   }
  }
 }

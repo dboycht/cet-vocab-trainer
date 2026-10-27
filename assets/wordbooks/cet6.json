@@ -11877,11 +11877,14 @@
   },
   {
    "word": "duke",
-   "def": "n.公爵，君主；手",
+   "def": "n.公爵；君主",
    "pos": [
     "n."
    ],
-   "page": 21
+   "page": 21,
+   "source_def": "n.公爵，君主；手",
+   "source_pos": [],
+   "entry_fix": "def_fix"
   },
   {
    "word": "consolidate",
