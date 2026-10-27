@@ -9889,6 +9889,546 @@
    "kind": "sense",
    "certainty": "medium",
    "tip": "「（轻微地）颤动」（quiver with fear 怕得发抖 / a quiver in her voice 声音发颤）；名词「箭袋」（另一个来源）。同类「抖」的强度：shiver 因冷哆嗦 / quiver 轻颤 / tremble 发抖 / shudder 猛一哆嗦。"
+  },
+  "shade": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「挡光」：阴影（in the shade 在阴凉处）→（色彩的）浓淡深浅（shades of blue 各种深浅的蓝）→ 细微差别（a shade of meaning）。同族：shadow 影子 / shady 阴凉的·可疑的 / sunglasses 太阳镜。"
+  },
+  "unanimous": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "un-(一) + anim(心、气，拉丁 animus) + -ous = 一条心 → （全体）一致的（a unanimous decision 一致的决定 / unanimously 一致地）。同族 anim「心/气」：animal 动物（有气息的）/ animate 使有生气 / magnanimous 宽宏大量的。"
+  },
+  "constitution": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + stitu(立，拉丁 statuere) + -ion = 立起来的东西 → 宪法（the Constitution）；也指「（人的）体格、素质」（a strong constitution）—— 身体是「立」起来的构造。同族：constitute 构成 / institute 建立 / substitute 替代。"
+  },
+  "pier": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "中古拉丁 pera「桥墩」→ （桥）墩、码头（a pier on the beach 海滩上的栈桥）。三个「码头」：pier 突堤码头 / wharf 装卸码头 / dock 船坞。"
+  },
+  "spill": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「洒出来」：洒（spill the milk）、（人）摔下（take a spill 摔一跤）、（人群）涌出（spill out into the street）；习语 spill the beans 泄密。过去式 spilled 或 spilt（英式）。"
+  },
+  "span": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「一掌之宽」（古英语 spann）→ 跨度、墩距 → 一段时间（a span of 50 years / life span 寿命）；动词「横跨」（The bridge spans the river.）。同族：spanner 扳手（原义「跨度工具」）。"
+  },
+  "perch": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "名词「（禽鸟的）栖木」→ 动词「栖息、高坐」（a bird perched on the wire / perched on a stool 高坐在凳子上）。引申「（在高处的）位置」（knock sb off their perch 把某人拉下马）。"
+  },
+  "flutter": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声的「扑棱」→ （鸟）振翼、飘动（flags fluttering in the wind）；引申「（心）怦怦跳」（her heart fluttered）和「慌乱」（in a flutter）。同族：flit 轻快地飞。"
+  },
+  "frock": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 froc 本是「修士的长袍」→ （女）上衣、罩衫（a summer frock 夏日连衣裙）。同族：frock coat 长礼服。"
+  },
+  "clown": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "可能来自斯堪的纳维亚语「乡下人、粗人」→ （马戏的）小丑、丑角；引申「爱开玩笑的人」和动词「装傻」（stop clowning around 别胡闹了）。"
+  },
+  "resume": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "⚠️ 两个词：① /rɪˈzjuːm/ 动词「恢复、重新开始」（resume work 复工，re- + sume 拿）；② /ˈrezjumeɪ/ 名词「个人简历」（法语 résumé 的借词，原义「摘要」）。拼写上名词常带撇：résumé。"
+  },
+  "pace": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「步速、节奏」→ 动词「踱步」（pace up and down 来回踱）；习语 keep pace with 跟上 / set the pace 定节奏。⚠️ 拉丁语里 pace 还表示「恕某人冒昧」，阅读偶见。"
+  },
+  "pope": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 papas「父亲」→（罗马天主教的）教皇（the Pope）；同族：papa 爸爸 / papal 教皇的 / papacy 教皇职位。"
+  },
+  "axle": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古北欧语 oxul「轴」→（轮）轴、车轴（a broken axle 断轴）。⚠️ 与 axis（轴心、坐标轴）区分：axle 是实物的车轴。"
+  },
+  "lounge": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "（旅馆等的）休息室、候机室（the departure lounge 候机室）；动词「懒洋洋地靠着」（lounge about 闲荡）。同族：lounger 闲人。"
+  },
+  "chord": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "chord 有两个来源：① 希腊 khorde「弦」→（乐器的）弦、和弦（play a chord 弹和弦）；② 拉丁 chorda「绳」→ 解剖的「腱」。习语 strike a chord 引起共鸣。同族：cord 绳 / accord 一致（心弦相合）。"
+  },
+  "realization": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "real(真实的) + -ization = 使成真 →（理想等的）实现；也指「认识到」（the realization that… 意识到…）。同族：realize 实现·意识到 / reality 现实。"
+  },
+  "pyjamas": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "来自印地语 pae-jama「腿的衣物」（pae 腿 + jama 衣服）→（宽大的）睡衣裤。⚠️ 英式拼 pyjamas，美式 pajamas。同类印度语借词：shampoo 洗发 / bungalow 平房 / jungle 丛林。"
+  },
+  "measurement": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "measure(测量) + -ment = （量得的）尺寸、大小（take measurements 量尺寸 / units of measurement 计量单位）。同族：measure 测量·措施 / measurable 可测量的。"
+  },
+  "elegant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + leg(选，拉丁 legere) + -ant = 挑出来的 →（举止、服饰）雅致的（an elegant dress / an elegant solution 简洁漂亮的解法）。同族 leg/lect「选」：select 挑选 / elect 选举 / eligible 合格的。"
+  },
+  "refreshment": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "re-(重新) + fresh(新鲜) + -ment = （精力的）恢复、爽快；复数 refreshments 指「茶点、点心饮料」（serve refreshments 供应茶点）。同族：refresh 使恢复精神 / refreshing 清爽的。"
+  },
+  "bishop": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 episkopos「监督者」（epi- 在上 + skopos 看）→（基督教的）主教；国际象棋的「象」也叫 bishop（形状像主教冠）。同族：episcopal 主教的 / scope 看。"
+  },
+  "ticket": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「票、券」→（交通违章）罚款传票（get a ticket for speeding 吃超速罚单）；政治上的「候选人名单」（run on a ticket 以某政纲竞选）。搭配：ticket office 售票处。"
+  },
+  "software": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "soft(软) + ware(制品) = 软的部件 →（计算机的）软件；对应 hardware 硬件。「软」是因为它可改、看不见。同族 -ware：hardware 硬件 / firmware 固件 / freeware 免费软件。"
+  },
+  "hard": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心「硬」→ 多个引申：（酒）烈性的（hard liquor 烈酒）、（人）严厉的（a hard boss）、（工作）艰苦的（hard work）、（水）硬的（hard water）。搭配：hard up 手头紧 / hard of hearing 耳背。"
+  },
+  "kernel": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 cyrnel 是 corn（谷粒）的指小形式 →（果实的）核、谷粒；引申「核心、要点」（the kernel of the argument 论点的核心）；电脑的「内核」也是它。同族：corn 谷物 / kernel panic 内核崩溃。"
+  },
+  "gesture": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "gest = 带、举动（拉丁 gerere）→ 身体的举动 → 手势；引申「姿态、表示」（a gesture of goodwill 善意的表示）；动词「做手势」。同族：digest 消化（分开搬运）/ suggest 建议（从下面带上来）。"
+  },
+  "insert": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(进) + sert(连接，拉丁 serere) = 接进去 → 插入、刊登（insert a coin / insert an ad）；解剖上「（肌肉）附着」也是接上去。同族 sert「连」：assert 断言 / desert 抛弃（断开）/ series 系列。"
+  },
+  "situation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "situ = 位置（拉丁 situs）→ 处境、形势（the economic situation 经济形势）；也指「（建筑物等的）位置」（a house in a fine situation 位置很好的房子）。同族：site 地点 / situated 位于…的。"
+  },
+  "wisdom": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "wise(智慧) + -dom(状态、领域) = 智慧；也指「（古人的）名言、格言」（the wisdom of the ancients）。同族 -dom：freedom 自由 / kingdom 王国 / boredom 无聊。"
+  },
+  "growl": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是（狗等）低吼那声 → 嗥叫、咆哮（The dog growled at me. / growl about sth 低声抱怨）。同族拟声：bark 吠 / howl 嚎 / snarl 龇牙低吼。"
+  },
+  "buzz": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是（蜂等）嗡嗡叫那声 → 嗡嗡叫、（人群）嘈杂；口语「给…打电话」（give me a buzz）和「（消息）传开」（buzz with rumour）。同族：buzzer 蜂鸣器 / buzzword 流行术语。"
+  },
+  "shaft": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「（工具的）柄、杆状物」→ 箭杆 → 一束光（a shaft of light 一道光）、矿井的「竖井」、机械的「传动轴」。一个画面：细长的一条。"
+  },
+  "breed": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "动词「繁殖、饲养、教养」（breed rabbits / born and bred 土生土长）；名词「（动物）品种」（a rare breed）。引申「引起」（Familiarity breeds contempt. 熟悉滋生轻慢）。过去式 bred。"
+  },
+  "ear": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "两个同形词：① 耳朵（本义）；②（稻麦等的）穗（另一个来源，古英语 ear）。习语：be all ears 全神贯注地听 / play it by ear 见机行事。"
+  },
+  "dean": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 decanus「管十个人的头」（decem 十）→ 教会的长老 →（大学）院长、系主任。同族 dec「十」：decade 十年 / decimal 十进制的 / December 十二月。"
+  },
+  "sink": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "动词「下沉」→ 名词「（厨房内的）洗涤槽」—— 因为它是嵌下去的一个盆；也指「污水坑」（a sink of iniquity 罪恶渊薮）。搭配：sink in 被理解 / sink or swim 成败靠自己。"
+  },
+  "fertile": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "fer = 带来、生产（拉丁 ferre）→ 能出产东西的 → 肥沃的、能生育的；也指「（创造力）丰富的」（a fertile imagination 丰富的想象力）。同族 fer「带」：transfer 转移 / refer 提及 / offer 提供。"
+  },
+  "ranch": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "西班牙语 rancho「（牧人住的）棚屋、伙食」→（北美洲的）大牧场（a cattle ranch 养牛场）。同族：rancher 牧场主 / ranch dressing 牧场沙拉酱。"
+  },
+  "versus": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vers = 转（拉丁 vertere），versus 是「转向对面」→（比赛等中）对（Milan versus Rome 米兰对罗马）；缩写 vs. 或 v.。同族 vers「转」：reverse 反转 / convert 转换 / controversy 争论。"
+  },
+  "grope": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "古英语 grapian「抓」→（暗中）摸索（grope for the switch 摸黑找开关）；引申「摸索着解决」（grope for an answer）。同族：grab 抓取 / grasp 抓住·理解。"
+  },
+  "pedlar": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "可能与 ped（脚，拉丁 pes）有关 ——「走街串巷的人」→（挨户兜售的）小贩。⚠️ 拼写变体 peddler（美式更常见）。同族 ped「脚」：pedestrian 行人 / pedal 踏板。"
+  },
+  "squat": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "「蹲下」（squat down on the floor）；也指「擅自占住空房」（squatters 占屋者）；形容词「矮胖的」。同类姿势：squat 蹲 / kneel 跪 / crouch 蜷伏。"
+  },
+  "scrub": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "① 用力擦洗（scrub the floor）；② 取消、删掉（scrub the launch 取消发射）；③ 矮树丛（the scrub）。同族：scrubbing brush 板刷。"
+  },
+  "rally": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(再) + al(向) + ly(绑，拉丁 ligare) = 再聚到一起 →（重新）集合、重整（rally the troops）；名词「集会」（a political rally 政治集会）和「（股价）回升」。同族 lig「绑」：ally 结盟 / league 联盟。"
+  },
+  "tread": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "古英语 tredan「踩」→ 踩、踏（tread on sth 踩到 / tread carefully 小心行事）；名词「轮胎的花纹」（tread pattern）。习语：tread water 踩水·停滞不前。过去式 trod，过去分词 trodden。"
+  },
+  "fling": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "（用力）扔、抛（fling the door open 猛地推开门 / fling oneself into 投身于）；名词「短暂放纵的一段时间」（a final fling）。四个「扔」：toss 轻抛 / throw 扔 / fling 甩 / hurl 猛投。过去式 flung。"
+  },
+  "crack": {
+   "kind": "sound",
+   "certainty": "high",
+   "tip": "拟声的「噼啪」→ 发出爆裂声、裂开（The ice cracked. / crack the code 破解密码）；名词「裂缝」「玩笑」（make a crack 说句俏话）。习语：crack down on 严厉打击 / crack up 崩溃·大笑。"
+  },
+  "escort": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + scort(引导，拉丁 ex + corrigere) = 带着走 → 护卫、护送（escort sb home 护送某人回家）；名词「护卫队、陪同者」。同族：correct 纠正（一起拉直）。"
+  },
+  "slander": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "出自拉丁 scandalum「绊脚石」（同 scandal）→ 诽谤、诋毁（sue sb for slander 控告某人诽谤）。辨析：slander 口头诽谤 / libel 书面诽谤。"
+  },
+  "swell": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "（使）膨胀、隆起（The ankle swelled up. / swell with pride 得意洋洋）；名词「涌浪」；形容词口语「极好的」（That's swell! 旧式用法）。过去分词 swollen。"
+  },
+  "menace": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 minaciae「威胁」→（进行）威胁（a menace to society 社会威胁 / menace sb with a gun 持枪威胁）。同族：minatory 威胁的 / imminent 迫近的（在山头上悬着）。"
+  },
+  "tramp": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "① 步行、跋涉（tramp through the snow 踏雪而行）；② 流浪汉（a tramp）；③ 沉重的脚步声。同族：trample 践踏（同源「踩」）。"
+  },
+  "suicide": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sui = 自己（拉丁 sui）+ cide(杀，拉丁 caedere) = 杀自己 → 自杀（commit suicide 自杀）；引申「自我毁灭」（career suicide 自毁前程）。同族 cide「杀」：homicide 他杀 / pesticide 杀虫剂 / genocide 种族灭绝。"
+  },
+  "tighten": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "tight(紧) + -en(使) = （使）变紧（tighten the screw / tighten the rules 收紧规定）。同类 -en：loosen 放松 / widen 加宽 / strengthen 加强。"
+  },
+  "jingle": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声词，就是（使）丁当响那声 → 丁当声；也指「广告顺口溜」（a TV jingle）。同族拟声：tinkle 叮叮 / clink 叮当（碰杯）/ jangle 刺耳的响。"
+  },
+  "trample": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "（用力）践踏、蹂躏（trample on the flowers / trample on sb's rights 践踏某人的权利）。同族：tramp 跋涉·流浪汉（同源「踩」）。区分：trample 踩踏 / tread 踩（中性）/ stamp 跺。"
+  },
+  "thrill": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "（使）激动、震颤（be thrilled to hear 听到…很激动 / a thrill of excitement 一阵兴奋）；名词「激动感」。同族：thriller 惊悚片 / thrilling 令人激动的。"
+  },
+  "fret": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "（使）烦恼、焦虑（fret about the money 为钱发愁 / Don't fret. 别愁）；⚠️ 另有名词 fret 指吉他上的「品」（另一个来源）。同族：fretful 烦躁的。"
+  },
+  "tilt": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "（使）倾斜（tilt one's head 歪头 / a tilted table）；名词「倾斜」；习语 at full tilt 全速地。同族：tilted 倾斜的。同类：lean 倾身 / slope 斜坡 / incline 倾斜。"
+  },
+  "revolve": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + volv(滚，拉丁 volvere) = 转回来 → （使）旋转；引申「围绕」（The discussion revolved around money.）。同族 volv「滚」：evolution 演化 / involve 涉及 / volume 卷·体积。"
+  },
+  "deflect": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(离开) + flect(弯，拉丁 flectere) = 弯离 →（使）偏斜、转移（deflect attention 转移注意力）。同族 flect「弯」：reflect 反射·反思 / flexible 灵活的 / inflection 屈折。"
+  },
+  "rotate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "rot = 轮子（拉丁 rota）→（使）旋转（rotate the wheel / the earth rotates）；也指「轮流」（rotate the crops 轮作 / rotate the duties 轮岗）。同族：rotation 旋转 / rotary 旋转的 / round 圆的（同源）。"
+  },
+  "repay": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "re-(回) + pay(付) = 还回去 → 偿还、报答（repay the loan 还贷 / repay sb's kindness 报答好意）。同族：payment 付款 / repayable 可偿还的。"
+  },
+  "compensate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(一起) + pens(称、付，拉丁 pendere) + -ate = 称出等量的东西还上 → 补偿、赔偿（compensate for the loss 赔偿损失）。同族 pens「称/付」：compensation 补偿 / pension 养老金 / expensive 昂贵的。"
+  },
+  "hoe": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 ho「锄头」→ 锄地（hoe the garden）。习语：hoe one's own row 干自己的活。同类农具：hoe 锄 / spade 锹 / rake 耙 / plough 犁。"
+  },
+  "default": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + fault(欠缺，拉丁 fallere「欺骗」) = 没做到 → 不履行、违约（default on a loan 拖欠贷款）；也指「缺席」（win by default 因对方缺席而获胜）；电脑的「默认」也是「（其他都没选时的）预设」。同族：fault 过错 / fail 失败。"
+  },
+  "scoff": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "可能是拟声的「嗤」→ 嘲笑、嘲弄（scoff at the idea 对这个想法嗤之以鼻）；⚠️ 口语里 scoff 还指「狼吞虎咽」（英式）。同类「嘲」：mock 取笑 / sneer 冷笑 / jeer 讥讽。"
+  },
+  "infer": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(进) + fer(带，拉丁 ferre) = 把结论带进来 → 推断、推论（infer from the evidence 从证据推断）。同族 fer「带」：refer 提及 / transfer 转移 / prefer 更喜欢。辨析：imply 是「引出」（说话人暗示），infer 是「引入」（听者推断）。"
+  },
+  "retort": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + tort(扭，拉丁 torquere) = 扭回去 → 反击、反驳（She retorted that… 她反唇相讥说…）；化学上的「蒸馏器」（曲颈瓶）也是它。同族 tort「扭」：distort 扭曲 / extort 敲诈 / torture 折磨。"
+  },
+  "broaden": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "broad(宽) + -en(使) = 放宽、变阔（broaden one's horizons 开阔眼界 / broaden the scope 扩大范围）。同类 -en：widen 加宽 / deepen 加深 / sharpen 削尖。"
+  },
+  "chorus": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "希腊 khoros「歌舞队」→ 合唱、合唱团；歌曲的「副歌」也叫 chorus（大家一起唱的那段）；动词「合唱」。同族：choral 合唱的 / choir 唱诗班。"
+  },
+  "decompose": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "de-(去掉) + compose(组成) = 把组成的拆开 → 分解、腐败（The leaves decomposed. / decompose into 分解成）。同族：compose 组成 / composition 构成 / composite 合成的。"
+  },
+  "beware": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "be + ware(小心，同 aware) = 谨防、当心（Beware of the dog. 当心狗 / Beware of pickpockets.）。⚠️ 它只用于祈使句或不定式，不能直接说 「I beware」。同族：aware 意识到的 / wary 警惕的。"
+  },
+  "grab": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "〔突然〕攫取、抓取（grab the chance 抓住机会 / grab a bite 匆匆吃点）；引申「吸引（注意力）」（grab attention）。习语：up for grabs 人人都可争取的。同族：grasp 抓住·理解 / grip 紧握。"
+  },
+  "riot": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古法语 riote「争吵」→ 骚乱、暴乱（a riot / riot police 防暴警察）；口语 a riot 指「非常好笑的人事」（The film was a riot.）。习语：run riot 撒野·失控。"
+  },
+  "entreat": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "en-(使) + treat(处理、对待) = 恳切相待 → 恳求、哀求（entreat sb to stay 恳求某人留下 / entreaty 恳求）。同族：treat 对待·款待 / treaty 条约。"
+  },
+  "urge": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "动词「催促、强烈希望」（urge sb to do 力劝某人做 / urge caution 力主谨慎）；名词「强烈的欲望」（a sudden urge to laugh 突然想笑）。同族：urgent 紧急的 / urgency 紧迫。"
+  },
+  "supervise": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "super-(在上) + vis(看，拉丁 videre) = 从上面看 → 监督、监视（supervise the work 监督工作）。同族 vis「看」：vision 视力 / revise 修订 / visible 可见的。"
+  },
+  "shrug": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "耸〔肩〕（shrug one's shoulders 耸肩）；短语必背 shrug off 对…不以为然·摆脱（shrug off the criticism 对批评满不在乎）。"
+  },
+  "concentrate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + centr(中心，拉丁 centrum) + -ate = 聚到一个中心 → 集中、专心（concentrate on the task 专心于任务）、浓缩（concentrated juice 浓缩果汁）。同族：center 中心 / central 中央的 / eccentric 古怪的（偏离中心的）。"
+  },
+  "revive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(再) + viv(活，拉丁 vivere) = 再活过来 → 苏醒、复兴（revive the economy 振兴经济 / the flowers revived 花又活了）。同族 viv「活」：survive 幸存 / vivid 生动的 / vital 至关重要的。"
+  },
+  "terminate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "termin = 界限（拉丁 terminus）+ -ate = 到界限为止 → 停止、终止（terminate the contract 终止合同）；电脑的「终止程序」也是它。同族：terminal 终点站 / term 期限 / determine 确定。"
+  },
+  "dazzle": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "（强光）使眼花、炫耀（be dazzled by the lights 被灯光晃得眼花 / dazzle the audience 让观众目眩）；名词「耀眼的光」。同族：dazzling 耀眼的·极出色的。"
+  },
+  "transplant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "trans-(越过) + plant(种植) = 挪到别处种 → 移植、移种（transplant a kidney 移植肾脏 / transplant the seedlings 移栽）；名词「移植手术」。同族：plant 种植 / plantation 种植园。"
+  },
+  "peck": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声的「啄」→ 啄、啄起（The bird pecked at the bread.）；名词「啄」；习语：a peck on the cheek 在脸颊上轻吻一下；pecking order 等级次序（原指鸡群的啄食顺序）。"
+  },
+  "xerox": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 xeros「干的」+ 复印技术 = 「干式复印」→ 商标 Xerox（施乐），后来成了动词「用静电复印」（xerox the document）。同类「商标变动词」：google 搜索 / hoover 吸尘 / photoshop 修图。"
+  },
+  "trot": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声的「得得」马步声 →（马）小跑；人「快步走」（trot along 快步走）；习语 on the trot 一个接一个地。同族马步速度：walk 走 / trot 小跑 / canter 慢跑 / gallop 疾驰。"
+  },
+  "solidify": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "solid(固体、坚固) + -ify(使) = 团结、凝固、巩固（solidify the friendship 巩固友谊 / The lava solidified.）。同族：solid 坚固的 / solidarity 团结 / consolidate 巩固。"
+  },
+  "ridicule": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "rid = 笑（拉丁 ridere）→ 嘲弄、挖苦（be ridiculed 被嘲笑）；名词「荒谬」（reduce sth to ridicule 使…成为笑柄）。同族：ridiculous 荒谬的 / deride 嘲笑。"
+  },
+  "sneer": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "冷笑、嘲笑（sneer at the idea 对那个想法嗤之以鼻 / a sneer of contempt 轻蔑的冷笑）。同类「嘲」的强度：sneer 冷笑 / scoff 嗤笑 / mock 取笑 / jeer 起哄。"
+  },
+  "boycott": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "来自 19 世纪爱尔兰的土地代理人 Captain Boycott —— 他拒减租，被当地人以「集体不与他往来」的方式驱逐，于是这种抵制就叫 boycott（boycott the goods 抵制商品）。"
+  },
+  "chatter": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声的「叽叽喳喳」→ 喋喋不休（chatter away）、（牙齿）打颤（chattering teeth）。同族拟声：chirp 鸟叫 / twitter 叽喳 / babble 含糊地说。"
+  },
+  "plunder": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "德语 plündern「抢劫」→ 掠夺、劫掠（plunder the city 洗劫城市）；名词「赃物」。同类：loot 抢劫 / pillage 掠夺 / rob 抢。"
+  },
+  "endeavor": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "en-(使) + deavor(责任，古法语 devoir) = 把责任放到自己身上 → 努力、尽力（endeavor to do 努力做 / a field of endeavor 一个领域）；名词「努力」。同族：devoir 本分 / duty 责任（同源）。"
+  },
+  "scramble": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声的「爬抓」→ 爬行、攀登（scramble up the hill 手脚并用爬上山）；引申「争抢」（scramble for tickets 抢票）和「炒蛋」（scrambled eggs）。"
+  },
+  "flap": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "拟声的「拍打」→ 拍打、（鸟）拍翅（the bird flapped its wings / the flag flapped in the wind）；名词「（信封的）翻盖」「慌乱」（in a flap）。同族：flip 翻 / flop 拍塌。"
+  },
+  "credit": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cred = 相信（拉丁 credere）→ 相信、把功劳记给（credit sb with sth 认为某人做了 / be credited with 被归功于）；经济学上的「信用、赊账」（on credit 赊账）。同族 cred「信」：credible 可信的 / incredible 难以置信的 / creed 信条。"
+  },
+  "tow": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 togian「拖」→ 拖引、牵引（tow the car 拖车 / a tow truck 拖车）；习语 in tow 跟随着。同族：tug 用力拖 / towline 拖绳。"
+  },
+  "clockwise": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "clock(钟) + -wise(方向) = 顺着钟表指针的方向 → 顺时针方向转的（turn clockwise 顺时针转）；反义 anticlockwise（英式）/ counterclockwise（美式）。同类 -wise：likewise 同样地 / sidewise 斜着。"
+  },
+  "slaughter": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古北欧语 slatr「屠宰」→ 屠杀、屠宰（the slaughter of innocent people / slaughterhouse 屠宰场）。三档：killing 杀 / slaughter 屠宰式屠杀 / massacre 大屠杀。"
+  },
+  "headlong": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "head(头) + long(向前) = 头朝前地 → 头向前的（地）、轻率地（rush headlong into 贸然投入 / fall headlong 一头栽倒）。同族 -long：sidelong 侧面的 / livelong 漫长的。"
+  },
+  "counter": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "前缀 counter-(相反) 与动词 counter(反驳、对抗)（counter the argument 反驳这个论点）；也指「柜台」（站在对面服务的地方）和游戏里的「筹码」。同族 counter-：counteract 抵消 / counterattack 反击 / counterpart 对应物。"
+  },
+  "melancholy": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "希腊 melas(黑) + khole(胆汁) = 「黑胆汁」—— 古希腊医学认为黑胆汁过多导致忧郁 → 忧郁（的）、悲伤。同族：choleric 暴躁的（黄胆汁）/ bile 胆汁。这是「气质体液说」的遗留。"
+  },
+  "eastward": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "east(东) + -ward(朝向) = 向东的、向东（an eastward journey 向东的旅程）。四个方向：eastward 向东 / westward 向西 / northward 向北 / southward 向南。"
+  },
+  "bulletin": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 bulla「印章」→ 盖了印的公文 → 告示、公告、公报（a news bulletin 新闻简报 / bulletin board 公告板）。同族：bull 教皇诏书（同源「印章」）。"
+  },
+  "Moslem": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "阿拉伯语 muslim「顺从（真主）的人」（同 Islam 的 islām）→ 穆斯林。⚠️ 现代通行拼写是 Muslim，Moslem 被视为过时且带贬义色彩，正式写作请用 Muslim。"
+  },
+  "allowance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "al-(向) + low(允许，拉丁 laudare「称赞、认可」) + -ance = 被允许给的东西 → 津贴、补助费（a travel allowance 出差补贴 / make allowance for 考虑到·体谅）。同族：allow 允许 / allowable 可容许的。"
   }
  }
 }
