@@ -3554,6 +3554,341 @@
    "kind": "family",
    "certainty": "high",
    "tip": "lubric = 滑（拉丁 lubricus）→ 加润滑油、使润滑（lubricate the engine 给发动机上油）；引申「（用酒食）使关系顺畅」。同族：lubricant 润滑剂 / lubricious 滑头的。"
+  },
+  "paralyse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "para-(旁边) + lys(松开，希腊 lyein) = 身体一侧松掉 → 使瘫痪（paralysed from the waist down 下半身瘫痪）；引申「使无法运转」（traffic was paralysed）。同族 lys「松开」：analyse 分析（拆开）/ catalyst 催化剂 / dialysis 透析。"
+  },
+  "subdue": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(下面) + du(引导，拉丁 ducere) = 把对方引到下面 → 使屈服、征服（subdue the rebellion 平定叛乱）；引申「抑制」（subdued lighting 柔和的灯光）。同族 duc「引导」：produce 生产 / reduce 减少 / introduce 引入。"
+  },
+  "sorrowful": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sorrow(悲伤) + -ful(充满) = 悲伤的。同类 -ful「充满」：painful 痛苦的 / joyful 快乐的 / peaceful 平静的。区分：sorrowful 是心里充满悲伤，sorry 是抱歉的·难过的。"
+  },
+  "suit": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自古法语 suite「跟随」（同 pursue 追）：跟得上、配得上 → 适合（suit sb 适合某人）；名词「一套西装」也是「配套」义。同族：suite 套房 / pursue 追求 / suitable 合适的。"
+  },
+  "subject": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sub-(下面) + ject(扔，拉丁 jacere) = 扔在下面 → 使隶属、使遭受（be subjected to 遭受）；名词「臣民·主题·科目」都来自「被置于…之下的东西」。同族 ject「扔」：project 投射 / reject 拒绝 / object 反对。"
+  },
+  "confront": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(一起) + front(前额、正面) = 面对面 → 使面对、直面（confront the problem 直面问题 / be confronted with 面临）。同族：front 前面 / frontier 边境 / affront 公然侮辱（当面得罪）。"
+  },
+  "insulate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "insul = 岛（拉丁 insula）→ 使它变成孤岛 → 绝缘、绝热、隔离（insulated wire 绝缘线）。同族 insul「岛」：island 岛 / isolate 孤立 / peninsula 半岛 / insulin 胰岛素（胰岛分泌的）。"
+  },
+  "bend": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「弯」：使弯曲（bend the wire）；使人「弯」→ 使屈从（bend sb to one's will）；路「弯」→ 拐弯（a bend in the road）；引申「曲解」（bend the rules 变通规则）。过去式 bent。"
+  },
+  "deafen": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "deaf(聋) + -en(使) = 使聋；引申「（声音）震耳欲聋」（a deafening roar 震耳的轰鸣）；「使隔音」是它的技术义。同族：deaf 聋的 / deaf-mute 聋哑人。"
+  },
+  "integrate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + teg(触动，拉丁 tangere) = 没被碰过、完整 → 整合、使结合（integrate A into B 把 A 并入 B）；数学的「积分」也是它。同族：entire 整个的 / integrity 完整·正直 / contact 接触。"
+  },
+  "tiresome": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "tire(使疲倦) + -some(令人…的) = 令人疲倦的 → 使人厌倦的（a tiresome lecture）。同类 -some「令人…的」：troublesome 麻烦的 / quarrelsome 好争吵的 / handsome 英俊的。"
+  },
+  "moor": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "中古荷兰语 maren「系住（船）」→ 停泊、系泊（moor the boat to the pier）。⚠️ 另有同形词 moor 指「荒原、沼泽地」（《呼啸山庄》的 moor 就是它）。"
+  },
+  "terrify": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "terr = 使害怕（拉丁 terrere）+ -ify(使) = 使恐怖。同族 terr「怕」：terror 恐怖 / terrible 可怕的 / deter 阻止（吓退）/ deterrent 威慑物。搭配：be terrified of 害怕。"
+  },
+  "alternate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "altern = 两者之一（拉丁 alter「另一个」）→ 交替的、轮流的（alternate days 每隔一天）；动词「使交替」。⚠️ 别与 alternative（可供选择的）混。同族：alter 改变 / altruism 利他主义。"
+  },
+  "minimize": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "minim = 最小（拉丁 minimus）+ -ize(使) = 使减到最小（minimize the risk 把风险降到最低）；引申「轻描淡写」（minimize the problem）。同族：minimum 最小 / minor 次要的 / diminish 减少。"
+  },
+  "mingle": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 mengan「混合」→ 混合、交往（mingle with the guests 与客人交谈）。辨析：mix 是彻底混合，mingle 是混在一起但各自还在（a mingle of voices 各种声音交织）。同族：among 在…之中。"
+  },
+  "interconnect": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "inter-(之间) + connect(连接) = 互相连接（interconnected systems 互连系统）。同族 inter-：interact 互动 / international 国际的 / intervene 干预 / interlock 互锁。"
+  },
+  "reconcile": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(再) + con-(一起) + cile(召集) = 再把大家召到一起 → 使和好、调停；引申「使（矛盾的说法）相容」（reconcile A with B）和「使甘心」（be reconciled to 接受）。同族：council 委员会 / conciliate 安抚。"
+  },
+  "enrich": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "en-(使) + rich(富) = 使富裕；更常用的是「使丰富」（enrich the vocabulary 丰富词汇 / enriched uranium 浓缩铀）。同类 en- + 形容词：enlarge 扩大 / enable 使能够 / ensure 确保。"
+  },
+  "degrade": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + grad(级、走，拉丁 gradi) = 往下降级 → 使降级、使堕落（degraded 堕落的）；化学里的「降解」也是它。同族：grade 等级 / upgrade 升级 / gradual 逐渐的 / gradient 坡度。"
+  },
+  "embarrass": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自意大利语 imbarrare「用栏杆围住」（em- 使 + barra 栏杆）→ 使陷入困境 → 使窘迫、使为难；最早的义项是「使负债、使复杂化」。同族：bar 栏杆 / barrier 障碍。"
+  },
+  "oblige": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ob-(向) + lig(绑，拉丁 ligare) = 把人绑住 → 使不得不（be obliged to do）；施恩惠也是用恩情绑住对方 → 使感激（much obliged 非常感谢）。同族：obligation 义务 / liable 有责任的 / religion 宗教。"
+  },
+  "decay": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + cay(落，拉丁 cadere) = 往下掉 → 腐朽、衰败（decaying teeth 蛀牙 / urban decay 城市衰败）；物理里的「衰变」（radioactive decay）也是它。同族：accident 事故 / occasion 场合 / coincide 巧合。"
+  },
+  "contrast": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "contra-(相反) + st(站，拉丁 stare) = 站在对面比 → 对比（contrast A with B / in contrast to 与…相反）。同族 contra「相反」：contradict 反驳 / controversy 争论 / contrary 相反的。"
+  },
+  "mature": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "matur = 成熟（拉丁 maturus）→ 成熟的、使成熟；金融上「（票据）到期」也是它。同族：maturity 成熟·到期 / premature 过早的（pre- 前 + mature 熟）。"
+  },
+  "tangle": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "「缠成一团」→ 使缠结（tangled hair 打结的头发）；引申「卷入纠纷」（be tangled in 卷入）。反义 untangle 解开。同族：entangle 使纠缠 / entanglement 纠缠。"
+  },
+  "ice": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「冰」→ 动词「使结冰、冰镇」（iced coffee 冰咖啡）；引申「（蛋糕）挂糖霜」。⚠️ 两个习语必记：break the ice 打破僵局 / on thin ice 如履薄冰。"
+  },
+  "overload": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(过度) + load(负载) = 使超载；计算机与电气的「过载」也是它。同类 over- 表过度的动词：overwork 过劳 / oversleep 睡过头 / overcharge 多收费。"
+  },
+  "develop": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(去掉) + velop(包裹，古法语 voloper) = 把包着的东西展开 → 显露、发展；摄影里的「显影」就是让影像显现出来。同族：envelope 信封（包起来的东西）/ development 发展。"
+  },
+  "sweeten": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sweet(甜) + -en(使) = 使变甜；引申「（条件）变得更诱人」（sweeten the deal 加码）。同类 -en 使动：thicken 使变厚 / soften 使变软 / widen 加宽 / strengthen 加强。"
+  },
+  "nourishment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "nourish(养育) + -ment = 营养、食物（take nourishment 进食）。同族：nourish 养育 / nutrition 营养学 / nutrient 营养素 / nurse 护士。"
+  },
+  "thicken": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "thick(厚) + -en(使) = 使变厚；引申「（情节）变复杂」—— the plot thickens 情节变得扑朔迷离，是个高频习语。同类 -en：quicken 加快 / deepen 加深 / heighten 提高。"
+  },
+  "experimentation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + per(试，拉丁 periri) = 试出来 → 实验。同族 per「试/冒险」：experiment 实验 / experience 经验（试出来的）/ expert 专家 / peril 危险。搭配：by experimentation 通过实验。"
+  },
+  "jog": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "核心是「轻轻颠一下」：轻推（jog sb's elbow 碰一下手肘）；慢跑（go jogging）；唤起记忆（jog one's memory 提醒一下）。一个画面：轻轻一颠。"
+  },
+  "virtual": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "virtu = 力量、实质（拉丁 virtus，同 virtue）→ 实质上的、实际上的（a virtual monopoly 实质垄断）；计算机里的「虚拟」是后来引申，virtually 意为「几乎」。同族：virtue 美德 / virile 有男子气的。"
+  },
+  "establish": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + stabl(站稳，拉丁 stabilis) = 立稳 → 建立、确立（establish a company 创办公司）。同族：stable 稳定的 / stability 稳定 / stand 站 / establishment 机构。"
+  },
+  "baffle": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "「让人完全摸不着头脑」→ 使困惑、使受挫（The question baffled me.）；工程上的「挡板」（baffle plate，挡住流体）是同一个「挡住」的画面。形容词 baffling 令人费解的。"
+  },
+  "engage": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(使) + gage(抵押、保证) = 用承诺绑住 → 使从事（engage in 从事）、订婚（be engaged to）、雇用；机械里「啮合」和打电话「占线」都是「接上了」。同族：wage 工资（原义抵押物）/ wager 打赌 / engagement 约定·订婚。"
+  },
+  "execution": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + secut(跟随，拉丁 sequi) = 一路跟到底做完 → 执行（put into execution 付诸实施）；把判决执行到底 → 处死刑。同族 sequ「跟随」：sequence 序列 / consequence 后果 / pursue 追求。"
+  },
+  "vector": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vect = 运送（拉丁 vehere，同 vehicle）→ 有方向地运送 → 矢量（既有大小又有方向）；生物学里「传播媒介」（蚊虫是疟疾的 vector）与航空的「航向」都是这个「带过去」的意思。同族：vehicle 车辆 / convection 对流。"
+  },
+  "quartz": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "德语 Quarz（可能来自斯拉夫语「硬」）→ 石英（quartz watch 石英表）。矿物名常见后缀：-ite 表示矿物（granite 花岗岩 / graphite 石墨）。"
+  },
+  "pantry": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pan = 面包（拉丁 panis）→ 放面包的地方 → 食品柜、餐具室。同族 pan「面包」：company 同伴（com- 一起 + pan 面包 → 分面包的人）/ pannier 挂篮。"
+  },
+  "whitewash": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "white(白) + wash(刷) = 刷白灰 → 石灰水；引申「粉饰、掩盖」（whitewash the scandal 把丑闻洗白）。同类「用颜色比喻掩盖」：whitewash 粉饰 / gloss over 掩饰 / sugarcoat 裹糖衣。"
+  },
+  "experimentally": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "experiment(实验) + -ally = 实验上、以实验方式（experimentally verified 经实验验证的）。同族：experiment 实验 / experimental 实验性的 / experimentation 实验法。"
+  },
+  "limestone": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "lime(石灰) + stone(石) = 石灰石。同族 lime：limelight 石灰光 → 众人注目（舞台照明用石灰光）/ limestone 石灰石。注意 lime 另有「酸橙」义，来源不同。"
+  },
+  "graphite": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "graph = 写（希腊 graphein）→ 能写字的石头 → 石墨（铅笔芯的成分）；-ite 是矿物后缀。同族 graph「写」：graph 图表 / photograph 照片 / paragraph 段落 / telegraph 电报。"
+  },
+  "humidity": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "humid = 湿（拉丁 humidus）→ 湿度（relative humidity 相对湿度）。同族：humid 潮湿的 / humidify 加湿 / humidor 保湿盒。对比：humidity 是空气里的水汽，moisture 是物体含的水。"
+  },
+  "verse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vers = 转（拉丁 vertere）—— 古人犁地到地头转回来就是「一行」，所以 verse 是诗行、韵文。同族 vers「转」：version 版本 / reverse 反转 / versus 对（转过来对着）/ versatile 多面手。"
+  },
+  "handout": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "hand(手) + out(出去) = 递出去的东西 → 施舍物、救济品；课堂上「发下去的材料」也叫 handout（讲义）。同类 hand + 介词：handover 移交 / hand-me-down 旧衣服。"
+  },
+  "unemployment": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "un-(不) + employ(雇用) + -ment = 失业（unemployment rate 失业率 / unemployment benefit 失业救济金）。同族：employ 雇用 / employee 雇员 / employer 雇主 / employment 就业。"
+  },
+  "disgrace": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(不) + grace(恩宠、体面) = 失去体面 → 丢脸、耻辱（in disgrace 失宠 / a disgrace to 对…是个耻辱）；动词「使丢脸」。同族：grace 优雅·恩典 / graceful 优雅的 / gracious 亲切的。"
+  },
+  "residual": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + sid(坐，拉丁 sedere) = 留下来的那部分 → 剩余的、残余的（residual income 剩余收入 / residual stress 残余应力）。同族 sid「坐」：reside 居住 / sediment 沉淀物 / session 会议 / preside 主持。"
+  },
+  "remainder": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "remain(剩下) + -der = 剩余物、余数（数学里的余数）。同族：remain 保持·剩下 / remains 遗迹 / remnant 残余。搭配：the remainder of 剩下的…"
+  },
+  "stiff": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「硬、不灵活」：身体硬 → 僵硬的（stiff neck 落枕）；态度硬 → 生硬的（a stiff manner）；价格硬 → 高昂的（a stiff price）；酒劲硬 → 烈性的。同族：stiffen 使变硬 / stiffness 硬度。"
+  },
+  "excel": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + cel(高，拉丁 celsus) = 高出别人 → 胜过、杰出（excel at/in 擅长；excel in maths 数学出众）。同族：excellent 优秀的 / excellence 卓越。"
+  },
+  "hide": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "两个同形词：① 动词「藏」（hide and seek 捉迷藏）；② 名词「兽皮、皮革」（另一来源）。两个习语：save one's hide 保命 / have a thick hide 脸皮厚。"
+  },
+  "ecology": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "eco = 家、居住环境（希腊 oikos）+ -logy(学问) → 生态学。同族 eco「家」：economy 经济（管家之道）/ ecosystem 生态系统 / ecocide 生态灭绝。"
+  },
+  "vital": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vit = 生命（拉丁 vita）→ 生命的、至关重要的（a vital question 至关重要的问题）。同族 vit/viv「生命」：vitamin 维生素 / vitality 活力 / survive 幸存 / vivid 生动的。"
+  },
+  "producer": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + duc(引导，拉丁 ducere) = 把东西带出来 → 生产者；影视里的「制片人」也是他。同族 duct「引导」：produce 生产 / product 产品 / introduce 引入 / reduce 减少。"
+  },
+  "productive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "produce(生产) + -ive = 多产的、富有成效的（a productive meeting 有成效的会议 / productive soil 肥沃的土地）。同族：product 产品 / productivity 生产率 / reproduction 繁殖。"
+  },
+  "hoist": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古荷兰语 hijsen「升起」→（用绳索）吊起、升起（hoist the flag 升旗）。习语很地道：hoist with one's own petard 搬起石头砸自己的脚（出自《哈姆雷特》）。"
+  },
+  "productivity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "productive(多产的) + -ity = 生产率（labour productivity 劳动生产率 / a productivity gain 效率提升）。同族：produce 生产 / product 产品 / productive 多产的。"
+  },
+  "deliberately": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + liber(天平，拉丁 libra，同 Libra 天秤座) = 反复称量 → 审慎地；「故意地」是引申（称量过的、有意的）。两个义项共存：He did it deliberately.（故意的 / 深思熟虑的。）"
+  },
+  "kidney": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古英语 kidenei。习语：a man of the right kidney 性情对路的人（「性格」义由此来）。搭配：kidney bean 芸豆 / kidney transplant 肾移植。"
+  },
+  "censor": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cens = 评估（拉丁 censere）→ 审查、删剪（censor the film 审查影片）；名词是审查员。同族：census 人口普查（评估人口）/ censorship 审查制度 / censure 谴责。"
+  },
+  "shrine": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "出自拉丁 scrinium「书箱、匣子」—— 装圣物的小匣子 → 神龛、神殿；引申「圣地」（a shrine of pilgrimage 朝圣地）。"
+  },
+  "mystery": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊 myein 是「闭上（眼、嘴）」—— 神秘教派的入教仪式要闭口不言，所以 myst = 神秘；出版业里 a murder mystery 就是「谋杀悬疑小说」。同族：mystic 神秘的 / mysterious 神秘的。"
   }
  }
 }
