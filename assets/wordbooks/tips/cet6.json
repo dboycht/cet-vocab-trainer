@@ -9554,6 +9554,341 @@
    "kind": "root",
    "certainty": "medium",
    "tip": "古英语 teru「焦油」→ 柏油、焦油（tar and feather 涂焦油粘羽毛，一种私刑）；口语 be tarred with the same brush 被看作一丘之貉。同族：tarpaulin 防水帆布。"
+  },
+  "trigger": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「扳机」→ 动词「触发、引起」（trigger a reaction 引发反应 / trigger an alarm 触发警报）；电脑里的「触发器」也是它。一个画面：扣一下就发生。"
+  },
+  "hemisphere": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "hemi-(半) + sphere(球) = 半球（the Northern Hemisphere 北半球）。同族 hemi-「半」：hemisphere 半球 / hemicycle 半圆。同族 sphere：atmosphere 大气层 / spherical 球形的。"
+  },
+  "blind": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "形容词「瞎的」→ 名词「百叶窗、遮帘」（blind 是挡光的「眼罩」）；引申「盲目的」（blind faith 盲信）、「隐蔽的」（a blind corner 视线死角）。习语：turn a blind eye to 视而不见。"
+  },
+  "liner": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "line(航线) + -er(船) = 跑固定航线的船 → 班轮、定期班机（an ocean liner 远洋班轮）；也指「衬里」（bin liner 垃圾袋）。同族：airline 航空公司 / line 线·航线。"
+  },
+  "millionaire": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "million(百万) + -aire(人，法语后缀) = 拥有百万的人 → 百万富翁、巨富。同类 -aire：billionaire 亿万富翁 / concessionaire 特许经营者。⚠️ 拼写两个 l 再接 ion。"
+  },
+  "shutter": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "shut(关) + -ter(器) = 关起来的东西 → 百叶窗、卷帘门；相机的「快门」（按下就开合一次）。同族：shut 关闭 / shutterbug 摄影迷。"
+  },
+  "white": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "形容词「白的」→ 指「白种人的」（a white man）；也指「（咖啡）加奶的」（white coffee）和「苍白的」（white with fear 吓得脸色发白）。习语：a white lie 善意的谎言。"
+  },
+  "lily": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 lilium「百合」→ 百合、睡莲。习语：gild the lily 画蛇添足（给百合再镀金）。同族：lily-white 纯白的·纯洁的。"
+  },
+  "bank": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "动词「把钱存入银行」（bank with 在某银行开户）；也指「指望」（You can bank on it. 这事靠谱）；航空的「倾斜转弯」是另一义。同族：bank 银行·河岸 / banker 银行家 / bankrupt 破产（长凳被砸断）。"
+  },
+  "idiot": {
+   "kind": "story",
+   "certainty": "high",
+   "tip": "希腊 idiotes 本是「不参与公共事务的普通人」（idios 自己的）→ 后来变成「无知的人」→ 白痴。同族：idiom 习语（一个语言「自己的」说法）/ idiosyncrasy 个人特质 / idiot savant 学者症候群。"
+  },
+  "blond": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "法语 blond「金黄色」→ 白肤金发碧眼的人。⚠️ 英语里常分性别：blond 指男性，blonde 指女性（法语形容词的性别变化遗留）。"
+  },
+  "bestow": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "be-(加强) + stow(放置，同 stow 装载) = 郑重放给对方 → 把…赠与（bestow an honour on sb 授予某人荣誉 / bestow a gift）。同族：stow 装载·收好。"
+  },
+  "subdivide": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sub-(再下) + divide(分) = 把…再分（subdivide the land into plots 把土地再分成小块）。同族：divide 分 / division 分割·部门 / individual 不可分的·个体。"
+  },
+  "tabulate": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "tabul = 板、表格（拉丁 tabula）→ 把…制成表（tabulate the results 把结果制成表格）。同族 tabul「板」：table 桌子·表格 / tablet 药片·平板电脑 / tabloid 小报。"
+  },
+  "dock": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「船坞」→ 动词「把…引入船坞、停靠」（The ship docked at noon.）；引申「扣（工资）」（dock sb's pay）和「（笔记本）接扩展坞」。同族：docker 码头工人 / dry dock 干船坞。"
+  },
+  "straighten": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "straight(直) + -en(使) = 把…弄直；也指「挺起身」（straighten up）和「整顿」（straighten out the mess 收拾局面）。同族：straight 直的·坦率的 / straightforward 直截了当的。"
+  },
+  "flatten": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "flat(平) + -ten(使) = 把…弄平、击倒（flatten the dough 把面团压平 / flatten the opponent 击倒对手）；「（曲线）变平」也是它。同族：flat 平的·公寓 / flattish 略平的。"
+  },
+  "ascribe": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "a-(向) + scribe(写，拉丁 scribere) = 把原因写到某人名下 → 把…归于（ascribe the success to luck 把成功归因于运气）。同族 script「写」：describe 描述 / prescribe 规定 / subscribe 订阅。"
+  },
+  "except": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + cept(拿，拉丁 capere) = 拿出去 → 把…除外（present company excepted 在场者除外）；介词「除…之外」。同族 cept「拿」：accept 接受 / concept 概念 / exception 例外。"
+  },
+  "entitle": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(使) + title(名号、权利) = 使有资格 → 把…称作（a book entitled… 一本名为…的书）；也指「使有权」（be entitled to 有权享有）。同族：title 标题·头衔 / entitlement 权利。"
+  },
+  "haughty": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 altus「高」（经法语 haut）→ 把自己看得很高 → 傲慢的（a haughty manner 傲慢的态度）。同族 alt「高」：altitude 高度 / exalt 赞扬 / enhance 提高。"
+  },
+  "ballet": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "法语 ballet，源自意大利 ballo「跳舞」（同 ball 舞会）→ 芭蕾舞。⚠️ 法语借词，读音 /ˈbæleɪ/，词尾 t 不发音。同族：ball 舞会 / ballroom 舞厅 / ballad 叙事歌谣。"
+  },
+  "foul": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「脏/违规」：肮脏的（foul water）、丑恶的（foul language 脏话）、体育的「犯规」（a foul）、「（天气）恶劣的」（foul weather）。同族：filth 污秽（同源）。"
+  },
+  "assassinate": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经中世纪拉丁 assassinus 来自阿拉伯语 hashshashin「抽大麻的人」—— 一个以暗杀为业的教派，于是「暗杀」叫 assassinate（多指政治要人）。同族：assassin 刺客 / assassination 暗杀。"
+  },
+  "burial": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "bury(埋) 的名词形式 → 安葬、埋葬（a burial site 墓地 / burial service 葬礼）。⚠️ 拼写：bury → burial（y 变 i，去掉 e）。同族：bury 埋 / buried 埋藏的。"
+  },
+  "luxurious": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "luxur = 过度、奢华（拉丁 luxuria）→ 豪华的、爱奢侈的（a luxurious hotel 豪华酒店）。⚠️ 与 luxuriant（茂盛的）区分。同族：luxury 奢华 / luxuriate 尽情享受。"
+  },
+  "patriot": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "patr = 父亲、祖国（拉丁 pater）→ 爱「父辈之地」的人 → 爱国者（a true patriot）。同族 pater「父」：paternal 父亲的 / patriotism 爱国主义 / compatriot 同胞（同父之地的）。"
+  },
+  "patriotic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "patriot(爱国者) + -ic = 爱国的（patriotic songs 爱国歌曲）。同族：patriot 爱国者 / patriotism 爱国主义 / compatriot 同胞。"
+  },
+  "dwarf": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "古英语 dweorg「矮子」→ 侏儒；动词「使显得渺小」（The tower dwarfs the houses.）；天文上的「矮星」（a white dwarf 白矮星）。同族：dwarfish 矮小的。"
+  },
+  "alas": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "出自古法语 a las「唉，可怜」（las 疲惫）→ 唉、哎呀（表遗憾）：Alas, we lost. 唉，我们输了。同类感叹词：alas 唉 / oh dear 哎呀 / unfortunately 遗憾的是。"
+  },
+  "stout": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "出自古法语 estout「骄傲、凶猛」→ 矮胖结实的（a stout man）；也指「坚固的」（a stout stick 结实的棍子）和「坚决的」（stout resistance 顽强的抵抗）；名词指一种黑啤酒。"
+  },
+  "pathetic": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "path = 感情、受苦（希腊 pathos）→ 能激起同情的 → 可怜的、哀婉动人的（a pathetic sight 可怜的情景）；口语里也表轻蔑的「太差劲」。同族 path「感情」：sympathy 同情 / apathy 冷漠 / pathology 病理学。"
+  },
+  "Egyptian": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "来自希腊 Aigyptos（尼罗河旧名，也指埃及）→ 埃及的、埃及人。文化词：Egyptian pyramids 金字塔 / hieroglyphics 象形文字 / Cleopatra 克利奥帕特拉。"
+  },
+  "should": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "除了「应该」，还有两个常考用法：① 表「竟然会」（It's strange that he should say that. 他竟会那么说）；② 虚拟条件句里表「万一」（If you should need help, call me.）。"
+  },
+  "ought": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "情态动词「应该」，与 should 近义但更强调义务，**永远带 to**：You ought to see a doctor. / He ought to have told me.（本应该告诉我而没告诉）。⚠️ 否定是 ought not to。"
+  },
+  "referee": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + fer(带，拉丁 ferre) + -ee(被…的人) = 被请去裁定的人 → 裁判员（a football referee）；也指「推荐人」（求职时）。⚠️ -ee 是「被动方」：employer 雇主 / employee 雇员。"
+  },
+  "scripture": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "script(写，拉丁 scribere) + -ure = 写下来的东西 → 圣书、《圣经》（the Holy Scripture 圣经）。同族 script「写」：manuscript 手稿 / prescription 处方 / describe 描述。"
+  },
+  "pendulum": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pend = 挂（拉丁 pendere）→ 挂在那里摆的东西 → 钟摆；引申「来回摇摆的事物」（the pendulum of opinion 舆论的摇摆）。同族 pend「挂」：depend 依赖 / suspend 悬挂 / appendix 附录·阑尾。"
+  },
+  "gross": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "四个义项：① 总的、毛的（gross income 总收入，反义 net 净的）；② 粗俗的（gross language）；③ 严重的（a gross error 重大错误）；④ 一罗（＝144 个）。⚠️ 商业上 gross 和 net 必须分清。"
+  },
+  "outbreak": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "out(出) + break(破) = 爆发出来 → （战争、疾病、愤怒的）爆发（the outbreak of war 战争爆发 / an outbreak of flu 流感爆发）。同类 out + 动词：outburst 爆发 / outcry 抗议 / outcome 结果。"
+  },
+  "heave": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "核心是「用力抬起或起伏」：举起、扔（heave the box into the truck）；胸部起伏（heave a sigh 长叹一声）；恶心（heave 想吐）。同族：heave-ho 用力拉时的号子声。"
+  },
+  "shuttle": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「织机的梭」—— 来回穿 → 引申「短程往返的交通工具」（a shuttle bus 班车 / the space shuttle 航天飞机）和动词「往返运送」（shuttle between A and B）。"
+  },
+  "pop": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "拟声的「砰」→ ① 突然出现、冒出（pop in 顺便进来 / pop up 冒出来）；② 砰地爆开（pop the balloon）；③ 流行的（pop music 流行音乐，popular 的缩写）。"
+  },
+  "market": {
+    "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「市场」→ 动词「（在市场上）销售、推销」（market the product 推销产品 / market itself as 自我标榜为）。同族：marketing 营销 / supermarket 超市。"
+  },
+  "lining": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "line(加衬里) + -ing = 衬里（a coat with a silk lining 丝绸衬里的大衣）。同族：line 线·加衬里 / liner 衬垫·班轮。习语：every cloud has a silver lining 黑暗中总有一线光明。"
+  },
+  "mild": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「温和」：（气候）暖和的（mild winter 暖冬）、（味道）淡的（mild cheese / mild cigar）、（态度）温和的（a mild rebuke 温和的责备）。同族：mildly 稍微地 / mildness 温和。"
+  },
+  "rigorous": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "rig = 僵硬、严格（拉丁 rigere）→ 「严峻的、严格的」（rigorous standards 严格标准 / a rigorous analysis 严密的分析）。⚠️ 与 vigorous（精力旺盛的）区分。同族：rigid 僵硬的 / rigor 严酷。"
+  },
+  "climax": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "希腊 klimax 本是「梯子」→ 一路爬到顶 → 顶点、高潮（the climax of the film 影片高潮）。同族：climb 爬（同源）/ climactic 高潮的。⚠️ 别与 climatic（气候的）混。"
+  },
+  "shrimp": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古北欧语 skorpna「皱缩」→ 小虾、河虾（像缩起来的东西）；口语里指「矮小的人」（a shrimp）。同类海鲜：shrimp 小虾 / prawn 大虾 / lobster 龙虾 / crab 蟹。"
+  },
+  "panel": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 pannus「一块布」→ 一块板 → 专门小组（a panel of experts 专家组）、面板（control panel 控制面板）、陪审团。同族：pane 窗格 / panelist 讨论组成员。"
+  },
+  "peak": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「尖端、山顶」→ 形容词「高峰的」（peak hours 高峰时段 / peak season 旺季）；动词「达到顶点」（Sales peaked in July.）。搭配：at one's peak 处于巅峰。"
+  },
+  "epoch": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "希腊 epokhe「暂停、一个时间点」→ （新时代的）起点 → 时代、纪元（a new epoch in history 历史上的新纪元）；地质学的「世」。同族：epoch-making 划时代的。"
+  },
+  "drain": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "① （水）流掉、排干（The water drained away.）；② 耗尽（drain one's energy 耗尽精力 / brain drain 人才外流）；名词「下水道」。同族：drainage 排水系统。"
+  },
+  "cane": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 kanna「芦苇」→ 藤茎、手杖（walk with a cane 拄杖）；甘蔗叫 sugar cane。同族：cannery 罐头厂 / canister 罐（同一词根「管状」）。"
+  },
+  "switch": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「（树木的）软枝条」→ 抽打的枝条 → 引申「开关」（一拨就换）、「转换」（switch the channel / switch to another job）。同族：switchboard 交换机。"
+  },
+  "immigrate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(进入) + migr(迁移，拉丁 migrare) = 移入 → （使）移居入境（immigrate to Canada 移民加拿大）。三兄弟：immigrate 移入 / emigrate 移出 / migrate 迁徙（中性）。同族：immigrant 移民。"
+  },
+  "expenditure": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + pend(称、付，拉丁 pendere) + -iture = 付出去的钱 → 支出、消费（government expenditure 政府支出 / energy expenditure 能量消耗）。同族 pend「称/付」：expend 花费 / expensive 昂贵的 / pension 养老金。"
+  },
+  "board": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「板」→ 多种引申：董事会（a board of directors 由围坐一桌的人而来）、登机（board a plane）、搭伙供膳（board and lodging 食宿）。搭配：on board 在船上·已加入 / across the board 全面地。"
+  },
+  "lump": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "名词「块、肿块」（a lump of sugar / a lump in one's throat 喉咙哽住）；动词「（使）成团」；形容词「一次付清的」（a lump sum 一次性付款）。搭配：lump together 混为一谈。"
+  },
+  "disperse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "di-(分开) + spers(撒，拉丁 spargere) = 撒开 → （使）分散、驱散（disperse the crowd 驱散人群 / the dispersed particles 分散的颗粒）。同族：dispersion 分散 / sparse 稀疏的。"
+  },
+  "elapse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "e-(出) + laps(滑，拉丁 labi) = 滑过去 → （时间）过去、消逝（Three years elapsed. 三年过去了 / the elapsed time 经过的时间）。同族 laps「滑」：collapse 倒塌（一起滑倒）/ relapse 复发。"
+  },
+  "deviate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(离开) + vi(路，拉丁 via) + -ate = 离开道路 → （使）背离、偏离（deviate from the plan 偏离计划 / deviate from the norm 偏离常规）。同族 via「路」：deviation 偏差 / obvious 明显的 / previous 先前的。"
+  },
+  "hoarse": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "古英语 has「嘶哑」→ （声音）嘶哑的（a hoarse voice 沙哑的嗓音 / shout oneself hoarse 喊哑了嗓子）。⚠️ 与 horse（马）同音不同词。"
+  },
+  "clearing": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "clear(清空) + -ing = 被清空的一块 → （森林中的）空旷地（a clearing in the woods 林中空地）；金融上的「清算」也是它。同族：clear 清楚的 / clearance 清理·间隙。"
+  },
+  "pose": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "① （使）摆好姿势（pose for a photo）；② 装成（pose as a doctor 冒充医生）；③ 造成（pose a threat 构成威胁 / pose a question 提出问题）。同族：position 位置 / positive 肯定的 / compose 组成。"
+  },
+  "eclipse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ek-(出) + leips(离开，希腊 leipein) = 光离开了 → （日、月）食；引申「使黯然失色」（She eclipsed all rivals. 她使所有对手黯然失色）。同族：ellipse 椭圆（缺了一块的圆）/ elliptical 椭圆的。"
+  },
+  "quiver": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "「（轻微地）颤动」（quiver with fear 怕得发抖 / a quiver in her voice 声音发颤）；名词「箭袋」（另一个来源）。同类「抖」的强度：shiver 因冷哆嗦 / quiver 轻颤 / tremble 发抖 / shudder 猛一哆嗦。"
   }
  }
 }

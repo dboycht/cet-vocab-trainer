@@ -15664,11 +15664,14 @@
   },
   {
    "word": "millionaire",
-   "def": "n.百分富翁，巨富",
+   "def": "n.百万富翁，巨富",
    "pos": [
     "n."
    ],
-   "page": 28
+   "page": 28,
+   "source_def": "n.百分富翁，巨富",
+   "source_pos": [],
+   "entry_fix": "def_fix"
   },
   {
    "word": "shutter",

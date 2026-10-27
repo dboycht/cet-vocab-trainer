@@ -180,6 +180,12 @@
       "pos": ["a.", "vt.", "vi."],
       "def": "a.丰满的，圆胖的；鼓起的 vt./vi.使鼓起；（扑通）坐下",
       "evidence": "源书标 vt.，而释义「丰满的；鼓起的」是形容词。plump 作形容词是最常见用法（a plump chicken），作动词是 plump down（扑通坐下）。"
+    },
+    "millionaire": {
+      "kind": "def_fix",
+      "pos": ["n."],
+      "def": "n.百万富翁，巨富",
+      "evidence": "源 PDF 该格原文是「millionaire n. 百分富翁，巨富」——「百分富翁」是明显的排印错误，应为「百万富翁」（million = 百万，词形本身就写着）。这是纯笔误，不属于释义窜入，但同样走表修正。"
     }
   }
 }
