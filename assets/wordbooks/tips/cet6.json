@@ -4894,6 +4894,336 @@
    "kind": "family",
    "certainty": "high",
    "tip": "cap = 抓、容纳（拉丁 capere）→ 能接得住 → 能力、性能（the capability of the machine 机器性能 / nuclear capability 核能力）。同族 cap「抓/容纳」：capable 有能力的 / capacity 容量 / capture 捕获。"
+  },
+  "basin": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 bacca「水盆」→ 盆；地形像一个盆 → 盆地、流域（the Amazon basin 亚马孙流域）；地理上的「内海」也是它。"
+  },
+  "interior": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "inter = 在…之间（拉丁 inter）+ -ior(比较级) = 更里面的 → 内部（the interior of the country 内陆 / interior design 室内设计）；反义 exterior 外部。同族：internal 内部的 / intermediate 中间的 / intervene 介入。"
+  },
+  "tickle": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "「轻轻挠」→ 胳肢（tickle sb's feet）；引申「逗乐、使高兴」（tickled pink 高兴极了）和「撩动味蕾」。同族：ticklish 怕痒的·棘手的。"
+  },
+  "incredible": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(不) + cred(相信，拉丁 credere) + -ible = 不能相信的 → 难以置信的；口语里常表示「好得惊人」（Incredible! 太棒了）。同族 cred「相信」：credit 信用 / credible 可信的 / creed 信条 / credentials 资历。"
+  },
+  "difficult": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(不) + fic(做，拉丁 facere) = 做不动 → 困难的；「难以满足的」（a difficult customer 难伺候的顾客）是引申。同族 fic「做」：facility 便利 / sufficient 充足的 / perfect 完美。"
+  },
+  "refugee": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(回) + fug(逃，拉丁 fugere) = 逃到安全处 → 避难；refugee 是被迫逃亡的人 → 难民（a refugee camp 难民营）。同族 fug「逃」：refuge 避难所 / fugitive 逃亡者 / centrifuge 离心机（逃离心）。"
+  },
+  "antarctic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "ant-(相反) + arctic(北极的) = 北极的反面 → 南极的（the Antarctic 南极地区）。同族：Arctic 北极（希腊 arktos「熊」，指大熊星座）/ Antarctica 南极洲。"
+  },
+  "pumpkin": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "经法语 pompon 来自希腊 pepon「熟透的瓜」→ 南瓜；美式文化里 pumpkin 是万圣节的象征（pumpkin pie 南瓜派）。"
+  },
+  "polar": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "pol = 极、轴（希腊 polos）→ 南北极的、极性的（polar bear 北极熊 / polar opposite 截然相反）。同族：pole 极 / polarity 极性 / polarize 使两极分化。"
+  },
+  "masculine": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mascul = 男性（拉丁 masculus）→ 男性的、阳刚的；语法上的「阳性」也是它。同族：male 男性 / emasculate 使失去男子气。两对对比：male/female 看生理，masculine/feminine 看气质。"
+  },
+  "endurance": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(使) + dur(持久，拉丁 durare) + -ance = 撑得住 → 耐久力（beyond endurance 无法忍受 / endurance test 耐力测试）。同族 dur「持久/硬」：endure 忍受 / durable 耐用的 / during 在…期间。"
+  },
+  "baron": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古法语 baron「自由人、战士」→ 男爵、贵族；引申「巨商」（a press baron 报业大亨 / a drug baron 毒枭）。同族：baroness 男爵夫人 / baronial 男爵的。"
+  },
+  "intent": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(向) + tent(伸，拉丁 tendere) = 心思全伸过去 → 专注的、热切的（intent on 专注于）；名词「意图」（with intent to 蓄意）。同族 tend/tent「伸」：intend 打算 / attention 注意 / extend 延伸 / tension 紧张。"
+  },
+  "pasture": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "past = 放牧、喂养（拉丁 pascere）→ 牧场（put out to pasture 放牧·使退休）。同族：pastor 牧师（牧羊人）/ repast 餐食。"
+  },
+  "sodium": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自阿拉伯语 suda「头痛」（苏打曾用来治头痛）→ soda 苏打；-ium 是金属元素后缀 → sodium 钠（化学符号 Na，来自拉丁 natrium）。同族：sodium chloride 氯化钠（食盐）。"
+  },
+  "end": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "词义链：「末端」→「终点」→「目的」（终点就是你要到达的地方）：the end justifies the means 为达目的不择手段 / to this end 为此 / at loose ends 无所适从。这个义项在正式写作里很常见。"
+  },
+  "oyster": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "希腊 ostreon「贝壳」→ 牡蛎。两个文化点：as silent as an oyster 一言不发；the world is your oyster 世界任你闯（出自莎士比亚）。同源词：ostracize 陶片放逐（用贝壳投票）。"
+  },
+  "skyscraper": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "sky(天) + scrape(擦) + -er = 擦着天的高楼 → 摩天楼。同族：scrape 刮擦 / skyscape 天空景色。同类夸张构词：fire-eater 吞火者 / tearjerker 催泪片。"
+  },
+  "magician": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mag = 大、有法力（希腊 magos，波斯祭司）→ 魔法师、魔术师。同族 mag「大」：magic 魔法 / magnitude 巨大·量级 / magnate 巨头 / magnificent 壮丽的。"
+  },
+  "module": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "mod = 尺度（拉丁 modus）+ -ule(小) = 小尺度单位 → 模块、组件（a software module 软件模块）；建筑上的「模数」、太空舱的「舱」（the lunar module 登月舱）都是它。同族：mode 方式 / model 模型 / moderate 适度的。"
+  },
+  "feel": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "feel 作系动词表「摸起来、感觉起来」：The silk feels smooth. 丝绸摸起来很滑。⚠️ 这类感官动词（feel / taste / smell / sound / look）后面跟形容词而不跟副词 —— 考试常考。"
+  },
+  "ambiguous": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ambi-(两边) + ig(走，拉丁 agere) = 两边都能走 → 模棱两可的（an ambiguous answer）。同族：ambition 野心（到处走拉票）/ ambient 周围的 / ambiguity 歧义。"
+  },
+  "destiny": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + stin(站定、确定，拉丁 destinare) = 早就定好了 → 命运、天数。同族：destine 注定 / destination 目的地（定好的地方）/ obstinate 固执的（站定不动）。"
+  },
+  "doom": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古英语 dom 本是「判决、法令」（同 deem）→ 判决结果不好就是「厄运、毁灭」；动词「注定」（doomed to fail 注定失败）。同族：deem 认为 / doomsday 末日。"
+  },
+  "proposition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + posit(放，拉丁 ponere) + -ion = 摆到桌面上的主张 → 提议；逻辑学与数学的「命题」都是它。同族 posit「放」：propose 提议 / position 位置 / compose 组成 / deposit 存放。"
+  },
+  "bid": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "古英语 beodan「命令、宣布」→ 命令（bid sb do sth）；拍卖时「宣布价钱」→ 出价、投标（bid for the contract 投标）。同族：forbid 禁止 / bead 念珠（原义「祈祷」）。过去式特殊：bid-bade-bidden。"
+  },
+  "decidedly": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(完全) + cid(切，拉丁 caedere) + -edly = 一刀切断 → 明确地、坚决地（decidedly better 明显更好）。同族 cid「切」：decide 决定（切断犹豫）/ precise 精确的 / scissors 剪刀。"
+  },
+  "destine": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 destinare「确定下来」→ 命定、注定（be destined to 注定要 / be destined for 注定去）。同族：destiny 命运 / destination 目的地 / predestination 宿命论。"
+  },
+  "formulation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "form(形式) + -ulation = 把想法弄成形 → 明确的表述、配方（the formulation of policy 政策的制定 / a new formulation of the drug 药物的新配方）。同族：formula 公式·配方 / format 格式。"
+  },
+  "explicit": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + plic(折，拉丁 plicare) = 把折着的打开摊明白 → 明晰的、直率的（explicit instructions 明确的指示）；反义 implicit 含蓄的。同族 plic「折」：complicate 使复杂 / multiply 乘 / display 展示。"
+  },
+  "classic": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "class = 等级（拉丁 classis，罗马公民按财产分的等级）→ 第一等的作品 → 名著、经典（a classic novel）；形容词「不朽的、典型的」（a classic example 典型例子）。同族：class 等级 / classify 分类 / classical 古典的。"
+  },
+  "sensible": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sens = 感觉（拉丁 sentire）→ 感觉得到的、明显的；⚠️ 现代最常用的义是「明智的、通情达理的」（a sensible decision），别与 sensitive（敏感的）混。同族：sense 感觉 / sensation 感觉·轰动 / sensitive 敏感的。"
+  },
+  "promptly": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + empt(拿，拉丁 emere) = 立刻拿出来 → 迅速地、及时地（reply promptly 及时回复）；prompt 作动词是「促使、提词」。同族：prompt 迅速的·提示。"
+  },
+  "brightness": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "bright(明亮/聪明) + -ness = 明亮、辉煌、聪明（the brightness of the stars / brightness of mind）。同族：bright 明亮的·聪明的 / brighten 使变亮 / a bright idea 好主意。"
+  },
+  "deposition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + posit(放，拉丁 ponere) = 把人放到下面去 → 免职、罢免；法律上「把证词记下来」→ 口供（give a deposition 作证）；地质上的「沉积」也是它。同族 posit「放」：deposit 存放·沉积 / position 位置。"
+  },
+  "sensitivity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "sens = 感觉（拉丁 sentire）→ 敏感性、灵敏度（the sensitivity of the instrument 仪器灵敏度 / light sensitivity 感光度）。同族：sensitive 敏感的 / sensible 明智的 / sensation 感觉。"
+  },
+  "enchant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "en-(使) + chant(唱，拉丁 cantare) = 对着人唱咒语 → 施魔法、使着迷（enchanted by the music 被音乐迷住）。同族 chant「唱」：chant 吟唱 / incantation 咒语 / accent 口音·重音。"
+  },
+  "representation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(再) + present(呈现) + -ation = 把东西再呈现出来 → 描写、陈述；替别人「呈现」→ 代表（proportional representation 比例代表制）。同族：present 呈现·现在 / represent 代表·表现。"
+  },
+  "confidential": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "con-(完全) + fid(信任，拉丁 fidere) + -ential = 只跟信得过的人说 → 机密的（confidential information 机密信息）、亲信的（a confidential secretary 机要秘书）。同族 fid「信」：confidence 信心·秘密 / confide 倾诉 / fidelity 忠诚。"
+  },
+  "nursery": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "nurs(养育) + -ery(场所) = 养育的场所 → 托儿所（nursery school 幼儿园）、苗圃、养鱼池 —— 都是「养东西的地方」。同族：nurse 护士·养育 / nurture 培育 / nourish 养育。"
+  },
+  "fascinate": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "拉丁 fascinare「施符咒」→ 用魔力镇住 → 使着迷（I was fascinated by the story.）；名词 fascination 魅力。⚠️ 同源的 fascism（法西斯）来自拉丁 fasces「束棒」，与 fascinate 是不同词。"
+  },
+  "superstition": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "super-(在上) + stit(站，拉丁 stare) + -ion = 站在道理之上（压过理性的东西）→ 迷信（break a superstition 破除迷信）。同族 stit/sta「站」：stand 站 / institute 建立 / superstition 迷信。"
+  },
+  "perplex": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "per-(完全) + plex(缠绕，拉丁 plectere) = 把脑子缠住 → 使困惑（a perplexing question 令人费解的问题）。同族 plex「缠/编」：complex 复杂的 / complexity 复杂性。"
+  },
+  "stray": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古法语 estraier「流浪」→ 走失、迷路（stray from the path 偏离小路）；形容词「走失的、零星的」（a stray dog 流浪狗 / a stray bullet 流弹 / a stray remark 随口一说）。同族：astray 迷途（go astray）。"
+  },
+  "bewilder": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "be-(加强) + wilder(荒野，同 wild) = 把人扔进荒野 → 使完全糊涂（bewildered 不知所措的 / a bewildering variety 令人眼花缭乱的品种）。同族：wild 野的 / wilderness 荒野。"
+  },
+  "hurl": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "中古英语 hurlen「猛扔」→ 猛力投掷（hurl a stone）；引申「（用话）猛烈攻击」（hurl insults 破口大骂）。四个「扔」的强度：toss 轻抛 < throw 扔 < fling 甩 < hurl 猛投。"
+  },
+  "pore": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "希腊 poros「通道」→ 毛孔、气孔（porous 多孔的）。⚠️ 另有同形动词 pore 指「钻研」（pore over a book 埋头读书），来源不同。"
+  },
+  "jerk": {
+   "kind": "sound",
+   "certainty": "medium",
+   "tip": "「猛地一动」：猛地一拉（jerk the rope）、抽搐（a muscle jerk）；口语里 a jerk 指「混蛋」。搭配：jerk awake 猛地惊醒 / jerk sb around 耍弄某人。同类动作：yank 猛拉 / tug 拽 / twitch 抽动。"
+  },
+  "fuss": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "「一阵忙乱」：make a fuss 大惊小怪 / fuss over sb 对某人过分照顾 / a fussy eater 挑食的人。同类「小题大做」：fuss / bother / ado（much ado about nothing 无事生非）。"
+  },
+  "snap": {
+   "kind": "sound",
+   "certainty": "high",
+   "tip": "拟声词，就是「啪」那一声：突然折断（snap the stick in two）、猛咬（The dog snapped at me）、拍照（snap a photo）、厉声说（snap at sb）。搭配：snap up 抢购 / a snap decision 仓促的决定。"
+  },
+  "offensive": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "of-(对着) + fens(打，拉丁 fendere) = 朝对方打过去 → 进攻的（offensive weapons 进攻性武器）；打到别人心里 → 冒犯的（an offensive remark）。同族 fens「打」：defend 防御 / offense 进攻·犯法 / fend off 挡开。"
+  },
+  "ally": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "al-(向) + ly(绑，拉丁 ligare) = 绑在一起 → 同盟者、盟国（a close ally 亲密盟友）；动词「结盟」（ally with）。同族 lig「绑」：alliance 联盟 / liable 有责任的 / league 联盟 / religion 宗教。"
+  },
+  "cartoon": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "意大利语 cartone「大张纸」（carta 纸的增大形式）→ 画在大纸上的草图 → 漫画、动画片（a cartoon character 卡通人物）。同族 cart「纸」：card 卡片 / chart 图表 / carton 纸盒 / cartridge 墨盒。"
+  },
+  "vine": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "vin = 葡萄、酒（拉丁 vinum）→ 葡萄藤 → 蔓、藤。同族 vin「葡萄/酒」：wine 葡萄酒 / vineyard 葡萄园 / vinegar 醋（酸酒）/ vintage 年份酒。"
+  },
+  "charm": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 carmen「歌、咒语」→ 用咒语使人着迷 → 魅力（charm the audience 迷住观众）；护身符也叫 charm。同族：chant 吟唱 / enchant 使着迷。"
+  },
+  "expire": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ex-(出) + spir(呼吸，拉丁 spirare) = 呼出最后一口气 → 断气、期满（The visa expires next month.）。同族 spir「呼吸」：spirit 精神 / inspire 鼓舞（吹气进去）/ conspire 密谋（一起呼吸）/ respiration 呼吸。"
+  },
+  "fair": {
+   "kind": "sense",
+   "certainty": "medium",
+   "tip": "三个同形词来源不同：① 形容词「公平的」（a fair deal）；② 形容词「美丽的」（古英语 fæger，a fair lady）；③ 名词「集市、博览会」（拉丁 feria 节日，a trade fair 交易会）。⚠️ fair 与 fare（车费）同音不同词。"
+  },
+  "bull": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "公牛 → 用角顶上去 → 股市「看涨的人、买空的投机商」（bull market 牛市）；反义 bear（熊市、看跌者）。同族：bully 欺凌（原义「像公牛一样」）/ bulldoze 推土。"
+  },
+  "wharf": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 hwearf「岸、转弯处」→ 码头（on the wharf 在码头上）。三个「码头」分清：wharf 停船装卸的码头 / dock 船坞 / pier 突堤码头。"
+  },
+  "circus": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "拉丁 circus 本是「圆形跑道」（罗马的赛车场 Circus Maximus）→ 圆形场地上的表演 → 马戏团。同族 circ「圈」：circle 圆 / circular 圆形的 / circuit 电路 / circulate 循环。习语：a media circus 媒体闹剧。"
+  },
+  "ass": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "拉丁 asinus「驴」→ 驴；引申「蠢人」（make an ass of oneself 出洋相）。同源词：easel 画架（原义「驮东西的驴」）。近义「蠢人」：ass / fool / idiot。"
+  },
+  "filter": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自中世纪拉丁 filtrum「毡」—— 用毡布滤液体 → 过滤（filter the water）；引申「（信息）逐渐传开」（The news filtered through.）和「（人群）陆续移动」。同族：filtrate 滤液。"
+  },
+  "propeller": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + pel(推，拉丁 pellere) + -ler(器) = 往前推的装置 → 螺旋桨、推进器。同族 pel「推」：propel 推进 / expel 驱逐 / repel 击退 / compel 强迫。"
+  },
+  "spiral": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "spir = 绕、盘（拉丁 spira）→ 螺旋形的（a spiral staircase 螺旋楼梯）；引申「（价格）螺旋式上升或下降」（a wage-price spiral 工资物价螺旋）。同族：spire 尖塔（螺旋向上）。"
+  },
+  "nut": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "本义「坚果」→ 机械上套在螺栓上的那个「果形件」→ 螺母（a nut and bolt 螺母螺栓）。习语很多：a hard nut to crack 难题 / in a nutshell 简而言之 / nuts 疯了。"
+  },
+  "oval": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ov = 卵（拉丁 ovum）→ 卵形的（an oval face 瓜子脸 / an oval mirror）。同族 ov「卵」：ovum 卵细胞 / ovary 卵巢 / ovate 卵形的。体育场常是 oval（椭圆形球场）。"
   }
  }
 }
