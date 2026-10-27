@@ -2559,6 +2559,331 @@
    "kind": "family",
    "certainty": "high",
    "tip": "cri「分辨、判断」（希腊 krinein）—— 到了必须做判断的关头 → 危机、转折点（中文「危机」= 危 + 机，意思相通）。复数特殊：crises。同族：critic 批评家 / critical 关键的 / criterion 标准。"
+  },
+  "dismiss": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(离开) + miss(送，拉丁 mittere) = 送走 → 解散、解雇、驳回；「忘掉」就是「把念头送走」。同族 miss「送」：mission 使命 / promise 承诺 / submit 提交 / admit 承认（送进去）。搭配：dismiss the idea 排除这个想法。"
+  },
+  "fro": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "fro 是 from 的古体，只活在固定词组 to and fro（来回地、往返）里 —— 和 from 一进一出。看到 fro 就直接想 to and fro，别当独立副词用。"
+  },
+  "mesh": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古荷兰语 maesche「网眼」→ 网眼、筛孔；动词「啮合、吻合」（the gears mesh 齿轮啮合 / mesh with 与…协调）。同族：net 网 / mask 面具（网状的罩）。"
+  },
+  "web": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 webb「织出来的东西」（同 weave 编织）→ 蛛网、网状物；the Web 就是万维网（WWW 的 W）。同族：weave 编织 / weft 纬线 / webbing 带子。"
+  },
+  "network": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "net(网) + work(构造物) = 网状的东西 → 网络、广播网、人脉（build a network 建立人脉）；动词「建立关系网」（networking 社交）。同族：net 网 / framework 框架。"
+  },
+  "trifle": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "本义「小事、琐事」→ 动词「玩弄、闲混」（trifle with sb 玩弄某人 / trifle away time 虚度光阴）。副词用法很地道：a trifle tired 有点儿累。同族：trivial 琐碎的（同一个来源）。"
+  },
+  "crooked": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "crook(弯曲；名词也是「弯钩、骗子」) + -ed = 弯曲的；引申「不正当的」（crooked dealings 不正当交易 / a crooked cop 黑警）。同族：crook 弯钩 / crutch 拐杖 / crochet 钩针编织。"
+  },
+  "stubborn": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自古英语 stubb「树桩」—— 像树桩一样扎着不动 → 顽固的；褒义时是「顽强的」（stubborn resistance 顽强的抵抗）。同族：stub 烟蒂·树桩 / stubble 茬。"
+  },
+  "completion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "com-(完全) + plet(填满，拉丁 plere) = 填满 → 完成。同族 ple「填满」：complete 完成 / complement 补足 / supply 供应 / implement 实施。搭配：on completion of 在完成…时。"
+  },
+  "hull": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 hulu「荚、壳」→ 外壳、豆荚、船体（船的外壳）。同族：husk 外皮 / shell 壳。动词义「去壳」（hulled rice 糙米）。"
+  },
+  "diplomatic": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊 diploma 是「对折的文书」（di- 两 + ploma 折）—— 古代官方文书要折起来，所以外交官最初就是管文书的人。同族：diploma 文凭 / diplomacy 外交 / triple 三倍（plic 折）。"
+  },
+  "strange": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "出自拉丁 extraneus「外来的」（同 external）：外地的 → 陌生的 → 奇怪的，三个义项就是一条线。同族：stranger 陌生人 / extraneous 外来的 / external 外部的。"
+  },
+  "alien": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ali = 别的（拉丁 alius）。别国的人 → 外国的、外国人；「格格不入的」是引申（feel alien to 感到陌生）。同族 ali「别的」：alias 化名 / alibi 不在场证明（在别处）/ alter 改变 / alternative 替代的。"
+  },
+  "distort": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "dis-(坏) + tort(扭，拉丁 torquere) = 扭坏 → 扭曲、歪曲（distort the facts 歪曲事实）。同族 tort「扭」：torture 折磨 / extort 敲诈（扭出来）/ retort 反驳 / tortoise 乌龟。"
+  },
+  "twist": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古英语 twist 本是「两股线拧成一股」（与 two 同源）→ 拧、扭；把话拧过来 → 歪曲（twist my words 曲解我的话）。搭配：twist one's ankle 扭伤脚踝 / a twist in the plot 情节转折。"
+  },
+  "tile": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自拉丁 tegula「瓦」；同源词 protect 就是 pro-(在前) + tegere(覆盖)，原义「在前面盖住」→ 瓦片、瓷砖。搭配：tile the floor 铺地砖 / ceramic tiles 瓷砖。"
+  },
+  "elliptical": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "希腊 elleipein「缺少」（en- 在 + leipein 离开）= 缺了一块：几何上「缺了的圆」就是椭圆，语法上「缺了词」就是省略（ellipsis 省略号 …）。同族：eclipse 日食（光「缺」了）。"
+  },
+  "haul": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "古法语 haler「拉」→ 拖运（haul goods 运货）；引申「（警方）拘捕」和「一网打获」（a big haul 一大票收获）。三个「拉」分清：tug 用力拽 / drag 拖重物 / haul 长距离拖运。"
+  },
+  "hip": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 hype「髋部」→ 臀部；建筑上的「屋脊」也叫 hip（四坡屋顶 hip roof）。习语：shoot from the hip 鲁莽行事。注意「时髦的」那个 hip 是另一个来源。"
+  },
+  "devour": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "de-(向下) + vour(吞，拉丁 vorare) = 吞下去 → 吞食；引申「如饥似渴地读」（devour a book 一口气读完）。同族 vor「吞」：voracious 贪吃的 / carnivore 食肉动物 / herbivore 食草动物。"
+  },
+  "retirement": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "re-(回) + tire(古法语「拉、draw」) = 把自己撤回来 → 退休、引退（retire from 从…退下来）。同族：retire 退休 / retired 退休的。⚠️ tire「轮胎、疲倦」是另一个词。"
+  },
+  "drawback": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "draw(拉) + back(回) = 把你往回拉的东西 → 弊端、缺点（the only drawback 唯一的缺点）；「退款」是它最早的意思（把钱拉回来）。同类「缺点」词：shortcoming / defect / flaw / downside。"
+  },
+  "inference": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(进) + fer(带，拉丁 ferre) = 把结论带进来 → 推断。同族 fer「带」：infer 推断 / refer 提到·参考 / transfer 转移 / differ 不同（分开带）/ offer 提供。搭配：draw an inference 作出推论。"
+  },
+  "rational": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "rat = 计算、理性（拉丁 ratio，也是 rate、ratio、reason 的根）。rational 是「有理性的、合理的」；反义 irrational 不理性的。同族：ratio 比率 / rate 比率 / ration 定量配给。"
+  },
+  "propulsion": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + puls(推，拉丁 pellere) = 往前推 → 推进、推进力（jet propulsion 喷气推进）。同族 puls「推/跳」：pulse 脉搏 / impulse 冲动 / repulse 击退 / compel 强迫。"
+  },
+  "propel": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + pel(推) = 往前推 → 推进（propel the boat 推动船）；被动式常用：be propelled by 由…驱动。同族：propeller 螺旋桨 / expel 驱逐（往外推）/ repel 击退。"
+  },
+  "recommendation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "re-(加强) + commend(托付、称赞) + -ation = 郑重地交托与称赞 → 推荐、建议。同族：commend 称赞·委托 / mandate 命令（手交出去）。搭配：on sb's recommendation 经某人推荐。"
+  },
+  "overthrow": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "over(翻过) + throw(扔) = 扔翻过去 → 推翻（overthrow the government 推翻政府），名词同形。同类 over- 动词：overturn 倾覆 / overcome 克服 / overload 超载。"
+  },
+  "impulse": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "im-(在内) + puls(推) = 内心那股推力 → 冲动、推动力（on impulse 一时冲动 / impulse buying 冲动购物）；物理上的「冲量」也是它。同族：propel 推进 / pulse 脉搏 / repulse 击退。"
+  },
+  "presumably": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "presume(推测) + -ably = 据推测、大概（Presumably he's already left.）。同族 sumpt/sum「拿」：presume 假定 / assume 假定 / consume 消耗 / resume 恢复。⚠️ 语气比 probably 更弱、更书面。"
+  },
+  "gather": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「收拢」：把人收拢 → 聚集；把东西收拢 → 采集；把线索收拢 → 推断（I gather that… 我推测…）。搭配：gather speed 加速 / gather dust 积灰。"
+  },
+  "shove": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "比 push 更用力的「猛推」。搭配：shove off 开船·滚开 / shove sth down sb's throat 硬塞给人；名词：give sth a shove 推一把。三个「推」：push 推 / shove 猛推 / thrust 用力插。"
+  },
+  "solidarity": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "solid(坚固) + -arity = 抱成一块 → 团结（in solidarity with 声援…）。同族：solid 坚固的 / consolidate 巩固 / solder 焊接。历史上波兰的「团结工会」就叫 Solidarity。"
+  },
+  "regiment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "reg = 统治（拉丁 regere）。被统一管辖的一群人 → 团（军事编制）、一大群；动词义「严格管制」。同族 reg：regime 政权 / region 地区 / regular 规则的 / royal 王室的。"
+  },
+  "bandit": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "意大利语 bandito 本是「被放逐的人」（bandire 宣布放逐）→ 亡命之徒 → 土匪。同源词 ban 禁止（同出「宣布」义）/ abandon 抛弃。搭配：bandit 单数 / banditti 一伙土匪。"
+  },
+  "lever": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "lev = 举起（拉丁 levare）。能把重物撬起来的东西 → 杠杆；引申「手段、途径」（a lever for change 变革的抓手）。同族 lev「举/轻」：elevate 提升 / relieve 减轻 / relevant 相关的 / levy 征税。"
+  },
+  "overtake": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "over(超过) + take(拿) = 追上、超过（overtake the leader 超过领先者）；「突然袭击」「压倒」都是引申（被追上并被制住）。搭配：be overtaken by events 被形势赶超（措手不及）。"
+  },
+  "nose": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "鼻子是脸上最突出的部分 → 「突出部分」（船头、机头、山的鼻端）；动词「小心地向前移动」（the car nosed into the traffic）。习语：under sb's nose 就在眼皮底下 / nose around 到处打听。"
+  },
+  "bald": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "出自古英语 ball「白斑」—— 头顶那块白斑 → 秃头的；引申「直白的、不加修饰的」（a bald statement 直白的陈述 / the bald facts 赤裸的事实）。搭配：go bald 变秃 / bald tyre 磨平了的轮胎。"
+  },
+  "projector": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "pro-(向前) + ject(扔，拉丁 jacere) + -or(器) = 往前扔光的机器 → 投影仪、探照灯。同族 ject「扔」：project 投射·项目 / inject 注射（扔进去）/ reject 拒绝（扔回去）/ subject 主题·使服从。"
+  },
+  "poll": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "中古英语 polle 是「头」—— 选举就是「数人头」，所以 poll 是投票、民意调查（opinion poll 民调 / go to the polls 去投票）。"
+  },
+  "dizzy": {
+   "kind": "story",
+   "certainty": "medium",
+   "tip": "古英语 dysig 本是「愚蠢的」→ 脑子转不动 → 头晕眼花的（feel dizzy / dizzy heights 令人眩晕的高度）。同族：dizzying 令人眼花缭乱的 / dozy 困倦的。"
+  },
+  "steal": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「不声不响地拿」：偷东西 → steal；偷偷地做 → steal a glance 偷看一眼 / steal a march on 抢先一步；悄悄移动 → steal into the room。⚠️ 过去式 stole，过去分词 stolen。"
+  },
+  "misery": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "miser = 可怜的（拉丁 miser）→ 痛苦、悲惨。同族：miserable 痛苦的 / miser 守财奴（「可怜的人」）/ commiserate 同情。搭配：put sb out of their misery 让某人解脱。"
+  },
+  "torment": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "tort = 扭（拉丁 torquere）。把人拧着 → 折磨、痛苦（in torment 在痛苦中）。同族 tort「扭」：torture 折磨 / distort 扭曲 / extort 敲诈 / retort 反驳。⚠️ 名词重音在前，动词在后。"
+  },
+  "thrash": {
+   "kind": "root",
+   "certainty": "medium",
+   "tip": "古英语 þrescan 本是「打谷」（把谷粒打下来）→ 痛打、鞭打；引申「（比赛中）大败」（thrash the opponent 痛击对手）和「翻来覆去」（thrash around）。同族：thresh 打谷 / threshold 门槛（打谷场上的横木）。"
+  },
+  "dominant": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "domin = 主人（拉丁 dominus）。dominant 是「占支配地位的」（a dominant position 主导地位）。同族：dominate 统治 / dominion 领地 / dame 夫人。⚠️ 生物学里显性 = dominant，隐性 = recessive。"
+  },
+  "dominate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "domin(主人) + -ate = 当主人 → 支配、统治（dominate the market 主导市场）；地理上「耸立于」（The tower dominates the city 高塔俯瞰全城）。同族：dominant 支配的 / dominion 领地 / predominant 主要的。"
+  },
+  "identical": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ident = 同一（拉丁 idem）。identical 是「完全相同的」（identical twins 同卵双生），数学上「恒等的」。同族：identity 身份 / identify 识别。搭配：identical to/with 与…完全相同。"
+  },
+  "likeness": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "like(像) + -ness = 相似、相似性（a family likeness 家族相似）；也指「画像、照片」（a good likeness 画得很像）。同族：like 像 / likely 可能的 / alike 相似的。"
+  },
+  "even": {
+   "kind": "sense",
+   "certainty": "high",
+   "tip": "核心是「平、相等」：平面 → 平的；数目相等 → 打平；日期相同 → 同一日期的；偶数（even numbers，因为能平分成两半）。副词用法最常用：even better 更好。搭配：get even with 报复。"
+  },
+  "homogeneous": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "homo = 同（希腊 homos）+ gene = 种类 → 同类的、均匀的（a homogeneous mixture 均匀混合物）；反义 heterogeneous 异质的。⚠️ 别与 homogenous（生物学「同源的」）混。同族：homonym 同音异义词。"
+  },
+  "notify": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "not = 知道、标记（拉丁 notus）→ 使知道 → 通知、告知。同族：notice 注意·通知 / notion 概念 / notable 显著的 / note 笔记。⚠️ 搭配是 notify sb of sth 或 notify sb that…"
+  },
+  "simultaneous": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "simul = 同时（拉丁 simul）→ 同时的（simultaneous interpretation 同声传译）。同族 simil/simul「相似/同时」：similar 相似的 / simulate 模拟 / assemble 集合。搭配：simultaneous with 与…同时。"
+  },
+  "advertise": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ad-(向) + vert(转，拉丁 vertere) = 把大众的目光转过来 → 做广告；最早的义项就是「通知」。同族 vert「转」：avert 避开 / convert 转换 / reverse 反转 / versatile 多面手。"
+  },
+  "coordinate": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "co-(一起) + ordin(次序，拉丁 ordo) = 排在同一个序列 → 同等的；动词「协调」（coordinate the efforts 协调各方）；数学的「坐标」就是一套有序的数。同族：order 顺序 / subordinate 下级的 / ordinance 法令。"
+  },
+  "popularity": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "popul = 人民（拉丁 populus）。被人民喜欢 → 流行、普及（gain popularity 走红 / lose popularity 失宠）。同族：popular 流行的 / population 人口 / public 公众 / populate 居住于。"
+  },
+  "accessory": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ac-(向) + cess(走，拉丁 cedere) + -ory = 跟着走到一起的 → 附属的、配件（car accessories 汽车配件）；法律上的「同谋」就是「跟着去的人」。同族 ced/cess「走」：access 接近 / proceed 进行 / exceed 超过。"
+  },
+  "whilst": {
+   "kind": "usage",
+   "certainty": "high",
+   "tip": "while 的古雅变体（英式写作里常见）：表「当…时」或「然而」（对比两件事）。区别：while 通用，whilst 偏正式英式，美式英语几乎不用。同类「古雅变体」：amongst = among / amidst = amid。"
+  },
+  "correspondence": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "cor-(一起) + respond(回应) + -ence = 互相回应 → 通信（keep up a correspondence 保持通信）、符合、对应。同族：respond 回应 / correspond 符合·通信 / correspondent 记者（通信的人）。"
+  },
+  "currency": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "curr = 跑（拉丁 currere）。在市面上「跑」的东西 → 流通 → 货币（foreign currency 外币）；「通用、流行」是同一个画面。同族：current 当前的·水流 / occur 发生（跑到眼前）/ excursion 远足。"
+  },
+  "entry": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "entr = 进入（拉丁 intrare）。进入的地方 → 通道、入口；进入册子的一项 → 条目（a dictionary entry 词典词条）；参加比赛 → 参赛作品。同族：enter 进入 / entrance 入口 / entrant 新加入者。"
+  },
+  "inflation": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "in-(向内) + flat(吹，拉丁 flare) = 吹起来 → 膨胀；经济上「钱被吹大」就是通货膨胀（反义 deflation 通货紧缩）。同族：inflate 使膨胀 / inflatable 可充气的 / flatter 奉承（吹）。"
+  },
+  "ordinarily": {
+   "kind": "family",
+   "certainty": "high",
+   "tip": "ordin(次序，拉丁 ordo) + -arily = 按常规来 → 通常、一般情况下（Ordinarily I'd agree, but…）。同族：ordinary 普通的 / order 顺序 / extraordinary 非凡的（超出常规）。"
+  },
+  "customary": {
+   "kind": "root",
+   "certainty": "high",
+   "tip": "custom(习惯) + -ary = 照惯例的（as is customary 按惯例）；也指「习惯法上的」（customary law）。同族：custom 习俗 / customer 顾客（老主顾 = 习惯来的人）/ accustom 使习惯。"
   }
  }
 }
