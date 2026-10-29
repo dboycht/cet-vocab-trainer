@@ -1552,6 +1552,11 @@ function resetProgress() {
  * 这与浏览器「返回」的直觉一致：一层一层往回退，退到底才离开。
  */
 function handleBack() {
+  // 0) 统计页优先：切到统计页时答案/反馈并未被销毁，只是整个 stage 被隐藏，
+  //    `#feedback` 可能仍是 visible。若不先处理这一层，下面的 `advance()` 会在
+  //    用户看不见的地方把 state.idx 往前推——等于**静默跳过一张卡**。
+  if (state.mode === 'stats') { setMode('quiz'); return true; }
+
   // 1) 判定反馈还开着 → 先收起，等于"继续下一张"
   if (!$('feedback').hidden) { advance(); return true; }
 
@@ -1563,13 +1568,10 @@ function handleBack() {
     return true;
   }
 
-  // 3) 统计页 → 回到测验
-  if (state.mode === 'stats') { setMode('quiz'); return true; }
-
-  // 4) 过词 / 浏览模式 → 回到测验主线
+  // 3) 过词 / 浏览模式 → 回到测验主线
   if (state.mode === 'flash' || state.mode === 'browse') { setMode('quiz'); return true; }
 
-  // 5) 已在测验主线且无待处理状态 → 交给壳退出应用
+  // 4) 已在测验主线且无待处理状态 → 交给壳退出应用
   return false;
 }
 

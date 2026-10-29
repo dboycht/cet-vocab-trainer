@@ -929,6 +929,97 @@ check("滚到底后底部按钮完整落在可视区内（真机上「点得到�
 // 复原视口，避免影响后续（本段在最后，仍复原以便 --keep 时手动查看）
 await send("Emulation.clearDeviceMetricsOverride");
 
+/* ---------- O. 返回键钩子（安卓壳调用 window.__cvtHandleBack） ---------- */
+console.log("\n--- O. 返回键钩子（安卓壳） ---");
+/*
+ * 安卓壳的返回键由页面决定"退一层还是退出应用"（壳看不到页面状态，见 README）。
+ * 这里验它的分支顺序，重点是一条容易写错的顺序：
+ *   统计页 → 必须先回测验，**不能**先去处理可见的 feedback。
+ *   切到统计页时 #feedback 并未被销毁（只是 stage 被隐藏），若先走 advance()，
+ *   会在用户看不见的地方把 state.idx 往前推 —— 等于静默跳过一张卡。
+ */
+const hasBackHook = await evalJs(`typeof window.__cvtHandleBack === 'function'`);
+check("页面暴露了 __cvtHandleBack（壳的返回键入口）", hasBackHook === true);
+
+// 统计页 + 有残留反馈时，返回键应回测验且**不动 idx**
+const backStats = await evalJs(`(async () => {
+  // 回到测验，然后进统计页
+  document.querySelector('.mode-btn[data-mode="quiz"]').click();
+  await new Promise(r => setTimeout(r, 300));
+  const idxBefore = window.__cvt.stateInfo().idx;
+  // 人为让 feedback 可见，模拟"答完题又切去统计页"
+  document.getElementById('feedback').hidden = false;
+  document.querySelector('.mode-btn[data-mode="stats"]').click();
+  await new Promise(r => setTimeout(r, 300));
+  const handled = window.__cvtHandleBack();
+  await new Promise(r => setTimeout(r, 300));
+  const info = window.__cvt.stateInfo();
+  return {
+    handled, modeAfter: info.mode, idxBefore, idxAfter: info.idx,
+  };
+})()`);
+check("统计页按返回 → 回测验视图（handled=true）", backStats.handled === true && backStats.modeAfter === "quiz",
+  `handled=${backStats.handled} mode=${backStats.modeAfter}`);
+check("统计页按返回不会偷偷推进队列（idx 不变）", backStats.idxAfter === backStats.idxBefore,
+  `idx ${backStats.idxBefore} → ${backStats.idxAfter}`);
+
+// 测验主线且无待处理 → 返回 false（交给壳退出）
+const backRoot = await evalJs(`(async () => {
+  document.getElementById('feedback').hidden = true;
+  document.querySelector('.mode-btn[data-mode="quiz"]').click();
+  await new Promise(r => setTimeout(r, 300));
+  const handled = window.__cvtHandleBack();
+  return { handled };
+})()`);
+check("测验主线无待处理时返回 false（交给壳退出应用）", backRoot.handled === false,
+  `handled=${backRoot.handled}`);
+
+/* ---------- P. 朗读分发（安卓壳的原生 TTS 兜底） ---------- */
+console.log("\n--- P. 朗读分发 ---");
+/*
+ * 安卓壳里可能没有 speechSynthesis（实测 PKS110 的 WebView 就没有），
+ * 所以壳注入了 window.AndroidTts 作为**兜底**。这里的判据是"分发顺序对不对"：
+ *   有 speechSynthesis → 必须走它，**不能**误用原生桥（否则桌面端每次朗读都白调一次原生）
+ *   没有 speechSynthesis → 必须走原生桥
+ * 真机上"原生 TTS 是否真的出声"脚本验不了，需要人耳确认（写进 DEVELOPMENT §2.8）。
+ */
+const speakDispatch = await evalJs(`(async () => {
+  const btn = document.getElementById('speakBtn');
+  if (!btn) return { missing: true };
+
+  // 1) 有 speechSynthesis：应走 speechSynthesis.speak，AndroidTts 不应被调用
+  let speech = 0, native = 0;
+  const origSS = window.speechSynthesis ? window.speechSynthesis.speak : null;
+  if (window.speechSynthesis) window.speechSynthesis.speak = () => { speech++; };
+  const hadNative = 'AndroidTts' in window;
+  const origNative = window.AndroidTts;
+  window.AndroidTts = { speak: () => { native++; }, stop: () => {} };
+
+  btn.click();
+  await new Promise(r => setTimeout(r, 250));
+  const withSS = { speech, native };
+
+  // 2) 原生桥的契约：speak(text) 可被调用而不抛错。
+  //    页内无法伪造"window 里没有 speechSynthesis"，所以真正的兜底分支
+  //    （无 speechSynthesis → 走 AndroidTts）在桌面验不到，只能在真机上验；
+  //    这里保证壳暴露的接口是可用的，避免桥名/方法名写错导致兜底静默失效。
+  let nativeCallable = false;
+  try { window.AndroidTts.speak('test'); nativeCallable = native > 0; } catch { nativeCallable = false; }
+
+  // 还原
+  if (origSS) window.speechSynthesis.speak = origSS;
+  if (hadNative) window.AndroidTts = origNative; else delete window.AndroidTts;
+  return { withSS, nativeCallable };
+})()`);
+check("朗读分发：有 speechSynthesis 时走它（不误调原生桥）",
+  !speakDispatch.missing && speakDispatch.withSS.speech > 0,
+  speakDispatch.missing ? "朗读按钮不存在"
+    : `speechSynthesis=${speakDispatch.withSS.speech} 次，原生=${speakDispatch.withSS.native} 次`);
+check("原生桥 speak() 可被正常调用（壳的兜底通道可用）",
+  speakDispatch.nativeCallable === true);
+
+
+
 /* ---------- M. 控制台报错 ---------- */
 console.log("\n--- M. 控制台报错 ---");
 const noise = /GPU|Vulkan|gpu_|Fontconfig|DevTools|Autofill|voice|Registration response|favicon/i;
