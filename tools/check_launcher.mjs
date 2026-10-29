@@ -13,6 +13,7 @@
  *   node tools/check_launcher.mjs --fix    # 就地修成 CRLF（只做换行归一，不动内容）
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -67,6 +68,32 @@ for (const name of LAUNCHERS) {
 
   const callsServer = /node\s+server\.mjs/.test(text);
   checks.push(["真的去起 server.mjs", callsServer, callsServer ? "是" : "否"]);
+
+  /* ---- 关键：git 里存的那份也必须是 CRLF ----
+     实测教训（2026-10-29）：工作区文件是 CRLF、门禁全绿，但 **git 索引/HEAD 里存的是
+     LF**（418B 工作区 vs 393B blob）。原因是最初 add 时 core.autocrlf=true，
+     CR 在**提交时**就被剥掉了；之后 `-text` 让 git 按清洗后的内容比较，
+     于是 `git status` 永远显示"干净"，门禁读工作区也永远是 CRLF。
+     结果：**任何人 clone 下来拿到的 .bat 都是坏的**，而本机一切正常 ——
+     这正是"本机绿、别人坏"的最坏一类缺陷。 */
+  const blobCheck = (() => {
+    if (!existsSync(join(ROOT, ".git"))) return ["已入库的 blob 也是 CRLF", true, "不在 git 仓库内，跳过"];
+    try {
+      const rev = ["rev-parse", "--verify", `HEAD:${name}`];
+      const path = execFileSync("git", rev, { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
+      if (!path) return ["已入库的 blob 也是 CRLF", true, "尚未提交过，跳过"];
+      const blobBuf = execFileSync("git", ["cat-file", "blob", `HEAD:${name}`], { cwd: ROOT, maxBuffer: 1 << 20 });
+      const cr = [...blobBuf].filter((b) => b === 0x0d).length;
+      const lf = [...blobBuf].filter((b) => b === 0x0a).length;
+      const ok = lf > 0 && cr === lf;
+      return ["已入库的 blob 也是 CRLF", ok,
+        ok ? `${blobBuf.length}B，${cr} 个 CRLF`
+           : `blob 是 LF-only（${blobBuf.length}B，CR=${cr} LF=${lf}）—— clone 下来是坏的`];
+    } catch {
+      return ["已入库的 blob 也是 CRLF", true, "git 不可用，跳过"];
+    }
+  })();
+  checks.push(blobCheck);
 
   for (const [n, ok, d] of checks) {
     console.log(`  ${ok ? "PASS" : "FAIL"}  ${n}  — ${d}`);
