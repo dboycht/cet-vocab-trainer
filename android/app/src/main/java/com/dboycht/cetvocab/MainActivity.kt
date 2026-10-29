@@ -139,27 +139,46 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    /** Native TTS, reachable from the page as `window.AndroidTts.speak(text)`. */
+    /**
+     * Native TTS, reachable from the page as `window.AndroidTts.speak(text)`.
+     *
+     * 为什么失败时要 Toast 而不是静默 return：实测本机（PKS110 / Android 16）
+     * `settings get secure tts_default_synth` 返回 **null** —— 系统里根本没有设置
+     * 默认 TTS 引擎，于是 `TextToSpeech(...)` 初始化失败。此时网页侧完全看不出
+     * 异常（按钮照样高亮），用户只会觉得"点了没反应"。**静默失败是最差的失败**：
+     * 必须明确告诉他"系统缺语音引擎、去哪儿装"。
+     */
     inner class TtsBridge {
+        private var warned = false
+
+        private fun warnOnce(msg: String) {
+            if (warned) return
+            warned = true
+            Toast.makeText(this@MainActivity, msg, Toast.LENGTH_LONG).show()
+        }
+
         @JavascriptInterface
         fun speak(text: String) {
             if (text.isBlank()) return
             runOnUiThread {
-                val engine = tts ?: return@runOnUiThread
-                if (!ttsReady) return@runOnUiThread
+                val engine = tts
+                if (engine == null || !ttsReady) {
+                    warnOnce("系统没有可用的语音引擎，朗读不可用。\n可在「设置 → 无障碍 → 文字转语音」安装并启用一个引擎。")
+                    return@runOnUiThread
+                }
                 val res = engine.setLanguage(Locale.US)
                 if (res == TextToSpeech.LANG_MISSING_DATA || res == TextToSpeech.LANG_NOT_SUPPORTED) {
-                    Toast.makeText(
-                        this@MainActivity,
-                        "系统未安装英文语音包，朗读不可用",
-                        Toast.LENGTH_SHORT,
-                    ).show()
+                    warnOnce("系统未安装英文语音包，朗读不可用。\n可在「设置 → 无障碍 → 文字转语音」里安装英文数据。")
                     return@runOnUiThread
                 }
                 engine.setSpeechRate(0.88f)
                 engine.speak(text, TextToSpeech.QUEUE_FLUSH, null, "cvt-word")
             }
         }
+
+        /** 供网页查询朗读是否真的可用（避免按钮高亮了却不出声）。 */
+        @JavascriptInterface
+        fun isAvailable(): Boolean = ttsReady && tts != null
 
         @JavascriptInterface
         fun stop() {

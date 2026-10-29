@@ -744,11 +744,21 @@ kbd {
    body.scrollHeight(915) < innerHeight(923)，**页面根本滚不动**，
    那个按钮就永远点不到（不是"看起来被裁"，是真的够不着）。
 
-   判据：`document.body.scrollHeight > innerHeight` 必须成立（有内容超出一屏时），
-   否则按钮点不到。桌面端不受影响：宽屏时内容本就不超一屏。 */
+   判据：`document.documentElement.scrollHeight > visualViewport.height` 必须成立
+   （有内容超出一屏时），否则按钮点不到。桌面端不受影响：宽屏时内容本就不超一屏。
+
+   ⚠️ 2026-10-29 真机复测（PKS110 / Android 16 / WebView 155）：
+   `height:auto; min-height:100%` **仍然滚不动**。实测数据：
+       innerHeight = 923，visualViewport.height = 804（差 119 = 状态栏+手势条）
+       100vh / 100dvh / 100svh / 100lvh 全 = 804（单位本身是对的）
+       但 html/body 的计算 height = 914px（> 804），scrollHeight 也是 914
+   ⇒ 内容被"塞"在 html/body 的 914px 里，html 不溢出，`window.scrollY` 永远 0。
+   `min-height:100%` 的百分比是相对**父级**算的，嵌套时会被撑成父级高度而非视口。
+   所以窄屏下改用**视口单位**给 html/body 定高，并让 html 来承担滚动。 */
 @media (max-width: 720px) {
-  html, body { height: auto; min-height: 100%; }
-  body { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  html, body { height: auto; min-height: 0; }
+  html { overflow-y: auto; }
+  body { overflow-y: visible; min-height: 100dvh; -webkit-overflow-scrolling: touch; }
   .app { min-height: 100dvh; }
   /* 系统手势条 / 状态栏的安全区，避免按钮贴着边缘或被遮住 */
   .app {

@@ -41,7 +41,22 @@ const NO_TIP_WORD = "overhang";
 const argv = process.argv.slice(2);
 const arg = (f, d) => { const i = argv.indexOf(f); return i >= 0 && argv[i + 1] ? argv[i + 1] : d; };
 const URL_ = arg("--url", "http://127.0.0.1:8710/");
-const PORT = 9333;
+
+/*
+ * CDP 端口。
+ *
+ * ⚠️ 原来这里硬编码 9333，而**安卓真机调试也用 9333**（`adb forward tcp:9333
+ * localabstract:webview_devtools_remote_<pid>`）。两者同时存在时，探针连上的
+ * 是**手机上的 WebView** 而不是桌面 Chrome —— 桌面门禁于是报
+ * 「页面没有加载出来：URL=chrome-error://chromewebdata」，
+ * 看起来像前端坏了，其实是端口被别人占了（2026-10-29 实测踩到）。
+ *
+ * 所以：允许 -P/--port 覆盖；默认改用很少有人占的 9463。
+ * 判据（真因识别）：探针报 `chrome-error://chromewebdata` 且
+ *   `Get-NetTCPConnection -LocalPort <port>` 的 OwningProcess 不是我们起的 Chrome
+ *   ⇒ 先查 `adb forward --list`。
+ */
+const PORT = Number(arg("-P", arg("--port", "9463")));
 
 const CANDIDATES = [
   "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",

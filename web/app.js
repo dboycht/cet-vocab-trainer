@@ -1300,10 +1300,18 @@ function speak(text) {
   if (!('speechSynthesis' in window)) {
     const n = nativeTts();
     if (n && typeof n.speak === 'function') {
+      // 壳提供 isAvailable()：系统没有 TTS 引擎时它返回 false。
+      // 实测 PKS110 的 tts_default_synth 是 null（没设默认引擎），
+      // 此时**不要**把按钮点亮 —— 点亮了却不出声，用户只会以为"坏了"。
+      // 具体原因由壳自己 Toast 出来（含"去哪儿装引擎"的指引）。
+      let ok = true;
+      try { if (typeof n.isAvailable === 'function') ok = n.isAvailable(); } catch { ok = true; }
       try {
-        btn.classList.add('playing');
         n.speak(String(text));
-        setTimeout(() => btn.classList.remove('playing'), 900);
+        if (ok) {
+          btn.classList.add('playing');
+          setTimeout(() => btn.classList.remove('playing'), 900);
+        }
       } catch { /* 朗读失败不影响刷词 */ }
     }
     return;
