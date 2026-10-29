@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App mark: the 「词」 seal from the web UI's own brand block, drawn as a vector
+     so no PNG densities are needed. Kept monochrome-ish (ink on paper) to match
+     the 铅字卡片盒 theme.
+
+     GEOMETRY IS LOAD-BEARING: an adaptive icon is a 108×108 canvas of which the
+     launcher may show only the middle 66×66 circle (radius 33 around 54,54).
+     Everything here stays within ~30 of the centre. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- paper card -->
+    <path
+        android:pathData="M30,26 L78,26 A6,6 0 0 1 84,32 L84,76 A6,6 0 0 1 78,82 L30,82 A6,6 0 0 1 24,76 L24,32 A6,6 0 0 1 30,26 Z"
+        android:fillColor="#F2ECE0" />
+
+    <!-- rule lines: read as a printed card, not a blank square -->
+    <path
+        android:pathData="M34,40 L74,40"
+        android:strokeColor="#BEB094"
+        android:strokeWidth="2.5" />
+    <path
+        android:pathData="M34,68 L74,68"
+        android:strokeColor="#BEB094"
+        android:strokeWidth="2.5" />
+
+    <!-- the seal character 词, as strokes (a text glyph cannot be drawn in a
+         vector drawable without a font dependency) -->
+    <path
+        android:pathData="M40,48 L68,48"
+        android:strokeColor="#1C1A16"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M45,54 L45,62"
+        android:strokeColor="#1C1A16"
+        android:strokeWidth="3"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M54,54 L54,62"
+        android:strokeColor="#1C1A16"
+        android:strokeWidth="3"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M63,54 L63,62"
+        android:strokeColor="#1C1A16"
+        android:strokeWidth="3"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M42,62 L66,62"
+        android:strokeColor="#1C1A16"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round" />
+</vector>

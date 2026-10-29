@@ -113,6 +113,9 @@ const DEFAULT_SETTINGS = {
   quizTypes: 'mix', timeGate: true,
   memorizeMs: 0,             // 答对后的记忆停顿；0 = 手动（等你按空格）
   autoSpeak: false, showPos: true,
+  // 触屏设备是否出拼写题：'auto'（触屏关、桌面开）/ 'on' / 'off'。
+  // 手机上拼写要弹软键盘，见 spellAllowed() 的说明。
+  spellOnTouch: 'auto',
 };
 
 function blankProgress() {
@@ -328,13 +331,41 @@ function buildQuestion(word, type) {
   return { type, word, entry, options, answerIndex: options.indexOf(correct) };
 }
 
+/**
+ * 触屏设备（手机/平板/安卓壳）判定。
+ * 判据用 pointer:coarse 而不是宽度：桌面窗口也能很窄，但窄≠触屏；
+ * 反过来 iPad 横屏很宽却仍是触屏、拼写会弹输入法。
+ */
+const IS_TOUCH = (() => {
+  try { return window.matchMedia('(pointer: coarse)').matches; } catch { return false; }
+})();
+
+/**
+ * 手机端是否出拼写题。
+ *
+ * 为什么需要这个开关：拼写题在手机上要弹软键盘，键盘一顶，选项区被推走、
+ * 手点「提交」前还得先收键盘——体验是从桌面直接搬过来才暴露的。但拼写又是
+ * 三类题里**检索强度最高**的一种，直接砍掉等于削弱学习效果，所以做成"默认关、
+ * 可手动打开"，由用户自己权衡，而不是替用户一刀切。
+ *
+ * 取值：'auto'（默认，触屏关/桌面开）/ 'on' / 'off'
+ */
+function spellAllowed() {
+  const s = progress.settings.spellOnTouch || 'auto';
+  if (s === 'on') return true;
+  if (s === 'off') return false;
+  return !IS_TOUCH;
+}
+
 /** 智能选题型：新词先认读，连对越多越往「产出」走 */
 function pickType(card) {
   const s = progress.settings.quizTypes;
+  // 用户显式指定了单一题型（含「只考拼写」）就照办 —— 那是明确的意图，
+  // 不该被"触屏默认不出拼写"这条默认值悄悄推翻。
   if (s !== 'mix') return s;
   if (!card || card.s !== STATE.REVIEW) return 'en2cn';
   const k = card.k || 0;
-  if (k >= 2 && Math.random() < 0.34) return 'spell';
+  if (k >= 2 && spellAllowed() && Math.random() < 0.34) return 'spell';
   if (k >= 1 && Math.random() < 0.45) return 'cn2en';
   return 'en2cn';
 }
@@ -1244,9 +1275,15 @@ function renderStats() {
   $('setTimeGate').checked = progress.settings.timeGate;
   $('setSpeak').checked = progress.settings.autoSpeak;
   $('setPos').checked = progress.settings.showPos;
+  $('setSpell').value = progress.settings.spellOnTouch || 'auto';
 }
 
 /* ---------------- 朗读 / 提示 ---------------- */
+/** 安卓壳注入的原生 TTS（见 android/.../MainActivity.kt 的 TtsBridge） */
+function nativeTts() {
+  return (typeof window !== 'undefined' && window.AndroidTts) || null;
+}
+
 let voice = null;
 function pickVoice() {
   if (!('speechSynthesis' in window)) return;
@@ -1254,13 +1291,29 @@ function pickVoice() {
   voice = vs.find((v) => /en[-_]US/i.test(v.lang)) || vs.find((v) => /^en/i.test(v.lang)) || null;
 }
 function speak(text) {
-  if (!('speechSynthesis' in window) || !text) return;
+  if (!text) return;
+  const btn = $('speakBtn');
+
+  // 安卓 WebView 不一定带可用的 speechSynthesis（部分机型上 `'speechSynthesis' in
+  // window` 为真但发不出声），所以壳里注入了原生 TTS 作为**兜底**：网页引擎优先，
+  // 没有才走原生。判据是「能不能发出声」，不是「对象存不存在」。
+  if (!('speechSynthesis' in window)) {
+    const n = nativeTts();
+    if (n && typeof n.speak === 'function') {
+      try {
+        btn.classList.add('playing');
+        n.speak(String(text));
+        setTimeout(() => btn.classList.remove('playing'), 900);
+      } catch { /* 朗读失败不影响刷词 */ }
+    }
+    return;
+  }
+
   try {
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     u.lang = 'en-US'; u.rate = 0.88;
     if (voice) u.voice = voice;
-    const btn = $('speakBtn');
     btn.classList.add('playing');
     u.onend = u.onerror = () => btn.classList.remove('playing');
     speechSynthesis.speak(u);
@@ -1375,6 +1428,10 @@ function wireEvents() {
       ? `答对后会停 ${Math.round(progress.settings.memorizeMs / 1000)} 秒再继续`
       : '答对后等你按空格再继续');
   });
+  $('setSpell').addEventListener('change', (e) => {
+    progress.settings.spellOnTouch = e.target.value; saveProgress();
+    toast('已改拼写题设置，下一张生效');
+  });
   const chk = (id, key, after) => $(id).addEventListener('change', (e) => {
     progress.settings[key] = e.target.checked; saveProgress();
     if (after) after(e.target.checked);
@@ -1483,6 +1540,39 @@ function resetProgress() {
   toast('进度已清空');
 }
 
+/* ---------------- 安卓壳的返回键 ---------------- */
+/**
+ * 安卓返回键的处理入口，由壳（MainActivity.kt）通过 evaluateJavascript 调用。
+ *
+ * 为什么由**页面**决定、而不是壳里自己判断：返回键该做什么完全取决于应用状态
+ * （是否在统计页、是否已揭示答案、是否在看判定反馈）。壳里看不到这些状态，
+ * 硬要猜就会做出「按返回直接退出、学习进度还在半途」这种行为。
+ *
+ * 约定：返回 true = 页面已处理（壳什么都不做）；false = 页面无事可做（壳退出应用）。
+ * 这与浏览器「返回」的直觉一致：一层一层往回退，退到底才离开。
+ */
+function handleBack() {
+  // 1) 判定反馈还开着 → 先收起，等于"继续下一张"
+  if (!$('feedback').hidden) { advance(); return true; }
+
+  // 2) 过词/浏览模式已揭示释义 → 先收起来，别直接跳走
+  //    （`flashRevealed` 是这两个模式共用的揭示标志，见 flashReveal()）
+  if ((state.mode === 'flash' || state.mode === 'browse') && state.flashRevealed) {
+    state.flashRevealed = false;
+    renderCard();
+    return true;
+  }
+
+  // 3) 统计页 → 回到测验
+  if (state.mode === 'stats') { setMode('quiz'); return true; }
+
+  // 4) 过词 / 浏览模式 → 回到测验主线
+  if (state.mode === 'flash' || state.mode === 'browse') { setMode('quiz'); return true; }
+
+  // 5) 已在测验主线且无待处理状态 → 交给壳退出应用
+  return false;
+}
+
 /* ---------------- 只读调试句柄（供门禁探针断言内部状态，不提供写入口） ---------------- */
 function installDebugHandle() {
   window.__cvt = Object.freeze({
@@ -1582,8 +1672,12 @@ async function boot() {
     speechSynthesis.onvoiceschanged = pickVoice;
   }
 
+  // 词库路径**相对页面**取（`./` 前缀），不写绝对路径 —— 因为同一份前端要跑在
+  // 两种宿主里：桌面用 server.mjs（绝对路径 /api/... 与 /assets/...），安卓壳用
+  // WebViewAssetLoader（页面在 /web/index.html，数据挂在 /wordbooks/...）。
+  // 写死绝对路径会让其中一种宿主 404，且错误只表现为「没有找到词库」。
   let manifest = { wordbooks: [] };
-  try { manifest = await (await fetch('/api/wordbooks')).json(); } catch { /* 用空清单兜底 */ }
+  try { manifest = await (await fetch('./wordbooks/index.json')).json(); } catch { /* 用空清单兜底 */ }
 
   const first = manifest.wordbooks?.[0];
   if (!first) {
@@ -1592,7 +1686,7 @@ async function boot() {
     return;
   }
 
-  const wb = await (await fetch(`/assets/wordbooks/${first.file}`)).json();
+  const wb = await (await fetch(`./wordbooks/${first.file}`)).json();
   state.wbId = wb.id || first.id;
   state.wb = wb;
   state.byWord = new Map(wb.words.map((w) => [w.word, w]));
@@ -1600,7 +1694,7 @@ async function boot() {
   // 助记技巧是**可选**的独立文件：没有也能正常刷词（不硬编不存在的助记）
   state.tips = new Map();
   try {
-    const r = await fetch(`/assets/wordbooks/tips/${state.wbId}.json`);
+    const r = await fetch(`./wordbooks/tips/${state.wbId}.json`);
     if (r.ok) {
       const tipsDoc = await r.json();
       for (const [k, v] of Object.entries(tipsDoc.tips || {})) {
@@ -1617,6 +1711,8 @@ async function boot() {
 
   buildQueue();
   installDebugHandle();
+  // 安卓壳的返回键入口（桌面浏览器上没人调用它，留着无害）
+  window.__cvtHandleBack = handleBack;
   renderCard();
 }
 

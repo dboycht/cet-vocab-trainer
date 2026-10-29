@@ -90,6 +90,28 @@ function wordbookManifest() {
   return { wordbooks: [] };
 }
 
+/**
+ * 页面取数据的路径是**相对页面**的（`./wordbooks/...`），所以两侧都必须把
+ * `/wordbooks/` 这一层挂到 `assets/wordbooks/` 上：
+ *   - 桌面：页面在 `/`（由 web/index.html 提供）⇒ 相对路径解析成 `/wordbooks/...`
+ *   - 安卓壳：页面在 `/web/index.html` ⇒ 解析成 `/web/wordbooks/...`
+ *     （见 MainActivity.kt 的 WebViewAssetLoader 挂载）
+ *
+ * 为什么不让前端写 `/assets/wordbooks/...` 这种绝对路径：同一份前端要跑在两种宿主里，
+ * 绝对路径在其中一种必然 404，而症状只是「没有找到词库」，很难查出真因。
+ * 让**每个宿主**各自承担自己的路径映射，前端只管「和我同级的 wordbooks/」。
+ */
+const WORD_BOOKS_DIR = join(ASSETS_DIR, "wordbooks");
+
+/** 把 `<prefix>` 之后的相对路径安全地映射到词库目录下。 */
+function serveWordbook(res, url, prefix) {
+  const full = safeJoin(WORD_BOOKS_DIR, url.slice(prefix.length - 1));
+  if (!full || !existsSync(full) || !statSync(full).isFile()) {
+    return send(res, 404, "not found");
+  }
+  return sendFile(res, full);
+}
+
 const server = createServer((req, res) => {
   const url = req.url || "/";
 
@@ -99,6 +121,13 @@ const server = createServer((req, res) => {
     });
   }
 
+  // 桌面宿主：页面在 / ⇒ 相对路径落到 /wordbooks/**
+  if (url.startsWith("/wordbooks/")) return serveWordbook(res, url, "/wordbooks/");
+  // 安卓壳的页面布局（/web/index.html）：同一个挂载点在 /web/ 下也成立，
+  // 这样才能让探针用同一套相对路径去验壳里的页面。
+  if (url.startsWith("/web/wordbooks/")) return serveWordbook(res, url, "/web/wordbooks/");
+
+  // 兼容旧路径（README / 外部书签可能仍在用绝对形式）
   if (url.startsWith("/assets/")) {
     const full = safeJoin(ASSETS_DIR, url.slice("/assets".length));
     if (!full || !existsSync(full) || !statSync(full).isFile()) {

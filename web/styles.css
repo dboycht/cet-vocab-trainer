@@ -735,3 +735,28 @@ kbd {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* ---------------- 手机：让整页可滚动（安卓 WebView / 窄屏） ----------------
+   桌面端的模型是「一屏放下」：html/body 高度 100% + .app min-height:100%，
+   内容多时靠卡片的内部布局吸收。手机上不成立 —— 实测（PKS110，1080x2412，
+   dpr 3）：innerHeight 923 但 visualViewport.height 只有 804，学习卡的助记
+   把「记住了，开始学」挤到 y=798..839，下沿被系统手势条截断；同时
+   body.scrollHeight(915) < innerHeight(923)，**页面根本滚不动**，
+   那个按钮就永远点不到（不是"看起来被裁"，是真的够不着）。
+
+   判据：`document.body.scrollHeight > innerHeight` 必须成立（有内容超出一屏时），
+   否则按钮点不到。桌面端不受影响：宽屏时内容本就不超一屏。 */
+@media (max-width: 720px) {
+  html, body { height: auto; min-height: 100%; }
+  body { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .app { min-height: 100dvh; }
+  /* 系统手势条 / 状态栏的安全区，避免按钮贴着边缘或被遮住 */
+  .app {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+  .stage { align-items: start; }
+  .card { min-height: 0; }
+  /* 手机上助记很长时，别让卡片把按钮一路顶出屏幕 */
+  .learn-note .tip { max-height: 38vh; overflow-y: auto; }
+}
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Auto Backup: the one thing worth protecting is the WebView's localStorage,
+  which holds the learning progress (cards / mistakes / history). Losing it on a
+  device migration would be unrecoverable - the web app's own backup file is the
+  only other copy, and users are not guaranteed to have made one.
+-->
+<full-backup-content>
+    <include domain="database" path="." />
+    <include domain="file" path="." />
+    <include domain="sharedpref" path="." />
+</full-backup-content>

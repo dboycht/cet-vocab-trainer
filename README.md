@@ -58,6 +58,26 @@
 
 > 需要本机装了 Node.js 18+。没有的话 `启动.bat` 会明确告诉你。
 
+### 安卓手机版
+
+`android/` 是安卓壳：**词库和助记都打包进 APK，装完就能用，完全不需要网络**
+（APK 甚至没有申请联网权限 —— 「离线」是被系统强制的，不是靠约定）。
+
+与网页版的差别：
+
+- 同一份前端，不是另写的版本；电脑上改了界面，手机重新打包即同步。
+- **手机默认不出拼写题**（要弹软键盘，键盘一顶就够不着按钮）。
+  拼写是检索强度最高的题型，不想放弃的话去「统计 → 设置 → 拼写题」选「总是出」。
+- 返回键：先收起答案/退出统计页，**再按一次才退出应用**（不会学习中途被弹出去）。
+
+构建（本机）：
+
+```bash
+cd D:\code\DeepSeekHarness\cet-vocab-trainer\android
+gradlew.bat assembleDebug
+adb install -r app\build\outputs\apk\debug\app-debug.apk
+```
+
 ### 快捷键
 
 | 键 | 作用 |
@@ -147,7 +167,8 @@
 `over` 只收了「在…时」），修正过的条目卡片下方会显示
 「⚠ 本条已修正：原书写作…」—— 你是照着书背的，不一致就必须让你知道。
 
-进度：**前 300 个词已完成**；助记总量 309/2083（`node tools/validate_tips.mjs --progress` 现读）。
+进度：**全库 2083 词 100% 覆盖**，助记共 2083 条（`node tools/validate_tips.mjs --progress` 现读）。
+若要继续扩别的词库（CET-4 等），按 `tips/<词库id>.json` 的约定加文件即可。
 
 ---
 
@@ -172,8 +193,9 @@ cet-vocab-trainer/
 │   ├── spellcheck.py           用 vim 自带的英文词典做离线拼写校验
 │   ├── check_launcher.mjs      启动器门禁（.bat 必须纯 ASCII + 全 CRLF，可 --fix）
 │   ├── check_wordbook.mjs      数据门禁（13 项）
-│   ├── cdp_probe.mjs           真浏览器端到端门禁（25 项，CDP 直连）
+│   ├── cdp_probe.mjs           真浏览器端到端门禁（113 项，CDP 直连）
 │   └── verify.mjs              一键跑三道门禁
+├── android/                    安卓版（WebView 资产壳，完全离线）
 ├── docs/
 │   ├── 数据质量报告.md          源 PDF 缺陷清单与修复证据
 │   └── screenshots/
@@ -203,7 +225,7 @@ node tools/check_launcher.mjs --fix
 ```
 
 三道门禁分别是：**启动器**（`.bat` 纯 ASCII + 全 CRLF + 真去起 server）、
-**数据**（词库 13 项形态与修复项校验）、**浏览器**（CDP 驱动真 Chrome 跑 25 项交互与计算样式断言）。
+**数据**（词库 13 项形态与修复项校验）、**浏览器**（CDP 驱动真 Chrome 跑 113 项交互与计算样式断言）。
 
 `tools/cdp_probe.mjs` 会用本机 Chrome 的无头模式真跑一次页面，
 读**计算样式**、派发真实键盘事件、核对 localStorage，并输出截图到 `.tmp/`。

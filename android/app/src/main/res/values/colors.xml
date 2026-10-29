@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Matches the web app's theme-color (#f2ece0) and ink black, so the
+         launch window does not flash a different colour before the page paints. -->
+    <color name="paper">#F2ECE0</color>
+    <color name="ink">#1C1A16</color>
+</resources>
