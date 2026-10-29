@@ -856,6 +856,79 @@ check("「最该复习」列出了 20 个词", L.weakest === 20, `${L.weakest} �
 check("错词本渲染出 23 个词", L.mistakes === 23, `${L.mistakes} 个`);
 await shot("cdp-8-stats-seeded.png");
 
+/* ---------- N. 窄屏（手机）布局 ---------- */
+console.log("\n--- N. 窄屏布局（手机视口） ---");
+/*
+ * 为什么需要这一段：真机上暴露过一个只有"窄屏 + 长助记"才出现的 bug ——
+ * 学习卡的助记把「记住了，开始学」顶到可视区之外，而桌面端的高度模型
+ * （html/body height:100% + .app min-height:100%）让页面**根本滚不动**，
+ * 那个按钮永远点不到。桌面门禁一直是绿的，因为桌面视口够高。
+ *
+ * 判据必须落在"能不能够到"，而不是"看起来有没有被裁"：
+ *   ① 窄屏下 body 要能纵向滚（overflow-y:auto）
+ *   ② 内容溢出时，滚到底后按钮下沿必须 ≤ innerHeight
+ * ⚠️ 真机上还有一层：innerHeight 不等于 visualViewport.height（系统手势条）。
+ *    浏览器仿真里二者相等，所以这里只能验到 ① ②；真机那层由
+ *    docs/ 记录的手工验收覆盖（见 DEVELOPMENT.md §2.8）。
+ */
+await send("Emulation.setDeviceMetricsOverride", {
+  width: 420, height: 620, deviceScaleFactor: 2, mobile: true,
+});
+await sleep(600);
+const emu = await evalJs(`({ w: innerWidth, h: innerHeight })`);
+check("窄屏仿真生效（视口 < 720px，才会命中手机媒体查询）",
+  emu.w < 720, `${emu.w}x${emu.h}`);
+
+const narrow = await evalJs(`(async () => {
+  // 回到测验视图并刷新到一张学习卡，确保按钮存在
+  location.reload();
+  return true;
+})()`);
+await sleep(2600);
+
+const mq = await evalJs(`({ mq720: matchMedia('(max-width: 720px)').matches,
+  overflowY: getComputedStyle(document.body).overflowY,
+  docH: document.body.scrollHeight, innerH: innerHeight })`);
+check("窄屏下命中 (max-width:720px) 媒体查询", mq.mq720 === true);
+check("窄屏下 body 允许纵向滚动（桌面是 height:100% 且不可滚）",
+  mq.overflowY === "auto", `overflow-y=${mq.overflowY}`);
+
+/*
+ * 让"按钮够不够得到"这件事有确定的输入：
+ * 前面的段落已经往 localStorage 种了不少进度，刷新后首屏未必是学习卡
+ * （goLearn 可能被隐藏）。这里改为**主动进入过词模式**并揭示释义 ——
+ * 这是手机上内容最长、最容易把底部按钮顶出去的状态，而且三类视图都会
+ * 经过 `.grades` / `.card`，用它测"底部按钮可达"与具体题型无关。
+ */
+await evalJs(`document.querySelector('.mode-btn[data-mode="flash"]').click(); true`);
+await sleep(700);
+await evalJs(`(() => { const c = document.getElementById('card'); if (c) c.click(); return true; })()`);
+await sleep(500);
+
+const reach = await evalJs(`(async () => {
+  window.scrollTo(0, document.body.scrollHeight);
+  await new Promise(r => setTimeout(r, 500));
+  // 过词模式的底部按钮是「不认识/模糊/认识」，取第一个可见的
+  const cands = ['goFlashBad', 'goFlashMeh', 'goFlashGood', 'goLearn', 'goNext']
+    .map((id) => document.getElementById(id))
+    .filter((el) => el && !el.hidden);
+  if (!cands.length) return { missing: true };
+  const b = cands[0].getBoundingClientRect();
+  return {
+    id: cands[0].id,
+    top: Math.round(b.top), bottom: Math.round(b.bottom),
+    innerH: innerHeight, scrollY: Math.round(scrollY),
+    docH: document.body.scrollHeight, maxScroll: Math.round(document.body.scrollHeight - innerHeight),
+  };
+})()`);
+check("滚到底后底部按钮完整落在可视区内（真机上「点得到」的判据）",
+  !reach.missing && reach.bottom <= reach.innerH && reach.top >= 0,
+  reach.missing ? "底部按钮都不存在（视图状态不对）"
+    : `#${reach.id} bottom=${reach.bottom} innerH=${reach.innerH} scrollY=${reach.scrollY} maxScroll=${reach.maxScroll} doc=${reach.docH}`);
+
+// 复原视口，避免影响后续（本段在最后，仍复原以便 --keep 时手动查看）
+await send("Emulation.clearDeviceMetricsOverride");
+
 /* ---------- M. 控制台报错 ---------- */
 console.log("\n--- M. 控制台报错 ---");
 const noise = /GPU|Vulkan|gpu_|Fontconfig|DevTools|Autofill|voice|Registration response|favicon/i;
