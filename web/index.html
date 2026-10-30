@@ -260,8 +260,33 @@
       <div class="data-actions">
         <button class="btn" id="exportBtn">导出备份</button>
         <button class="btn" id="importBtn">导入备份</button>
-        <button class="btn danger" id="resetBtn">清空进度</button>
         <input type="file" id="importFile" accept="application/json" hidden>
+      </div>
+
+      <h4 class="panel-sub2">清除数据 <span class="muted">按需选，不必全清</span></h4>
+      <!--
+        分成三个粒度，而不是一个"清空"了事（2026-10-30）：
+        用户可能只想重置错词本，或只想恢复默认设置 —— 全清代价太大，
+        逼他"要么全留要么全丢"是设计偷懒。
+        每个按钮都用一行小字写明"会影响什么/不影响什么"，避免误点。
+      -->
+      <div class="settings danger-zone">
+        <div class="dz-row">
+          <button class="btn danger" id="resetMistakes">清空错词本</button>
+          <small>只清「答错过的词」清单；卡片、统计、设置都不动</small>
+        </div>
+        <div class="dz-row">
+          <button class="btn danger" id="resetSettings">恢复默认设置</button>
+          <small>只把设置改回默认；学习进度不动</small>
+        </div>
+        <div class="dz-row">
+          <button class="btn danger" id="resetBtn">清空学习进度</button>
+          <small>清掉卡片与统计；<b>你的设置会保留</b>（不可撤销，建议先导出）</small>
+        </div>
+        <div class="dz-row">
+          <button class="btn danger" id="factoryBtn">全部恢复出厂</button>
+          <small>进度 <b>和</b> 设置一起清掉，等于刚装好的状态（不可撤销）</small>
+        </div>
       </div>
 
       <h3 class="panel-sub">关于</h3>

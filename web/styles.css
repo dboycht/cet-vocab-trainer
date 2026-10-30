@@ -408,6 +408,49 @@ body {
 .about-row b { color: var(--ink); font-weight: 600; text-align: right; word-break: break-all; }
 .about .muted { margin: 10px 0 0; }
 
+/* ---------------- 清除数据（分级） ---------------- */
+.panel-sub2 {
+  font-family: var(--font-cn); font-size: 14px; font-weight: 600; color: var(--ink-2);
+  margin: 22px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--rule);
+}
+.panel-sub2 .muted { font-weight: 400; font-size: 12px; margin-left: 8px; }
+/*
+ * ⚠️ .danger-zone 同时带了 .settings 类，而 .settings 在**本文件更靠后**
+ *    （行 ~572）定义了 `flex-wrap:wrap; align-items:center`。
+ *    同优先级下后出现的规则胜出，所以单写 `.danger-zone {...}` 会被它盖掉 ——
+ *    实测：写了 align-items:stretch 却仍读到 center，四行被居中摆放、右侧大片留白。
+ *    修法：**用双类选择器提高优先级**（.settings.danger-zone），而不是靠调整顺序
+ *    （顺序容易被后续编辑打乱，优先级能稳定表达"这条更具体"）。
+ */
+.settings.danger-zone {
+  display: flex; flex-direction: column; align-items: stretch;
+  flex-wrap: nowrap; gap: 10px;
+}
+/*
+ * 每行 = 按钮 + 说明。
+ * ⚠️ 不要让按钮居中：宽屏下 flex 会把它们推得左右摇摆（实测截图里
+ *    「清空错词本」与「恢复默认设置」的按钮起点不一致，右侧大片留白）。
+ *    固定按钮列宽、说明占剩余空间，四行才对得齐。
+ */
+.dz-row {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  padding: 10px 14px; border-radius: var(--r);
+  background: rgba(168, 50, 30, .04);
+  border: 1px solid rgba(168, 50, 30, .16);
+}
+.dz-row small {
+  font-family: var(--font-cn); font-size: 12.5px; color: var(--ink-3);
+  flex: 1 1 auto; min-width: 0; line-height: 1.5;
+}
+.dz-row small b { color: var(--seal); }
+/* 固定按钮列宽并让文字居中（.btn 本身是块级，justify-content 需先 display:flex） */
+.dz-row .btn { flex: 0 0 132px; display: flex; align-items: center; justify-content: center; }
+@media (max-width: 720px) {
+  /* 手机上按钮与说明竖排，别挤成一行读不了 */
+  .dz-row { flex-direction: column; align-items: stretch; gap: 7px; }
+  .dz-row .btn { flex: none; width: 100%; }
+}
+
 .grade.g0:hover { border-color: var(--seal); color: var(--seal); background: #fdf4f1; }
 .grade.g1:hover { border-color: var(--amber); color: var(--amber); background: #fdf8ee; }
 .grade.g2:hover { border-color: var(--jade); color: var(--jade); background: #f1f7f4; }

@@ -1882,7 +1882,11 @@ function wireEvents() {
   $('exportBtn').addEventListener('click', exportBackup);
   $('importBtn').addEventListener('click', () => $('importFile').click());
   $('importFile').addEventListener('change', importBackup);
+  // 清除数据：四个粒度各接各的处理函数（见各自的注释说明差异）
+  $('resetMistakes').addEventListener('click', resetMistakes);
+  $('resetSettings').addEventListener('click', resetSettings);
   $('resetBtn').addEventListener('click', resetProgress);
+  $('factoryBtn').addEventListener('click', factoryReset);
 
   document.addEventListener('keydown', onKey);
   window.addEventListener('beforeunload', flushProgress);
@@ -1970,14 +1974,66 @@ function importBackup(e) {
   r.readAsText(f, 'utf-8');
 }
 
+/**
+ * 清空学习进度。
+ *
+ * ⚠️ **保留 settings**（2026-10-30 修）。
+ * 原来走 `progress = blankProgress()`，而 blankProgress() 里含
+ * `settings: {...DEFAULT_SETTINGS}` —— 实测用户设的 newPerDay=7 / reviewPerDay=33 /
+ * memorizeMs=5000 / showPos=false，点一次「清空进度」全被悄悄重置回默认。
+ * 用户要清的是**学习记录**，不是**自己的偏好**，两者不该绑在一起。
+ */
 function resetProgress() {
-  if (!confirm('确定清空这本词库的全部学习进度？此操作不可撤销（建议先导出备份）。')) return;
+  if (!confirm('确定清空这本词库的全部学习进度？\n（卡片、错词本、统计都会清掉；你的设置会保留）\n此操作不可撤销，建议先导出备份。')) return;
+  const keepSettings = { ...progress.settings };
   progress = blankProgress();
+  progress.settings = keepSettings;
   flushProgress();
-  // 留在设置板块：用户刚在这里点的按钮，把他弹去别的板块会让人莫名其妙
   renderSettings();
   renderStats();
-  toast('进度已清空');
+  toast('学习进度已清空（设置已保留）');
+}
+
+/**
+ * 只清错词本。
+ * 为什么单独给一个：错词本是"待巩固清单"，用户可能想让它重新开始积累，
+ * 但不想丢掉已经学会的进度 —— 全清代价太大，不给这个入口就只能全清。
+ */
+function resetMistakes() {
+  const n = progress.mistakes.length;
+  if (!n) { toast('错词本已经是空的'); return; }
+  if (!confirm(`确定清空错词本？\n（共 ${n} 个词；卡片与统计不受影响）`)) return;
+  progress.mistakes = [];
+  flushProgress();
+  renderSettings();
+  renderStats();
+  toast(`已清空错词本（${n} 个词）`);
+}
+
+/**
+ * 只把设置恢复默认。
+ * 与"清空进度"互补：想重置偏好但保留学习记录时用这个。
+ */
+function resetSettings() {
+  if (!confirm('确定把设置恢复成默认值？\n（学习进度不受影响）')) return;
+  progress.settings = { ...DEFAULT_SETTINGS };
+  flushProgress();
+  renderSettings();
+  toast('设置已恢复默认');
+}
+
+/**
+ * 全部恢复出厂：进度 + 设置一起清。
+ * 单独留着是因为"我想从头再来一遍"是真实需求，但它必须与
+ * 「清空学习进度」（保留设置）明确区分开 —— 用户点之前就该知道区别。
+ */
+function factoryReset() {
+  if (!confirm('确定全部恢复出厂？\n\n这会清掉：卡片、错词本、统计、以及你的全部设置。\n等于刚安装好的状态。此操作不可撤销，建议先导出备份。')) return;
+  progress = blankProgress();
+  flushProgress();
+  renderSettings();
+  renderStats();
+  toast('已恢复出厂设置');
 }
 
 /* ---------------- 安卓壳的返回键 ---------------- */

@@ -1484,6 +1484,79 @@ check("开关状态正确持久化",
   dueOff.flag === false && dueOn.flag === true,
   `off=${dueOff.flag} on=${dueOn.flag}`);
 
+/* ---------- S. 清除数据的四个粒度 ---------- */
+console.log("\n--- S. 清除数据（分级） ---");
+/*
+ * 2026-10-30：原来只有一个「清空进度」，而它走 blankProgress() —— 里面含
+ * `settings: {...DEFAULT_SETTINGS}`，于是**用户调的设置被一起重置**。
+ * 实测：newPerDay=7 / memorizeMs=5000 / showPos=false 点一次清空就变回 20/0/true。
+ * 用户要清的是学习记录，不是自己的偏好，所以拆成四个粒度，并钉死各自边界。
+ */
+const richProg = {
+  version: 2,
+  cards: {
+    probe_a: { s: 2, i: 3, e: 2.5, d: 0, r: 3, l: 0, a: 5, c: 4, k: 2, fd: 0, ld: 0, bd: 0, ms: 1000, p: 0.5, lt: 0 },
+    probe_b: { s: 1, i: 0, e: 2.5, d: 0, r: 2, l: 1, a: 3, c: 1, k: 0, fd: 0, ld: 0, bd: 0, ms: 2000, p: 0.2, lt: 0 },
+  },
+  mistakes: ["probe_b"],
+  days: { "2026-01-01": { n: 5, ok: 4, bad: 1 } },
+  streak: 3, lastDay: "2026-01-01",
+  types: { en2cn: { a: 5, c: 4, ms: 1000 }, cn2en: { a: 0, c: 0, ms: 0 }, spell: { a: 0, c: 0, ms: 0 } },
+  settings: { newPerDay: 7, reviewPerDay: 33, memorizeMs: 5000, showPos: false, useDueQueue: true },
+};
+
+/** 铺"什么都有"的数据 → 进设置板块 → 点某按钮（自动确认）→ 读回存储 */
+async function clearWith(btnId) {
+  await seedAndReload(richProg);
+  return JSON.parse(await evalJs(`(async () => {
+    document.querySelector('.mode-btn[data-mode="settings"]').click();
+    await new Promise(r => setTimeout(r, 700));
+    window.confirm = () => true;
+    const btn = document.getElementById(${JSON.stringify(btnId)});
+    if (!btn) return JSON.stringify({ missing: true });
+    btn.click();
+    await new Promise(r => setTimeout(r, 700));
+    const p = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
+    return JSON.stringify({
+      cards: Object.keys(p.cards || {}).length,
+      mistakes: (p.mistakes || []).length,
+      days: Object.keys(p.days || {}).length, streak: p.streak,
+      newPerDay: p.settings.newPerDay, memorizeMs: p.settings.memorizeMs, showPos: p.settings.showPos,
+    });
+  })()`, true));
+}
+
+// ① 只清错词本
+const c1 = await clearWith("resetMistakes");
+check("清空错词本：清单清空，其余全留",
+  !c1.missing && c1.mistakes === 0 && c1.cards === 2 && c1.days === 1 && c1.newPerDay === 7,
+  JSON.stringify(c1));
+
+// ② 只恢复默认设置
+const c2 = await clearWith("resetSettings");
+check("恢复默认设置：设置回默认，进度全留",
+  !c2.missing && c2.newPerDay === 20 && c2.memorizeMs === 0 && c2.showPos === true
+    && c2.cards === 2 && c2.mistakes === 1,
+  JSON.stringify(c2));
+
+// ③ 清空学习进度 —— 必须保留设置
+const c3 = await clearWith("resetBtn");
+check("⭐ 清空学习进度：卡片/错词本/统计都清，但**设置保留**",
+  !c3.missing && c3.cards === 0 && c3.mistakes === 0 && c3.days === 0 && c3.streak === 0
+    && c3.newPerDay === 7 && c3.memorizeMs === 5000 && c3.showPos === false,
+  JSON.stringify(c3));
+
+// ④ 全部恢复出厂 —— 含设置
+const c4 = await clearWith("factoryBtn");
+check("全部恢复出厂：进度与设置一起清",
+  !c4.missing && c4.cards === 0 && c4.newPerDay === 20 && c4.memorizeMs === 0 && c4.showPos === true,
+  JSON.stringify(c4));
+
+check("四个清除按钮都在设置板块里",
+  ["resetMistakes", "resetSettings", "resetBtn", "factoryBtn"]
+    .every((id) => ![c1, c2, c3, c4].some((c) => c && c.missing)),
+  "四个都找到了（缺任何一个，上面某条会先报 missing）");
+
 
 /* ---------- M. 控制台报错 ---------- */
 console.log("\n--- M. 控制台报错 ---");
