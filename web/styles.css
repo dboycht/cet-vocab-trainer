@@ -200,7 +200,20 @@ body {
   color: var(--ink-3); text-transform: uppercase;
   padding-bottom: 14px;
 }
-.tab-dot { flex: 1; height: 1px; background: var(--rule); }
+/*
+ * 头部这一行在手机上会被挤爆。两个问题先后出现，一起记下来：
+ *   ① `.tab-dot` 是 flex:1，其余文字块允许收缩 ⇒「复习中 · 3 天」被压到最窄，
+ *      **每个字单独一行**（2026-10-30 真机截图发现）；
+ *   ② 只给文字块加 flex-shrink:0 又矫枉过正 —— 内容放不下时**直接溢出卡片右缘**，
+ *      题型徽记被切掉。
+ * 正解：可读的短块不收缩（本批进度、状态），**长块可收缩并省略**（题型徽记），
+ * 分隔线负责吃掉剩余空间。
+ */
+.card-tab > span:not(.tab-dot):not(.type-badge) { flex-shrink: 0; white-space: nowrap; }
+.card-tab .type-badge {
+  flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis;
+}
+.tab-dot { flex: 1; height: 1px; background: var(--rule); min-width: 8px; }
 .card-state { color: var(--ink-2); }
 .card-state.st-new   { color: var(--seal); }
 .card-state.st-learn { color: var(--amber); }

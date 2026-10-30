@@ -850,7 +850,10 @@ function renderCard() {
     const q = buildQuestion(item.word, item.type || 'en2cn');
     state.question = q;
     state.questionStart = performance.now();
-    setTypeBadge(`${QT_LABEL[q.type]} · ${QT_DESC[q.type]}`, `t-${q.type}`);
+    // 手机上只留题型名（「中 → 英」）；完整说明太长会把这一行挤爆，
+    // 具体怎么答题下面 #hint 里已经写了（2026-10-30 真机截图发现徽记被切掉）。
+    const compact = window.matchMedia('(max-width: 720px)').matches;
+    setTypeBadge(compact ? QT_LABEL[q.type] : `${QT_LABEL[q.type]} · ${QT_DESC[q.type]}`, `t-${q.type}`);
     if (q.type === 'en2cn') {
       renderOptions(q);
     } else if (q.type === 'cn2en') {
@@ -880,12 +883,17 @@ function renderCard() {
     $('goNext').hidden = true;
   }
   $('browseNav').hidden = !isBrowse;
-  // 卡片上方的「第 N 张 · 本批 x/10」—— 批次进度放这里，别挤在竖条旁
+  // 卡片上方的「第 N 张 · 本批 x/20」—— 批次进度放这里，别挤在竖条旁
+  // ⚠️ 手机上这一行还要放题型徽记和状态，全放长文本会把它们挤成竖排
+  //    （2026-10-30 真机截图发现）。所以窄屏时只留「N/total」的紧凑形式。
   const b = state.batch;
+  const short = window.matchMedia('(max-width: 720px)').matches;
   $('cardIndex').textContent = state.mode === 'browse'
     ? `第 ${state.browse.i + 1} 张`
     : (b && b.size > 0
-        ? `第 ${state.idx + 1} 张 · 本批 ${Math.min(b.index, b.size)}/${b.size} 个新词`
+        ? (short
+            ? `本批 ${Math.min(b.index, b.size)}/${b.size}`
+            : `第 ${state.idx + 1} 张 · 本批 ${Math.min(b.index, b.size)}/${b.size} 个新词`)
         : `第 ${state.idx + 1} 张`);
   $('hint').textContent = hintText(item);
   $('kbdHint').innerHTML = kbdHintHtml(item);
