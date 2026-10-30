@@ -1675,7 +1675,12 @@ function renderSettings() {
   $('aboutBox').innerHTML = `
     <div class="about-row"><span>版本</span><b>${APP_VERSION}</b></div>
     <div class="about-row"><span>作者</span><b>Toki Mizuki</b></div>
-    <div class="about-row"><span>项目地址</span><b><a href="https://github.com/dboycht/cet-vocab-trainer" target="_blank" rel="noopener">github.com/dboycht/cet-vocab-trainer</a></b></div>
+    <!--
+      显示文本拆成「github.com/用户名」+「/仓库名」两段：
+      完整 URL（github.com/dboycht/cet-vocab-trainer，35 字符）在手机窄屏放不下，
+      实测会折成两行且断在词中间。拆开后每段都短，链接整体仍指向完整地址。
+    -->
+    <div class="about-row"><span>项目地址</span><b><a href="https://github.com/dboycht/cet-vocab-trainer" target="_blank" rel="noopener">github.com/dboycht<br>/cet-vocab-trainer</a></b></div>
     <div class="about-row"><span>词库</span><b>${wb ? `${wb.name} · ${wb.count} 词` : '—'}</b></div>
     <div class="about-row"><span>词库来源</span><b>${wb?.source || '—'}</b></div>
     <div class="about-row"><span>助记</span><b>${state.tips.size} / ${wb?.count ?? 0} 条</b></div>

@@ -405,7 +405,17 @@ body {
   padding: 7px 2px; border-bottom: 1px dashed var(--rule);
 }
 .about-row span { color: var(--ink-3); flex-shrink: 0; }
-.about-row b { color: var(--ink); font-weight: 600; text-align: right; word-break: break-all; }
+/*
+ * ⚠️ 原来这里是 `word-break: break-all` —— 它会在**单词中间**硬断行，
+ * 真机实测把项目地址断成「cet-vocab-tr / ainer」，很难看。
+ * 改成 `overflow-wrap: anywhere`：只在**确实放不下**时才断，
+ * 且优先在空格处断（长 URL 仍能断，但普通文字不会被害）。
+ */
+.about-row b {
+  color: var(--ink); font-weight: 600; text-align: right;
+  min-width: 0; overflow-wrap: anywhere;
+}
+.about-row a { color: var(--seal); text-decoration: underline; text-underline-offset: 2px; }
 .about .muted { margin: 10px 0 0; }
 
 /* ---------------- 清除数据（分级） ---------------- */
