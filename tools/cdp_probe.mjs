@@ -985,6 +985,51 @@ check("滚到底后底部按钮完整落在可视区内（真机上「点得到�
   reach.missing ? "底部按钮都不存在（视图状态不对）"
     : `#${reach.id} bottom=${reach.bottom} innerH=${reach.innerH} scrollY=${reach.scrollY} maxScroll=${reach.maxScroll} doc=${reach.docH}`);
 
+/*
+ * 「未来 14 天到期量」的日期刻度在窄屏会被挤爆。
+ *
+ * 真机实测（2026-10-30，用户报告）：14 个刻度挤在 ~300px 里，
+ * 文本互相压住，读出来是「今 10/31 1/11 1/21 1/31…」这种完全没法看的样子。
+ * 桌面端面板够宽，所以这是**只在窄屏暴露**的缺陷。
+ *
+ * ⚠️ 判据不能写成"文字不溢出格子" —— 格子只有 18~22px 而「11/11」要 28px，
+ *    允许刻度稍微溢出格心是设计选择。真正决定"能否读"的是**相邻文本不重叠**。
+ */
+await evalJs(`document.querySelector('.mode-btn[data-mode="stats"]').click(); true`);
+await sleep(800);
+const fcLabels = await evalJs(`(() => {
+  const fc = document.getElementById('forecast');
+  if (!fc) return { missing: true };
+  const cells = [...fc.children];
+  const vis = cells.map((c) => {
+    const d = c.querySelector('.fc-d');
+    const r = d.getBoundingClientRect();
+    return {
+      text: d.textContent.trim(),
+      visible: getComputedStyle(d).visibility !== 'hidden',
+      left: Math.round(r.left), right: Math.round(r.right),
+    };
+  }).filter((x) => x.visible);
+  let overlaps = [], minGap = Infinity;
+  for (let i = 1; i < vis.length; i++) {
+    const gap = vis[i].left - vis[i - 1].right;
+    if (gap < minGap) minGap = gap;
+    if (gap < 0) overlaps.push(vis[i - 1].text + '↔' + vis[i].text);
+  }
+  return {
+    cellW: Math.round(cells[0].getBoundingClientRect().width),
+    total: cells.length, visible: vis.length,
+    labels: vis.map((x) => x.text), overlaps,
+    minGap: Number.isFinite(minGap) ? minGap : null,
+  };
+})()`);
+check("⭐ 窄屏下到期量刻度互不重叠（真机上曾挤成一片）",
+  !fcLabels.missing && fcLabels.overlaps.length === 0,
+  fcLabels.missing ? "找不到 #forecast"
+    : `可见 ${fcLabels.visible}/${fcLabels.total} 个刻度：${fcLabels.labels.join(" ")}；最小间距 ${fcLabels.minGap}px`);
+check("窄屏下柱子一根不少（隐藏的只是文字，不是数据）",
+  fcLabels.total === 14, `${fcLabels.total} 根`);
+
 // 复原视口，避免影响后续（本段在最后，仍复原以便 --keep 时手动查看）
 await send("Emulation.clearDeviceMetricsOverride");
 

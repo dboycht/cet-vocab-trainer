@@ -498,7 +498,26 @@ kbd {
   transition: height .5s cubic-bezier(.2, .8, .2, 1);
 }
 .fc.today .fc-bar { background: linear-gradient(to top, var(--seal), var(--seal-soft)); }
-.fc-d { font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-3); text-align: center; }
+/*
+ * 日期刻度：14 个格子并排，手机上每个只有 ~22px 宽，而「10/31」要 ~28px。
+ *
+ * 第一版写 `overflow:hidden` 是错的 —— 格子太窄，「11/11」这种两位数月份
+ * 依然会被自己的格子裁掉（实测 scrollWidth > clientWidth）。
+ * 正解：**允许文字溢出格子**（刻度本来就是居中标注，视觉上也该以格心为准），
+ * 靠"隔一个显示" + 小字号把相邻文本的间距拉开，保证不互相压住。
+ */
+.fc-d {
+  font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-3);
+  text-align: center; white-space: nowrap; overflow: visible;
+  position: relative; z-index: 1;
+}
+/* 窄屏：格子太密，只保留一半刻度（今天是哪天 / 大致节奏），
+   其余交给柱高表达；柱子一根不隐藏。 */
+@media (max-width: 720px) {
+  .forecast { gap: 3px; }
+  .fc-d { font-size: 8px; }
+  .fc:not(.today):nth-child(even) .fc-d { visibility: hidden; }
+}
 
 .mistakes { display: flex; flex-wrap: wrap; gap: 7px; max-height: 208px; overflow-y: auto; padding-right: 4px; }
 .mk {
