@@ -233,8 +233,18 @@ function bumpDay(field, n = 1) {
  *       旧的 s/i/e/d 降为"到期队列"这一可选模式使用（见 settings.useDueQueue）。
  */
 
-/** 遗忘曲线：距上次接触 dt 天后，熟练度还剩的比例。R = 0.5^(dt/HALF_LIFE) */
-const HALF_LIFE_DAYS = 3;
+/**
+ * 遗忘曲线：距上次接触 dt 天后，熟练度还剩的比例。R = 0.5^(dt/HALF_LIFE)
+ *
+ * 半衰期 5 天（用户 2026-10-30 选定）：背过的东西 5 天后记忆剩一半。
+ * 实测对比（4 组 × 40 词，按 eff 分段算每词被抽中的相对概率）：
+ *   HL=3（初值）  → 几乎忘光组 1.23×、较熟组 0.73×   （区分度偏弱）
+ *   HL=5, P=2.5  → 几乎忘光组 1.58×、较熟组 0.67×   ← 当前
+ *   HL=7, P=3.0  → 几乎忘光组 1.86×、较熟组 0.48×   （旧词占比过高）
+ * 选 5 天是因为它落在常见遗忘研究给出的区间内，且不至于让"半年前背过的词"
+ * 天天霸屏。
+ */
+const HALF_LIFE_DAYS = 5;
 
 /** 有效熟练度 = 存档熟练度 × 遗忘衰减。这是"现在到底还记得多少"的估计。 */
 function effProf(card, today = localDayNum()) {
@@ -322,9 +332,14 @@ function profLabel(p) {
  *   - eff=0（陌生）权重 ≈ 1；eff=1（很熟）权重 ≈ FLOOR（仍留一点，不是永不被抽）
  *   - POWER > 1 让"很生疏"和"有点生疏"拉开差距
  * 不用 exp 而用幂次：幂次在 eff→1 时行为更可控，且不依赖浮点指数。
+ *
+ * 参数取 POWER=2.5 / FLOOR=0.03（用户 2026-10-30 选定）：
+ * 实测生疏组抽中率约是熟词的 2.4 倍（1.58× vs 0.67×），
+ * 既保证复习重点，又不至于把熟词饿死（FLOOR 保证它们仍有 3% 的底权重）。
+ * 初值是 POWER=1.6 / FLOOR=0.06，区分度只有 1.23× —— 太均匀，"忘了的词抽不到"。
  */
-const DRAW_POWER = 1.6;
-const DRAW_FLOOR = 0.06;
+const DRAW_POWER = 2.5;
+const DRAW_FLOOR = 0.03;
 
 function drawWeight(card, today = localDayNum()) {
   const eff = effProf(card, today);
