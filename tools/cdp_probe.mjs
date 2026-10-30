@@ -1302,6 +1302,59 @@ check("⭐ 队列条数 = 本批已学词数（既不掺词也不漏词）",
   brun.queueN === brun.learnedN, `queue=${brun.queueN} learned=${brun.learnedN}`);
 check("进入整批测验模式（batchMode）", brun.mode === "batchQuiz", `mode=${brun.mode}`);
 
+/* ---------- R. 「旧的到期队列」开关（用户要求：降为可切换选项） ---------- */
+console.log("\n--- R. 到期队列开关（新机制 vs 旧 SRS） ---");
+/*
+ * 判据：造 60 张**全部未到期**（d = 今天+30）的卡，两种模式下能抽到的题数必须不同 ——
+ *   useDueQueue=false（默认，新机制）：未到期也抽（按熟练度加权）
+ *   useDueQueue=true （旧队列）      ：只抽 d <= 今天，未到期一个都不抽
+ * 只验"开关能存"是不够的：必须验它**真的改变了抽题范围**，否则开关是摆设。
+ */
+async function queueUnderDueSwitch(useDue) {
+  const now = dayNum();
+  const prog = (() => {
+    const cards = {};
+    // 用一组确定的词（词库里真实存在的前 60 个）
+    const words = V3_WORDS.concat([
+      "abandon", "ability", "absolute", "absorb", "abstract", "academic",
+      "accept", "access", "accident", "accompany", "accomplish", "account",
+      "accurate", "achieve", "acknowledge", "acquire", "adapt", "adequate",
+      "adjust", "admire", "admit", "adopt", "advance", "advantage",
+      "adventure", "advertise", "advocate", "affect", "afford", "agency",
+      "agenda", "aggressive", "agriculture", "alarm", "alcohol", "alert",
+      "alien", "align", "allege", "allocate",
+    ]);
+    for (const w of words) {
+      cards[w] = {
+        s: 2, i: 30, e: 2.5, d: now + 30, r: 3, l: 0,     // ★ 全部未到期
+        a: 3, c: 3, k: 2, fd: now - 10, ld: now, bd: 0, ms: 4000,
+        p: 0.6, lt: now - 2,
+      };
+    }
+    return {
+      version: 2, cards, mistakes: [], days: {}, streak: 0, lastDay: "",
+      types: { en2cn: { a: 0, c: 0, ms: 0 }, cn2en: { a: 0, c: 0, ms: 0 }, spell: { a: 0, c: 0, ms: 0 } },
+      settings: { newPerDay: 0, reviewPerDay: 200, useDueQueue: useDue },
+    };
+  })();
+  await seedAndReload(prog);
+  return JSON.parse(await evalJs(`JSON.stringify({
+    learned: window.__cvt.learnedCount(),
+    quizN: window.__cvt.queueSnapshot().queue.filter((x) => x.kind === 'quiz').length,
+    flag: JSON.parse(localStorage.getItem('cvt:v1:cet6')).settings.useDueQueue,
+  })`));
+}
+
+const dueOff = await queueUnderDueSwitch(false);
+const dueOn = await queueUnderDueSwitch(true);
+check("⭐ 默认（新机制）：未到期的词照样按熟练度抽",
+  dueOff.learned > 0 && dueOff.quizN > 0,
+  `可抽 ${dueOff.learned} 词，队列 ${dueOff.quizN} 题`);
+check("⭐ 开启旧队列后：未到期的词一个都不抽",
+  dueOn.quizN === 0, `队列 ${dueOn.quizN} 题（应 0）`);
+check("开关状态正确持久化",
+  dueOff.flag === false && dueOn.flag === true,
+  `off=${dueOff.flag} on=${dueOn.flag}`);
 
 
 /* ---------- M. 控制台报错 ---------- */
