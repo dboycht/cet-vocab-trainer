@@ -246,10 +246,62 @@ if (!h.hasSpeech) {
     "所以朗读只能走 AndroidTts");
 }
 
-/* ---------- I. 控制台 ---------- */
-const noise = /GPU|Vulkan|gpu_|Fontconfig|DevTools|Autofill|favicon|Failed to load resource/i;
-const real = consoleErrors.filter((e) => e && !noise.test(e));
-check("无 JS 报错", real.length === 0, real.slice(0, 3).join(" | ") || "干净");
+/* ---------- J. 新机制：熟练度 × 遗忘曲线 × 20 词批次（真机） ---------- */
+console.log("\n--- J. 新抽取机制（熟练度 × 遗忘曲线）---");
+/*
+ * 为什么真机还要再验一遍（桌面 Q 段已经验过逻辑）：
+ * 真机这套验的是"**打进 APK 的那份代码**"确实是新版 ——
+ * 桌面门禁读的是源码目录，而 APK 里是 Gradle 拷贝过去的快照。
+ * 两者不一致（例如忘了重新打包）时，桌面全绿而手机行为是旧的。
+ * 所以这里用"能否读到新 API + 批次是否 20"来做版本指纹。
+ */
+const v3 = JSON.parse(await ev(`JSON.stringify({
+  hasProf: typeof window.__cvt.profOf === 'function',
+  hasDraw: typeof window.__cvt.drawWeightOf === 'function',
+  hasSample: typeof window.__cvt.sampleByProficiency === 'function',
+  hasLearned: typeof window.__cvt.learnedCount === 'function',
+  batchSize: window.__cvt.batchInfo().size,
+})`));
+check("APK 内是 v1.0.2 新机制（profOf 可用）", v3.hasProf === true);
+check("APK 内含加权抽取接口", v3.hasDraw && v3.hasSample && v3.hasLearned,
+  `draw=${v3.hasDraw} sample=${v3.hasSample} learned=${v3.hasLearned}`);
+check("⭐ 一批 20 词（真机上的实际值）", v3.batchSize === 20, `size=${v3.batchSize}`);
+
+// 学过的词应有熟练度记录；抽取池只含已学词
+const v3pool = JSON.parse(await ev(`(() => {
+  const learned = window.__cvt.learnedCount();
+  const sample = learned > 0 ? window.__cvt.sampleByProficiency(Math.min(5, learned)) : [];
+  const profs = sample.map((w) => window.__cvt.profOf(w));
+  return JSON.stringify({ learned, sampleN: sample.length, profs: profs.slice(0, 3) });
+})()`));
+check("抽取池 = 已学过的词（真机）", v3pool.learned > 0, `已学 ${v3pool.learned} 词`);
+if (v3pool.learned > 0) {
+  check("已学词都有熟练度与上次接触日",
+    v3pool.profs.every((p) => p && typeof p.p === "number" && typeof p.lt === "number"),
+    JSON.stringify(v3pool.profs));
+  check("有效熟练度 ≤ 存档熟练度（衰减生效）",
+    v3pool.profs.every((p) => p.eff <= p.p + 1e-9),
+    v3pool.profs.map((p) => `p=${p.p}/eff=${p.eff}`).join(" "));
+}
+
+// 权重与熟练度反比（真机抽样）
+const v3w = JSON.parse(await ev(`(() => {
+  const all = window.__cvt.sampleByProficiency(200);
+  const pairs = all.map((w) => ({ w: window.__cvt.drawWeightOf(w), e: window.__cvt.effProfOf(w) }))
+    .sort((a, b) => a.e - b.e);
+  return JSON.stringify({
+    n: pairs.length,
+    monotone: pairs.every((p, i) => i === 0 || p.w <= pairs[i - 1].w + 1e-9),
+    head: pairs.slice(0, 2), tail: pairs.slice(-2),
+  });
+})()`));
+check("⭐ 抽取权重与熟练度反比（真机）", v3w.monotone === true,
+  `最生疏 ${JSON.stringify(v3w.head)} → 最熟 ${JSON.stringify(v3w.tail)}`);
+
+/* ---------- K. 控制台 ---------- */
+const noise2 = /GPU|Vulkan|gpu_|Fontconfig|DevTools|Autofill|favicon|Failed to load resource/i;
+const real2 = consoleErrors.filter((e) => e && !noise2.test(e));
+check("无 JS 报错", real2.length === 0, real2.slice(0, 3).join(" | ") || "干净");
 
 console.log(`\n结果：${pass} 通过 / ${fail} 失败`);
 ws.close();
