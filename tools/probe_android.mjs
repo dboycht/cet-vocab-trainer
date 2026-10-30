@@ -447,6 +447,59 @@ check("设置板块：只显示设置面板，且关于有内容",
   nav.settings.selected === "settings" && nav.settings.settings && nav.settings.about >= 4,
   JSON.stringify(nav.settings));
 
+/* ---------- M. 清除数据的四个粒度（真机，2026-10-30） ---------- */
+console.log("\n--- M. 清除数据（真机）---");
+/*
+ * 真机上也要验一遍，因为这一段的价值恰在**边界**：
+ *   「清空学习进度」必须保留 settings（原来会把用户设置一起重置），
+ *   「全部恢复出厂」则要连 settings 一起清。
+ * 走真实按钮 + 自动确认 confirm，读回 localStorage 比对。
+ */
+const clearMix = {
+  version: 2,
+  cards: {
+    probe_x: { s: 2, i: 3, e: 2.5, d: 0, r: 3, l: 0, a: 5, c: 4, k: 2, fd: 0, ld: 0, bd: 0, ms: 1000, p: 0.5, lt: 0 },
+    probe_y: { s: 1, i: 0, e: 2.5, d: 0, r: 2, l: 1, a: 3, c: 1, k: 0, fd: 0, ld: 0, bd: 0, ms: 2000, p: 0.2, lt: 0 },
+  },
+  mistakes: ["probe_y"], days: { "2026-01-01": { n: 5, ok: 4, bad: 1 } }, streak: 3, lastDay: "2026-01-01",
+  types: { en2cn: { a: 5, c: 4, ms: 1000 }, cn2en: { a: 0, c: 0, ms: 0 }, spell: { a: 0, c: 0, ms: 0 } },
+  settings: { newPerDay: 7, reviewPerDay: 33, memorizeMs: 5000, showPos: false, useDueQueue: true },
+};
+async function devClear(btnId) {
+  const inj = await send("Page.addScriptToEvaluateOnNewDocument", {
+    source: `try{localStorage.setItem('cvt:v1:cet6', ${JSON.stringify(JSON.stringify(clearMix))});}catch(e){}`,
+  });
+  await send("Page.reload", { ignoreCache: false });
+  await sleep(3000);
+  await send("Page.removeScriptToEvaluateOnNewDocument", { identifier: inj.identifier });
+  return JSON.parse(await ev(`(async () => {
+    document.querySelector('.mode-btn[data-mode="settings"]').click();
+    await new Promise(r => setTimeout(r, 700));
+    window.confirm = () => true;
+    const btn = document.getElementById(${JSON.stringify(btnId)});
+    if (!btn) return JSON.stringify({ missing: true });
+    btn.click();
+    await new Promise(r => setTimeout(r, 700));
+    const p = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
+    return JSON.stringify({
+      cards: Object.keys(p.cards || {}).length, mistakes: (p.mistakes || []).length,
+      days: Object.keys(p.days || {}).length,
+      newPerDay: p.settings.newPerDay, memorizeMs: p.settings.memorizeMs, showPos: p.settings.showPos,
+    });
+  })()`, true));
+}
+const d1 = await devClear("resetMistakes");
+check("真机·清空错词本：只清清单",
+  !d1.missing && d1.mistakes === 0 && d1.cards === 2 && d1.newPerDay === 7, JSON.stringify(d1));
+const d3 = await devClear("resetBtn");
+check("⭐ 真机·清空学习进度：进度清空但**设置保留**",
+  !d3.missing && d3.cards === 0 && d3.mistakes === 0 && d3.days === 0
+    && d3.newPerDay === 7 && d3.memorizeMs === 5000 && d3.showPos === false,
+  JSON.stringify(d3));
+const d4 = await devClear("factoryBtn");
+check("真机·全部恢复出厂：进度与设置一起清",
+  !d4.missing && d4.cards === 0 && d4.newPerDay === 20 && d4.showPos === true, JSON.stringify(d4));
+
 /* ---------- K. 控制台 ---------- */
 const noise2 = /GPU|Vulkan|gpu_|Fontconfig|DevTools|Autofill|favicon|Failed to load resource/i;
 const real2 = consoleErrors.filter((e) => e && !noise2.test(e));
