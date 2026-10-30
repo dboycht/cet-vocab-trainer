@@ -4,6 +4,12 @@
   "private": true,
   "type": "module",
   "description": "四六级词汇刷词器：离线网页版 + 安卓版，熟练度×遗忘曲线加权抽取 + 客观判分测验",
+  "license": "CC-BY-NC-4.0",
+  "author": "Toki Mizuki",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dboycht/cet-vocab-trainer.git"
+  },
   "scripts": {
     "start": "node server.mjs",
     "start:lan": "node server.mjs --lan",

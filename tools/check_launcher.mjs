@@ -135,6 +135,63 @@ for (const [n, ok, d] of versionChecks) {
   ok ? pass++ : fail++;
 }
 
+/*
+ * 许可证完整性（2026-10-30 用户要求改为 CC BY-NC 4.0 + 禁止商用 + 违者必究）。
+ *
+ * 为什么要门禁：LICENSE 与各处声明是最容易"改一处、忘一处"的东西 ——
+ * README 说了 CC、LICENSE 还是 MIT、应用「关于」页什么都没写，
+ * 这种漂移没有任何报错，而它恰恰是**对用户有法律意义的**内容。
+ * 判据分两层：
+ *   ① LICENSE 文件存在且含 CC BY-NC 4.0 官方正文（不是只写一句自定义声明）
+ *   ② 三处对外声明都提到 CC BY-NC 4.0（README / package.json / 应用「关于」页）
+ */
+console.log("\n许可证（CC BY-NC 4.0 + 禁止商用）");
+const licChecks = [];
+try {
+  const licPath = join(ROOT, "LICENSE");
+  const lic = existsSync(licPath) ? readFileSync(licPath, "utf8") : "";
+  licChecks.push(["LICENSE 文件存在", lic.length > 0, lic ? `${lic.length} 字节` : "缺失"]);
+
+  // 官方正文的独有标志：只写自定义声明是通不过的
+  const officialMarks = [
+    "Attribution-NonCommercial 4.0 International",
+    "Section 3 -- License Conditions",
+    "NonCommercial means not primarily intended for or directed towards",
+  ];
+  const missingMarks = officialMarks.filter((m) => !lic.includes(m));
+  licChecks.push(["LICENSE 含 CC BY-NC 4.0 官方正文（非仅自定义声明）",
+    missingMarks.length === 0, missingMarks.length ? `缺少: ${missingMarks.join(" / ")}` : "官方全文完整"]);
+
+  licChecks.push(["LICENSE 含禁止商用与违者必究声明",
+    /禁止商业使用/.test(lic) && /违者必究/.test(lic) && /Copyright \(c\) Toki Mizuki/.test(lic),
+    "禁止商业使用 / 违者必究 / Copyright (c) Toki Mizuki"]);
+
+  const readme = readFileSync(join(ROOT, "README.md"), "utf8");
+  licChecks.push(["README 声明了 CC BY-NC 4.0 与禁止商用",
+    /CC BY-NC 4\.0/.test(readme) && /禁止任何商业使用|商业使用/.test(readme),
+    "README 已声明"]);
+
+  const pkg2 = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
+  licChecks.push(["package.json 的 license 字段是 CC-BY-NC-4.0",
+    pkg2.license === "CC-BY-NC-4.0", `license=${pkg2.license || "(无)"}`]);
+
+  const appJs2 = readFileSync(join(ROOT, "web", "app.js"), "utf8");
+  licChecks.push(["应用「关于」页含作者与许可（装机用户看得到）",
+    /CC BY-NC 4\.0/.test(appJs2) && /Copyright \(c\) Toki Mizuki/.test(appJs2),
+    "关于页已含作者与许可"]);
+  // 作者名与仓库地址要**显示**在关于页的表格里（不只是出现在版权段落中）
+  licChecks.push(["应用「关于」页显示作者名与仓库地址",
+    /作者<\/span><b>Toki Mizuki/.test(appJs2)
+      && /项目地址<\/span><b><a href="https:\/\/github\.com\/dboycht\/cet-vocab-trainer"/.test(appJs2),
+    "关于页已显示作者名与仓库地址"]);
+} catch (e) {
+  licChecks.push(["许可证可读", false, e.message]);
+}
+for (const [n, ok, d] of licChecks) {
+  console.log(`  ${ok ? "PASS" : "FAIL"}  ${n}  — ${d}`);
+  ok ? pass++ : fail++;
+}
+
 console.log(`\n合计：${pass} 通过 / ${fail} 失败`);
 if (fail && !FIX) console.log("提示：node tools/check_launcher.mjs --fix 可自动修换行（非 ASCII 需人工改）");
 process.exit(fail ? 1 : 0);

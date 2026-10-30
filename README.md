@@ -274,4 +274,21 @@ node tools/check_launcher.mjs --fix
 
 ## 许可
 
-词库内容源自用户提供的词汇书 PDF，仅供个人学习使用；代码部分可自由使用。
+本作品以 **CC BY-NC 4.0**（署名-非商业性使用 4.0 国际）许可协议发布。
+This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
+
+**Copyright (c) Toki Mizuki 2026 — 违者必究。**
+
+- **作者**：Toki Mizuki
+- **项目地址**：https://github.com/dboycht/cet-vocab-trainer
+
+| 你可以 | 你必须 | 你不能 |
+| --- | --- | --- |
+| 使用、复制、分发本作品 | **署名**：注明原作者（Toki Mizuki）与项目地址 | ❌ **商业使用**（出售、收费代做、广告变现、集成进商业产品） |
+| **修改**并分发衍生作品 | 保留版权与许可声明，并说明你做过修改 | ❌ 移除或篡改版权/许可声明 |
+| 用于个人学习、教学、研究 | 衍生作品沿用同一许可（CC BY-NC 4.0） | ❌ 声称是原作者或获得官方认可 |
+
+完整法律条款见 [LICENSE](LICENSE)（含 Creative Commons 官方全文）。
+
+如需**商业授权**，请通过项目 Issue 联系作者洽谈。
+

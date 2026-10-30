@@ -1674,13 +1674,23 @@ function renderSettings() {
   const wb = state.wb;
   $('aboutBox').innerHTML = `
     <div class="about-row"><span>版本</span><b>${APP_VERSION}</b></div>
+    <div class="about-row"><span>作者</span><b>Toki Mizuki</b></div>
+    <div class="about-row"><span>项目地址</span><b><a href="https://github.com/dboycht/cet-vocab-trainer" target="_blank" rel="noopener">github.com/dboycht/cet-vocab-trainer</a></b></div>
     <div class="about-row"><span>词库</span><b>${wb ? `${wb.name} · ${wb.count} 词` : '—'}</b></div>
     <div class="about-row"><span>词库来源</span><b>${wb?.source || '—'}</b></div>
     <div class="about-row"><span>助记</span><b>${state.tips.size} / ${wb?.count ?? 0} 条</b></div>
     <div class="about-row"><span>学习记录</span><b>${cards} 张卡 · ${days} 天${firstUse !== '—' ? `（最早 ${firstUse}）` : ''}</b></div>
+    <div class="about-row"><span>许可</span><b>CC BY-NC 4.0</b></div>
     <p class="muted small">
       进度只存在本机（浏览器 localStorage / 手机应用内），不上传任何服务器。
       应用完全离线可用：词库与助记都随安装包一起提供，运行时不联网。
+    </p>
+    <p class="muted small">
+      <b>Copyright (c) Toki Mizuki 2026 — 违者必究。</b><br>
+      本作品以 CC BY-NC 4.0（署名-非商业性使用 4.0 国际）许可协议发布：
+      <b>禁止任何商业使用</b>（出售、收费代做、广告变现、集成进商业产品）；
+      使用或分发时须注明原作者（Toki Mizuki）及项目地址，并保留本声明。
+      允许在非商业前提下自由修改与分发。
     </p>`;
 }
 
