@@ -17,10 +17,11 @@ android {
         minSdk = 26
         targetSdk = 36
 
-        versionCode = 1
+        versionCode = 2
         // Single source of truth stays the web app's package.json; this mirrors
         // it. The web UI shows its own version, so the two must not drift.
-        versionName = "1.0.1"
+        // 1.0.1 = tag；1.0.2 = 熟练度×遗忘曲线新机制这一轮（安卓端同步移植）。
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

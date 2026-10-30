@@ -66,10 +66,10 @@ const MASTER_STREAK = 3;
 
 /**
  * 一批多少个新词。
- * 用户要求「搞一批一批的」：不是一口气把当天额度灌完，而是一批走完就停下看成绩。
- * 10 个新词 ≈ 学 10 次 + 考 10 次 ≈ 5 分钟，是个能"坐下来完成一段"的量。
+ * 用户 2026-10-30 明确要求 **20 词一批**：看一遍新词后可以立马过一遍这一批，
+ * 再按熟练度抽取做整体测验。
  */
-const BATCH_SIZE = 10;
+const BATCH_SIZE = 20;
 
 function localDayNum(d = new Date()) {
   return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / DAY);
@@ -116,6 +116,12 @@ const DEFAULT_SETTINGS = {
   // 触屏设备是否出拼写题：'auto'（触屏关、桌面开）/ 'on' / 'off'。
   // 手机上拼写要弹软键盘，见 spellAllowed() 的说明。
   spellOnTouch: 'auto',
+  // v3（2026-10-30）：是否用旧的「到期队列」组织复习。
+  //   false（默认）= 新机制：从已学过的词里按 熟练度×遗忘 加权随机抽
+  //   true         = 经典 SRS：只抽 d <= 今天 的到期词
+  useDueQueue: false,
+  // 每日新词上限默认 20（= 一批的量），让"一批"和"一天"对齐
+  newPerDay: 20,
 };
 
 function blankProgress() {
@@ -142,7 +148,25 @@ function migrateCard(c) {
   // v1 的卡只有 s/i/e/d/r/l；补上客观成绩单字段（默认「还没考过」）
   c.a = c.a || 0; c.c = c.c || 0; c.k = c.k || 0;
   c.fd = c.fd || 0; c.ld = c.ld || 0; c.bd = c.bd || 0; c.ms = c.ms || 0;
+  // v3：熟练度模型。`p` = 0~1 的熟练度（没见过 = 0），`lt` = 上次接触的天号。
+  // 老卡没有这两个字段时，用已有成绩**推一个合理初值**，而不是一律抹成 0 ——
+  // 否则老用户升级后，明明背了几百个词却全部显示"生疏"，会被吓一跳。
+  if (typeof c.p !== 'number') c.p = estimateProfFromLegacy(c);
+  if (typeof c.lt !== 'number') c.lt = c.t || c.ld || 0;
   return c;
+}
+
+/**
+ * 老卡（没有 p 字段）→ 熟练度初值。
+ * 依据手上的客观成绩单：连对次数 k 是最直接的证据，答对率做次要修正。
+ * 这是**一次性迁移**，之后一律走 p 的正常更新规则。
+ */
+function estimateProfFromLegacy(c) {
+  if (!c.a) return 0;                       // 没考过 = 生疏
+  const acc = c.c / c.a;
+  const byStreak = Math.min(c.k || 0, 4) / 4 * 0.6;   // 连对最多给 0.6
+  const byAcc = acc * 0.4;                            // 正确率最多给 0.4
+  return clamp(Number((byStreak + byAcc).toFixed(3)), 0, 1);
 }
 
 function loadProgress(wbId) {
@@ -196,6 +220,141 @@ function bumpDay(field, n = 1) {
     progress.streak = progress.days[todayKey(y)] ? (progress.streak || 0) + 1 : 1;
     progress.lastDay = k;
   }
+}
+
+/* ---------------- 熟练度与遗忘曲线（v3 主线） ---------------- */
+/*
+ * 为什么另起一套「熟练度」而不是继续用间隔天数：
+ *   间隔天数回答的是"什么时候再问"，是**排期**；而"我到底还记得多少"是个 0~1 的量，
+ *   它应该随时间连续衰减（遗忘曲线），并且直接决定**被抽中的概率**。
+ *   两者混在一个字段里，就没法表达"很久没见但当时很熟"这种状态。
+ *
+ * 因此：`p`（熟练度）管"有多熟"，`lt`（上次接触日）管"多久没见"，
+ *       旧的 s/i/e/d 降为"到期队列"这一可选模式使用（见 settings.useDueQueue）。
+ */
+
+/** 遗忘曲线：距上次接触 dt 天后，熟练度还剩的比例。R = 0.5^(dt/HALF_LIFE) */
+const HALF_LIFE_DAYS = 3;
+
+/** 有效熟练度 = 存档熟练度 × 遗忘衰减。这是"现在到底还记得多少"的估计。 */
+function effProf(card, today = localDayNum()) {
+  if (!card) return 0;
+  const p = clamp(card.p || 0, 0, 1);
+  const dt = Math.max(0, today - (card.lt || today));
+  return clamp(p * Math.pow(0.5, dt / HALF_LIFE_DAYS), 0, 1);
+}
+
+/** 答对后的熟练度增量：越生疏涨得越多（同一条曲线对谁都收敛，而不是线性加） */
+const PROF_GAIN = 0.34;
+/** 答对的最小增量：保证熟练度**严格上升**（哪怕已经很熟也不例外） */
+const PROF_GAIN_MIN = 0.02;
+/** 答错后的熟练度惩罚（乘性，保证不会跌成负数） */
+const PROF_PENALTY = 0.55;
+
+/**
+ * 按一条作答结果更新熟练度与计时。
+ *
+ * 规则（用户 2026-10-30 明确）：
+ *   - 答对：熟练度增加，**距上次接触时间重置为 0**（lt = 今天）
+ *   - 答错：**时间归零**（lt = 今天），同时熟练度下降
+ *   - 没见过：熟练度 = 0
+ *
+ * ⚠️ 两个容易写错、都是有实测依据的点：
+ *
+ * ① **更新基于「有效熟练度」（含衰减）**，不是存档值。
+ *    否则"一个月前背到 1.0、之后再没见"会被当成 1.0 继续往上加，
+ *    等于假设他从未遗忘 —— 那正是遗忘曲线要修的东西。
+ *
+ * ② **答对时存档值不许下降**（取 max(旧存档, 新值)）。
+ *    实测踩过：一张 p=0.5、5 天没见的卡，eff 已衰减到 0.157，
+ *    答对后按公式算出 0.157 + (1-0.157)×0.34 ≈ 0.44 **低于存档的 0.5**，
+ *    于是"答对了，熟练度反而掉了"—— 数学上自洽，但违反最基本的直觉，
+ *    用户会认为这是 bug（这次正是被门禁抓到的）。
+ *    正确语义：衰减只作用于**"现在还记得多少"的估计**（影响抽中概率），
+ *    不该抹掉已经挣得的熟练度；答对只会让它更高。
+ *
+ * @param {number} g 档位：0=不认识 1=模糊 2=认识（见 gradeOf）
+ */
+function updateProficiency(card, g) {
+  if (!card) return 0;
+  migrateCard(card);                                 // 保证 p/lt 存在（老卡或新建卡）
+  const today = localDayNum();
+  const eff = effProf(card, today);
+  const stored = clamp(card.p || 0, 0, 1);
+  if (g === 0) {
+    card.p = clamp(eff * PROF_PENALTY, 0, 1);        // 答错：掉，但不归零（留一点底）
+  } else if (g === 1) {
+    // 模糊：不奖励也不惩罚 —— 保住衰减后的值（比 attach 前低是正常的"最近确实不熟"）
+    card.p = clamp(eff, 0, 1);
+  } else {
+    /*
+     * 答对：**在存档值之上**加，保证严格上升（用户规则："回答正确，熟练度增加"）。
+     *
+     * 为什么不是"基于 feff 向 1 收敛"：那样的增量会被衰减吃掉 ——
+     * 实测一张 p=0.5、5 天没见的卡算出 0.44，比原来还低，
+     * 被门禁判为"答对反而不涨"（数学自洽但违反直觉，用户会认定是 bug）。
+     * 现在的语义分得很清楚：
+     *   - `p`     = 已经挣得的熟练度（答对只增不减，答错才降）
+     *   - `eff`   = 折算到今天的"还记得多少"（衰减生效，只用于抽中概率）
+     * 答对时增量按"当前有效值越低、涨得越多"给，所以生疏词涨得快、熟词涨得慢，
+     * 但仍保证 p 严格上升 —— 两头都符合直觉。
+     */
+    const gain = PROF_GAIN * (1 - eff) + PROF_GAIN_MIN;
+    card.p = clamp(Math.max(stored + gain, stored + 0.01), 0, 1);
+  }
+  card.lt = today;                                   // 答对答错都算"接触过" ⇒ 计时归零
+  return card.p;
+}
+
+/** 熟练度 → 中文档位（界面上给人看的说法） */
+function profLabel(p) {
+  if (p >= 0.8) return '很熟';
+  if (p >= 0.55) return '较熟';
+  if (p >= 0.3) return '半熟';
+  if (p > 0) return '生疏';
+  return '没学过';
+}
+
+/**
+ * 抽中权重：熟练度越低越容易被抽中（与熟练度反比），并随"久未接触"继续放大。
+ *
+ * 形式：w = (1 - eff)^POWER + FLOOR
+ *   - eff=0（陌生）权重 ≈ 1；eff=1（很熟）权重 ≈ FLOOR（仍留一点，不是永不被抽）
+ *   - POWER > 1 让"很生疏"和"有点生疏"拉开差距
+ * 不用 exp 而用幂次：幂次在 eff→1 时行为更可控，且不依赖浮点指数。
+ */
+const DRAW_POWER = 1.6;
+const DRAW_FLOOR = 0.06;
+
+function drawWeight(card, today = localDayNum()) {
+  const eff = effProf(card, today);
+  return Math.pow(1 - eff, DRAW_POWER) + DRAW_FLOOR;
+}
+
+/**
+ * 按权重随机抽 n 个（不放回）。
+ * @param {string[]} words 候选词
+ * @param {number} n 抽几个
+ * @returns {string[]} 抽中的词（顺序即抽取顺序）
+ */
+function weightedSample(words, n, today = localDayNum()) {
+  const pool = words.map((w) => ({ w, weight: drawWeight(getCard(w), today) }));
+  const out = [];
+  const count = Math.min(n, pool.length);
+  for (let i = 0; i < count; i++) {
+    let total = 0;
+    for (const it of pool) total += it.weight;
+    if (total <= 0) break;
+    let r = Math.random() * total;
+    let hit = pool.length - 1;
+    for (let j = 0; j < pool.length; j++) {
+      r -= pool[j].weight;
+      if (r <= 0) { hit = j; break; }
+    }
+    out.push(pool[hit].w);
+    pool.splice(hit, 1);          // 不放回：一次测验里同一个词不出两次
+  }
+  return out;
 }
 
 /* ---------------- 调度 ---------------- */
@@ -377,6 +536,8 @@ const state = {
   mode: 'quiz',
   queue: [], idx: 0,
   batch: null,                // { size, index }：本批计划多少个新词、已学几个（一批一批来）
+  batchWords: [],             // 本批抽中的新词（学完可就地整批测验）
+  batchMode: null,            // null=默认队列 | 'batchQuiz'（考本批）| 'draw'（按熟练度抽）
   phase: 'asking',            // asking | answered | learn
   question: null,
   questionStart: 0,
@@ -393,6 +554,19 @@ const state = {
 };
 
 /* ---------------- 队列 ---------------- */
+/**
+ * 已学过的词 = 有卡、且不在「学习中」状态。
+ * 这是新测验机制的抽取范围（用户 2026-10-30：从已学过的词里随机抽一部分）。
+ * 「学习中」指答错过、还没重新掌握的词 —— 它们由本轮重排负责，不参与抽取，
+ * 否则会把"刚答错的词"立刻又抽出来，变成原地打转。
+ */
+function learnedWords(pool) {
+  return pool.filter((w) => {
+    const c = getCard(w);
+    return !!c && c.s !== STATE.LEARNING;
+  });
+}
+
 function buildQueue(opts = {}) {
   const today = localDayNum();
   const st = progress.settings;
@@ -414,12 +588,26 @@ function buildQueue(opts = {}) {
   const reviewBudget = opts.onlyMistakes ? learning.length + review.length : st.reviewPerDay;
 
   // ---- 一批一批来 ----
-  // 用户要求「搞一批一批的」：每批固定 BATCH_SIZE 个新词，学完立刻就地考一遍，
-  // 一批走完就停下看成绩，而不是一口气把当天额度全灌进一个长队列。
+  // 每批固定 BATCH_SIZE 个新词，学完立刻就地考一遍，一批走完就停下看成绩。
   const batchNew = Math.min(BATCH_SIZE, newBudget);
   const chosenNew = shuffle(fresh).slice(0, batchNew);
-  // 复习词照样排在最前面（先把该巩固的巩固掉），但每学一个新词就紧跟一道它的测验
-  const chosenReview = shuffle([...learning, ...review]).slice(0, reviewBudget);
+
+  /*
+   * 复习部分的两种来源（用户 2026-10-30 确认：旧的降为可在设置里切换）：
+   *   - 新模式（默认）：从**已学过的词**里按 熟练度×遗忘 加权随机抽
+   *   - 旧模式：按到期日 d <= 今天 抽（经典 SRS 队列）
+   * 两者都只决定"抽哪些"；具体题型仍由 pickType 决定。
+   */
+  let chosenReview;
+  if (st.useDueQueue) {
+    chosenReview = shuffle([...learning, ...review]).slice(0, reviewBudget);
+  } else {
+    const learned = learnedWords(pool).filter((w) => !learning.includes(w));
+    // 「只刷错词」时不按权重抽，直接把错词全排上（否则"只刷错词"会被抽成随机子集）
+    chosenReview = opts.onlyMistakes
+      ? [...learning, ...review].slice(0, reviewBudget)
+      : weightedSample(learned, Math.min(reviewBudget, learned.length), today);
+  }
 
   const q = [];
   let a = 0, b = 0;
@@ -439,6 +627,8 @@ function buildQueue(opts = {}) {
     }
   }
   state.batch = { size: batchNew, index: 0 };
+  state.batchWords = chosenNew.slice();   // 本批新词（学完可就地整批测验）
+  state.batchMode = null;
 
   state.queue = q;
   state.idx = 0;
@@ -447,6 +637,66 @@ function buildQueue(opts = {}) {
   state.stats = { ok: 0, bad: 0 };
   state.done = false;
   return { ...summarizePool(pool), q };
+}
+
+/**
+ * 把界面切到「测验」视图，但**不重建队列**。
+ *
+ * 为什么要单独有这个函数：setMode('quiz') 会调用 buildQueue() 重新组队 ——
+ * 对"测验这一批"和"按熟练度抽一轮"来说，那会把刚精心抽好的队列**直接冲掉**
+ * （实测：batchMode 被重置成 null、队列变回普通队列，入口看起来"点了没反应"）。
+ */
+function enterQuizView(queue, batchMode) {
+  state.mode = 'quiz';
+  state.queue = queue;
+  state.idx = 0;
+  state.sessionWrong = new Set();
+  state.requeued = new Map();
+  state.stats = { ok: 0, bad: 0 };
+  state.done = false;
+  state.batchMode = batchMode;
+  for (const b of document.querySelectorAll('.mode-btn')) {
+    b.setAttribute('aria-selected', String(b.dataset.mode === 'quiz'));
+  }
+  $('stage').hidden = false;
+  $('panel').hidden = true;
+  $('done').hidden = true;
+  $('card').hidden = false;
+  $('grades').hidden = false;
+  $('kbdHint').hidden = false;
+  renderCard();
+}
+
+/**
+ * 「学完这一批，马上考这一批」。
+ *
+ * 为什么单独有这个入口：用户要的是"看一遍新词后可以**立马**过一遍新词" ——
+ * 这是一个**主动动作**，不该混在自动排队里。它只考本批学过的词，
+ * 且不管熟练度（刚学完，抽全部才是"过一遍"）。
+ */
+function quizCurrentBatch() {
+  const words = (state.batchWords || []).filter((w) => getCard(w));
+  if (!words.length) { toast('这一批还没有学过的词'); return; }
+  const queue = shuffle(words).map((w) => ({
+    word: w, kind: 'quiz', type: pickType(getCard(w)),
+  }));
+  enterQuizView(queue, 'batchQuiz');
+  toast(`开始测验这一批 ${queue.length} 个词`);
+}
+
+/**
+ * 「按熟练度抽取」：从全部已学过的词里加权抽一轮。
+ * 这是新机制的主线入口 —— 不按到期日，按"现在有多可能忘了"。
+ */
+function quizByProficiency() {
+  const all = state.wb.words.map((w) => w.word);
+  const learned = learnedWords(all);
+  if (!learned.length) { toast('还没有学过的词'); return; }
+  const n = Math.min(progress.settings.reviewPerDay, learned.length);
+  const picked = weightedSample(learned, n);
+  const queue = picked.map((w) => ({ word: w, kind: 'quiz', type: pickType(getCard(w)) }));
+  enterQuizView(queue, 'draw');
+  toast(`按熟练度抽了 ${picked.length} 个词`);
 }
 
 function summarizePool(pool) {
@@ -798,6 +1048,9 @@ function submitAnswer(correct, extra = {}) {
 
   recordAnswer(item.word, q.type, correct, grade, elapsed);
   schedule(item.word, grade);
+  // 熟练度主线：与 schedule() 分开维护 —— 前者管"现在还记得多少"（决定抽中概率），
+  // 后者管"什么时候再问"（旧到期队列用，可选）。
+  updateProficiency(getCard(item.word), grade);
   bumpDay(correct ? 'ok' : 'bad');
   if (!correct) {
     state.sessionWrong.add(item.word);
@@ -1058,6 +1311,18 @@ function showDone() {
     <div><b>${s.mastered}</b><i>记住了</i></div>
     <div><b>${progress.streak || 0}</b><i>连续天数</i></div>`;
   $('doneMore').textContent = total === 0 ? '开始一轮' : (state.batch?.size > 0 ? '再来一批' : '再来一轮');
+
+  // 新机制的两个入口按情境显示（不是一直摊着，避免按钮墙）：
+  //   「测验这一批」—— 只在刚学完一批新词后有意义
+  //   「按熟练度抽一轮」—— 只要有学过的词就能用
+  const batchN = (state.batchWords || []).filter((w) => getCard(w)).length;
+  const learnedN = learnedWords(state.wb ? state.wb.words.map((w) => w.word) : []).length;
+  const inBatchQuiz = state.batchMode === 'batchQuiz';
+  $('doneBatchQuiz').hidden = !(batchN > 0 && !inBatchQuiz);
+  $('doneBatchQuiz').textContent = `测验这一批（${batchN} 词）`;
+  $('doneDraw').hidden = learnedN === 0;
+  $('doneDraw').textContent = `按熟练度抽一轮（已学 ${learnedN} 词）`;
+
   updateCounters();
 }
 
@@ -1275,6 +1540,7 @@ function renderStats() {
   $('setTimeGate').checked = progress.settings.timeGate;
   $('setSpeak').checked = progress.settings.autoSpeak;
   $('setPos').checked = progress.settings.showPos;
+  $('setDueQueue').checked = !!progress.settings.useDueQueue;
   $('setSpell').value = progress.settings.spellOnTouch || 'auto';
 }
 
@@ -1407,6 +1673,8 @@ function wireEvents() {
     $('grades').hidden = false;
     renderCard();
   });
+  $('doneBatchQuiz').addEventListener('click', quizCurrentBatch);
+  $('doneDraw').addEventListener('click', quizByProficiency);
   $('doneMistakes').addEventListener('click', () => {
     if (!progress.mistakes.length) { toast('错词本是空的'); return; }
     state.mode = 'quiz';
@@ -1447,6 +1715,9 @@ function wireEvents() {
   chk('setTimeGate', 'timeGate');
   chk('setSpeak', 'autoSpeak', (on) => { if (on) speak(currentItem()?.word); });
   chk('setPos', 'showPos', () => renderCard());
+  chk('setDueQueue', 'useDueQueue', (on) => {
+    toast(on ? '复习改为「到期队列」（经典 SRS）' : '复习改为「按熟练度抽取」');
+  });
 
   $('exportBtn').addEventListener('click', exportBackup);
   $('importBtn').addEventListener('click', () => $('importFile').click());
@@ -1606,8 +1877,26 @@ function installDebugHandle() {
     }),
     cardOf: (w) => {
       const c = getCard(w);
-      return c ? { ...c, mastered: isMastered(c) } : null;
+      return c ? { ...c, mastered: isMastered(c), effProf: +effProf(c).toFixed(4) } : null;
     },
+    /** v3 熟练度模型：只读暴露，供门禁断言衰减与更新规则 */
+    profOf: (w) => {
+      const c = getCard(w);
+      return c ? { p: +(c.p || 0).toFixed(4), lt: c.lt || 0, eff: +effProf(c).toFixed(4) } : null;
+    },
+    effProfOf: (w) => +effProf(getCard(w)).toFixed(4),
+    drawWeightOf: (w) => +drawWeight(getCard(w)).toFixed(4),
+    /** 抽 n 个词（只读仿真用；不改任何状态） */
+    sampleByProficiency: (n) => weightedSample(
+      learnedWords(state.wb ? state.wb.words.map((x) => x.word) : []), n,
+    ),
+    learnedCount: () => learnedWords(state.wb ? state.wb.words.map((x) => x.word) : []).length,
+    batchInfo: () => ({
+      size: state.batch?.size ?? 0,
+      index: state.batch?.index ?? 0,
+      words: (state.batchWords || []).slice(),
+      mode: state.batchMode,
+    }),
     /** 本条是否被 entry_repairs 改过（界面要据此提示「与书不一致」） */
     entryFixOf: (w) => {
       const e = state.byWord.get(w);

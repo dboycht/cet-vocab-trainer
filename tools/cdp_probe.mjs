@@ -265,7 +265,9 @@ if (B2 && Array.isArray(B2.queue)) {
     if (!nxt || nxt.kind !== 'quiz' || nxt.word !== B2.queue[i].word) unpaired++;
   }
   check("⭐ 每个学习卡后面都紧跟着它自己的测验（学必有考）", unpaired === 0, `未配对 ${unpaired} 个`);
-  check("⭐ 每批新词数 ≤ BATCH_SIZE(10)", B2.batch && B2.batch.size <= 10, JSON.stringify(B2.batch));
+  // 2026-10-30：一批改为 20 词（用户要求），断言跟着改，并加一条"恰好是 20"，
+  // 免得以后 BATCH_SIZE 改了而断言仍然只查 ≤ 某个大数。
+  check("⭐ 每批新词数 = BATCH_SIZE(20)", B2.batch && B2.batch.size === 20, JSON.stringify(B2.batch));
 }
 
 /* ---------- C. 测验题：4 选项、恰好 1 个正确 ---------- */
@@ -1032,6 +1034,273 @@ check("朗读分发：有 speechSynthesis 时走它（不误调原生桥）",
     : `speechSynthesis=${speakDispatch.withSS.speech} 次，原生=${speakDispatch.withSS.native} 次`);
 check("原生桥 speak() 可被正常调用（壳的兜底通道可用）",
   speakDispatch.nativeCallable === true);
+
+/* ---------- Q. 熟练度模型与加权抽取（v3 主线） ---------- */
+console.log("\n--- Q. 熟练度 / 遗忘曲线 / 加权抽取 ---");
+/*
+ * 这是 2026-10-30 新机制的核心，必须钉死，因为它决定了"抽哪些词给我考"：
+ *   ① 没见过 = 熟练度 0
+ *   ② 遗忘曲线：距上次接触越久，有效熟练度越低（单调递减）
+ *   ③ 答对 → 熟练度上升、计时归零
+ *   ④ 答错 → 熟练度下降、计时**也**归零（用户明确要求"时间归为0"）
+ *   ⑤ 抽取权重与熟练度反比：越生疏权重越大
+ *   ⑥ 抽取确实按权重偏向生疏词（统计判据，不是单次抽样）
+ */
+/*
+ * 铺一批**可控**的卡：5 个"很熟且今天见过" + 15 个"很生疏且 30 天没见"。
+ * 为什么要造这种极端分布：⑥ 那条统计判据要有明确预期，
+ * 拿一堆随机数据去比两个随机组，验不出"真的按权重抽"。
+ * 前 20 个词取自词库真实存在的前缀（见下方 V3_WORDS 与 check 里的 learnedCount）。
+ */
+const V3_WORDS = [
+  "forward", "utmost", "mischief", "dignity", "over",
+  "operation", "second", "bourgeois", "mint", "duke",
+  "souvenir", "bacterium", "obedient", "plump", "millionaire",
+  "collaborate", "sneer", "cluster", "shuttle", "instructor",
+];
+await seedAndReload((() => {
+  const now = dayNum();
+  const cards = {};
+  V3_WORDS.forEach((w, i) => {
+    const hot = i < 5;                    // 前 5 个 = 很熟、今天接触过
+    cards[w] = {
+      s: 2, i: 3, e: 2.5, d: now, r: 3, l: 0,
+      a: 6, c: 6, k: 3, fd: now - 10, ld: now, bd: 0, ms: 5000,
+      p: hot ? 0.95 : 0.05,               // v3 熟练度
+      lt: hot ? now : now - 30,           // 熟的是今天，生疏的 30 天前
+    };
+  });
+  return {
+    version: 2,
+    cards, mistakes: [], days: {}, streak: 0, lastDay: '',
+    types: { en2cn: { a: 0, c: 0, ms: 0 }, cn2en: { a: 0, c: 0, ms: 0 }, spell: { a: 0, c: 0, ms: 0 } },
+    settings: {},
+  };
+})());
+
+// ① 抽取接口可用（未学过的词不会进池子）
+const fresh = await evalJs(`(() => {
+  const w = window.__cvt.sampleByProficiency(1);
+  return JSON.stringify({ sampled: Array.isArray(w), learned: window.__cvt.learnedCount() });
+})()`);
+const fr = JSON.parse(fresh);
+check("抽取接口可用且返回数组", fr.sampled === true);
+check("抽取池 = 已学过的词（20 张卡）", fr.learned === 20, `learnedCount=${fr.learned}`);
+
+// ②③④ 用真实词走一遍：直接读 profOf / effProfOf
+const profProbe = await evalJs(`(() => {
+  const out = {};
+  const samples = window.__cvt.sampleByProficiency(5);
+  const w = samples[0];
+  out.hasSamples = samples.length === 5;
+  out.weights = samples.map((x) => window.__cvt.drawWeightOf(x));
+  out.profs = samples.map((x) => window.__cvt.profOf(x));
+  // 权重与有效熟练度必须反比：熟练度高 ⇒ 权重低
+  const pairs = samples.map((x) => ({ w: window.__cvt.drawWeightOf(x), e: window.__cvt.effProfOf(x) }));
+  pairs.sort((a, b) => a.e - b.e);
+  out.monotone = pairs.every((p, i) => i === 0 || p.w <= pairs[i - 1].w + 1e-9);
+  out.pairs = pairs;
+  return JSON.stringify(out);
+})()`);
+const pp = JSON.parse(profProbe);
+check("能从已学过的词里抽到样本", pp.hasSamples === true);
+check("⭐ 抽取权重与熟练度反比（越熟权重越小）", pp.monotone === true,
+  JSON.stringify(pp.pairs.slice(0, 3)));
+
+// ⑤ 统计判据：反复抽样，生疏词被抽中的频率显著高于熟练词
+const statProbe = await evalJs(`(() => {
+  // 取若干"较熟"与"较生疏"的词各一组，比较它们在多次抽样中的出现率
+  const all = window.__cvt.sampleByProficiency(200);
+  const withEff = all.map((w) => ({ w, e: window.__cvt.effProfOf(w) }))
+    .sort((a, b) => a.e - b.e);
+  const lowN = Math.max(1, Math.floor(withEff.length / 4));
+  const low = new Set(withEff.slice(0, lowN).map((x) => x.w));          // 最生疏 1/4
+  const high = new Set(withEff.slice(-lowN).map((x) => x.w));           // 最熟 1/4
+  let lowHit = 0, highHit = 0;
+  const ROUNDS = 400;
+  for (let i = 0; i < ROUNDS; i++) {
+    const pick = window.__cvt.sampleByProficiency(1)[0];
+    if (low.has(pick)) lowHit++;
+    if (high.has(pick)) highHit++;
+  }
+  return JSON.stringify({ lowN, highN: high.size, lowHit, highHit, rounds: ROUNDS,
+    lowRate: +(lowHit / ROUNDS).toFixed(3), highRate: +(highHit / ROUNDS).toFixed(3) });
+})()`);
+const sp = JSON.parse(statProbe);
+check("⭐ 生疏词被抽中的频率高于熟练词（加权抽取真的生效）",
+  sp.lowRate > sp.highRate,
+  `生疏组 ${sp.lowRate} vs 熟练组 ${sp.highRate}（各 ${sp.lowN} 词，抽 ${sp.rounds} 次）`);
+
+// ⑥ 答对/答错对熟练度与计时的影响（走真实 UI 作答，再读存档值）
+const ruleProbe = await evalJs(`(() => {
+  const w = window.__cvt.sampleByProficiency(1)[0];
+  const before = window.__cvt.profOf(w);
+  return JSON.stringify({ w, before });
+})()`);
+const rp = JSON.parse(ruleProbe);
+check("能读到某个已学词的熟练度与上次接触日", rp.before && typeof rp.before.p === "number",
+  `${rp.w}: p=${rp.before?.p} lt=${rp.before?.lt} eff=${rp.before?.eff}`);
+check("⭐ 有效熟练度 ≤ 存档熟练度（衰减只会往下）", rp.before.eff <= rp.before.p + 1e-9,
+  `eff=${rp.before.eff} ≤ p=${rp.before.p}`);
+
+/*
+ * ⑦ 答对 → 熟练度上升、计时归零；答错 → 熟练度下降、计时**也**归零。
+ *
+ * 这是用户 2026-10-30 明确的两条规则，必须用**真实作答路径**验：
+ * 直接调 updateProficiency() 不算数，要证明"点答案按钮之后卡片上的 p/lt 确实变了"。
+ *
+ * 怎么把指定的词变成当前题：**不要**靠遍历队列去"撞"它 ——
+ * 队列是加权随机生成的，撞不到很正常，那样写出来的失败是测试的问题不是产品的问题。
+ * 改用确定性做法：直接改写 localStorage 把该词设成唯一到期卡，
+ * 并把 reviewPerDay 调小，使 buildQueue 只可能选中它。
+ */
+async function answerOneAndRead(word, correct) {
+  await seedAndReload((() => {
+    const now = dayNum();
+    const cards = {};
+    // 只留这一张"到期"卡 ⇒ 新机制下抽取池里只有它
+    cards[word] = {
+      s: 2, i: 1, e: 2.5, d: now, r: 1, l: 0,
+      a: 2, c: 1, k: 1, fd: now - 5, ld: now - 1, bd: now - 1, ms: 4000,
+      p: 0.5, lt: now - 5,          // 陈旧值：用来验证"更新后确实变了"
+    };
+    // 塞一批"未学习"之外的空卡不影响；关键是把新词额度设为 0，队列里只会有复习题
+    return {
+      version: 2, cards, mistakes: [], days: {}, streak: 0, lastDay: '',
+      types: { en2cn: { a: 0, c: 0, ms: 0 }, cn2en: { a: 0, c: 0, ms: 0 }, spell: { a: 0, c: 0, ms: 0 } },
+      settings: { newPerDay: 0, reviewPerDay: 1, useDueQueue: false, quizTypes: 'en2cn' },
+    };
+  })());
+
+  const cur = JSON.parse(await evalJs(`(() => {
+    const s = window.__cvt.stateInfo();
+    return JSON.stringify({ word: s.word, type: s.type, ans: s.answerIndex, kind: s.kind });
+  })()`));
+
+  // 前提守卫：队列里必须就是这个词，否则这条测试没有意义
+  if (cur.word !== word || cur.kind !== 'quiz') {
+    return { mismatch: true, got: cur };
+  }
+
+  const before = JSON.parse(await evalJs(`JSON.stringify(window.__cvt.profOf(${JSON.stringify(word)}))`));
+
+  await evalJs(`(() => {
+    const ansIdx = ${cur.ans};
+    const opts = [...document.querySelectorAll('.opt')];
+    const wantCorrect = ${correct ? "true" : "false"};
+    if (wantCorrect) {
+      if (opts[ansIdx]) opts[ansIdx].click();
+      return true;
+    }
+    const dn = document.getElementById('dunnoBtn');
+    if (dn && !dn.hidden) { dn.click(); return true; }
+    const wrong = opts.find((_, i) => i !== ansIdx);
+    if (wrong) wrong.click();
+    return true;
+  })()`);
+  await sleep(800);
+  const after = JSON.parse(await evalJs(`JSON.stringify(window.__cvt.profOf(${JSON.stringify(word)}))`));
+  return { before, after, type: cur.type };
+}
+
+const right = await answerOneAndRead("cluster", true);
+if (right.mismatch) {
+  check("答对路径：该词被排成当前题（前提）", false, `实际是 ${right.got.word}/${right.got.kind}`);
+} else {
+  check("⭐ 答对 → 熟练度上升", right.after.p > right.before.p,
+    `${right.before.p} → ${right.after.p}（题型 ${right.type}）`);
+  check("⭐ 答对 → 距上次接触计时归零（lt = 今天）", right.after.lt === dayNum(),
+    `lt ${right.before.lt} → ${right.after.lt}（今天 ${dayNum()}）`);
+}
+
+const wrongAns = await answerOneAndRead("sneer", false);
+if (wrongAns.mismatch) {
+  check("答错路径：该词被排成当前题（前提）", false, `实际是 ${wrongAns.got.word}/${wrongAns.got.kind}`);
+} else {
+  check("⭐ 答错 → 熟练度下降", wrongAns.after.p < wrongAns.before.p,
+    `${wrongAns.before.p} → ${wrongAns.after.p}（题型 ${wrongAns.type}）`);
+  check("⭐ 答错 → 时间也归零（lt = 今天）", wrongAns.after.lt === dayNum(),
+    `lt ${wrongAns.before.lt} → ${wrongAns.after.lt}`);
+}
+
+/*
+ * ⑧ 整批测验入口：学完一批后，「测验这一批」只能考本批学过的词。
+ *
+ * ⚠️ 这里必须**自己铺干净状态**：上一个测试为了把队列压成单个到期词，
+ * 把 newPerDay 设成了 0，留到现在就会得到"本批 0 个新词"的假红（本轮踩过）。
+ * 判据：断言前先确认 newPerDay > 0，再读批次。
+ */
+await seedAndReload({
+  version: 2, cards: {}, mistakes: [], days: {}, streak: 0, lastDay: "",
+  types: { en2cn: { a: 0, c: 0, ms: 0 }, cn2en: { a: 0, c: 0, ms: 0 }, spell: { a: 0, c: 0, ms: 0 } },
+  settings: { newPerDay: 20, reviewPerDay: 50, useDueQueue: false },
+});
+const batchQuiz = await evalJs(`(async () => {
+  document.querySelector('.mode-btn[data-mode="quiz"]').click();
+  await new Promise(r => setTimeout(r, 300));
+  const info = window.__cvt.batchInfo();
+  return JSON.stringify({ batchSize: info.size, words: info.words.length });
+})()`);
+const bq = JSON.parse(batchQuiz);
+check("批次信息可读（本批新词非空）", bq.words > 0, `本批 ${bq.words} 个新词`);
+check("⭐ 一批 20 词（用户要求）", bq.batchSize === 20, `size=${bq.batchSize}`);
+
+// 点「测验这一批」：队列必须恰好是本批那些词
+/*
+ * ⚠️ 两个坑（本轮都踩过，写下来免得下次再犯）：
+ *   ① 按钮平时是 hidden（showDone 里按情境显隐），对 hidden 元素 click() 不触发；
+ *   ② 更根本的是：**必须先真的把这一批学会**。batchWords 里装的是"待学的新词"，
+ *      没学过就没有卡片，quizCurrentBatch 会诚实地提示"这一批还没有学过的词"。
+ *      所以这里先逐个点「记住了，开始学」，再点入口。
+ */
+const batchRun = await evalJs(`(async () => {
+  const before = window.__cvt.batchInfo().words.slice();
+
+  // 把本批的每个新词都学掉（走真实 UI：点「记住了，开始学」）
+  for (let i = 0; i < before.length + 5; i++) {
+    const s = window.__cvt.stateInfo();
+    const gl = document.getElementById('goLearn');
+    if (s.kind === 'learn' && gl && !gl.hidden) { gl.click(); }
+    else {
+      // 不是学习卡就推进（答当前题/下一个）
+      const gn = document.getElementById('goNext');
+      if (gn && !gn.hidden) gn.click();
+      else {
+        const dn = document.getElementById('dunnoBtn');
+        if (dn && !dn.hidden) dn.click();
+        else { const o = document.querySelectorAll('.opt'); if (o.length) o[0].click(); }
+      }
+    }
+    await new Promise(r => setTimeout(r, 260));
+    // 本批学习卡全部走完就停
+    const done = before.every((w) => !!window.__cvt.cardOf(w));
+    if (done) break;
+  }
+  const learnedN = before.filter((w) => !!window.__cvt.cardOf(w)).length;
+
+  const btn = document.getElementById('doneBatchQuiz');
+  btn.hidden = false;                 // 模拟结算界面（见 showDone 的显隐规则）
+  btn.click();
+  await new Promise(r => setTimeout(r, 500));
+  const q = window.__cvt.queueSnapshot().queue.map((x) => x.word);
+  const s = new Set(before), qs = new Set(q);
+  return JSON.stringify({
+    beforeN: before.length, learnedN, queueN: q.length,
+    onlyBatch: q.every((w) => s.has(w)),
+    allCovered: before.filter((w) => !!window.__cvt.cardOf(w)).every((w) => qs.has(w)),
+    mode: window.__cvt.batchInfo().mode,
+    toast: (document.getElementById('toast') || {}).textContent,
+  });
+})()`);
+const brun = JSON.parse(batchRun);
+check("⭐ 「测验这一批」只考本批学过的词", brun.onlyBatch === true,
+  `队列 ${brun.queueN} 题 / 本批已学 ${brun.learnedN} 词（本批共 ${brun.beforeN}）`);
+check("「测验这一批」覆盖本批全部**已学**词", brun.allCovered === true && brun.learnedN > 0,
+  `已学 ${brun.learnedN} 个，队列 ${brun.queueN} 题`);
+// 队列条数必须等于已学词数：既不多（不会掺进池子里的其他词）也不少（每个都考）
+check("⭐ 队列条数 = 本批已学词数（既不掺词也不漏词）",
+  brun.queueN === brun.learnedN, `queue=${brun.queueN} learned=${brun.learnedN}`);
+check("进入整批测验模式（batchMode）", brun.mode === "batchQuiz", `mode=${brun.mode}`);
 
 
 

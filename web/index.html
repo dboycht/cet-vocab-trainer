@@ -150,6 +150,10 @@
       <div class="done-grid" id="doneGrid"></div>
       <div class="done-actions">
         <button class="btn primary" id="doneMore">再来一轮</button>
+        <!-- 学完一批后：立刻考这一批（用户要求「看一遍新词后可以立马过一遍」） -->
+        <button class="btn primary" id="doneBatchQuiz">测验这一批</button>
+        <!-- 按熟练度×遗忘加权抽取，从已学过的词里抽一轮 -->
+        <button class="btn" id="doneDraw">按熟练度抽一轮</button>
         <button class="btn" id="doneMistakes">只刷错词</button>
         <button class="btn" id="doneStats">看统计</button>
       </div>
@@ -208,6 +212,7 @@
             <option value="off">从不出</option>
           </select>
         </label>
+        <label class="chk"><input type="checkbox" id="setDueQueue"> 用旧的「到期队列」组织复习（关闭则按熟练度抽取）</label>
         <label class="chk"><input type="checkbox" id="setTimeGate"> 选择题答得慢也算「模糊」</label>
         <label class="chk"><input type="checkbox" id="setSpeak"> 自动朗读单词</label>
         <label class="chk"><input type="checkbox" id="setPos"> 显示词性徽记</label>
