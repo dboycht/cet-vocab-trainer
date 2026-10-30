@@ -28,6 +28,15 @@ const PROGRESS_VERSION = 2;
 const MAX_INTERVAL = 365;
 const EASE_MIN = 1.3, EASE_MAX = 2.8;
 
+/**
+ * 应用版本号 —— **显示用**，真源是 `package.json` 的 `version`。
+ *
+ * 为什么不 fetch('../../package.json')：安卓壳只把 web/ 与 assets/ 打进 APK，
+ * package.json 不在其中，fetch 必然 404。所以这里留一份副本，
+ * 由人负责与 package.json 同步（`npm run verify` 的门禁会比对，见 check_launcher）。
+ */
+const APP_VERSION = '1.0.2';
+
 const STATE = { NEW: 0, LEARNING: 1, REVIEW: 2 };
 const STATE_LABEL = { 0: '新词', 1: '学习中', 2: '复习中' };
 const STATE_CLASS = { 0: 'st-new', 1: 'st-learn', 2: 'st-rev' };
@@ -599,8 +608,21 @@ function buildQueue(opts = {}) {
   }
 
   const learnedToday = progress.days[todayKey()]?.n || 0;
-  const newBudget = opts.onlyMistakes ? fresh.length : Math.max(0, st.newPerDay - learnedToday);
-  const reviewBudget = opts.onlyMistakes ? learning.length + review.length : st.reviewPerDay;
+  /*
+   * 两个板块各只做自己的事（2026-10-30 拆板块时加的）：
+   *   学习板块（opts.only === 'new'） → 只排新词（学习卡 + 紧跟的测验）
+   *   测验板块（opts.only === 'review'）→ 只排复习题，一个学习卡都不出
+   * 之前的默认行为是"两样混在一起"，那在学习板块里会让"我要学新词"变成
+   * "先做一堆复习题才轮到一个新词"，与板块名字不符。
+   * 不带 only 时保持混排（供"再来一批/再来一轮"等旧入口使用）。
+   */
+  const onlyNew = opts.only === 'new';
+  const onlyReview = opts.only === 'review';
+
+  const newBudget = opts.onlyMistakes ? fresh.length
+    : (onlyReview ? 0 : Math.max(0, st.newPerDay - learnedToday));
+  const reviewBudget = opts.onlyMistakes ? learning.length + review.length
+    : (onlyNew ? 0 : st.reviewPerDay);
 
   // ---- 一批一批来 ----
   // 每批固定 BATCH_SIZE 个新词，学完立刻就地考一遍，一批走完就停下看成绩。
@@ -641,9 +663,19 @@ function buildQueue(opts = {}) {
       q.push({ word: w, kind: 'quiz', type: pickType(getCard(w)), afterLearn: true });
     }
   }
-  state.batch = { size: batchNew, index: 0 };
-  state.batchWords = chosenNew.slice();   // 本批新词（学完可就地整批测验）
-  state.batchMode = null;
+  /*
+   * ⚠️ 只有**排了新词**的那次组队才有资格定义"本批"。
+   *
+   * 拆板块后（2026-10-30）踩过：切到测验板块也会调 buildQueue({only:'review'})，
+   * 那时 chosenNew 恒为空 —— 若无条件赋值，会把刚学的那一批**抹成空**
+   * （batch 归零、batchWords 清空），于是「测验这一批」永远提示
+   * "这一批还没有学过的词"。这是跨板块的状态丢失，必须靠条件赋值避免。
+   */
+  if (chosenNew.length) {
+    state.batch = { size: batchNew, index: 0 };
+    state.batchWords = chosenNew.slice();   // 本批新词（学完可就地整批测验）
+    state.batchMode = null;
+  }
 
   state.queue = q;
   state.idx = 0;
@@ -1349,20 +1381,45 @@ function showDone() {
   updateCounters();
 }
 
-/* ---------------- 模式切换 ---------------- */
+/* ---------------- 板块切换 ---------------- */
+/*
+ * 四个板块各管一件事（2026-10-30 用户要求重排导航）：
+ *   learn    学新词（内含快速过词 / 乱序浏览作为辅助）
+ *   quiz     考已学过的词（按熟练度抽、或整批测验）
+ *   stats    看数据
+ *   settings 调设置 + 学习记录管理 + 关于
+ *
+ * `state.mode` 仍然是"卡片舞台怎么渲染"的唯一开关，取值比板块更细：
+ *   learn | quiz | flash | browse   —— 前两个是主线，后两个是学习辅助
+ * 所以板块与 mode 是两层：learn 板块下的 flash/browse 也算 learn 板块。
+ */
+/** 某个 mode 归属哪个板块 */
+function boardOf(mode) {
+  if (mode === 'stats') return 'stats';
+  if (mode === 'settings') return 'settings';
+  if (mode === 'flash' || mode === 'browse') return 'learn';
+  return mode === 'learn' ? 'learn' : 'quiz';
+}
+
 function setMode(mode) {
-  const isStats = mode === 'stats';
   state.mode = mode;
+  const board = boardOf(mode);
   for (const b of document.querySelectorAll('.mode-btn')) {
-    b.setAttribute('aria-selected', String(b.dataset.mode === mode));
+    b.setAttribute('aria-selected', String(b.dataset.mode === board));
   }
-  $('stage').hidden = isStats;
-  $('panel').hidden = !isStats;
+  const isPanel = board === 'stats' || board === 'settings';
+  $('stage').hidden = isPanel;
+  $('panel').hidden = board !== 'stats';
+  $('settingsPanel').hidden = board !== 'settings';
   $('card').hidden = false;
   $('kbdHint').hidden = false;
   $('goNext').hidden = true;
+  // 学习辅助条只在学习板块出现；测验入口只在测验板块出现
+  $('learnBar').hidden = board !== 'learn';
+  $('quizBar').hidden = board !== 'quiz';
 
-  if (isStats) { renderStats(); return; }
+  if (board === 'stats') { renderStats(); return; }
+  if (board === 'settings') { renderSettings(); return; }
 
   if (mode === 'browse') {
     state.browse.order = shuffle(state.wb.words.map((w) => w.word));
@@ -1375,10 +1432,30 @@ function setMode(mode) {
     state.stats = { ok: 0, bad: 0 };
     $('grades').hidden = false;
   } else {
-    buildQueue();
+    /*
+     * learn / quiz 都走 buildQueue，但**各自只排自己那一半**：
+     *   学习板块 → 只有新词（学习卡 + 紧跟的测验）
+     *   测验板块 → 只有复习题
+     * 两者共用同一套排期逻辑（"学必有考"的成对关系不能断），
+     * 差别只在入口给它的 only 参数。
+     */
+    buildQueue({ only: mode === 'learn' ? 'new' : 'review' });
     $('grades').hidden = false;
   }
+  updateQuizBar();
   renderCard();
+}
+
+/** 测验板块那两个入口的可用状态与副标题 */
+function updateQuizBar() {
+  if (!state.wb) return;
+  const all = state.wb.words.map((w) => w.word);
+  const learnedN = learnedWords(all).length;
+  const batchN = (state.batchWords || []).filter((w) => getCard(w)).length;
+  $('barDrawHint').textContent = learnedN ? `已学 ${learnedN} 词` : '还没有学过的词';
+  $('barDraw').disabled = learnedN === 0;
+  $('barBatchHint').textContent = batchN ? `本批已学 ${batchN} 词` : '本批还没学过';
+  $('barBatch').disabled = batchN === 0;
 }
 
 /* ---------------- 统计 ---------------- */
@@ -1555,16 +1632,43 @@ function renderStats() {
       mbox.appendChild(b);
     }
   }
+}
 
-  $('setNew').value = progress.settings.newPerDay;
-  $('setReview').value = progress.settings.reviewPerDay;
-  $('setTypes').value = progress.settings.quizTypes;
-  $('setMemorize').value = String(progress.settings.memorizeMs);
-  $('setTimeGate').checked = progress.settings.timeGate;
-  $('setSpeak').checked = progress.settings.autoSpeak;
-  $('setPos').checked = progress.settings.showPos;
-  $('setDueQueue').checked = !!progress.settings.useDueQueue;
-  $('setSpell').value = progress.settings.spellOnTouch || 'auto';
+/* ---------------- 设置板块 ---------------- */
+/**
+ * 渲染「设置」板块：把控件值同步成当前设置，并填「关于」。
+ *
+ * 为什么设置控件要在每次进入板块时重设一遍值：设置项是**受控的**，
+ * 而导出/导入/清空都会替换整个 progress 对象 —— 不重设的话，
+ * 导入一份备份后界面上还是旧值，用户会以为没生效。
+ */
+function renderSettings() {
+  const st = progress.settings;
+  $('setNew').value = st.newPerDay;
+  $('setReview').value = st.reviewPerDay;
+  $('setTypes').value = st.quizTypes;
+  $('setMemorize').value = String(st.memorizeMs);
+  $('setTimeGate').checked = !!st.timeGate;
+  $('setSpeak').checked = !!st.autoSpeak;
+  $('setPos').checked = !!st.showPos;
+  $('setDueQueue').checked = !!st.useDueQueue;
+  $('setSpell').value = st.spellOnTouch || 'auto';
+
+  // ---- 关于 ----
+  const cards = Object.keys(progress.cards || {}).length;
+  const days = Object.keys(progress.days || {}).length;
+  const firstUse = Object.keys(progress.days || {}).sort()[0] || '—';
+  const wb = state.wb;
+  $('aboutBox').innerHTML = `
+    <div class="about-row"><span>版本</span><b>${APP_VERSION}</b></div>
+    <div class="about-row"><span>词库</span><b>${wb ? `${wb.name} · ${wb.count} 词` : '—'}</b></div>
+    <div class="about-row"><span>词库来源</span><b>${wb?.source || '—'}</b></div>
+    <div class="about-row"><span>助记</span><b>${state.tips.size} / ${wb?.count ?? 0} 条</b></div>
+    <div class="about-row"><span>学习记录</span><b>${cards} 张卡 · ${days} 天${firstUse !== '—' ? `（最早 ${firstUse}）` : ''}</b></div>
+    <p class="muted small">
+      进度只存在本机（浏览器 localStorage / 手机应用内），不上传任何服务器。
+      应用完全离线可用：词库与助记都随安装包一起提供，运行时不联网。
+    </p>`;
 }
 
 /* ---------------- 朗读 / 提示 ---------------- */
@@ -1682,18 +1786,35 @@ function wireEvents() {
     if (e.target.closest('[data-mark]')) markBrowse();
   });
 
+  // 学习板块的辅助入口（快速过词 / 乱序浏览 / 回到学新词）
+  $('learnBar').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-submode]');
+    if (!b) return;
+    const sub = b.dataset.submode;
+    setMode(sub === 'new' ? 'learn' : sub);
+  });
+
+  // 测验板块的两个主动入口
+  $('barDraw').addEventListener('click', quizByProficiency);
+  $('barBatch').addEventListener('click', quizCurrentBatch);
+
   $('doneMore').addEventListener('click', () => {
-    if (state.mode !== 'quiz') { setMode('quiz'); return; }
-    const built = buildQueue();
+    // 「再来一批/再来一轮」跟着当前板块走，不要固定回测验
+    const m = boardOf(state.mode);
+    if (m === 'stats' || m === 'settings') { setMode('learn'); return; }
+    const built = buildQueue(m === 'learn' ? { only: 'new' } : { only: 'review' });
     if (!built.q.length) {
-      toast(progress.settings.newPerDay === 0
-        ? '每日新词上限是 0，先到「统计 → 设置」里调高'
-        : '今天的新词额度和复习都清空了，明天再来（或调高每日上限）');
+      toast(m === 'learn'
+        ? (progress.settings.newPerDay === 0
+            ? '每日新词上限是 0，先到「设置」里调高'
+            : '今天的新词学完了，明天再来（或调高每日上限）')
+        : '暂时没有可复习的词 —— 先去「学习」学一批吧');
       showDone();
       return;
     }
     $('card').hidden = false;
     $('grades').hidden = false;
+    updateQuizBar();
     renderCard();
   });
   $('doneBatchQuiz').addEventListener('click', quizCurrentBatch);
@@ -1701,8 +1822,11 @@ function wireEvents() {
   $('doneMistakes').addEventListener('click', () => {
     if (!progress.mistakes.length) { toast('错词本是空的'); return; }
     state.mode = 'quiz';
-    for (const b of document.querySelectorAll('.mode-btn')) b.setAttribute('aria-selected', String(b.dataset.mode === 'quiz'));
-    $('stage').hidden = false; $('panel').hidden = true;
+    for (const b of document.querySelectorAll('.mode-btn')) {
+      b.setAttribute('aria-selected', String(b.dataset.mode === 'quiz'));
+    }
+    $('stage').hidden = false; $('panel').hidden = true; $('settingsPanel').hidden = true;
+    $('learnBar').hidden = true; $('quizBar').hidden = false;
     $('card').hidden = false; $('grades').hidden = false;
     buildQueue({ onlyMistakes: true });
     renderCard();
@@ -1837,8 +1961,9 @@ function resetProgress() {
   if (!confirm('确定清空这本词库的全部学习进度？此操作不可撤销（建议先导出备份）。')) return;
   progress = blankProgress();
   flushProgress();
+  // 留在设置板块：用户刚在这里点的按钮，把他弹去别的板块会让人莫名其妙
+  renderSettings();
   renderStats();
-  setMode('quiz');
   toast('进度已清空');
 }
 
@@ -1854,10 +1979,10 @@ function resetProgress() {
  * 这与浏览器「返回」的直觉一致：一层一层往回退，退到底才离开。
  */
 function handleBack() {
-  // 0) 统计页优先：切到统计页时答案/反馈并未被销毁，只是整个 stage 被隐藏，
+  // 0) 参数/统计板块优先：切过去时答案/反馈并未被销毁，只是整个 stage 被隐藏，
   //    `#feedback` 可能仍是 visible。若不先处理这一层，下面的 `advance()` 会在
   //    用户看不见的地方把 state.idx 往前推——等于**静默跳过一张卡**。
-  if (state.mode === 'stats') { setMode('quiz'); return true; }
+  if (state.mode === 'stats' || state.mode === 'settings') { setMode('quiz'); return true; }
 
   // 1) 判定反馈还开着 → 先收起，等于"继续下一张"
   if (!$('feedback').hidden) { advance(); return true; }
@@ -1870,10 +1995,10 @@ function handleBack() {
     return true;
   }
 
-  // 3) 过词 / 浏览模式 → 回到测验主线
-  if (state.mode === 'flash' || state.mode === 'browse') { setMode('quiz'); return true; }
+  // 3) 过词 / 浏览（都属于学习板块的辅助）→ 回到「学新词」主线
+  if (state.mode === 'flash' || state.mode === 'browse') { setMode('learn'); return true; }
 
-  // 4) 已在测验主线且无待处理状态 → 交给壳退出应用
+  // 4) 已在主线且无待处理状态 → 交给壳退出应用
   return false;
 }
 

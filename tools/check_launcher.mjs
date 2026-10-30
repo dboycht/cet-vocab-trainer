@@ -102,5 +102,39 @@ for (const name of LAUNCHERS) {
 }
 
 console.log(`\n结果：${pass} 通过 / ${fail} 失败`);
+
+/*
+ * 版本号一致性：`web/app.js` 的 APP_VERSION 是**显示用**副本，真源是 package.json。
+ * 安卓端 `versionName` 也应同步（它决定了应用商店/系统里看到的版本）。
+ * 三处不一致时用户会看到自相矛盾的版本号，而这种漂移没有任何报错 ——
+ * 所以必须由机制来守，不能靠"记得同步"。
+ */
+console.log("\n版本号一致性（package.json 是唯一真源）");
+const versionChecks = [];
+try {
+  const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
+  const v = pkg.version;
+
+  const appJs = readFileSync(join(ROOT, "web", "app.js"), "utf8");
+  const m = appJs.match(/const APP_VERSION = '([^']+)'/);
+  versionChecks.push(["web/app.js 的 APP_VERSION 与 package.json 一致",
+    !!m && m[1] === v, m ? `app.js=${m[1]} package.json=${v}` : "没找到 APP_VERSION"]);
+
+  const gradlePath = join(ROOT, "android", "app", "build.gradle.kts");
+  if (existsSync(gradlePath)) {
+    const g = readFileSync(gradlePath, "utf8");
+    const gm = g.match(/versionName = "([^"]+)"/);
+    versionChecks.push(["安卓 versionName 与 package.json 一致",
+      !!gm && gm[1] === v, gm ? `安卓=${gm[1]} package.json=${v}` : "没找到 versionName"]);
+  }
+} catch (e) {
+  versionChecks.push(["版本号可读", false, e.message]);
+}
+for (const [n, ok, d] of versionChecks) {
+  console.log(`  ${ok ? "PASS" : "FAIL"}  ${n}  — ${d}`);
+  ok ? pass++ : fail++;
+}
+
+console.log(`\n合计：${pass} 通过 / ${fail} 失败`);
 if (fail && !FIX) console.log("提示：node tools/check_launcher.mjs --fix 可自动修换行（非 ASCII 需人工改）");
 process.exit(fail ? 1 : 0);

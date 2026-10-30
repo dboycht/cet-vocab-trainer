@@ -25,11 +25,12 @@
       </span>
     </div>
 
-    <nav class="modes" id="modes" role="tablist" aria-label="模式">
+    <nav class="modes" id="modes" role="tablist" aria-label="板块">
+      <!-- 四个板块各管一件事：学新词 / 考已学 / 看数据 / 调设置 -->
+      <button class="mode-btn" data-mode="learn" role="tab" aria-selected="false">学习</button>
       <button class="mode-btn" data-mode="quiz" role="tab" aria-selected="true">测验</button>
-      <button class="mode-btn" data-mode="flash" role="tab" aria-selected="false">快速过词</button>
-      <button class="mode-btn" data-mode="browse" role="tab" aria-selected="false">乱序浏览</button>
       <button class="mode-btn" data-mode="stats" role="tab" aria-selected="false">统计</button>
+      <button class="mode-btn" data-mode="settings" role="tab" aria-selected="false">设置</button>
     </nav>
 
     <div class="counters" id="counters">
@@ -40,8 +41,18 @@
     </div>
   </header>
 
-  <!-- ================= 测验 / 过词 / 浏览 ================= -->
+  <!-- ================= 学习 / 测验（共用同一张卡片舞台） ================= -->
   <main class="stage" id="stage">
+
+    <!-- 学习板块的工具条；只在「学习」板块显示。
+         快速过词与乱序浏览不改成绩、不进排期，本质是"多看几眼"的辅助手段，
+         所以归在学习板块，而不是塞成两个主标签。 -->
+    <div class="subbar" id="learnBar" hidden>
+      <span class="subbar-label">学习辅助</span>
+      <button class="sub-btn" data-submode="flash">快速过词<small>不计成绩</small></button>
+      <button class="sub-btn" data-submode="browse">乱序浏览<small>标记错词</small></button>
+      <button class="sub-btn" data-submode="new">回到学新词<small>主线</small></button>
+    </div>
 
     <aside class="rail" id="rail" aria-hidden="true">
       <div class="rail-track"><div class="rail-fill" id="railFill"></div></div>
@@ -142,6 +153,14 @@
       <p class="kbd-hint" id="kbdHint">
         <kbd>空格</kbd> 继续 · <kbd>1</kbd>~<kbd>4</kbd> / <kbd>A</kbd>~<kbd>D</kbd> 选答案 · <kbd>S</kbd> 朗读
       </p>
+
+      <!-- 测验板块：两个主动入口（按熟练度抽一轮 / 考本批已学词）。
+           不放进「一轮做完」的结算页，因为用户随时可能想抽一轮 —— 
+           结算页只在正好做完一轮时才看得到。 -->
+      <div class="quiz-bar" id="quizBar" hidden>
+        <button class="btn primary" id="barDraw">按熟练度抽一轮<small id="barDrawHint"></small></button>
+        <button class="btn" id="barBatch">测验这一批<small id="barBatchHint"></small></button>
+      </div>
     </section>
 
     <section class="done" id="done" hidden>
@@ -184,25 +203,36 @@
 
       <h3 class="panel-sub">错词本 <span class="muted" id="mistakeCount"></span></h3>
       <div class="mistakes" id="mistakes"></div>
+    </div>
+  </main>
 
-      <h3 class="panel-sub">设置</h3>
+  <!-- ================= 设置 ================= -->
+  <main class="panel" id="settingsPanel" hidden>
+    <div class="panel-inner">
+      <h2 class="panel-title">设置</h2>
+
+      <h3 class="panel-sub">学习节奏</h3>
       <div class="settings">
         <label>每日新词上限 <input type="number" id="setNew" min="0" max="200" step="5"></label>
         <label>每日复习上限 <input type="number" id="setReview" min="0" max="1000" step="20"></label>
-        <label>题型
-          <select id="setTypes">
-            <option value="mix">智能混合（推荐）</option>
-            <option value="en2cn">只考「英→中」</option>
-            <option value="cn2en">只考「中→英」</option>
-            <option value="spell">只考「拼写」</option>
-          </select>
-        </label>
         <label>答对后的记忆停顿
           <select id="setMemorize">
             <option value="0">手动（我自己按空格）</option>
             <option value="3000">3 秒</option>
             <option value="5000">5 秒</option>
             <option value="8000">8 秒</option>
+          </select>
+        </label>
+      </div>
+
+      <h3 class="panel-sub">题型与判分</h3>
+      <div class="settings">
+        <label>题型
+          <select id="setTypes">
+            <option value="mix">智能混合（推荐）</option>
+            <option value="en2cn">只考「英→中」</option>
+            <option value="cn2en">只考「中→英」</option>
+            <option value="spell">只考「拼写」</option>
           </select>
         </label>
         <label>拼写题（手机上会弹键盘）
@@ -214,13 +244,17 @@
         </label>
         <label class="chk"><input type="checkbox" id="setDueQueue"> 用旧的「到期队列」组织复习（关闭则按熟练度抽取）</label>
         <label class="chk"><input type="checkbox" id="setTimeGate"> 选择题答得慢也算「模糊」</label>
+      </div>
+
+      <h3 class="panel-sub">显示与朗读</h3>
+      <div class="settings">
         <label class="chk"><input type="checkbox" id="setSpeak"> 自动朗读单词</label>
         <label class="chk"><input type="checkbox" id="setPos"> 显示词性徽记</label>
       </div>
 
       <h3 class="panel-sub">学习记录</h3>
       <p class="muted small">
-        进度保存在本机浏览器里。换电脑或清缓存会丢，建议定期导出备份。
+        进度保存在本机浏览器里（手机上存在应用内）。换设备或清缓存会丢，建议定期导出备份。
         「记住了」= 连续答对 ≥3 次 <b>且</b> 这 3 次跨了至少两天 —— 单次答对不算（4 选 1 有 25% 蒙对率）。
       </p>
       <div class="data-actions">
@@ -229,6 +263,9 @@
         <button class="btn danger" id="resetBtn">清空进度</button>
         <input type="file" id="importFile" accept="application/json" hidden>
       </div>
+
+      <h3 class="panel-sub">关于</h3>
+      <div class="about" id="aboutBox"></div>
     </div>
   </main>
 

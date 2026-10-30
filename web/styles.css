@@ -351,6 +351,53 @@ body {
 .grade:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 .grade:active { transform: translateY(0) scale(.985); }
 
+/* ---------------- 板块内的工具条（学习辅助 / 测验入口） ---------------- */
+/*
+ * 为什么做成卡片下方的一条，而不是再占一行主导航：
+ * 主导航要保持 4 个板块的稳定心智（学习/测验/统计/设置），
+ * 快速过词、乱序浏览这些是**某一板块内部的工具**，跟着板块出现/消失才对。
+ */
+.subbar, .quiz-bar {
+  grid-column: 1 / -1;                       /* 跨过 .stage 的两列（轨道栏 + 卡片） */
+  display: flex; align-items: center; gap: clamp(8px, 1.6vw, 14px);
+  flex-wrap: wrap;
+  padding-top: 2px;
+}
+.subbar-label {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em;
+  color: var(--ink-3); text-transform: uppercase;
+}
+.sub-btn, .quiz-bar .btn { display: inline-flex; align-items: baseline; gap: 7px; }
+.sub-btn {
+  font-family: var(--font-cn); font-size: 14px; color: var(--ink-2);
+  background: rgba(255, 255, 255, .5);
+  border: 1px solid var(--rule-strong); border-radius: var(--r);
+  padding: 8px 14px; cursor: pointer;
+  transition: transform .14s ease, box-shadow .18s ease, color .18s ease;
+}
+.sub-btn small, .quiz-bar .btn small { font-size: 11px; color: var(--ink-3); letter-spacing: .04em; }
+.sub-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); color: var(--ink); }
+.sub-btn:active { transform: translateY(0) scale(.985); }
+.quiz-bar .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+/* 窄屏：工具条按钮整行铺开，别挤成两个字一行 */
+@media (max-width: 720px) {
+  .subbar, .quiz-bar { gap: 8px; }
+  .sub-btn, .quiz-bar .btn { flex: 1 1 45%; justify-content: center; }
+  .subbar-label { width: 100%; }
+}
+
+/* ---------------- 关于 ---------------- */
+.about { display: flex; flex-direction: column; gap: 6px; }
+.about-row {
+  display: flex; justify-content: space-between; gap: 14px;
+  font-family: var(--font-cn); font-size: 14px;
+  padding: 7px 2px; border-bottom: 1px dashed var(--rule);
+}
+.about-row span { color: var(--ink-3); flex-shrink: 0; }
+.about-row b { color: var(--ink); font-weight: 600; text-align: right; word-break: break-all; }
+.about .muted { margin: 10px 0 0; }
+
 .grade.g0:hover { border-color: var(--seal); color: var(--seal); background: #fdf4f1; }
 .grade.g1:hover { border-color: var(--amber); color: var(--amber); background: #fdf8ee; }
 .grade.g2:hover { border-color: var(--jade); color: var(--jade); background: #f1f7f4; }

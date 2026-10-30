@@ -756,31 +756,68 @@ check("刷新后调试句柄仍在", J.hasHandle === true);
 check("刷新后这张卡的答题记录保留", J.a === 1 && J.c === 1, `a=${J.a} c=${J.c}`);
 check("刷新后题型成绩单保留", (J.types.en2cn.a || 0) === 1, `en2cn.a=${J.types.en2cn.a}`);
 
-/* ---------- K. 四个模式都能进 ---------- */
-console.log("\n--- K. 四个模式都能进 ---");
-for (const mode of ["flash", "browse", "stats"]) {
-  await evalJs(`document.querySelector('.mode-btn[data-mode="${mode}"]').click()`);
-  await sleep(700);
+/* ---------- K. 四个板块都能进（2026-10-30 改为 学习/测验/统计/设置） ---------- */
+console.log("\n--- K. 四个板块都能进 ---");
+/*
+ * 导航在 2026-10-30 重排：原来顶层是「测验/快速过词/乱序浏览/统计」，
+ * 现在是「学习/测验/统计/设置」四个**职能板块**；
+ * 快速过词与乱序浏览降为学习板块内的工具（走 #learnBar 的 data-submode）。
+ * 所以这一段同时验两层：板块切换、以及学习辅助仍能进去。
+ */
+const boardExpect = {
+  learn:    { stage: true,  panel: false, settings: false, learnBar: true,  quizBar: false },
+  quiz:     { stage: true,  panel: false, settings: false, learnBar: false, quizBar: true  },
+  stats:    { stage: false, panel: true,  settings: false, learnBar: false, quizBar: false },
+  settings: { stage: false, panel: false, settings: true,  learnBar: false, quizBar: false },
+};
+for (const [board, exp] of Object.entries(boardExpect)) {
+  await evalJs(`document.querySelector('.mode-btn[data-mode="${board}"]').click(); true`);
+  await sleep(650);
   const st = await evalJs(`({
-    mode: window.__cvt.stateInfo().mode,
+    selected: document.querySelector('.mode-btn[aria-selected="true"]')?.dataset.mode,
     stageHidden: document.getElementById('stage').hidden,
     panelHidden: document.getElementById('panel').hidden,
+    settingsHidden: document.getElementById('settingsPanel').hidden,
+    learnBarHidden: document.getElementById('learnBar').hidden,
+    quizBarHidden: document.getElementById('quizBar').hidden,
     statCards: document.querySelectorAll('#statRow .stat').length,
     typeCards: document.querySelectorAll('#typeRow .tcard').length,
     forecastBars: document.querySelectorAll('#forecast .fc').length,
-    mistakes: document.querySelectorAll('#mistakes .mk').length,
+    aboutRows: document.querySelectorAll('.about-row').length,
   })`);
-  if (mode === "flash") {
-    check("过词模式：卡片 + 自评按钮、无 options", st.mode === "flash" && !st.stageHidden && st.panelHidden, JSON.stringify(st));
-    await shot("cdp-5-flash.png");
-  } else if (mode === "browse") {
-    check("浏览模式：面板隐藏", st.mode === "browse" && !st.stageHidden && st.panelHidden, JSON.stringify(st));
-  } else {
-    check("统计模式：14 张累计卡 + 3 张题型卡 + 14 根柱子",
-      st.stageHidden && !st.panelHidden && st.statCards === 14 && st.typeCards === 3 && st.forecastBars === 14,
-      JSON.stringify(st));
+  check(`板块「${board}」：可见性正确`,
+    st.selected === board
+      && st.stageHidden === !exp.stage
+      && st.panelHidden === !exp.panel
+      && st.settingsHidden === !exp.settings
+      && st.learnBarHidden === !exp.learnBar
+      && st.quizBarHidden === !exp.quizBar,
+    JSON.stringify(st));
+  if (board === "stats") {
+    check("统计板块：14 张累计卡 + 3 张题型卡 + 14 根柱子",
+      st.statCards === 14 && st.typeCards === 3 && st.forecastBars === 14, JSON.stringify(st));
     await shot("cdp-7-stats.png");
   }
+  if (board === "settings") {
+    check("设置板块：关于有内容（版本/词库/助记等）", st.aboutRows >= 4, `aboutRows=${st.aboutRows}`);
+    await shot("cdp-12-settings.png");
+  }
+  await shot(`cdp-nav-${board}.png`);
+}
+
+// 学习板块的三个辅助入口仍可用
+await evalJs(`document.querySelector('.mode-btn[data-mode="learn"]').click(); true`);
+await sleep(500);
+for (const [sub, want] of [["flash", "flash"], ["browse", "browse"], ["new", "learn"]]) {
+  await evalJs(`document.querySelector('#learnBar [data-submode="${sub}"]').click(); true`);
+  await sleep(650);
+  const st = await evalJs(`({
+    mode: window.__cvt.stateInfo().mode,
+    learnBarHidden: document.getElementById('learnBar').hidden,
+    stageHidden: document.getElementById('stage').hidden,
+  })`);
+  check(`学习辅助「${sub}」→ mode=${want} 且仍在学习板块`,
+    st.mode === want && !st.learnBarHidden && !st.stageHidden, JSON.stringify(st));
 }
 
 /* ---------- L. 灌入模拟进度：图表与「最该复习」真的画出来 ---------- */
@@ -916,8 +953,13 @@ check("窄屏下 body 允许纵向滚动（桌面是 height:100% 且不可滚）
  * （goLearn 可能被隐藏）。这里改为**主动进入过词模式**并揭示释义 ——
  * 这是手机上内容最长、最容易把底部按钮顶出去的状态，而且三类视图都会
  * 经过 `.grades` / `.card`，用它测"底部按钮可达"与具体题型无关。
+ *
+ * ⚠️ 过词模式已不再是顶层标签（2026-10-30 导航重排），改从学习板块的
+ *    #learnBar [data-submode="flash"] 进入。
  */
-await evalJs(`document.querySelector('.mode-btn[data-mode="flash"]').click(); true`);
+await evalJs(`document.querySelector('.mode-btn[data-mode="learn"]').click(); true`);
+await sleep(500);
+await evalJs(`document.querySelector('#learnBar [data-submode="flash"]').click(); true`);
 await sleep(700);
 await evalJs(`(() => { const c = document.getElementById('card'); if (c) c.click(); return true; })()`);
 await sleep(500);
@@ -1226,18 +1268,24 @@ if (wrongAns.mismatch) {
 /*
  * ⑧ 整批测验入口：学完一批后，「测验这一批」只能考本批学过的词。
  *
- * ⚠️ 这里必须**自己铺干净状态**：上一个测试为了把队列压成单个到期词，
- * 把 newPerDay 设成了 0，留到现在就会得到"本批 0 个新词"的假红（本轮踩过）。
- * 判据：断言前先确认 newPerDay > 0，再读批次。
+ * ⚠️ 三个前提（都在本轮踩过）：
+ *   ① 必须**自己铺干净状态**：上面的测试为了把队列压成单个到期词把 newPerDay
+ *      设成了 0，留到现在会得到"本批 0 个新词"的假红；
+ *   ② **批次属于「学习」板块**：2026-10-30 拆板块后，测验板块只排复习题、
+ *      一个学习卡都不出，所以在测验板块读 batchWords 必然是空的。
+ *      要点「测验这一批」这个入口，得先在**学习板块**攒出一批新词；
+ *   ③ 必须先真的把这一批学会 —— batchWords 装的是"待学的新词"，
+ *      没学过就没有卡片，quizCurrentBatch 会诚实提示"这一批还没有学过的词"。
  */
 await seedAndReload({
   version: 2, cards: {}, mistakes: [], days: {}, streak: 0, lastDay: "",
   types: { en2cn: { a: 0, c: 0, ms: 0 }, cn2en: { a: 0, c: 0, ms: 0 }, spell: { a: 0, c: 0, ms: 0 } },
   settings: { newPerDay: 20, reviewPerDay: 50, useDueQueue: false },
 });
+// ② 在**学习板块**攒出一批（这里才是排新词的地方）
 const batchQuiz = await evalJs(`(async () => {
-  document.querySelector('.mode-btn[data-mode="quiz"]').click();
-  await new Promise(r => setTimeout(r, 300));
+  document.querySelector('.mode-btn[data-mode="learn"]').click();
+  await new Promise(r => setTimeout(r, 400));
   const info = window.__cvt.batchInfo();
   return JSON.stringify({ batchSize: info.size, words: info.words.length });
 })()`);
@@ -1278,18 +1326,24 @@ const batchRun = await evalJs(`(async () => {
   }
   const learnedN = before.filter((w) => !!window.__cvt.cardOf(w)).length;
 
-  const btn = document.getElementById('doneBatchQuiz');
-  btn.hidden = false;                 // 模拟结算界面（见 showDone 的显隐规则）
-  btn.click();
-  await new Promise(r => setTimeout(r, 500));
+  /*
+   * 从**测验板块的真实入口**点进去（#barBatch），而不是去戳结算页里那个按钮：
+   * 2026-10-30 拆板块后，测验板块有了常驻入口条，用户走的就是这条路。
+   * 走真实入口才算验到用户路径（结算页那个 doneBatchQuiz 是同一函数的另一个入口）。
+   */
+  document.querySelector('.mode-btn[data-mode="quiz"]').click();
+  await new Promise(r => setTimeout(r, 600));
+  const barBatch = document.getElementById('barBatch');
+  const barDisabled = barBatch.disabled;
+  barBatch.click();
+  await new Promise(r => setTimeout(r, 600));
   const q = window.__cvt.queueSnapshot().queue.map((x) => x.word);
   const s = new Set(before), qs = new Set(q);
   return JSON.stringify({
-    beforeN: before.length, learnedN, queueN: q.length,
-    onlyBatch: q.every((w) => s.has(w)),
+    beforeN: before.length, learnedN, queueN: q.length, barDisabled,
+    onlyBatch: q.length > 0 && q.every((w) => s.has(w)),
     allCovered: before.filter((w) => !!window.__cvt.cardOf(w)).every((w) => qs.has(w)),
     mode: window.__cvt.batchInfo().mode,
-    toast: (document.getElementById('toast') || {}).textContent,
   });
 })()`);
 const brun = JSON.parse(batchRun);
