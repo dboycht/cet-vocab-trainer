@@ -1497,13 +1497,26 @@ function renderStats() {
   const acc = totA ? Math.round((totC / totA) * 100) : 0;
   const bd = breakdown();
 
-  // ---- 总进度：四态堆叠条 + 两个大数 ----
+  // ---- 总进度：四态堆叠条 + 三个大数 ----
+  /*
+   * 「已学过」= 已记住 + 复习中 + 学习中，也就是"有卡片、动过"的词。
+   *
+   * 为什么要单独放一个大数字（2026-10-30 用户问"在哪看学过的词汇数量"）：
+   * 原来只有「考过」「记住了」两个大数，而「考过」按 a>0 算 ——
+   * **只看了学习卡、还没答过题的新词不算在内**（实测：学一张卡后
+   * 考过的词仍是 0，但"还没学"已经少了 1）。
+   * 用户心里的"学过的词"显然包含刚学的那些，所以必须有个显式的数字，
+   * 而不是让人去四态图例里自己加。
+   */
+  const learnedN = bd.mastered + bd.reviewing + bd.learning;
   const pct = (n) => (bd.total ? (n / bd.total) * 100 : 0);
   $('progressBlock').innerHTML = `
     <div class="pb-head">
+      <div class="pb-big">${Math.round((learnedN / bd.total) * 100)}%<small>已学过 ${learnedN} / ${bd.total} 词</small></div>
       <div class="pb-big">${totA ? Math.round((s.asked / bd.total) * 100) : 0}%<small>考过 ${s.asked} / ${bd.total} 词</small></div>
       <div class="pb-big">${Math.round((bd.mastered / bd.total) * 100)}%<small>记住了 ${bd.mastered} / ${bd.total} 词</small></div>
-      <div class="pb-sub">客观正确率 <b>${totA ? acc + '%' : '—'}</b> · 累计答题 <b>${totA}</b> 次 · 学习 <b>${Object.keys(progress.days).length}</b> 天 · 最长连续 <b>${bestStreak()}</b> 天</div>
+      <div class="pb-sub">已学过 = 记住了 + 复习中 + 学习中（动过的词）；考过 = 至少答过一次 ·
+        客观正确率 <b>${totA ? acc + '%' : '—'}</b> · 累计答题 <b>${totA}</b> 次 · 学习 <b>${Object.keys(progress.days).length}</b> 天 · 最长连续 <b>${bestStreak()}</b> 天</div>
     </div>
     <div class="pbar">
       <span class="s3" style="width:${pct(bd.mastered)}%"></span>

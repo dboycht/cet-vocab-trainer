@@ -862,8 +862,20 @@ const L = await evalJs(`(() => {
   const types = [...document.querySelectorAll('#typeRow .tcard')].map(c => c.querySelector('b').textContent);
   const pb = document.getElementById('progressBlock');
   const pbar = [...pb.querySelectorAll('.pbar > span')].map(s => s.style.width);
+  // 四态图例的数值（用来核对「已学过」= 记住了 + 复习中 + 学习中）
+  const legendItems = [...pb.querySelectorAll('.pb-legend span')].map((s) => {
+    const name = s.textContent.replace(/[0-9\\s]/g, '').trim();
+    const num = Number((s.querySelector('b') || {}).textContent || NaN);
+    return [name, num];
+  });
+  const legendNums = {
+    mastered: (legendItems.find(([n]) => n === '已记住') || [])[1],
+    reviewing: (legendItems.find(([n]) => n === '复习中') || [])[1],
+    learning: (legendItems.find(([n]) => n === '学习中') || [])[1],
+    unlearned: (legendItems.find(([n]) => n === '还没学') || [])[1],
+  };
   return {
-    bars, stats, types, pbar,
+    bars, stats, types, pbar, legendNums, legendItems,
     pbText: pb.textContent.replace(/\\s+/g, ' ').trim(),
     legend: pb.querySelectorAll('.pb-legend span').length,
     hist: document.querySelectorAll('#history .hist').length,
@@ -891,6 +903,23 @@ check("题型正确率三档都算出来了（英→中 88%、中→英 65%、�
   L.types[0] === "88%" && L.types[1] === "65%" && L.types[2] === "43%", JSON.stringify(L.types));
 // 总进度块：四态堆叠条 + 图例 + 大数
 check("总进度：考过 620 / 2083 词", /考过 620 \/ 2083 词/.test(L.pbText), L.pbText.slice(0, 60));
+/*
+ * 「已学过」是 2026-10-30 因用户提问「在哪看学过的词汇数量」而补上的大数字。
+ * 它和「考过」刻意分开：
+ *   已学过 = 记住了 + 复习中 + 学习中（动过的词，含**只看了学习卡还没答题**的）
+ *   考过   = 至少答过一次（按 card.a > 0 算）
+ * 实测过两者的差异：学一张新词卡后「已学过 1 / 考过 0」——
+ * 若只留「考过」，用户会以为刚学的词没算进去。
+ */
+const learnedM = L.pbText.match(/已学过 (\d+) \/ (\d+) 词/);
+check("总进度：有「已学过 N / 总数」大数字（用户找不到的正是它）",
+  !!learnedM, learnedM ? learnedM[0] : "没找到");
+check("⭐ 已学过 = 记住了 + 复习中 + 学习中（与四态图例自洽）",
+  !!learnedM && L.legendNums &&
+    Number(learnedM[1]) === L.legendNums.mastered + L.legendNums.reviewing + L.legendNums.learning,
+  learnedM && L.legendNums
+    ? `已学过=${learnedM[1]}，四态和=${L.legendNums.mastered}+${L.legendNums.reviewing}+${L.legendNums.learning}`
+    : "数据不足");
 check("总进度：四态堆叠条 4 段且宽度之和 ≈100%",
   L.pbar.length === 4 && Math.abs(L.pbar.reduce((n, w) => n + parseFloat(w || 0), 0) - 100) < 1.5,
   JSON.stringify(L.pbar));
