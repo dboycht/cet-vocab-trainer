@@ -150,25 +150,31 @@ check("外部网络被阻断（未申请 INTERNET 权限）", off.external === "
 
 /* ---------- C. 布局可达（真机视口，含手势条）---------- */
 /*
- * ⚠️ 前提：要把当前卡片推进到一个**底部按钮可见**的状态。
+ * ⚠️ 两个前提（都踩过）：
  *
- * 实测教训（2026-10-30）：手机上若已有学习进度，首屏往往是**测验题**而不是学习卡，
- * `goLearn` 本来就是隐藏的 —— 原来的写法在那种情况下报"按钮不存在"，
- * 看起来像布局坏了，其实是测试没准备好状态（手机不是每次都全新安装）。
- * 所以这里先主动把卡片推到"底部按钮可见"：先试学习卡，再试过词模式。
+ * ① 手机上有进度时首屏往往是**测验题**而不是学习卡，`goLearn` 本来就是隐藏的 ——
+ *    原来的写法在那种情况下报"按钮不存在"，看起来像布局坏了，其实是没准备好状态。
+ *    所以这里先主动把卡片推到"底部按钮可见"。
+ * ② 过词模式**已不是顶层标签**（2026-10-30 导航重排为 学习/测验/统计/设置），
+ *    它现在在学习板块的工具条里（#learnBar [data-submode="flash"]）。
+ *    继续找 `.mode-btn[data-mode="flash"]` 会点空，于是"连过词模式都没有"。
  */
 const c = JSON.parse(await ev(`(async () => {
   const pick = () => ['goLearn','goFlashBad','goNext']
     .map(x => document.getElementById(x)).find(el => el && !el.hidden);
 
-  // 1) 先在测验模式里找（可能是学习卡）
+  // 1) 先在当前板块找（可能是学习卡）
   let btn = pick();
-  // 2) 没有就切到过词模式：那里底部按钮一定在（不认识/模糊/认识）
+  // 2) 没有就切到「学习」板块，再从工具条进过词模式（那里底部按钮一定在）
   if (!btn) {
-    const fb = document.querySelector('.mode-btn[data-mode="flash"]');
-    if (fb) fb.click();
-    await new Promise(r => setTimeout(r, 600));
+    const learnTab = document.querySelector('.mode-btn[data-mode="learn"]');
+    if (learnTab) { learnTab.click(); await new Promise(r => setTimeout(r, 500)); }
     btn = pick();
+    if (!btn) {
+      const sub = document.querySelector('#learnBar [data-submode="flash"]');
+      if (sub) { sub.click(); await new Promise(r => setTimeout(r, 700)); }
+      btn = pick();
+    }
   }
   if (!btn) {
     return JSON.stringify({ missing: true, innerH: innerHeight, vvH: Math.round(visualViewport.height) });
@@ -332,14 +338,50 @@ check("⭐ 一批 ≤ 20 词且尽量装满（真机上的实际值）",
   v3.batchSize > 0 && v3.batchSize <= 20,
   `size=${v3.batchSize}（额度被今天已学的消耗时会出现 20 以下，属预期）`);
 
-// 学过的词应有熟练度记录；抽取池只含已学词
+/*
+ * 学过的词应有熟练度记录；抽取池只含已学词。
+ *
+ * ⚠️ 真机上的进度是**跨轮次累积**的，前面的段落还会重置它，所以不能断言
+ * "learned > 0"（时绿时红）。这里自己铺一批确定的 s=REVIEW 卡。
+ *
+ * ⚠️ 播种必须用 **addScriptToEvaluateOnNewDocument**（在 app.js 之前跑），
+ * 不能"先写 localStorage 再 reload" —— 应用的 beforeunload 会把内存里的
+ * 进度回写，把外部写入覆盖掉（本项目 ERROR.md E3 记录过，本轮又踩了一次：
+ * 铺了 12 张卡却读回 20 张全 s=1 的旧数据）。
+ */
+const V3_SEED = ["criterion", "uranium", "collaborate", "cluster", "stone", "monopoly",
+  "shuttle", "sneer", "millionaire", "dignity", "utmost", "mischief"];
+const seedProg = await ev(`(async () => {
+  const now = ${Math.floor(Date.now() / 86400000)};
+  const p = JSON.parse(localStorage.getItem('cvt:v1:cet6') || '{}');
+  p.cards = p.cards || {};
+  const words = ${JSON.stringify(V3_SEED)};
+  words.forEach((w, i) => {
+    p.cards[w] = Object.assign({}, p.cards[w], {
+      s: 2, i: 3, e: 2.5, d: now, r: 3, l: 0,
+      a: 4, c: 3, k: 2, fd: now - 10, ld: now - 1, bd: 0, ms: 4000,
+      p: i < 6 ? 0.9 : 0.1,          // 一半很熟
+      lt: i < 6 ? now : now - 30,    // 一半 30 天没见
+    });
+  });
+  return JSON.stringify(p);
+})()`);
+const seedInj = await send("Page.addScriptToEvaluateOnNewDocument", {
+  source: `try{localStorage.setItem('cvt:v1:cet6', ${JSON.stringify(seedProg)});}catch(e){}`,
+});
+await send("Page.reload", { ignoreCache: false });
+await sleep(3000);
+await send("Page.removeScriptToEvaluateOnNewDocument", { identifier: seedInj.identifier });
+
 const v3pool = JSON.parse(await ev(`(() => {
   const learned = window.__cvt.learnedCount();
   const sample = learned > 0 ? window.__cvt.sampleByProficiency(Math.min(5, learned)) : [];
   const profs = sample.map((w) => window.__cvt.profOf(w));
   return JSON.stringify({ learned, sampleN: sample.length, profs: profs.slice(0, 3) });
 })()`));
-check("抽取池 = 已学过的词（真机）", v3pool.learned > 0, `已学 ${v3pool.learned} 词`);
+check("抽取池 = 已学过的词（真机）",
+  v3pool.learned >= V3_SEED.length,
+  `已学 ${v3pool.learned} 词（本轮注入 ${V3_SEED.length} 张 s=REVIEW 卡）`);
 if (v3pool.learned > 0) {
   check("已学词都有熟练度与上次接触日",
     v3pool.profs.every((p) => p && typeof p.p === "number" && typeof p.lt === "number"),
@@ -362,6 +404,48 @@ const v3w = JSON.parse(await ev(`(() => {
 })()`));
 check("⭐ 抽取权重与熟练度反比（真机）", v3w.monotone === true,
   `最生疏 ${JSON.stringify(v3w.head)} → 最熟 ${JSON.stringify(v3w.tail)}`);
+
+/* ---------- L. 四板块导航（真机，2026-10-30 重排） ---------- */
+console.log("\n--- L. 四板块导航（真机）---");
+const nav = JSON.parse(await ev(`(async () => {
+  const out = { tabs: [...document.querySelectorAll('.mode-btn')].map(b => b.dataset.mode) };
+  const probe = async (m) => {
+    document.querySelector('.mode-btn[data-mode="' + m + '"]').click();
+    await new Promise(r => setTimeout(r, 450));
+    return {
+      selected: document.querySelector('.mode-btn[aria-selected="true"]')?.dataset.mode,
+      stage: !document.getElementById('stage').hidden,
+      stats: !document.getElementById('panel').hidden,
+      settings: !document.getElementById('settingsPanel').hidden,
+      learnBar: !document.getElementById('learnBar').hidden,
+      quizBar: !document.getElementById('quizBar').hidden,
+      about: document.querySelectorAll('.about-row').length,
+    };
+  };
+  out.learn = await probe('learn');
+  out.quiz = await probe('quiz');
+  out.stats = await probe('stats');
+  out.settings = await probe('settings');
+  // 回到测验板块收尾，避免把应用留在设置页
+  document.querySelector('.mode-btn[data-mode="quiz"]').click();
+  await new Promise(r => setTimeout(r, 300));
+  return JSON.stringify(out);
+})()`, true));
+check("顶部是四个板块：学习/测验/统计/设置",
+  JSON.stringify(nav.tabs) === JSON.stringify(["learn", "quiz", "stats", "settings"]),
+  JSON.stringify(nav.tabs));
+check("学习板块：卡片舞台 + 学习辅助条",
+  nav.learn.selected === "learn" && nav.learn.stage && nav.learn.learnBar && !nav.learn.quizBar,
+  JSON.stringify(nav.learn));
+check("测验板块：卡片舞台 + 测验入口条",
+  nav.quiz.selected === "quiz" && nav.quiz.stage && nav.quiz.quizBar && !nav.quiz.learnBar,
+  JSON.stringify(nav.quiz));
+check("统计板块：只显示统计面板",
+  nav.stats.selected === "stats" && nav.stats.stats && !nav.stats.stage && !nav.stats.settings,
+  JSON.stringify(nav.stats));
+check("设置板块：只显示设置面板，且关于有内容",
+  nav.settings.selected === "settings" && nav.settings.settings && nav.settings.about >= 4,
+  JSON.stringify(nav.settings));
 
 /* ---------- K. 控制台 ---------- */
 const noise2 = /GPU|Vulkan|gpu_|Fontconfig|DevTools|Autofill|favicon|Failed to load resource/i;

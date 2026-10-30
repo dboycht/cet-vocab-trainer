@@ -385,6 +385,16 @@ body {
   .subbar, .quiz-bar { gap: 8px; }
   .sub-btn, .quiz-bar .btn { flex: 1 1 45%; justify-content: center; }
   .subbar-label { width: 100%; }
+  /*
+   * ⚠️ 手机上两个入口并排时，中文标题会被压成两行（实测「按熟练度抽／一轮」），
+   * 读起来很别扭。改成**竖排**：标题一行、副标题一行，各自不换行。
+   * 原来用 align-items: baseline 是为了桌面端标题与副标题同基线，窄屏不需要。
+   */
+  .quiz-bar .btn {
+    flex-direction: column; align-items: center; gap: 2px;
+    padding: 10px 8px; line-height: 1.25;
+  }
+  .quiz-bar .btn { white-space: nowrap; }
 }
 
 /* ---------------- 关于 ---------------- */
