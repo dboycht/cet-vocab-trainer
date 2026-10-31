@@ -1,8 +1,26 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+}
+
+/*
+ * Release 签名（2026-10-31 定版 1.0.2 时加入）。
+ *
+ * ⚠️ 凭据从 `android/keystore.properties` 读，该文件与 .jks 都已被 .gitignore 排除
+ *    —— 绝不入库、绝不上传（密钥泄漏等于任何人都能冒充你发布升级包）。
+ * ⚠️ 文件缺失时**不能让构建失败**：CI/别人 clone 下来只跑 debug 也得能过。
+ *    所以下面用 exists() 守卫，缺失时 signingConfig 为 null，
+ *    release 会产出未签名包（此时 assembleRelease 仍可用，只是装不上）。
+ * ⚠️ **密钥丢了就没法再升级已发布的版本** —— Android 只认"同一把密钥的更高
+ *    versionCode"，换钥匙的老用户必须卸载重装。请把 keystore.properties 与
+ *    cvt-release.jks 一起备份到安全的地方。
+ */
+val keystorePropsFile = rootProject.file("keystore.properties")
+val keystoreProps = Properties().apply {
+    if (keystorePropsFile.exists()) keystorePropsFile.inputStream().use { load(it) }
 }
 
 android {
@@ -26,6 +44,17 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        if (keystorePropsFile.exists()) {
+            create("release") {
+                storeFile = rootProject.file(keystoreProps.getProperty("storeFile"))
+                storePassword = keystoreProps.getProperty("storePassword")
+                keyAlias = keystoreProps.getProperty("keyAlias")
+                keyPassword = keystoreProps.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
@@ -42,6 +71,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
+            // 正式名（不带「·调试」后缀）；debug 那条 resValue 只在 debug 生效，
+            // 所以这里用默认的 strings.xml 里的 app_name 即可。
+            if (keystorePropsFile.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
     }
 
@@ -103,11 +137,30 @@ android.sourceSets.getByName("main").assets.srcDir(
     layout.buildDirectory.dir("generated/cvtAssets"),
 )
 
-// Every merge of assets (debug/release, and the unit-test variants) must run
-// after the copy, otherwise the APK ships a stale or empty web app.
-// Keep this on ONE line: a statement ending with a bare `}` on a continuation
-// line makes Kotlin parse the following block as a member call on it.
-tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Assets") }.configureEach { dependsOn(syncWebAssets) }
+/*
+ * 凡是**消费 assets 目录**的任务都必须排在 syncWebAssets 之后，
+ * 否则 APK 会打进陈旧或空的 web 应用。
+ *
+ * ⚠️ 原来只按任务名匹配 `merge*Assets`，**漏掉了 lint**：
+ *    release 独有的 `generateReleaseLintVitalReportModel`（LintModelWriterTask）
+ *    也会读这个目录，却没被声明依赖 ⇒ Gradle 8 判为配置错误、**构建失败**。
+ *    该缺陷 debug 从不触发（debug 不跑 lintVital），只在 release 暴露 ——
+ *    正是"定版时才炸"的那类。
+ *
+ * ⚠️ 不要写成 `tasks.configureEach { inputs.files... }`：那会在**配置期**对所有任务
+ *    求值 inputs，其中 extractReleaseNativeSymbolTables 等任务的属性此时还没有值，
+ *    直接报 "Cannot query the value of property 'inputDir' because it has no value"。
+ *    （本轮踩过：修好 lint 依赖后立刻撞上这个。）
+ *    正解是**显式列出**已知会读 assets 的任务名，简单可预测。
+ */
+val assetsConsumers = listOf(
+    "mergeDebugAssets", "mergeReleaseAssets",
+    "mergeDebugUnitTestAssets", "mergeReleaseUnitTestAssets",
+    // release 的 lint 会读 assets 目录（Gradle 8 要求显式声明这条依赖）
+    "generateReleaseLintVitalReportModel", "generateDebugLintReportModel",
+    "lintVitalAnalyzeRelease", "lintAnalyzeRelease",
+)
+tasks.matching { it.name in assetsConsumers }.configureEach { dependsOn(syncWebAssets) }
 
 dependencies {
     implementation(libs.androidx.core.ktx)

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Legacy launcher densities (API < 26) cannot use adaptive icons, so they need
-     a plain drawable. Rather than shipping five PNG sizes, point them at the
-     foreground vector: it already contains the paper card that the adaptive
-     version gets from its separate background layer. -->
-<resources>
-    <item name="ic_launcher" type="mipmap">@drawable/ic_launcher_foreground</item>
-    <item name="ic_launcher_round" type="mipmap">@drawable/ic_launcher_foreground</item>
-</resources>

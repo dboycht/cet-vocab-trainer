@@ -2,6 +2,10 @@
 .tmp/
 *.log
 
+# 发布产物（构建生成，见 release/）—— 不入库，改由 GitHub Release 附件分发
+# ⚠️ 这是工作区纪律 rules/05 的要求：构建产物只放 release/，且 release/ 必须 gitignore
+release/
+
 # 开发文档（只留开发副本，见工作区纪律 rules/03）
 DEVELOPMENT.md
 ERROR.md
