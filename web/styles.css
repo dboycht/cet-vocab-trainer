@@ -455,10 +455,27 @@ body {
 .dz-row small b { color: var(--seal); }
 /* 固定按钮列宽并让文字居中（.btn 本身是块级，justify-content 需先 display:flex） */
 .dz-row .btn { flex: 0 0 132px; display: flex; align-items: center; justify-content: center; }
+/* 破坏性按钮平时禁用（复选确认，2026-11-01）：淡出 + 禁用手势，
+   hover 不得点亮（默认 .btn.danger:hover 会给印章红，禁用态必须压回原样） */
+.dz-row .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; background: var(--card); }
+.dz-row .btn:disabled:hover { border-color: var(--rule-strong); color: var(--ink-2); background: var(--card); }
+/* 复选确认：放在按钮旁、后果说明之前 —— 确认发生在看得见后果的地方 */
+.dz-row .dz-ack {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--font-cn); font-size: 12.5px; color: var(--ink-2);
+  cursor: pointer; white-space: nowrap;
+  flex: 0 1 auto; min-width: 0;
+}
+.dz-row .dz-ack input {
+  width: 15px; height: 15px; margin: 0; cursor: pointer;
+  accent-color: var(--seal); flex: none;
+}
 @media (max-width: 720px) {
   /* 手机上按钮与说明竖排，别挤成一行读不了 */
   .dz-row { flex-direction: column; align-items: stretch; gap: 7px; }
   .dz-row .btn { flex: none; width: 100%; }
+  /* 确认框跟着竖排：勾选这行在手机上是主要操作路径，别让它换行挤成两行 */
+  .dz-row .dz-ack { white-space: normal; }
 }
 
 .grade.g0:hover { border-color: var(--seal); color: var(--seal); background: #fdf4f1; }

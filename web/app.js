@@ -35,7 +35,7 @@ const EASE_MIN = 1.3, EASE_MAX = 2.8;
  * package.json 不在其中，fetch 必然 404。所以这里留一份副本，
  * 由人负责与 package.json 同步（`npm run verify` 的门禁会比对，见 check_launcher）。
  */
-const APP_VERSION = '1.0.2';
+const APP_VERSION = '1.0.3';
 
 const STATE = { NEW: 0, LEARNING: 1, REVIEW: 2 };
 const STATE_LABEL = { 0: '新词', 1: '学习中', 2: '复习中' };
@@ -1331,9 +1331,41 @@ function showDone() {
   $('kbdHint').hidden = true;
   $('railFill').style.height = '100%';
 
+  // 所有按情境显示/隐藏的块**先复位**，再由下面的分支决定 ——
+  // 否则空态里藏起来的按钮会残留到下一次结算（新增 doneGoLearn 后尤其要紧）。
+  $('doneGrid').hidden = false;
+  $('doneMore').hidden = false;
+  $('doneMistakes').hidden = false;
+  $('doneStats').hidden = false;
+  $('doneGoLearn').hidden = true;
+
   const s = countAll();
   const d = progress.days[todayKey()] || { n: 0, ok: 0, bad: 0 };
   const total = state.stats.ok + state.stats.bad;
+  const learnedN = learnedWords(state.wb ? state.wb.words.map((w) => w.word) : []).length;
+
+  /*
+   * 测验板块的空态（2026-11-01 用户报告）。
+   *
+   * 原来：学过的词为 0 时打开测验板块，走到这里的 total===0 分支，显示
+   * 「今天没有到期的任务」+「还有 N 个新词没学，可以去快速过词」——
+   * 那是**学习板块视角**的话，还配一个点了只弹 toast 的「开始一轮」死按钮，
+   * 读起来就像"在测验板块也能开始做题"。
+   * 现在：测验只考学过的词，0 就是 0 —— 直说，并把唯一的按钮换成「去学习」。
+   * （boot 改走 setMode 后，全新用户的首屏就是这块。）
+   */
+  if (state.mode === 'quiz' && learnedN === 0) {
+    $('doneTitle').textContent = '还没有学过的词';
+    $('doneText').textContent = '测验只考学过的词 —— 先去「学习」板块学新词，学完就能来这里测验。';
+    $('doneGrid').hidden = true;
+    $('doneMore').hidden = true;
+    $('doneBatchQuiz').hidden = true;   // 空态分支提前 return，不走下面的按情境显隐 —— 必须自己藏
+    $('doneDraw').hidden = true;        // 同上（实测截图暴露：留着就是两个点了只弹 toast 的死按钮）
+    $('doneMistakes').hidden = true;
+    $('doneStats').hidden = true;
+    $('doneGoLearn').hidden = false;
+    return;
+  }
 
   if (state.mode === 'flash') {
     $('doneTitle').textContent = '过完一遍了';
@@ -1370,8 +1402,8 @@ function showDone() {
   // 新机制的两个入口按情境显示（不是一直摊着，避免按钮墙）：
   //   「测验这一批」—— 只在刚学完一批新词后有意义
   //   「按熟练度抽一轮」—— 只要有学过的词就能用
+  // （learnedN 已在函数开头算过，这里不重复。）
   const batchN = (state.batchWords || []).filter((w) => getCard(w)).length;
-  const learnedN = learnedWords(state.wb ? state.wb.words.map((w) => w.word) : []).length;
   const inBatchQuiz = state.batchMode === 'batchQuiz';
   $('doneBatchQuiz').hidden = !(batchN > 0 && !inBatchQuiz);
   $('doneBatchQuiz').textContent = `测验这一批（${batchN} 词）`;
@@ -1860,6 +1892,8 @@ function wireEvents() {
     renderCard();
   });
   $('doneStats').addEventListener('click', () => setMode('stats'));
+  // 测验板块空态（还没学过词）的唯一出口：带去学习板块
+  $('doneGoLearn').addEventListener('click', () => setMode('learn'));
 
   const num = (id, key, lo, hi) => $(id).addEventListener('change', (e) => {
     progress.settings[key] = clamp(Number(e.target.value) || 0, lo, hi);
@@ -1897,11 +1931,12 @@ function wireEvents() {
   $('exportBtn').addEventListener('click', exportBackup);
   $('importBtn').addEventListener('click', () => $('importFile').click());
   $('importFile').addEventListener('change', importBackup);
-  // 清除数据：四个粒度各接各的处理函数（见各自的注释说明差异）
-  $('resetMistakes').addEventListener('click', resetMistakes);
+  // 清除数据：四个粒度各接各的处理函数（见各自的注释说明差异）。
+  // 破坏性的三个走复选确认（勾了才点亮按钮）；恢复默认设置不动学习数据，仍走 confirm。
   $('resetSettings').addEventListener('click', resetSettings);
-  $('resetBtn').addEventListener('click', resetProgress);
-  $('factoryBtn').addEventListener('click', factoryReset);
+  wireAck('ackResetMistakes', 'resetMistakes', resetMistakes);
+  wireAck('ackResetBtn', 'resetBtn', resetProgress);
+  wireAck('ackFactoryBtn', 'factoryBtn', factoryReset);
 
   document.addEventListener('keydown', onKey);
   window.addEventListener('beforeunload', flushProgress);
@@ -1990,6 +2025,26 @@ function importBackup(e) {
 }
 
 /**
+ * 破坏性操作的复选确认（2026-11-01 用户要求）。
+ *
+ * 原来只靠一道 confirm() —— 回车键一敲就滑过去了，和"慎重"相差甚远。
+ * 现在按钮平时禁用，必须先勾选旁边的「我确认…」按钮才点亮；
+ * 勾选动作发生在后果说明就在眼前的地方，确认本身就是一个要做的事。
+ * 执行完自动取消勾选并重新禁用：**一次授权只管一次**，下一次还得重新确认。
+ * （「恢复默认设置」不动学习数据，不在此列，仍走 confirm。）
+ */
+function wireAck(ackId, btnId, action) {
+  const ack = $(ackId), btn = $(btnId);
+  ack.addEventListener('change', () => { btn.disabled = !ack.checked; });
+  btn.addEventListener('click', () => {
+    if (btn.disabled || !ack.checked) return;
+    action();
+    ack.checked = false;
+    btn.disabled = true;
+  });
+}
+
+/**
  * 清空学习进度。
  *
  * ⚠️ **保留 settings**（2026-10-30 修）。
@@ -1997,9 +2052,10 @@ function importBackup(e) {
  * `settings: {...DEFAULT_SETTINGS}` —— 实测用户设的 newPerDay=7 / reviewPerDay=33 /
  * memorizeMs=5000 / showPos=false，点一次「清空进度」全被悄悄重置回默认。
  * 用户要清的是**学习记录**，不是**自己的偏好**，两者不该绑在一起。
+ * 确认方式：复选确认（wireAck），不再有 confirm 弹窗 ——「建议先导出备份」
+ * 写在勾选框文案里。
  */
 function resetProgress() {
-  if (!confirm('确定清空这本词库的全部学习进度？\n（卡片、错词本、统计都会清掉；你的设置会保留）\n此操作不可撤销，建议先导出备份。')) return;
   const keepSettings = { ...progress.settings };
   progress = blankProgress();
   progress.settings = keepSettings;
@@ -2017,7 +2073,6 @@ function resetProgress() {
 function resetMistakes() {
   const n = progress.mistakes.length;
   if (!n) { toast('错词本已经是空的'); return; }
-  if (!confirm(`确定清空错词本？\n（共 ${n} 个词；卡片与统计不受影响）`)) return;
   progress.mistakes = [];
   flushProgress();
   renderSettings();
@@ -2043,7 +2098,6 @@ function resetSettings() {
  * 「清空学习进度」（保留设置）明确区分开 —— 用户点之前就该知道区别。
  */
 function factoryReset() {
-  if (!confirm('确定全部恢复出厂？\n\n这会清掉：卡片、错词本、统计、以及你的全部设置。\n等于刚安装好的状态。此操作不可撤销，建议先导出备份。')) return;
   progress = blankProgress();
   flushProgress();
   renderSettings();
@@ -2240,11 +2294,18 @@ async function boot() {
   $('footInfo').textContent = `来源：${wb.source || '—'} · 进度存在本机浏览器` +
     (state.tips.size ? ` · 助记 ${state.tips.size}/${wb.count}` : '');
 
-  buildQueue();
+  /*
+   * 首屏必须走 setMode(state.mode)（state.mode 初始为 'quiz'），
+   * 不能像原来那样直接 buildQueue()：不带 only 的组队会排出
+   * 「新词 + 复习」混合队列 —— 等于在测验板块里学新词、答题，
+   * 「没学过任何词也能测验」就是从这条路绕进来的（2026-11-01 用户报告）。
+   * 板块分工（学习板块只排新词、测验板块只排复习题）必须从首屏就成立；
+   * 学过为 0 时首屏会落到 showDone() 的测验空态，引导去学习板块。
+   */
+  setMode(state.mode);
   installDebugHandle();
   // 安卓壳的返回键入口（桌面浏览器上没人调用它，留着无害）
   window.__cvtHandleBack = handleBack;
-  renderCard();
 }
 
 boot();

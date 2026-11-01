@@ -207,12 +207,54 @@ const api = () => evalJs(`(() => {
   };
 })()`);
 
-/* ---------- A. 首屏：新词只教不考 ---------- */
-console.log("\n--- A. 首屏 = 学习卡（新词只教不考） ---");
+/* ---------- A0. 首屏（没学过任何词）= 测验板块空态 ---------- */
+/*
+ * 2026-11-01 用户报告：原来 boot 直接 buildQueue()（新词+复习混排），
+ * 全新用户一打开就落在测验板块、还能直接学词答题 ——「没学过词也能测验」。
+ * 现在 boot 走 setMode(state.mode)，板块分工从首屏成立：
+ * 学过为 0 ⇒ 测验板块显示「还没有学过的词」空态，唯一动作是「去学习」。
+ */
+console.log("\n--- A0. 首屏空态：没学过词时测验板块不可测验 ---");
+const A0 = JSON.parse(await evalJs(`JSON.stringify((() => {
+  const c = window.__cvt;
+  return {
+    hasHandle: !!c,
+    mode: c.stateInfo().mode,
+    title: document.getElementById('doneTitle').textContent,
+    text: document.getElementById('doneText').textContent,
+    doneShown: !document.getElementById('done').hidden,
+    gridHidden: document.getElementById('doneGrid').hidden,
+    moreHidden: document.getElementById('doneMore').hidden,
+    batchQuizHidden: document.getElementById('doneBatchQuiz').hidden,
+    drawHidden: document.getElementById('doneDraw').hidden,
+    goLearnShown: !document.getElementById('doneGoLearn').hidden,
+    drawDisabled: document.getElementById('barDraw').disabled,
+    batchDisabled: document.getElementById('barBatch').disabled,
+    drawHint: document.getElementById('barDrawHint').textContent,
+    quizBarShown: !document.getElementById('quizBar').hidden,
+  };
+})())`));
+console.log("     ", JSON.stringify(A0));
+check("调试句柄已装配", A0.hasHandle === true);
+check("首屏落在测验板块", A0.mode === "quiz", `mode=${A0.mode}`);
+check("空态标题=「还没有学过的词」", A0.title === "还没有学过的词", A0.title);
+check("空态文案说清下一步（去学习板块学新词）", A0.text.includes("学习"), A0.text);
+check("两个测验入口都禁用", A0.drawDisabled && A0.batchDisabled && A0.quizBarShown,
+  `draw=${A0.drawDisabled} batch=${A0.batchDisabled}`);
+check("没有「开始一轮」死按钮", A0.moreHidden === true);
+check("结算面板的两个测验死按钮也都藏掉", A0.batchQuizHidden && A0.drawHidden,
+  `batchQuiz=${A0.batchQuizHidden} draw=${A0.drawHidden}`);
+check("不显示全零成绩单", A0.gridHidden === true);
+check("唯一动作是「去学习」", A0.goLearnShown === true);
+await shot("cdp-0-quiz-empty.png");
+
+/* ---------- A. 点「去学习」→ 新词只教不考 ---------- */
+console.log("\n--- A. 点「去学习」→ 学习卡（新词只教不考） ---");
+await evalJs(`document.getElementById('doneGoLearn').click()`);
+await sleep(700);
 const A = await api();
 console.log("     ", JSON.stringify({ word: A.wordText, badge: A.typeBadge, learnShown: A.learnShown, ctrNew: A.ctrNew }));
-check("调试句柄已装配", A.hasHandle === true);
-check("首屏是学习卡（phase=learn）", A.phase === "learn", `phase=${A.phase}`);
+check("「去学习」把界面带到学习板块", A.phase === "learn", `phase=${A.phase}`);
 check("首词已渲染（非占位符）", !!A.wordText && A.wordText !== "—", `word=${A.wordText}`);
 check("题型徽记写明是新词", A.typeBadge.includes("新词"), `badge=${A.typeBadge}`);
 check("释义直接摊开（教，不是考）", A.learnShown && A.learnHiddenAttr === "0" && A.lnDef.length > 1, `lnDef=${A.lnDef.slice(0, 24)}`);
@@ -547,6 +589,10 @@ const inj4 = await send("Page.addScriptToEvaluateOnNewDocument", { source: seedO
 await send("Page.reload", { ignoreCache: false });
 await sleep(2600);
 await send("Page.removeScriptToEvaluateOnNewDocument", { identifier: inj4.identifier });
+// 板块分工后（2026-11-01）：新词只在学习板块排，首屏（测验板块）不再有学习卡 ——
+// 不能再指望 boot 的混合队列把学习卡送到眼前（那正是「没学过词也能测验」的根因）。
+await evalJs(`document.querySelector('.mode-btn[data-mode="learn"]').click()`);
+await sleep(700);
 
 // 逐张走学习卡。⚠️ 现在「学必有考」—— 学完一张紧跟的是它自己的测验题，
 // 所以不能在遇到非 learn 时就 break，而要**把中间的测验答掉、继续找下一张学习卡**。
@@ -1505,15 +1551,34 @@ const richProg = {
   settings: { newPerDay: 7, reviewPerDay: 33, memorizeMs: 5000, showPos: false, useDueQueue: true },
 };
 
-/** 铺"什么都有"的数据 → 进设置板块 → 点某按钮（自动确认）→ 读回存储 */
+/** 铺"什么都有"的数据 → 进设置板块 → 点某按钮（复选确认后）→ 读回存储 */
+const ACK_OF = {
+  resetMistakes: "ackResetMistakes",
+  resetBtn: "ackResetBtn",
+  factoryBtn: "ackFactoryBtn",
+  // resetSettings 不设复选框（不动学习数据，仍走 confirm），见下面分支
+};
 async function clearWith(btnId) {
   await seedAndReload(richProg);
   return JSON.parse(await evalJs(`(async () => {
     document.querySelector('.mode-btn[data-mode="settings"]').click();
     await new Promise(r => setTimeout(r, 700));
-    window.confirm = () => true;
     const btn = document.getElementById(${JSON.stringify(btnId)});
     if (!btn) return JSON.stringify({ missing: true });
+    const ackId = ${JSON.stringify(ACK_OF[btnId] || null)};
+    if (ackId) {
+      // 复选确认门（2026-11-01）：按钮必须先禁用，勾选后才点亮；
+      // confirm 若再被调用（说明代码还在走旧弹窗）一律拒绝，读回数据就会对不上。
+      window.confirm = () => false;
+      if (!btn.disabled) return JSON.stringify({ notGated: true });
+      const ack = document.getElementById(ackId);
+      if (!ack) return JSON.stringify({ missing: true });
+      ack.click();
+      await new Promise(r => setTimeout(r, 120));
+      if (btn.disabled) return JSON.stringify({ notEnabled: true });
+    } else {
+      window.confirm = () => true;
+    }
     btn.click();
     await new Promise(r => setTimeout(r, 700));
     const p = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
@@ -1526,30 +1591,52 @@ async function clearWith(btnId) {
   })()`, true));
 }
 
+// ⓪ 复选确认门本身要先验：三个破坏性按钮默认禁用、各带一个确认框
+const gate = JSON.parse(await evalJs(`(async () => {
+  document.querySelector('.mode-btn[data-mode="settings"]').click();
+  await new Promise(r => setTimeout(r, 700));
+  const out = {};
+  for (const [b, a] of Object.entries({
+    resetMistakes: "ackResetMistakes", resetBtn: "ackResetBtn", factoryBtn: "ackFactoryBtn",
+  })) {
+    const btn = document.getElementById(b), ack = document.getElementById(a);
+    out[b] = { disabled: !!(btn && btn.disabled), hasAck: !!ack };
+  }
+  return JSON.stringify(out);
+})()`, true));
+check("三个破坏性按钮默认禁用且带复选确认",
+  gate.resetMistakes?.disabled && gate.resetBtn?.disabled && gate.factoryBtn?.disabled
+    && gate.resetMistakes?.hasAck && gate.resetBtn?.hasAck && gate.factoryBtn?.hasAck,
+  JSON.stringify(gate));
+
 // ① 只清错词本
 const c1 = await clearWith("resetMistakes");
 check("清空错词本：清单清空，其余全留",
-  !c1.missing && c1.mistakes === 0 && c1.cards === 2 && c1.days === 1 && c1.newPerDay === 7,
+  !c1.missing && !c1.notGated && !c1.notEnabled
+    && c1.mistakes === 0 && c1.cards === 2 && c1.days === 1 && c1.newPerDay === 7,
   JSON.stringify(c1));
 
 // ② 只恢复默认设置
 const c2 = await clearWith("resetSettings");
 check("恢复默认设置：设置回默认，进度全留",
-  !c2.missing && c2.newPerDay === 20 && c2.memorizeMs === 0 && c2.showPos === true
+  !c2.missing && !c2.notGated && !c2.notEnabled
+    && c2.newPerDay === 20 && c2.memorizeMs === 0 && c2.showPos === true
     && c2.cards === 2 && c2.mistakes === 1,
   JSON.stringify(c2));
 
 // ③ 清空学习进度 —— 必须保留设置
 const c3 = await clearWith("resetBtn");
 check("⭐ 清空学习进度：卡片/错词本/统计都清，但**设置保留**",
-  !c3.missing && c3.cards === 0 && c3.mistakes === 0 && c3.days === 0 && c3.streak === 0
+  !c3.missing && !c3.notGated && !c3.notEnabled
+    && c3.cards === 0 && c3.mistakes === 0 && c3.days === 0 && c3.streak === 0
     && c3.newPerDay === 7 && c3.memorizeMs === 5000 && c3.showPos === false,
   JSON.stringify(c3));
 
 // ④ 全部恢复出厂 —— 含设置
 const c4 = await clearWith("factoryBtn");
 check("全部恢复出厂：进度与设置一起清",
-  !c4.missing && c4.cards === 0 && c4.newPerDay === 20 && c4.memorizeMs === 0 && c4.showPos === true,
+  !c4.missing && !c4.notGated && !c4.notEnabled
+    && c4.cards === 0 && c4.newPerDay === 20 && c4.memorizeMs === 0 && c4.showPos === true,
   JSON.stringify(c4));
 
 check("四个清除按钮都在设置板块里",

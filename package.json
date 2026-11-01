@@ -1,6 +1,6 @@
 {
   "name": "cet-vocab-trainer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "type": "module",
   "description": "四六级词汇刷词器：离线网页版 + 安卓版，熟练度×遗忘曲线加权抽取 + 客观判分测验",

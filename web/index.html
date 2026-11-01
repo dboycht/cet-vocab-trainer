@@ -175,6 +175,8 @@
         <button class="btn" id="doneDraw">按熟练度抽一轮</button>
         <button class="btn" id="doneMistakes">只刷错词</button>
         <button class="btn" id="doneStats">看统计</button>
+        <!-- 测验板块空态（还没学过词）的唯一动作：带去学习板块 -->
+        <button class="btn primary" id="doneGoLearn" hidden>去学习</button>
       </div>
     </section>
   </main>
@@ -269,22 +271,28 @@
         用户可能只想重置错词本，或只想恢复默认设置 —— 全清代价太大，
         逼他"要么全留要么全丢"是设计偷懒。
         每个按钮都用一行小字写明"会影响什么/不影响什么"，避免误点。
+        破坏性的三个（错词本 / 学习进度 / 出厂）另有**复选确认**（2026-11-01）：
+        按钮平时禁用，勾选「我确认…」才点亮 —— 一次授权只管一次。
+        「恢复默认设置」不动学习数据，不设这道门。
       -->
       <div class="settings danger-zone">
         <div class="dz-row">
-          <button class="btn danger" id="resetMistakes">清空错词本</button>
+          <button class="btn danger" id="resetMistakes" disabled>清空错词本</button>
+          <label class="dz-ack"><input type="checkbox" id="ackResetMistakes">我确认清空错词本（不可撤销）</label>
           <small>只清「答错过的词」清单；卡片、统计、设置都不动</small>
         </div>
         <div class="dz-row">
-          <button class="btn danger" id="resetSettings">恢复默认设置</button>
+          <button class="btn" id="resetSettings">恢复默认设置</button>
           <small>只把设置改回默认；学习进度不动</small>
         </div>
         <div class="dz-row">
-          <button class="btn danger" id="resetBtn">清空学习进度</button>
-          <small>清掉卡片与统计；<b>你的设置会保留</b>（不可撤销，建议先导出）</small>
+          <button class="btn danger" id="resetBtn" disabled>清空学习进度</button>
+          <label class="dz-ack"><input type="checkbox" id="ackResetBtn">我确认清空学习进度（建议先导出备份）</label>
+          <small>清掉卡片与统计；<b>你的设置会保留</b>（不可撤销）</small>
         </div>
         <div class="dz-row">
-          <button class="btn danger" id="factoryBtn">全部恢复出厂</button>
+          <button class="btn danger" id="factoryBtn" disabled>全部恢复出厂</button>
+          <label class="dz-ack"><input type="checkbox" id="ackFactoryBtn">我确认全部恢复出厂（进度与设置一起清）</label>
           <small>进度 <b>和</b> 设置一起清掉，等于刚装好的状态（不可撤销）</small>
         </div>
       </div>
