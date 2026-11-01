@@ -208,10 +208,11 @@ check("窄屏媒体查询命中", true, `视口 ${c.innerH ?? "?"}px`);
 await ev(`window.scrollTo(0,0); true`);
 const d0 = JSON.parse(await ev(`JSON.stringify(window.__cvt.stateInfo())`));
 const learnStep = JSON.parse(await ev(`(async () => {
-  // 回到测验模式
-  const q = document.querySelector('.mode-btn[data-mode="quiz"]');
-  if (q) q.click();
-  await new Promise(r => setTimeout(r, 500));
+  // 板块分工（2026-11-01）：新词只在学习板块排，测验板块的队列里不再有学习卡
+  // —— 原来"回测验板块一路推进找学习卡"依赖的是 boot 混合队列这个 bug，已修。
+  const l = document.querySelector('.mode-btn[data-mode="learn"]');
+  if (l) l.click();
+  await new Promise(r => setTimeout(r, 700));
 
   for (let i = 0; i < 25; i++) {
     const s = window.__cvt.stateInfo();
@@ -224,7 +225,7 @@ const learnStep = JSON.parse(await ev(`(async () => {
       return JSON.stringify({ found: true, idxBefore: before, idxAfter: after.idx,
         phase: after.phase, kind: after.kind });
     }
-    // 不是学习卡就推进
+    // 不是学习卡就推进（学习板块队列 = 学习卡 + 紧跟的测验，照常答掉）
     const gn = document.getElementById('goNext');
     if (gn && !gn.hidden) { gn.click(); }
     else {
@@ -314,13 +315,20 @@ console.log("\n--- J. 新抽取机制（熟练度 × 遗忘曲线）---");
  * 两者不一致（例如忘了重新打包）时，桌面全绿而手机行为是旧的。
  * 所以这里用"能否读到新 API + 批次是否 20"来做版本指纹。
  */
-const v3 = JSON.parse(await ev(`JSON.stringify({
-  hasProf: typeof window.__cvt.profOf === 'function',
-  hasDraw: typeof window.__cvt.drawWeightOf === 'function',
-  hasSample: typeof window.__cvt.sampleByProficiency === 'function',
-  hasLearned: typeof window.__cvt.learnedCount === 'function',
-  batchSize: window.__cvt.batchInfo().size,
-})`));
+const v3 = JSON.parse(await ev(`(async () => {
+  // 板块分工（2026-11-01）后，batch（本批新词）只由**学习板块**的组队写入；
+  // 首屏（测验板块）只排复习题。读批次指纹前先去学习板块排一批。
+  const l = document.querySelector('.mode-btn[data-mode="learn"]');
+  if (l) l.click();
+  await new Promise(r => setTimeout(r, 700));
+  return JSON.stringify({
+    hasProf: typeof window.__cvt.profOf === 'function',
+    hasDraw: typeof window.__cvt.drawWeightOf === 'function',
+    hasSample: typeof window.__cvt.sampleByProficiency === 'function',
+    hasLearned: typeof window.__cvt.learnedCount === 'function',
+    batchSize: window.__cvt.batchInfo().size,
+  });
+})()`));
 check("APK 内是 v1.0.2 新机制（profOf 可用）", v3.hasProf === true);
 check("APK 内含加权抽取接口", v3.hasDraw && v3.hasSample && v3.hasLearned,
   `draw=${v3.hasDraw} sample=${v3.hasSample} learned=${v3.hasLearned}`);
@@ -465,6 +473,11 @@ const clearMix = {
   types: { en2cn: { a: 5, c: 4, ms: 1000 }, cn2en: { a: 0, c: 0, ms: 0 }, spell: { a: 0, c: 0, ms: 0 } },
   settings: { newPerDay: 7, reviewPerDay: 33, memorizeMs: 5000, showPos: false, useDueQueue: true },
 };
+const ACK_OF = {
+  resetMistakes: "ackResetMistakes",
+  resetBtn: "ackResetBtn",
+  factoryBtn: "ackFactoryBtn",
+};
 async function devClear(btnId) {
   const inj = await send("Page.addScriptToEvaluateOnNewDocument", {
     source: `try{localStorage.setItem('cvt:v1:cet6', ${JSON.stringify(JSON.stringify(clearMix))});}catch(e){}`,
@@ -475,9 +488,19 @@ async function devClear(btnId) {
   return JSON.parse(await ev(`(async () => {
     document.querySelector('.mode-btn[data-mode="settings"]').click();
     await new Promise(r => setTimeout(r, 700));
-    window.confirm = () => true;
     const btn = document.getElementById(${JSON.stringify(btnId)});
     if (!btn) return JSON.stringify({ missing: true });
+    // 复选确认门（2026-11-01，与桌面探针同规则）：按钮必须先禁用，勾选才点亮。
+    // confirm 一律拒答 —— 代码若还在走旧弹窗，读回数据必然对不上。
+    window.confirm = () => false;
+    if (!btn.disabled) return JSON.stringify({ notGated: true });
+    const ackId = ${JSON.stringify(ACK_OF[btnId] || "")};
+    if (!ackId) return JSON.stringify({ noAck: true });
+    const ack = document.getElementById(ackId);
+    if (!ack) return JSON.stringify({ missing: true });
+    ack.click();
+    await new Promise(r => setTimeout(r, 120));
+    if (btn.disabled) return JSON.stringify({ notEnabled: true });
     btn.click();
     await new Promise(r => setTimeout(r, 700));
     const p = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
@@ -490,15 +513,42 @@ async function devClear(btnId) {
 }
 const d1 = await devClear("resetMistakes");
 check("真机·清空错词本：只清清单",
-  !d1.missing && d1.mistakes === 0 && d1.cards === 2 && d1.newPerDay === 7, JSON.stringify(d1));
+  !d1.missing && !d1.notGated && !d1.notEnabled && !d1.noAck
+    && d1.mistakes === 0 && d1.cards === 2 && d1.newPerDay === 7, JSON.stringify(d1));
 const d3 = await devClear("resetBtn");
 check("⭐ 真机·清空学习进度：进度清空但**设置保留**",
-  !d3.missing && d3.cards === 0 && d3.mistakes === 0 && d3.days === 0
+  !d3.missing && !d3.notGated && !d3.notEnabled && !d3.noAck
+    && d3.cards === 0 && d3.mistakes === 0 && d3.days === 0
     && d3.newPerDay === 7 && d3.memorizeMs === 5000 && d3.showPos === false,
   JSON.stringify(d3));
 const d4 = await devClear("factoryBtn");
 check("真机·全部恢复出厂：进度与设置一起清",
-  !d4.missing && d4.cards === 0 && d4.newPerDay === 20 && d4.showPos === true, JSON.stringify(d4));
+  !d4.missing && !d4.notGated && !d4.notEnabled && !d4.noAck
+    && d4.cards === 0 && d4.newPerDay === 20 && d4.showPos === true, JSON.stringify(d4));
+
+/* ---------- J2. 真机·测验板块空态（2026-11-01 新增行为） ---------- */
+/*
+ * 恢复出厂后进度必为空 —— 正好是空态的前置条件。
+ * 打开测验板块应显示「还没有学过的词」，唯一动作是「去学习」，
+ * 两个入口按钮禁用（用户报告「没学过词也能测验」的真机回归）。
+ */
+const es = JSON.parse(await ev(`(async () => {
+  document.querySelector('.mode-btn[data-mode="quiz"]').click();
+  await new Promise(r => setTimeout(r, 700));
+  return JSON.stringify({
+    mode: window.__cvt.stateInfo().mode,
+    title: document.getElementById('doneTitle').textContent,
+    moreHidden: document.getElementById('doneMore').hidden,
+    batchQuizHidden: document.getElementById('doneBatchQuiz').hidden,
+    goLearnShown: !document.getElementById('doneGoLearn').hidden,
+    drawDisabled: document.getElementById('barDraw').disabled,
+    batchDisabled: document.getElementById('barBatch').disabled,
+  });
+})()`, true));
+check("真机·没学过词时测验板块显示空态（唯一动作=去学习）",
+  es.mode === "quiz" && es.title === "还没有学过的词" && es.moreHidden
+    && es.batchQuizHidden && es.goLearnShown && es.drawDisabled && es.batchDisabled,
+  JSON.stringify(es));
 
 /* ---------- K. 控制台 ---------- */
 const noise2 = /GPU|Vulkan|gpu_|Fontconfig|DevTools|Autofill|favicon|Failed to load resource/i;
