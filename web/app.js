@@ -914,6 +914,7 @@ function renderCard() {
   } else {
     $('goNext').hidden = true;
   }
+  syncGradesSolo();
   $('browseNav').hidden = !isBrowse;
   // 卡片上方的「第 N 张 · 本批 x/20」—— 批次进度放这里，别挤在竖条旁
   // ⚠️ 手机上这一行还要放题型徽记和状态，全放长文本会把它们挤成竖排
@@ -1151,11 +1152,28 @@ function submitAnswer(correct, extra = {}) {
   }
 }
 
+/**
+ * 底部推进按钮的「独占」态（2026-11-02 用户报告：手机上「下一个」「记住了，开始学」
+ * 只有 ~104px 宽，难以触控）。
+ *
+ * 恰好一个可见按钮时给 #grades 挂 solo 类 —— 窄屏断点里按钮撑满卡片宽度
+ * （styles.css 对应注释）。为什么用 JS 而不是纯 CSS：hidden 兄弟节点仍占
+ * DOM，`:only-child` 之类的选择器判断不了"可见数"。
+ * 过词模式的三档（不认识/模糊/认识）是一组，不算独占，不参与。
+ * 每次显隐变化后都要调一次（renderCard 的底部按钮块 / showNextControls）。
+ */
+function syncGradesSolo() {
+  const visible = ['goLearn', 'goNext', 'goFlashBad', 'goFlashMeh', 'goFlashGood']
+    .filter((id) => !$(id).hidden).length;
+  $('grades').classList.toggle('solo', visible === 1);
+}
+
 /** 判定后显示「下一个」，并收起作答控件 */
 function showNextControls() {
   $('goNext').hidden = false;
   $('goLearn').hidden = true;
   $('dunnoRow').hidden = true;
+  syncGradesSolo();
 }
 
 function renderFeedback(q, correct, grade, extra) {

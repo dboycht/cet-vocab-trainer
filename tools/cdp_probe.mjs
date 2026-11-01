@@ -1105,6 +1105,48 @@ check("⭐ 窄屏下到期量刻度互不重叠（真机上曾挤成一片）",
 check("窄屏下柱子一根不少（隐藏的只是文字，不是数据）",
   fcLabels.total === 14, `${fcLabels.total} 根`);
 
+/*
+ * 独占推进按钮 == 卡片宽度（2026-11-02 用户报告：手机上「下一个」「记住了，开始学」
+ * 只有 ~104px，难以触控）。判据：
+ *   ① 窄屏下判定一题后出现的「下一个」带 .solo，宽度与 .card 一致（±3px 取整误差）
+ *   ② 滚到底后仍在视口内（沿袭本段"够不够得到"的判据）
+ * 前提不满足（队列里没有可答的题）时如实跳过 —— 那是状态问题，不是布局回归。
+ */
+const soloW = JSON.parse(await evalJs(`(async () => {
+  document.querySelector('.mode-btn[data-mode="quiz"]').click();
+  await new Promise(r => setTimeout(r, 700));
+  const s = window.__cvt.stateInfo();
+  if (s.kind !== 'quiz') return JSON.stringify({ skip: true, why: 'kind=' + s.kind });
+  // 拼写题没有选项（抽中概率随连对数变化，写死会偶发假跳过）—— 走「我不会」，
+  // 它按答错处理，判定后同样出现独占的「下一个」
+  if (s.type === 'spell') {
+    document.getElementById('dunnoBtn')?.click();
+  } else if (s.answerIndex >= 0) {
+    const opts = document.querySelectorAll('.opt');
+    if (opts[s.answerIndex]) opts[s.answerIndex].click();
+  } else {
+    return JSON.stringify({ skip: true, why: 'type=' + s.type });
+  }
+  await new Promise(r => setTimeout(r, 700));
+  const btn = ['goNext', 'goLearn'].map((id) => document.getElementById(id)).find((b) => b && !b.hidden);
+  if (!btn) return JSON.stringify({ skip: true, why: '没有可见的推进按钮' });
+  const bw = btn.getBoundingClientRect().width;
+  const cw = document.getElementById('card').getBoundingClientRect().width;
+  window.scrollTo(0, document.body.scrollHeight);
+  await new Promise(r => setTimeout(r, 500));
+  const bb = btn.getBoundingClientRect();
+  return JSON.stringify({
+    solo: document.getElementById('grades').classList.contains('solo'),
+    btnW: Math.round(bw), cardW: Math.round(cw),
+    bottom: Math.round(bb.bottom), innerH: innerHeight,
+  });
+})()`, true));
+check("⭐ 窄屏下独占推进按钮宽度 == 卡片宽度（.solo 生效）",
+  soloW.skip ? true : (soloW.solo === true && Math.abs(soloW.btnW - soloW.cardW) <= 3),
+  soloW.skip ? `跳过（${soloW.why}）` : `按钮 ${soloW.btnW}px / 卡片 ${soloW.cardW}px`);
+check("窄屏下独占推进按钮滚到底仍完整可见", soloW.skip ? true : soloW.bottom <= soloW.innerH,
+  soloW.skip ? `跳过` : `bottom=${soloW.bottom} innerH=${soloW.innerH}`);
+
 // 复原视口，避免影响后续（本段在最后，仍复原以便 --keep 时手动查看）
 await send("Emulation.clearDeviceMetricsOverride");
 

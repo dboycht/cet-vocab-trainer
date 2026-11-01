@@ -350,6 +350,23 @@ body {
            border: 1px solid currentColor; border-radius: 3px; padding: 1px 5px; }
 .grade:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 .grade:active { transform: translateY(0) scale(.985); }
+/*
+ * 手机上单个推进按钮撑满卡片宽度（2026-11-02 用户报告：~104px 的
+ * 「下一个 / 记住了，开始学」难以触控）。
+ * 「恰好一个可见按钮」由 JS 挂 .solo（syncGradesSolo）—— CSS 的 :only-child
+ * 数的是 DOM 节点，hidden 的兄弟仍占位，判断不了"可见数"。
+ * .cardwrap 是 align-items:center 的列布局：让 .solo 自己 stretch 到整列宽，
+ * 内部按钮 flex:1 撑满 —— 手机上卡片本来就是 100% 填满这一列，于是
+ * 按钮宽度 == 卡片宽度。桌面（>720px）保持居中紧凑外观不变。
+ */
+@media (max-width: 720px) {
+  .grades.solo { align-self: stretch; }
+  .grades.solo > .grade:not([hidden]) {
+    flex: 1;
+    justify-content: center; gap: 10px;
+    padding-block: 15px;        /* 撑满后顺手加高触控目标（≈48px 高） */
+  }
+}
 
 /* ---------------- 板块内的工具条（学习辅助 / 测验入口） ---------------- */
 /*
