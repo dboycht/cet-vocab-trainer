@@ -550,6 +550,48 @@ kbd {
 .btn.primary:hover { background: #000; color: #fff; }
 .btn.danger:hover { border-color: var(--seal); color: var(--seal); background: #fdf4f1; }
 
+/* ---------------- 自绘确认层（替代 window.confirm） ---------------- */
+/*
+ * 为什么自绘：安卓壳没有 WebChromeClient，WebView 里 confirm() 不弹窗、
+ * 直接按"取消"处理 ⇒ 点了没反应（2026-11-02 用户报告「恢复默认设置」失效）。
+ * 弹层在桌面浏览器与 WebView 里行为一致。
+ */
+.modal {
+  position: fixed; inset: 0; z-index: 90;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  background: rgba(28, 26, 22, .42);
+  backdrop-filter: blur(2px);
+  animation: fade .16s ease backwards;
+}
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+.modal-card {
+  width: min(100%, 420px);
+  background: var(--card);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--rl);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(20px, 4vw, 28px);
+  animation: rise .22s cubic-bezier(.2, .8, .2, 1) backwards;
+}
+.modal-card h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-cn); font-size: 17px; color: var(--ink);
+  letter-spacing: .02em;
+}
+.modal-card p {
+  margin: 0 0 20px;
+  font-family: var(--font-cn); font-size: 13.5px; color: var(--ink-2);
+  line-height: 1.7;
+}
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.modal-actions .btn { min-width: 96px; }
+@media (max-width: 720px) {
+  /* 手机上两键撑满并列，拇指好按 */
+  .modal-actions { flex-direction: row; }
+  .modal-actions .btn { flex: 1; min-width: 0; }
+}
+
 /* ---------------- 统计面板 ---------------- */
 .panel { flex: 1; min-height: 0; }
 .panel-inner {

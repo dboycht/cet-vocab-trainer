@@ -1950,17 +1950,31 @@ function wireEvents() {
   $('importBtn').addEventListener('click', () => $('importFile').click());
   $('importFile').addEventListener('change', importBackup);
   // 清除数据：四个粒度各接各的处理函数（见各自的注释说明差异）。
-  // 破坏性的三个走复选确认（勾了才点亮按钮）；恢复默认设置不动学习数据，仍走 confirm。
-  $('resetSettings').addEventListener('click', resetSettings);
+  // **四个全部走复选确认**（勾了才点亮按钮）—— 四者都不可撤销，
+  // 而「恢复默认设置」原来单独用 confirm()，在安卓 WebView 里根本不弹窗
+  // （壳没有 WebChromeClient）⇒ 手机上点了没反应（2026-11-02 用户报告）。
   wireAck('ackResetMistakes', 'resetMistakes', resetMistakes);
+  wireAck('ackResetSettings', 'resetSettings', resetSettings);
   wireAck('ackResetBtn', 'resetBtn', resetProgress);
   wireAck('ackFactoryBtn', 'factoryBtn', factoryReset);
 
   document.addEventListener('keydown', onKey);
   window.addEventListener('beforeunload', flushProgress);
+
+  // 自绘确认层：按钮 / 点遮罩 / Enter·Esc。
+  // ⚠️ 弹层打开时 onKey 必须让路（见 onKey 开头），否则空格会翻页、数字会答题。
+  $('modalOk').addEventListener('click', () => closeModal(true));
+  $('modalCancel').addEventListener('click', () => closeModal(false));
+  $('modal').addEventListener('click', (e) => { if (e.target === $('modal')) closeModal(false); });
 }
 
 function onKey(e) {
+  // 确认层优先吃键：Enter 确认、Esc 取消，其余一律不往下传
+  if (!$('modal').hidden) {
+    if (e.key === 'Enter') { e.preventDefault(); closeModal(true); }
+    else if (e.key === 'Escape') { e.preventDefault(); closeModal(false); }
+    return;
+  }
   if (e.target instanceof HTMLInputElement) {
     if (e.key === 'Escape') e.target.blur();
     return;                      // 拼写输入框里的按键交给输入框自己
@@ -2019,11 +2033,26 @@ function importBackup(e) {
   const f = e.target.files?.[0];
   if (!f) return;
   const r = new FileReader();
-  r.onload = () => {
+  r.onload = async () => {
     try {
       const data = JSON.parse(String(r.result));
       const p = data.progress || data;
       if (!p || typeof p !== 'object' || !p.cards) throw new Error('格式不对');
+      /*
+       * 导入是**覆盖性**操作：整个 progress 被替换，当前进度全部没了，且不可撤销。
+       * 原来一声不吭直接覆盖（选完文件就生效）。这里必须在替换前确认，
+       * 并把"几换几"说清楚 —— 用户才有依据判断是不是选错了文件。
+       * 用自绘弹层而不是 confirm：见 askConfirm 的注释（WebView 不弹 confirm）。
+       */
+      const incoming = Object.keys(p.cards).length;
+      const current = Object.keys(progress.cards || {}).length;
+      const ok = await askConfirm({
+        title: '导入会覆盖当前进度',
+        body: `备份里有 ${incoming} 张卡。导入后，当前的 ${current} 张卡与全部统计会被替换，无法撤销。`
+          + (current > 0 ? ' 建议先导出一次当前进度。' : ''),
+        okText: '覆盖并导入',
+      });
+      if (!ok) { toast('已取消导入，当前进度未改动'); e.target.value = ''; return; }
       progress = {
         ...blankProgress(), ...p,
         settings: { ...DEFAULT_SETTINGS, ...(p.settings || {}) },
@@ -2049,7 +2078,11 @@ function importBackup(e) {
  * 现在按钮平时禁用，必须先勾选旁边的「我确认…」按钮才点亮；
  * 勾选动作发生在后果说明就在眼前的地方，确认本身就是一个要做的事。
  * 执行完自动取消勾选并重新禁用：**一次授权只管一次**，下一次还得重新确认。
- * （「恢复默认设置」不动学习数据，不在此列，仍走 confirm。）
+ *
+ * ⚠️ 2026-11-02：四个清除粒度**全部**纳入（「恢复默认设置」原来单独用 confirm()，
+ * 而安卓 WebView 里 confirm 根本不弹 ⇒ 手机上点了没反应）。本项目**不再使用
+ * `window.confirm`**，改由复选确认（此处）与自绘弹层（askConfirm）承担；
+ * 门禁扫描 app.js 里出现 confirm( 即判红。
  */
 function wireAck(ackId, btnId, action) {
   const ack = $(ackId), btn = $(btnId);
@@ -2060,6 +2093,36 @@ function wireAck(ackId, btnId, action) {
     ack.checked = false;
     btn.disabled = true;
   });
+}
+
+/* ---------------- 自绘确认层 ---------------- */
+/*
+ * 为什么不用 window.confirm：安卓壳（MainActivity）没有 WebChromeClient，
+ * WebView 对未实现的 onJsConfirm 直接按"取消"处理 —— 不弹窗、无反馈，
+ * 用户看到的就是"点了没反应"。自绘层在桌面浏览器与 WebView 里行为一致。
+ *
+ * 用法：`if (!await askConfirm({ title, body })) return;`
+ * 键盘：Enter 确认、Esc 取消（弹层打开时答题快捷键必须让路，见 keydown 处理）。
+ */
+let modalResolve = null;
+function askConfirm({ title, body, okText = '确认', cancelText = '取消', danger = true }) {
+  return new Promise((resolve) => {
+    modalResolve = resolve;
+    $('modalTitle').textContent = title;
+    $('modalBody').textContent = body;
+    $('modalOk').textContent = okText;
+    $('modalCancel').textContent = cancelText;
+    $('modalOk').className = danger ? 'btn danger' : 'btn primary';
+    $('modal').hidden = false;
+    $('modalOk').focus();
+  });
+}
+function closeModal(ok) {
+  if ($('modal').hidden) return;
+  $('modal').hidden = true;
+  const r = modalResolve;
+  modalResolve = null;
+  if (r) r(ok);
 }
 
 /**
@@ -2103,7 +2166,6 @@ function resetMistakes() {
  * 与"清空进度"互补：想重置偏好但保留学习记录时用这个。
  */
 function resetSettings() {
-  if (!confirm('确定把设置恢复成默认值？\n（学习进度不受影响）')) return;
   progress.settings = { ...DEFAULT_SETTINGS };
   flushProgress();
   renderSettings();

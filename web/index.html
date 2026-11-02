@@ -282,7 +282,8 @@
           <small>只清「答错过的词」清单；卡片、统计、设置都不动</small>
         </div>
         <div class="dz-row">
-          <button class="btn" id="resetSettings">恢复默认设置</button>
+          <button class="btn" id="resetSettings" disabled>恢复默认设置</button>
+          <label class="dz-ack"><input type="checkbox" id="ackResetSettings">我确认把设置恢复默认（不可撤销）</label>
           <small>只把设置改回默认；学习进度不动</small>
         </div>
         <div class="dz-row">
@@ -310,6 +311,23 @@
 </div>
 
 <div class="toast" id="toast" hidden></div>
+
+<!--
+  自绘确认层（2026-11-02）。
+  ⚠️ 不能用 window.confirm()：安卓壳没有 WebChromeClient，WebView 里它**根本不弹窗**，
+  直接按"取消"处理 —— 表现是点了没反应（「恢复默认设置」就这样在手机上失效了）。
+  自绘层在桌面浏览器和 WebView 里行为一致，不依赖宿主实现。
+-->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <h3 id="modalTitle"></h3>
+    <p id="modalBody"></p>
+    <div class="modal-actions">
+      <button class="btn" id="modalCancel">取消</button>
+      <button class="btn danger" id="modalOk">确认</button>
+    </div>
+  </div>
+</div>
 
 <script type="module" src="./app.js"></script>
 </body>

@@ -1655,9 +1655,12 @@ const richProg = {
 /** 铺"什么都有"的数据 → 进设置板块 → 点某按钮（复选确认后）→ 读回存储 */
 const ACK_OF = {
   resetMistakes: "ackResetMistakes",
+  // 2026-11-02：resetSettings 也纳入复选确认 —— 它原来用 confirm()，
+  // 而安卓 WebView 没有 WebChromeClient（confirm 不弹、直接当取消），
+  // 手机上「恢复默认设置」点了没反应（用户报告）。
+  resetSettings: "ackResetSettings",
   resetBtn: "ackResetBtn",
   factoryBtn: "ackFactoryBtn",
-  // resetSettings 不设复选框（不动学习数据，仍走 confirm），见下面分支
 };
 async function clearWith(btnId) {
   await seedAndReload(richProg);
@@ -1744,6 +1747,123 @@ check("四个清除按钮都在设置板块里",
   ["resetMistakes", "resetSettings", "resetBtn", "factoryBtn"]
     .every((id) => ![c1, c2, c3, c4].some((c) => c && c.missing)),
   "四个都找到了（缺任何一个，上面某条会先报 missing）");
+
+/*
+ * ---------- S2. ⛔ 本项目禁用 window.confirm（静态扫描源码） ----------
+ *
+ * 为什么这是一条**门禁**而不是注释里的提醒：安卓壳（MainActivity）没有
+ * WebChromeClient，WebView 对未实现的 onJsConfirm **不弹窗、直接按取消**。
+ * 于是任何 `if (!confirm(...)) return;` 在手机上表现成"点了没反应" ——
+ * 「恢复默认设置」就这样静默失效过（2026-11-02 用户报告），而桌面门禁全绿。
+ * 判据：**剥离注释后** app.js 里不许出现 confirm( 调用；
+ * 破坏性操作一律走复选确认（wireAck）或自绘弹层（askConfirm）。
+ */
+const appSrc = readFileSync(join(ROOT, "web", "app.js"), "utf8");
+const codeOnly = appSrc
+  .replace(/\/\*[\s\S]*?\*\//g, "")      // 块注释
+  .replace(/^\s*\/\/.*$/gm, "");         // 行注释
+const confirmCalls = codeOnly.match(/\bconfirm\s*\(/g) || [];
+check("⛔ app.js 里不再调用 window.confirm（WebView 不弹窗，会静默失效）",
+  confirmCalls.length === 0, confirmCalls.length ? `发现 ${confirmCalls.length} 处` : "0 处");
+
+/** 取某个具名函数的源码片段（到下一个顶层 function 或文件尾），用来断言"谁调了谁" */
+function fnBody(src, name) {
+  const i = src.indexOf(`function ${name}(`);
+  if (i < 0) return "";
+  const rest = src.slice(i + 10);
+  const next = rest.search(/\n(?:async )?function /);
+  return next < 0 ? rest : rest.slice(0, next);
+}
+check("导入备份走自绘确认（覆盖性操作不能一声不吭）",
+  /askConfirm\s*\(/.test(fnBody(codeOnly, "importBackup")),
+  "importBackup 内含 askConfirm 调用");
+check("恢复默认设置不再依赖 confirm，改走复选确认",
+  !/\bconfirm\s*\(/.test(fnBody(codeOnly, "resetSettings")),
+  "resetSettings 内无 confirm 调用");
+
+const modalDom = await evalJs(`({
+  exists: !!document.getElementById('modal'),
+  hidden: document.getElementById('modal')?.hidden,
+  hasAck: !!document.getElementById('ackResetSettings'),
+  settingsGated: document.getElementById('resetSettings')?.disabled,
+})`);
+check("自绘确认层已就位（默认隐藏）并接管确认",
+  modalDom.exists && modalDom.hidden === true, JSON.stringify(modalDom));
+check("「恢复默认设置」也带复选确认（默认禁用）",
+  modalDom.hasAck && modalDom.settingsGated === true, JSON.stringify(modalDom));
+
+/*
+ * ---------- S3. 导入备份必须经过自绘确认层（真实文件流） ----------
+ *
+ * 静态断言只能证明"代码里写了 askConfirm"，证明不了**它真的拦得住**。
+ * 这里用 CDP 的 DOM.setFileInputFiles 塞一个真备份文件走完整流程：
+ *   选文件 → 弹层出现 → 点「取消」⇒ 进度一字未动
+ *                   → 点「确认」⇒ 进度被备份替换
+ * 这是"覆盖全部进度"的操作，取消路径不生效就等于没有确认。
+ */
+const backupPath = join(TMP, "probe-backup.json");
+const mkProgress = (words) => ({
+  version: 2,
+  cards: Object.fromEntries(words.map((w) => [w, {
+    s: 2, i: 3, e: 2.5, d: 0, r: 3, l: 0, a: 4, c: 3, k: 2,
+    fd: 0, ld: 0, bd: 0, ms: 1000, p: 0.5, lt: 0,
+  }])),
+  mistakes: [], days: {}, streak: 0, lastDay: "",
+  types: { en2cn: { a: 0, c: 0, ms: 0 }, cn2en: { a: 0, c: 0, ms: 0 }, spell: { a: 0, c: 0, ms: 0 } },
+  settings: {},
+});
+const IMPORT_WORDS = ["dignity", "overhang", "mischief", "statistics", "millionaire"];
+writeFileSync(backupPath, JSON.stringify({ progress: mkProgress(IMPORT_WORDS) }), "utf8");
+
+/**
+ * 把备份塞进 #importFile 并等弹层出现。
+ * 用页面内的 File + DataTransfer 构造（不依赖 DOM 域）：
+ * `input.files = dt.files` 后派发 change，与应用真实收到"用户选了文件"等价。
+ */
+async function feedBackup() {
+  const backupJson = JSON.stringify({ progress: mkProgress(IMPORT_WORDS) });
+  await evalJs(`(() => {
+    const input = document.getElementById('importFile');
+    const dt = new DataTransfer();
+    dt.items.add(new File([${JSON.stringify(backupJson)}], 'probe-backup.json', { type: 'application/json' }));
+    input.files = dt.files;
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+    return true;
+  })()`);
+  await sleep(900);
+  return JSON.parse(await evalJs(`JSON.stringify({
+    modalShown: !document.getElementById('modal').hidden,
+    title: document.getElementById('modalTitle').textContent,
+    body: document.getElementById('modalBody').textContent,
+    cards: Object.keys(JSON.parse(localStorage.getItem('cvt:v1:cet6')||'{}').cards||{}).length,
+  })`));
+}
+
+// ① 取消路径：进度必须原封不动
+await seedAndReload(mkProgress(["dignity", "overhang"]));
+const imp1 = await feedBackup();
+console.log("      弹层:", JSON.stringify({ shown: imp1.modalShown, title: imp1.title }));
+check("导入备份先弹自绘确认层（不是一声不吭就覆盖）", imp1.modalShown === true, imp1.title);
+check("弹层说清了「几换几」", /\d+\s*张卡/.test(imp1.body), imp1.body.slice(0, 40));
+await evalJs(`document.getElementById('modalCancel').click(); true`);
+await sleep(400);
+const afterCancel = JSON.parse(await evalJs(`JSON.stringify({
+  cards: Object.keys(JSON.parse(localStorage.getItem('cvt:v1:cet6')||'{}').cards||{}).length,
+  modalHidden: document.getElementById('modal').hidden,
+})`));
+check("⭐ 点「取消」后进度一字未动", afterCancel.cards === 2 && afterCancel.modalHidden === true,
+  `cards=${afterCancel.cards}`);
+
+// ② 确认路径：进度被备份替换
+const imp2 = await feedBackup();
+check("再次导入仍要确认（不能记住上一次的授权）", imp2.modalShown === true, imp2.title);
+await evalJs(`document.getElementById('modalOk').click(); true`);
+await sleep(600);
+const afterOk = JSON.parse(await evalJs(`JSON.stringify({
+  cards: Object.keys(JSON.parse(localStorage.getItem('cvt:v1:cet6')||'{}').cards||{}).length,
+})`));
+check("⭐ 点「确认」后备份生效（覆盖当前进度）", afterOk.cards === IMPORT_WORDS.length,
+  `cards=${afterOk.cards}（期望 ${IMPORT_WORDS.length}）`);
 
 
 /* ---------- M. 控制台报错 ---------- */
