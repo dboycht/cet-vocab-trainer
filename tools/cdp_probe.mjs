@@ -1106,6 +1106,65 @@ check("窄屏下柱子一根不少（隐藏的只是文字，不是数据）",
   fcLabels.total === 14, `${fcLabels.total} 根`);
 
 /*
+ * 「动作按钮行撑满」回归守卫（2026-11-02 用户报告：手机上按钮行只剩半宽，
+ * 现已改为撑满行宽、左右边缘与卡片对齐）。对两处按钮行各钉一条，判据一致：
+ *   行内最左按钮的 left ≈ 卡片 left，最右按钮的 right ≈ 卡片 right（±4px 取整误差）。
+ * 前提不满足（按钮不可见）时如实跳过 —— 那是状态问题，不是布局回归。
+ */
+const flashRow = JSON.parse(await evalJs(`(async () => {
+  // 自建前提：回到学习板块的过词模式（setMode('flash') 会重排队列并重画三档按钮）
+  document.querySelector('.mode-btn[data-mode="learn"]').click();
+  await new Promise(r => setTimeout(r, 500));
+  document.querySelector('#learnBar [data-submode="flash"]').click();
+  await new Promise(r => setTimeout(r, 700));
+  const card = document.getElementById('card');
+  const els = ['goFlashBad', 'goFlashMeh', 'goFlashGood']
+    .map((id) => document.getElementById(id));
+  const allVis = els.every((el) => el && !el.hidden && el.getBoundingClientRect().width > 0);
+  if (!card || card.hidden || !allVis) {
+    return JSON.stringify({ skip: true, why: '过词三档按钮不全可见' });
+  }
+  const cl = card.getBoundingClientRect();
+  const bl = els[0].getBoundingClientRect();
+  const gr = els[2].getBoundingClientRect();
+  return JSON.stringify({
+    badLeft: Math.round(bl.left), cardLeft: Math.round(cl.left),
+    goodRight: Math.round(gr.right), cardRight: Math.round(cl.right),
+  });
+})()`, true));
+check("⭐ 窄屏下过词三档按钮行撑满卡片宽度",
+  flashRow.skip ? true
+    : (Math.abs(flashRow.badLeft - flashRow.cardLeft) <= 4
+      && Math.abs(flashRow.goodRight - flashRow.cardRight) <= 4),
+  flashRow.skip ? `跳过（${flashRow.why}）`
+    : `bad.left=${flashRow.badLeft} card.left=${flashRow.cardLeft} good.right=${flashRow.goodRight} card.right=${flashRow.cardRight}`);
+
+const quizBarRow = JSON.parse(await evalJs(`(async () => {
+  document.querySelector('.mode-btn[data-mode="quiz"]').click();
+  await new Promise(r => setTimeout(r, 600));
+  const card = document.getElementById('card');
+  const draw = document.getElementById('barDraw');
+  const batch = document.getElementById('barBatch');
+  const vis = (el) => el && !el.hidden && el.getBoundingClientRect().width > 0;
+  if (!card || card.hidden || !vis(draw) || !vis(batch)) {
+    return JSON.stringify({ skip: true, why: '测验入口条或卡片不可见' });
+  }
+  const cl = card.getBoundingClientRect();
+  const dl = draw.getBoundingClientRect();
+  const br = batch.getBoundingClientRect();
+  return JSON.stringify({
+    drawLeft: Math.round(dl.left), cardLeft: Math.round(cl.left),
+    batchRight: Math.round(br.right), cardRight: Math.round(cl.right),
+  });
+})()`, true));
+check("⭐ 窄屏下测验入口条撑满卡片宽度",
+  quizBarRow.skip ? true
+    : (Math.abs(quizBarRow.drawLeft - quizBarRow.cardLeft) <= 4
+      && Math.abs(quizBarRow.batchRight - quizBarRow.cardRight) <= 4),
+  quizBarRow.skip ? `跳过（${quizBarRow.why}）`
+    : `barDraw.left=${quizBarRow.drawLeft} card.left=${quizBarRow.cardLeft} barBatch.right=${quizBarRow.batchRight} card.right=${quizBarRow.cardRight}`);
+
+/*
  * 独占推进按钮 == 卡片宽度（2026-11-02 用户报告：手机上「下一个」「记住了，开始学」
  * 只有 ~104px，难以触控）。判据：
  *   ① 窄屏下判定一题后出现的「下一个」带 .solo，宽度与 .card 一致（±3px 取整误差）

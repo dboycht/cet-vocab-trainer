@@ -906,6 +906,16 @@ kbd {
   .grade { flex: 1; min-width: 0; flex-direction: column; gap: 4px; padding: 11px 6px; font-size: 14px; }
   .grade i { display: none; }
   .bnav { flex: 1; padding: 11px 8px; font-size: 13px; }
+  /*
+   * 所有动作按钮行撑满行宽（2026-11-02 用户第二轮报告：屏幕下边的按钮不要左右留白）。
+   * .grades/.browse-nav/**.quiz-bar** 处于 align-items:center 的 .cardwrap 里 —— 容器不
+   * stretch 就只是"内容宽度居中"，子按钮的 flex:1 撑不开（⚠️ .quiz-bar 的
+   * grid-column:1/-1 是无效声明：它是 .cardwrap 的 flex 子项，不是 .stage 的网格子项；
+   * 实测探针抓出来才修正认知）。.subbar（#learnBar）才是真正的网格子项，本就整行宽。
+   * .done-actions 在整宽的结算面板里同理。「我不会」胶囊顺手一起撑满。桌面（>720px）外观不变。
+   */
+  .grades, .browse-nav, .quiz-bar { align-self: stretch; }
+  .subbar > .btn, .quiz-bar > .btn, .done-actions > .btn, .dunno-row .dunno { flex: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
