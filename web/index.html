@@ -197,6 +197,9 @@
       <h3 class="panel-sub">题型正确率 <span class="muted">再认 vs 产出，差距最能说明问题</span></h3>
       <div class="typerow" id="typeRow"></div>
 
+      <h3 class="panel-sub">答题用时 <span class="muted">最近 120 题 · 柱高=用时（15s 封顶）· 红边=超时记「模糊」· 深色=答错</span></h3>
+      <div class="times" id="timesChart"></div>
+
       <h3 class="panel-sub">未来 14 天到期量</h3>
       <div class="forecast" id="forecast"></div>
 
@@ -254,13 +257,38 @@
         <label class="chk"><input type="checkbox" id="setPos"> 显示词性徽记</label>
       </div>
 
+      <h3 class="panel-sub" id="bookMgrTitle">词库管理 <span class="muted">多词库并存，每本书的学习记录独立、互不干扰；点顶栏书名也能到这</span></h3>
+      <!--
+        词库管理（2.0.0）：内置书来自 assets/wordbooks/（不可删）；
+        导入书的数据本体存 IndexedDB（localStorage 兜底），可重命名、可删除。
+        导入三路：词表文件（TXT/CSV，每行「单词+分隔符+释义」）、JSON（cet6.json 同构）、
+        直接粘贴。全部在导入时校验并报告收录/去重/跳过。
+      -->
+      <div class="bookmgr" id="bookMgr">
+        <div class="booklist" id="bookList"></div>
+        <p class="muted small" id="bookEmpty" hidden>还没有任何词库。</p>
+        <div class="import-zone">
+          <div class="data-actions">
+            <button class="btn" id="wbImportFileBtn">导入词库文件</button>
+            <input type="file" id="wbImportFile" accept=".json,.txt,.csv,text/plain,application/json" hidden>
+          </div>
+          <textarea id="wbPaste" rows="3"
+            placeholder="或把词表直接粘贴到这里（每行：单词 + 制表符 / 竖线 / 分号 / 逗号 / 连续空格 + 释义）"></textarea>
+          <div class="paste-row">
+            <input type="text" id="wbPasteName" maxlength="40" placeholder="词库名称（留空自动取名）">
+            <button class="btn primary" id="wbPasteBtn">导入粘贴内容</button>
+          </div>
+        </div>
+      </div>
+
       <h3 class="panel-sub">学习记录</h3>
       <p class="muted small">
         进度保存在本机浏览器里（手机上存在应用内）。换设备或清缓存会丢，建议定期导出备份。
+        备份是<b>全量</b>的：包含所有词库的学习记录、你导入的词库本体与全局设置，一个文件整机恢复。
         「记住了」= 连续答对 ≥3 次 <b>且</b> 这 3 次跨了至少两天 —— 单次答对不算（4 选 1 有 25% 蒙对率）。
       </p>
       <div class="data-actions">
-        <button class="btn" id="exportBtn">导出备份</button>
+        <button class="btn" id="exportBtn">导出全量备份</button>
         <button class="btn" id="importBtn">导入备份</button>
         <input type="file" id="importFile" accept="application/json" hidden>
       </div>
@@ -289,12 +317,12 @@
         <div class="dz-row">
           <button class="btn danger" id="resetBtn" disabled>清空学习进度</button>
           <label class="dz-ack"><input type="checkbox" id="ackResetBtn">我确认清空学习进度（建议先导出备份）</label>
-          <small>清掉卡片与统计；<b>你的设置会保留</b>（不可撤销）</small>
+          <small>清掉<b>当前词库</b>的卡片与统计；<b>你的设置与其他词库不受影响</b>（不可撤销）</small>
         </div>
         <div class="dz-row">
           <button class="btn danger" id="factoryBtn" disabled>全部恢复出厂</button>
           <label class="dz-ack"><input type="checkbox" id="ackFactoryBtn">我确认全部恢复出厂（进度与设置一起清）</label>
-          <small>进度 <b>和</b> 设置一起清掉，等于刚装好的状态（不可撤销）</small>
+          <small><b>所有词库</b>的进度和设置一起清掉；导入的词库<b>文件本体保留</b>（不可撤销）</small>
         </div>
       </div>
 

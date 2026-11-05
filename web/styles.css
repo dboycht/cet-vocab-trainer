@@ -998,3 +998,110 @@ kbd {
   .learn-note .tip { max-height: 38vh; overflow-y: auto; }
 }
 
+/* ============================================================
+   2.0.0 多词库：词库管理 + 导入区 + 答题用时曲线
+   沿用「铅字卡片盒」既有变量；不引外部资源。
+   ============================================================ */
+
+/* ---- 词库管理列表 ---- */
+.bookmgr { display: flex; flex-direction: column; gap: 12px; }
+.booklist { display: flex; flex-direction: column; gap: 8px; }
+.bk-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 12px;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  box-shadow: var(--shadow-sm);
+}
+.bk-row.current {
+  border-color: var(--jade);
+  background: linear-gradient(0deg, rgba(39, 96, 76, .05), rgba(39, 96, 76, .05)), var(--card);
+}
+.bk-main { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 10px; min-width: 0; }
+.bk-name {
+  font-weight: 700; color: var(--ink);
+  font-family: var(--font-display);
+  overflow-wrap: anywhere;
+}
+.bk-row.current .bk-name { color: var(--jade); }
+.bk-tag {
+  font-size: 11px; line-height: 1; padding: 3px 7px;
+  border-radius: 999px; white-space: nowrap;
+  background: var(--jade); color: #fff;
+}
+.bk-tag.built-in { background: var(--rule-strong); color: var(--ink); }
+.bk-meta { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.bk-actions { display: flex; gap: 6px; flex: 0 0 auto; }
+.bk-actions .btn { padding: 6px 12px; font-size: 13px; }
+.bk-rename {
+  font: inherit; font-weight: 700; color: var(--ink);
+  padding: 3px 8px; border: 1px solid var(--seal);
+  border-radius: var(--r); background: #fff; width: 220px; max-width: 60vw;
+}
+
+/* ---- 导入区 ---- */
+.import-zone {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 12px;
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--r);
+  background: rgba(190, 176, 148, .08);
+}
+.import-zone textarea {
+  font: 13px/1.6 var(--font-mono);
+  color: var(--ink);
+  padding: 8px 10px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  background: #fff;
+  resize: vertical;
+  min-height: 64px;
+}
+.import-zone textarea:focus { outline: none; border-color: var(--ink-2); }
+.paste-row { display: flex; gap: 8px; }
+.paste-row input[type="text"] {
+  flex: 1 1 auto; min-width: 0;
+  font: inherit; font-size: 13px; color: var(--ink);
+  padding: 7px 10px;
+  border: 1px solid var(--rule); border-radius: var(--r); background: #fff;
+}
+.paste-row input[type="text"]:focus { outline: none; border-color: var(--ink-2); }
+.paste-row .btn { flex: 0 0 auto; white-space: nowrap; }
+
+/* ---- 答题用时曲线 ---- */
+.times { display: flex; flex-direction: column; gap: 10px; }
+.times-bars {
+  display: flex; align-items: flex-end; gap: 2px;
+  height: 120px;
+  padding: 6px 4px 0;
+  overflow-x: auto;
+}
+.times-bar {
+  flex: 0 0 6px;
+  border-radius: 3px 3px 0 0;
+  background: var(--rule-strong);
+  min-height: 3px;
+}
+.times-bar.t-en2cn { background: var(--jade); }
+.times-bar.t-cn2en { background: var(--amber); }
+.times-bar.t-spell { background: var(--ink-2); }
+.times-bar.slow { box-shadow: 0 0 0 1.5px var(--seal-soft) inset; }
+.times-bar.bad { opacity: .45; }
+.times-med { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.tc-med { display: flex; align-items: baseline; gap: 6px; font-size: 13px; }
+.tc-med i { color: var(--ink-3); font-style: normal; }
+.tc-med b { color: var(--ink); }
+.tc-med span { color: var(--ink-3); font-size: 12px; }
+
+/* 手机：管理行与导入区单列堆叠，按钮不挤压 */
+@media (max-width: 720px) {
+  .bk-row { flex-direction: column; align-items: stretch; }
+  .bk-actions { justify-content: flex-end; }
+  .bk-actions .btn { flex: 1 1 auto; }
+  .bk-meta { white-space: normal; }
+  .paste-row { flex-direction: column; }
+  .paste-row .btn { width: 100%; }
+  .times-bar { flex-basis: 4px; }
+}
+

@@ -1,11 +1,16 @@
 package com.dboycht.cetvocab
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.res.AssetManager
+import android.net.Uri
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.webkit.JavascriptInterface
+import android.webkit.ValueCallback
+import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
@@ -41,9 +46,16 @@ import java.util.Locale
  */
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        private const val FILE_CHOOSER_CODE = 4201
+    }
+
     private lateinit var webView: WebView
     private var tts: TextToSpeech? = null
     private var ttsReady = false
+
+    /** 2.0.0：词库导入需要 `<input type="file">`，WebView 必须实现文件选择器才有反应。 */
+    private var fileChooserCallback: ValueCallback<Array<Uri>>? = null
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -99,6 +111,36 @@ class MainActivity : AppCompatActivity() {
             ): Boolean = true
         }
 
+        // 2.0.0：WebChromeClient —— 没有它，WebView 对 <input type="file"> 完全无响应
+        // （点「导入词库文件」没反应），且 onShowFileChooser 必须把结果回给页面回调。
+        // 与 confirm() 同一类宿主缺口：宿主不实现 ⇒ 页面静默无反应（见 memory/92）。
+        webView.webChromeClient = object : WebChromeClient() {
+            override fun onShowFileChooser(
+                webView: WebView?,
+                callback: ValueCallback<Array<Uri>>,
+                fileChooserParams: FileChooserParams,
+            ): Boolean {
+                // 上一次选择还没回来又开了一个：先把旧的按取消处理，避免回调悬挂。
+                fileChooserCallback?.onReceiveValue(null)
+                fileChooserCallback = callback
+                val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
+                    addCategory(Intent.CATEGORY_OPENABLE)
+                    type = "*/*"
+                }
+                return try {
+                    startActivityForResult(
+                        Intent.createChooser(intent, "选择词库文件"),
+                        FILE_CHOOSER_CODE,
+                    )
+                    true
+                } catch (e: android.content.ActivityNotFoundException) {
+                    fileChooserCallback = null
+                    Toast.makeText(this@MainActivity, "系统没有可用的文件选择器", Toast.LENGTH_LONG).show()
+                    false
+                }
+            }
+        }
+
         // System WebView TTS is used when present; this native engine is the
         // fallback the JS calls into when `speechSynthesis` is missing.
         tts = TextToSpeech(this) { status ->
@@ -130,6 +172,22 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         webView.saveState(outState)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == FILE_CHOOSER_CODE) {
+            val cb = fileChooserCallback
+            fileChooserCallback = null
+            if (cb != null) {
+                cb.onReceiveValue(
+                    if (resultCode == Activity.RESULT_OK && data?.data != null)
+                        WebChromeClient.FileChooserParams.parseResult(resultCode, data)
+                    else null, // 用户取消 ⇒ 必须也回 null，否则页面输入框永久挂起
+                )
+            }
+            return
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onDestroy() {

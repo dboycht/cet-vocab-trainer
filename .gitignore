@@ -9,6 +9,8 @@ release/
 # 开发文档（只留开发副本，见工作区纪律 rules/03）
 DEVELOPMENT.md
 ERROR.md
+开发日志.md
+HANDOVER-接手说明.md
 
 # 编辑器 / 系统
 .vscode/

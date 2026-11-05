@@ -265,8 +265,8 @@ if (cur.kind === "quiz" && cur.type !== "spell" && cur.answerIndex >= 0) {
 
 /* ---------- F. 冷启动后进度保留（壳内真实验证）---------- */
 const f0 = JSON.parse(await ev(`JSON.stringify({
-  raw: !!localStorage.getItem('cvt:v1:cet6'),
-  cards: Object.keys((JSON.parse(localStorage.getItem('cvt:v1:cet6')||'{}').cards)||{}).length,
+  raw: !!localStorage.getItem('cvt:v2:book:cet6:progress'),
+  cards: Object.keys((JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress')||'{}').cards)||{}).length,
 })`));
 check("判定后有进度落盘", f0.raw === true, `cards=${f0.cards}`);
 
@@ -275,7 +275,7 @@ await sleep(3500);
 const f1 = JSON.parse(await ev(`JSON.stringify({
   hasCvt: !!window.__cvt,
   words: window.__cvt ? window.__cvt.wordCount() : 0,
-  cards: Object.keys((JSON.parse(localStorage.getItem('cvt:v1:cet6')||'{}').cards)||{}).length,
+  cards: Object.keys((JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress')||'{}').cards)||{}).length,
 })`));
 check("刷新后进度保留（localStorage 在壳内持久）", f1.hasCvt && f1.cards === f0.cards,
   `cards ${f0.cards} → ${f1.cards}`);
@@ -339,7 +339,7 @@ check("APK 内含加权抽取接口", v3.hasDraw && v3.hasSample && v3.hasLearne
  * 写死 20 会把正常行为判成失败。真正的语义是"每批不超过 20 且尽量装满"。
  */
 const learnedToday = JSON.parse(await ev(`JSON.stringify(
-  (JSON.parse(localStorage.getItem('cvt:v1:cet6')||'{}').days || {})
+  (JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress')||'{}').days || {})
 )`));
 const todayN = Object.values(learnedToday).reduce((a, d) => a + (d?.n || 0), 0);
 check("⭐ 一批 ≤ 20 词且尽量装满（真机上的实际值）",
@@ -361,7 +361,7 @@ const V3_SEED = ["criterion", "uranium", "collaborate", "cluster", "stone", "mon
   "shuttle", "sneer", "millionaire", "dignity", "utmost", "mischief"];
 const seedProg = await ev(`(async () => {
   const now = ${Math.floor(Date.now() / 86400000)};
-  const p = JSON.parse(localStorage.getItem('cvt:v1:cet6') || '{}');
+  const p = JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress') || '{}');
   p.cards = p.cards || {};
   const words = ${JSON.stringify(V3_SEED)};
   words.forEach((w, i) => {
@@ -375,7 +375,7 @@ const seedProg = await ev(`(async () => {
   return JSON.stringify(p);
 })()`);
 const seedInj = await send("Page.addScriptToEvaluateOnNewDocument", {
-  source: `try{localStorage.setItem('cvt:v1:cet6', ${JSON.stringify(seedProg)});}catch(e){}`,
+  source: `try{localStorage.setItem('cvt:v2:book:cet6:progress', ${JSON.stringify(seedProg)});}catch(e){}`,
 });
 await send("Page.reload", { ignoreCache: false });
 await sleep(3000);
@@ -479,8 +479,11 @@ const ACK_OF = {
   factoryBtn: "ackFactoryBtn",
 };
 async function devClear(btnId) {
+  // 2.0.0：设置已独立成全局键（cvt:v2:settings），种子必须同时播种两处，
+  // 否则 boot 会沿用上一次的全局设置，种子里 settings 的断言（newPerDay=7 等）全部失真。
   const inj = await send("Page.addScriptToEvaluateOnNewDocument", {
-    source: `try{localStorage.setItem('cvt:v1:cet6', ${JSON.stringify(JSON.stringify(clearMix))});}catch(e){}`,
+    source: `try{localStorage.setItem('cvt:v2:book:cet6:progress', ${JSON.stringify(JSON.stringify(clearMix))});` +
+      `localStorage.setItem('cvt:v2:settings', ${JSON.stringify(JSON.stringify(clearMix.settings || {}))});}catch(e){}`,
   });
   await send("Page.reload", { ignoreCache: false });
   await sleep(3000);
@@ -503,7 +506,7 @@ async function devClear(btnId) {
     if (btn.disabled) return JSON.stringify({ notEnabled: true });
     btn.click();
     await new Promise(r => setTimeout(r, 700));
-    const p = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
+    const p = JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress'));
     return JSON.stringify({
       cards: Object.keys(p.cards || {}).length, mistakes: (p.mistakes || []).length,
       days: Object.keys(p.days || {}).length,
@@ -549,6 +552,98 @@ check("真机·没学过词时测验板块显示空态（唯一动作=去学习�
   es.mode === "quiz" && es.title === "还没有学过的词" && es.moreHidden
     && es.batchQuizHidden && es.goLearnShown && es.drawDisabled && es.batchDisabled,
   JSON.stringify(es));
+
+/* ---------- N. 多词库（2.0.0，真机/模拟器）：导入 → 独立记录 → 切换 → 删除 ---------- */
+console.log("\n--- N. 多词库（真机）---");
+/*
+ * 手机壳上也要走一遍多词库主线：WebView 的 IndexedDB、注册表、切换与删除
+ * 都涉及壳层差异（asset 挂载、存储配额、文件选择器）。粘贴导入不经过文件选择器，
+ * 全设备可跑；文件选择器路径已由壳的 onShowFileChooser 支持，人工验收时点「导入词库文件」。
+ */
+const nv0 = JSON.parse(await ev(`(async () => {
+  document.querySelector('.mode-btn[data-mode="settings"]').click();
+  await new Promise(r => setTimeout(r, 800));
+  const rows = [...document.querySelectorAll('#bookList .bk-row')];
+  return JSON.stringify({
+    rows: rows.length,
+    ids: rows.map(r => r.dataset.id),
+    delBtns: rows.map(r => !!r.querySelector('[data-act="del"]')),
+    cur: window.__cvt.booksInfo().current,
+    fileBtn: !!document.getElementById('wbImportFileBtn'),
+    pasteBox: !!document.getElementById('wbPaste'),
+  });
+})()`, true));
+check("真机·词库管理列表在场（内置书不可删）",
+  nv0.rows >= 1 && nv0.ids[0] === "cet6" && nv0.delBtns[0] === false && nv0.fileBtn && nv0.pasteBox,
+  `rows=${nv0.rows} fileBtn=${nv0.fileBtn}`);
+check("真机·IndexedDB 可用（导入书本体存放位置）",
+  await ev(`new Promise(res => { try { const q = indexedDB.open('cvt-books'); q.onsuccess = () => { res(true); q.result.close(); }; q.onerror = () => res(false); } catch { res(false); } })`, true) === true);
+
+await ev(`(() => {
+  document.getElementById('wbPaste').value = 'nork\\t真机释义一\\nplork\\t真机释义二\\nquux\\t真机释义三\\nsnork\\t真机释义四\\nwug\\t真机释义五\\n';
+  document.getElementById('wbPasteName').value = '真机探针书';
+  document.getElementById('wbPasteBtn').click();
+  return true;
+})()`, false);
+await sleep(1600);
+const nv1 = JSON.parse(await ev(`JSON.stringify({
+  info: window.__cvt.booksInfo(),
+  wbName: document.getElementById('wbName').textContent,
+})`));
+check("真机·粘贴导入 + 自动切换",
+  nv1.info.list.length === nv0.rows + 1 && nv1.info.current !== "cet6" &&
+  nv1.info.list.find((b) => b.source === "imported")?.count === 5,
+  JSON.stringify(nv1.info.list.map((b) => ({ id: b.id.slice(0, 9), n: b.count, s: b.source }))));
+check("真机·切书后顶栏书名跟随", !/六级/.test(nv1.wbName), nv1.wbName);
+
+// 独立记录：在导入书里学一张卡，cet6 的键不动
+await ev(`document.querySelector('.mode-btn[data-mode="learn"]').click(); true`, false);
+await sleep(900);
+await ev(`(async () => {
+  for (let i = 0; i < 8; i++) {
+    const gl = document.getElementById('goLearn');
+    if (gl && !gl.hidden) { gl.click(); await new Promise(r => setTimeout(r, 500)); continue; }
+    const gn = document.getElementById('goNext');
+    if (gn && !gn.hidden) { gn.click(); await new Promise(r => setTimeout(r, 400)); continue; }
+    const dn = document.getElementById('dunnoBtn');
+    if (dn && !dn.hidden) { dn.click(); await new Promise(r => setTimeout(r, 300)); continue; }
+    const o = document.querySelectorAll('.opt');
+    if (o.length) { o[0].click(); await new Promise(r => setTimeout(r, 400)); continue; }
+    await new Promise(r => setTimeout(r, 300));
+  }
+  return true;
+})()`, true);
+const nv2 = JSON.parse(await ev(`JSON.stringify({
+  cur: window.__cvt.booksInfo().list.find(b => b.current).cards,
+  cet6: window.__cvt.booksInfo().list.find(b => b.id === 'cet6').cards,
+})`));
+check("真机·每书独立记录（导入书学到卡，cet6 不受影响）", nv2.cur > 0, `导入书 ${nv2.cur} 张 · cet6 ${nv2.cet6} 张`);
+
+// 全量备份载荷（真机）
+const nv3 = JSON.parse(await ev(`JSON.stringify((() => { const p = window.__cvt.backupPreview(); return { fmt: p.format, books: p.books.length, imp: p.importedBooks.length }; })())`));
+check("真机·备份 v2 打包全部词库", nv3.fmt === 2 && nv3.books >= 2 && nv3.imp === 1, JSON.stringify(nv3));
+
+// 删除导入书（确认层 → 回内置书）
+await ev(`(() => {
+  document.querySelector('.mode-btn[data-mode="settings"]').click();
+  return true;
+})()`, false);
+await sleep(600);
+await ev(`(() => {
+  const row = [...document.querySelectorAll('#bookList .bk-row')].find(r => r.dataset.id.startsWith('imp-'));
+  row.querySelector('[data-act="del"]').click();
+  return true;
+})()`, false);
+await sleep(600);
+await ev(`document.getElementById('modalOk').click(); true`, false);
+await sleep(1200);
+const nv4 = JSON.parse(await ev(`JSON.stringify({
+  ids: window.__cvt.booksInfo().list.map(b => b.id),
+  cur: window.__cvt.booksInfo().current,
+  impKeys: Object.keys(localStorage).filter(k => k.startsWith('cvt:v2:book:imp-')).length,
+})`));
+check("真机·删除导入书（确认层走通，回内置书）",
+  nv4.ids.length === nv0.rows && nv4.cur === "cet6" && nv4.impKeys === 0, JSON.stringify(nv4));
 
 /* ---------- K. 控制台 ---------- */
 const noise2 = /GPU|Vulkan|gpu_|Fontconfig|DevTools|Autofill|favicon|Failed to load resource/i;

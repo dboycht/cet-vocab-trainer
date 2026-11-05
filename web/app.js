@@ -23,8 +23,30 @@
    ============================================================ */
 
 const DAY = 86400000;
-const STORE_KEY = (wbId) => `cvt:v1:${wbId}`;   // v1 的 key 不变，内部做字段迁移
+/*
+ * 多词库存储模型（2.0.0 重构）
+ * ------------------------------------------------
+ *   cvt:v2:book:<id>:progress   每本词库一份学习进度（卡/排期/统计/错词本），互不干扰
+ *   cvt:v2:settings             全局设置（所有词库共享：节奏/题型/朗读/显示）
+ *   cvt:v2:booklist             词库注册表 = 内置书（来自 index.json）+ 导入书（元数据）
+ *   cvt:v2:current              当前选中的词库 id（记住上次选择）
+ *   IndexedDB「cvt-books」      导入词库的**数据本体**（词条数组，容量大）；
+ *                              IndexedDB 不可用时退回 localStorage `cvt:v2:imported:<id>`
+ *   cvt:v1:<id>                 旧版单书键 —— **迁移源，只读不删**（旧数据原样保留做保险）
+ *
+ * 迁移规则：loadProgress 先找 v2 键；没有才读 v1 键并**复制**成 v2（v1 原样不动）。
+ * 全局设置初始化顺序：v2 settings 键 → v1 cet6 存档里的 settings → 默认值。
+ */
+const STORE_KEY = (wbId) => `cvt:v2:book:${wbId}:progress`;
+const LEGACY_STORE_KEY = (wbId) => `cvt:v1:${wbId}`;
+const REGISTRY_KEY = 'cvt:v2:booklist';
+const CURRENT_KEY = 'cvt:v2:current';
+const SETTINGS_KEY = 'cvt:v2:settings';
+const IMPORTED_FALLBACK_KEY = (id) => `cvt:v2:imported:${id}`;
+const IDB_NAME = 'cvt-books', IDB_STORE = 'books';
 const PROGRESS_VERSION = 2;
+/** 答题用时流水上限（环形）：只留最近 600 题，防止进度文件无限膨胀 */
+const TIME_LOG_CAP = 600;
 const MAX_INTERVAL = 365;
 const EASE_MIN = 1.3, EASE_MAX = 2.8;
 
@@ -35,7 +57,7 @@ const EASE_MIN = 1.3, EASE_MAX = 2.8;
  * package.json 不在其中，fetch 必然 404。所以这里留一份副本，
  * 由人负责与 package.json 同步（`npm run verify` 的门禁会比对，见 check_launcher）。
  */
-const APP_VERSION = '1.0.3';
+const APP_VERSION = '2.0.0';
 
 const STATE = { NEW: 0, LEARNING: 1, REVIEW: 2 };
 const STATE_LABEL = { 0: '新词', 1: '学习中', 2: '复习中' };
@@ -129,9 +151,43 @@ const DEFAULT_SETTINGS = {
   //   false（默认）= 新机制：从已学过的词里按 熟练度×遗忘 加权随机抽
   //   true         = 经典 SRS：只抽 d <= 今天 的到期词
   useDueQueue: false,
-  // 每日新词上限默认 20（= 一批的量），让"一批"和"一天"对齐
-  newPerDay: 20,
 };
+
+/**
+ * 全局设置（2.0.0）：**所有词库共享**。换词库不用重调节奏/题型；
+ * 学习进度、排期、统计、错词本才是按词库隔离的。
+ * boot 时初始化（v2 settings 键 → v1 存档继承 → 默认值），
+ * `progress.settings` 直接引用这个对象 —— 全部既有代码路径零改动。
+ */
+let settings = null;
+
+function loadGlobalSettings() {
+  // ① v2 全局键
+  try {
+    const g = localStorage.getItem(SETTINGS_KEY);
+    if (g) return { ...DEFAULT_SETTINGS, ...JSON.parse(g) };
+  } catch { /* 坏数据走兜底 */ }
+  // ② 老用户升级：继承 v1 cet6 存档里的设置（保持升级前的使用习惯）
+  for (const id of ['cet6', currentBookId()]) {
+    if (!id) continue;
+    try {
+      const raw = localStorage.getItem(LEGACY_STORE_KEY(id));
+      if (raw) {
+        const p = JSON.parse(raw);
+        if (p && p.settings) return { ...DEFAULT_SETTINGS, ...p.settings };
+      }
+    } catch { /* 换下一个来源 */ }
+  }
+  // ③ v2 每书快照（探针播种 / 部分恢复场景）
+  try {
+    const raw = localStorage.getItem(STORE_KEY(currentBookId()));
+    if (raw) {
+      const p = JSON.parse(raw);
+      if (p && p.settings) return { ...DEFAULT_SETTINGS, ...p.settings };
+    }
+  } catch { /* 兜底 */ }
+  return { ...DEFAULT_SETTINGS };
+}
 
 function blankProgress() {
   return {
@@ -144,13 +200,14 @@ function blankProgress() {
       cn2en: { a: 0, c: 0, ms: 0 },
       spell: { a: 0, c: 0, ms: 0 },
     },
+    times: [],                 // 2.0.0 答题用时流水（环形，见 recordAnswer）——统计页画用时曲线
     streak: 0,
     lastDay: '',
     settings: { ...DEFAULT_SETTINGS },
   };
 }
 
-/** 当前进度（boot 时按词库 id 载入） */
+/** 当前进度（boot / 切词库时按词库 id 载入）；settings 字段引用全局对象 */
 let progress = blankProgress();
 
 function migrateCard(c) {
@@ -178,32 +235,50 @@ function estimateProfFromLegacy(c) {
   return clamp(Number((byStreak + byAcc).toFixed(3)), 0, 1);
 }
 
+/** 把任意来源（v2 键 / v1 键 / 备份）的进度对象修整成当前版本的形状 */
+function normalizeProgress(p) {
+  const out = {
+    ...blankProgress(), ...p,
+    cards: p.cards || {},
+    days: p.days || {},
+    mistakes: Array.isArray(p.mistakes) ? p.mistakes : [],
+    types: { ...blankProgress().types, ...(p.types || {}) },
+    times: Array.isArray(p.times) ? p.times.slice(-TIME_LOG_CAP) : [],
+    settings: settings || { ...DEFAULT_SETTINGS, ...(p.settings || {}) },
+  };
+  // 旧 days 迁移：{ n, r, a } → { n, ok, bad }
+  for (const k of Object.keys(out.days)) {
+    const d = out.days[k] || {};
+    out.days[k] = { n: d.n || 0, ok: d.ok ?? d.r ?? 0, bad: d.bad ?? d.a ?? 0 };
+  }
+  for (const k of Object.keys(out.cards)) migrateCard(out.cards[k]);
+  // 旧 mistakes 若不在词库里也不清（保留用户痕迹），显示时再过滤
+  out.version = PROGRESS_VERSION;
+  return out;
+}
+
+/**
+ * 读某本词库的进度。优先 v2 键；没有才读 v1 旧键并**复制**成 v2。
+ * ⚠️ v1 键永远原样保留 —— 升级路径上任何一步出错，用户的旧数据都还在原地。
+ */
 function loadProgress(wbId) {
   try {
     const raw = localStorage.getItem(STORE_KEY(wbId));
-    if (!raw) return blankProgress();
-    const p = JSON.parse(raw);
-    const out = {
-      ...blankProgress(), ...p,
-      settings: { ...DEFAULT_SETTINGS, ...(p.settings || {}) },
-      cards: p.cards || {},
-      days: p.days || {},
-      mistakes: Array.isArray(p.mistakes) ? p.mistakes : [],
-      types: { ...blankProgress().types, ...(p.types || {}) },
-    };
-    // 旧 days 迁移：{ n, r, a } → { n, ok, bad }
-    for (const k of Object.keys(out.days)) {
-      const d = out.days[k] || {};
-      out.days[k] = { n: d.n || 0, ok: d.ok ?? d.r ?? 0, bad: d.bad ?? d.a ?? 0 };
-    }
-    for (const k of Object.keys(out.cards)) migrateCard(out.cards[k]);
-    // 旧 mistakes 若不在词库里也不清（保留用户痕迹），显示时再过滤
-    out.version = PROGRESS_VERSION;
-    return out;
+    if (raw) return normalizeProgress(JSON.parse(raw));
   } catch (e) {
-    console.warn('进度读取失败，已重置为空进度', e);
-    return blankProgress();
+    console.warn('v2 进度读取失败，尝试旧键', e);
   }
+  try {
+    const legacy = localStorage.getItem(LEGACY_STORE_KEY(wbId));
+    if (legacy) {
+      const p = normalizeProgress(JSON.parse(legacy));
+      try { localStorage.setItem(STORE_KEY(wbId), JSON.stringify(p)); } catch { /* 写失败下次再迁 */ }
+      return p;
+    }
+  } catch (e) {
+    console.warn('旧键迁移失败，按空进度处理', e);
+  }
+  return blankProgress();
 }
 
 let saveTimer = null;
@@ -214,6 +289,8 @@ function saveProgress() {
 function flushProgress() {
   try {
     localStorage.setItem(STORE_KEY(state.wbId), JSON.stringify(progress));
+    // 全局设置单独落一份键：换词库、恢复单书备份时设置不丢
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(progress.settings));
   } catch (e) {
     toast('进度保存失败：浏览器存储空间可能已满');
     console.error(e);
@@ -229,6 +306,118 @@ function bumpDay(field, n = 1) {
     progress.streak = progress.days[todayKey(y)] ? (progress.streak || 0) + 1 : 1;
     progress.lastDay = k;
   }
+}
+
+/* ---------------- 词库注册表（内置 + 导入） ---------------- */
+/*
+ * 多词库架构（2.0.0）：
+ *   - 内置书：manifest（./wordbooks/index.json）是唯一来源，每次启动重建，
+ *     不进注册表快照 —— 数据文件升级后清单自动跟上。
+ *   - 导入书：元数据存 REGISTRY_KEY，**词条本体**存 IndexedDB（localStorage 兜底）。
+ *     词条本体不进 localStorage —— 2083 词 ≈ 250 KB，多放几本就把 5 MB 配额吃光。
+ *   - 每本书的学习进度按 STORE_KEY(id) 天然隔离；切换 = 换 progress 对象 + 重排队列。
+ */
+let bookList = [];                 // [{id, name, count, source:'builtin'|'imported', file?, addedAt?, sourceName?}]
+const importedCache = new Map();   // id → 导入词库 doc（启动时全量预载；备份导出从这里取本体）
+
+function loadRegistry() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(REGISTRY_KEY) || 'null');
+    if (Array.isArray(raw)) return raw.filter((e) => e && e.id && e.source === 'imported');
+  } catch { /* 坏了就当没有 */ }
+  return null;
+}
+function saveRegistry() {
+  // 只持久化导入书；内置书每次由 manifest 重建，避免两处清单打架
+  const imported = bookList.filter((b) => b.source === 'imported');
+  try { localStorage.setItem(REGISTRY_KEY, JSON.stringify(imported)); } catch { /* 配额满时静默，导入书本体仍在 */ }
+}
+function currentBookId() {
+  return localStorage.getItem(CURRENT_KEY) || '';
+}
+function setCurrentBook(id) {
+  try { localStorage.setItem(CURRENT_KEY, id); } catch { /* 存不进去就退回会话级 */ }
+}
+
+/* ---- IndexedDB（导入词库本体）＋ localStorage 兜底 ---- */
+function idbOpen() {
+  return new Promise((resolve, reject) => {
+    if (typeof indexedDB === 'undefined') { reject(new Error('no indexedDB')); return; }
+    const req = indexedDB.open(IDB_NAME, 1);
+    req.onupgradeneeded = () => {
+      if (!req.result.objectStoreNames.contains(IDB_STORE)) {
+        req.result.createObjectStore(IDB_STORE, { keyPath: 'id' });
+      }
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error || new Error('idb open failed'));
+  });
+}
+async function idbPut(doc) {
+  const db = await idbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(IDB_STORE, 'readwrite');
+    tx.objectStore(IDB_STORE).put(doc);
+    tx.oncomplete = () => { db.close(); resolve(true); };
+    tx.onerror = () => { db.close(); reject(tx.error || new Error('idb put failed')); };
+  });
+}
+async function idbGet(id) {
+  const db = await idbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(IDB_STORE, 'readonly');
+    const rq = tx.objectStore(IDB_STORE).get(id);
+    rq.onsuccess = () => { db.close(); resolve(rq.result || null); };
+    rq.onerror = () => { db.close(); reject(rq.error || new Error('idb get failed')); };
+  });
+}
+async function idbDel(id) {
+  const db = await idbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(IDB_STORE, 'readwrite');
+    tx.objectStore(IDB_STORE).delete(id);
+    tx.oncomplete = () => { db.close(); resolve(true); };
+    tx.onerror = () => { db.close(); reject(tx.error || new Error('idb del failed')); };
+  });
+}
+
+/** 保存导入词库：优先 IndexedDB，失败退回 localStorage（双写清理对齐） */
+async function saveImportedBook(doc) {
+  importedCache.set(doc.id, doc);
+  try { await idbPut(doc); } catch { /* 落兜底 */ }
+  try { localStorage.setItem(IMPORTED_FALLBACK_KEY(doc.id), JSON.stringify(doc)); } catch { /* IDB 成功即可 */ }
+}
+async function getImportedBook(id) {
+  if (importedCache.has(id)) return importedCache.get(id);
+  try {
+    const doc = await idbGet(id);
+    if (doc) { importedCache.set(id, doc); return doc; }
+  } catch { /* 走兜底 */ }
+  try {
+    const raw = localStorage.getItem(IMPORTED_FALLBACK_KEY(id));
+    if (raw) { const doc = JSON.parse(raw); importedCache.set(id, doc); return doc; }
+  } catch { /* 没有 */ }
+  return null;
+}
+async function deleteImportedBook(id) {
+  importedCache.delete(id);
+  try { await idbDel(id); } catch { /* 尽力删 */ }
+  try { localStorage.removeItem(IMPORTED_FALLBACK_KEY(id)); } catch { /* 尽力删 */ }
+}
+
+/** 轻量读某本书的进度概况（管理列表展示用；只读键，不碰内存 progress） */
+function bookProgressMeta(id) {
+  try {
+    const raw = localStorage.getItem(STORE_KEY(id)) || localStorage.getItem(LEGACY_STORE_KEY(id));
+    if (!raw) return { cards: 0, mastered: 0, days: 0 };
+    const p = JSON.parse(raw);
+    const cards = Object.keys(p.cards || {}).length;
+    let mastered = 0;
+    for (const c of Object.values(p.cards || {})) {
+      if ((c.k || 0) >= MASTER_STREAK && (c.ld || 0) > (c.fd || 0)) mastered++;
+    }
+    return { cards, mastered, days: Object.keys(p.days || {}).length };
+  } catch { return { cards: 0, mastered: 0, days: 0 }; }
 }
 
 /* ---------------- 熟练度与遗忘曲线（v3 主线） ---------------- */
@@ -462,6 +651,13 @@ function recordAnswer(word, type, correct, grade, elapsedMs) {
   const t = (progress.types[type] ||= { a: 0, c: 0, ms: 0 });
   t.a++; t.ms += Math.max(0, Math.min(elapsedMs || 0, 600000));
   if (correct) t.c++;
+
+  // 2.0.0 答题用时流水（环形，只留最近 TIME_LOG_CAP 题）—— 统计页画用时曲线用
+  progress.times.push({
+    d: today, t: type, ms: Math.round(Math.max(0, Math.min(elapsedMs || 0, 600000))),
+    ok: correct ? 1 : 0,
+  });
+  if (progress.times.length > TIME_LOG_CAP) progress.times.splice(0, progress.times.length - TIME_LOG_CAP);
 }
 
 /** 档位判定 —— 见文件头 ① */
@@ -1635,6 +1831,38 @@ function renderStats() {
     </div>`;
   }).join('');
 
+  // ---- 答题用时曲线（2.0.0）：最近 120 题逐题用时，柱高 = 用时（15s 封顶）----
+  // 慢题（>10s，选择题会被记「模糊」）一眼可见。旧版本没有逐题流水，留空位提示。
+  const timeBars = progress.times.slice(-120);
+  const TIME_CAP_MS = 15000;
+  const medianOf = (arr) => {
+    if (!arr.length) return null;
+    const s = arr.slice().sort((a, b) => a - b);
+    return s[Math.floor((s.length - 1) / 2)];
+  };
+  const medRows = QTYPES.map((t) => {
+    const arr = timeBars.filter((x) => x.t === t).map((x) => x.ms);
+    const med = medianOf(arr);
+    return `<div class="tc-med"><i>${QT_LABEL[t]}</i><b>${med != null ? (med / 1000).toFixed(1) + 's' : '—'}</b><span>中位数 · ${arr.length} 题</span></div>`;
+  }).join('');
+  if (timeBars.length) {
+    const tMax = Math.max(1000, ...timeBars.map((x) => Math.min(x.ms, TIME_CAP_MS)));
+    $('timesChart').innerHTML =
+      `<div class="times-bars">` +
+      timeBars.map((x) => {
+        const h = Math.max(4, Math.round((Math.min(x.ms, TIME_CAP_MS) / tMax) * 100));
+        const slow = x.t !== 'spell' && x.ms > (SLOW_MS[x.t] || 1e9);
+        return `<div class="times-bar t-${x.t}${slow ? ' slow' : ''}${x.ok ? '' : ' bad'}" ` +
+          `style="height:${h}%" title="${QT_LABEL[x.t]} · ${(x.ms / 1000).toFixed(1)}s · ${x.ok ? '答对' : '答错'}${slow ? ' · 超时记模糊' : ''}"></div>`;
+      }).join('') +
+      `</div>` +
+      `<div class="times-med">${medRows}</div>`;
+  } else {
+    $('timesChart').innerHTML =
+      '<span class="wk-empty">还没有逐题用时数据 —— 本版本开始记录，答几题后这里会画出用时曲线。</span>' +
+      `<div class="times-med">${medRows}</div>`;
+  }
+
   // 未来 14 天到期量
   const tn = localDayNum();
   const buckets = new Array(14).fill(0);
@@ -1717,11 +1945,15 @@ function renderSettings() {
   $('setDueQueue').checked = !!st.useDueQueue;
   $('setSpell').value = st.spellOnTouch || 'auto';
 
+  renderBooks();
+
   // ---- 关于 ----
   const cards = Object.keys(progress.cards || {}).length;
   const days = Object.keys(progress.days || {}).length;
   const firstUse = Object.keys(progress.days || {}).sort()[0] || '—';
   const wb = state.wb;
+  const builtinN = bookList.filter((b) => b.source === 'builtin').length;
+  const importedN = bookList.length - builtinN;
   $('aboutBox').innerHTML = `
     <div class="about-row"><span>版本</span><b>${APP_VERSION}</b></div>
     <div class="about-row"><span>作者</span><b>Toki Mizuki</b></div>
@@ -1731,9 +1963,10 @@ function renderSettings() {
       实测会折成两行且断在词中间。拆开后每段都短，链接整体仍指向完整地址。
     -->
     <div class="about-row"><span>项目地址</span><b><a href="https://github.com/dboycht/cet-vocab-trainer" target="_blank" rel="noopener">github.com/dboycht<br>/cet-vocab-trainer</a></b></div>
-    <div class="about-row"><span>词库</span><b>${wb ? `${wb.name} · ${wb.count} 词` : '—'}</b></div>
+    <div class="about-row"><span>词库</span><b>${wb ? `${wb.name} · ${wb.words.length} 词` : '—'}</b></div>
     <div class="about-row"><span>词库来源</span><b>${wb?.source || '—'}</b></div>
-    <div class="about-row"><span>助记</span><b>${state.tips.size} / ${wb?.count ?? 0} 条</b></div>
+    <div class="about-row"><span>已装词库</span><b>${bookList.length} 本（内置 ${builtinN} · 导入 ${importedN}），各自独立记录</b></div>
+    <div class="about-row"><span>助记</span><b>${state.tips.size} / ${wb?.words.length ?? 0} 条</b></div>
     <div class="about-row"><span>学习记录</span><b>${cards} 张卡 · ${days} 天${firstUse !== '—' ? `（最早 ${firstUse}）` : ''}</b></div>
     <div class="about-row"><span>许可</span><b>CC BY-NC 4.0</b></div>
     <p class="muted small">
@@ -1949,6 +2182,48 @@ function wireEvents() {
   $('exportBtn').addEventListener('click', exportBackup);
   $('importBtn').addEventListener('click', () => $('importFile').click());
   $('importFile').addEventListener('change', importBackup);
+
+  // ---- 词库管理（2.0.0）：导入文件 / 粘贴导入 / 列表操作（使用·重命名·删除） ----
+  const wbFileBtn = $('wbImportFileBtn'), wbFile = $('wbImportFile');
+  if (wbFileBtn && wbFile) {
+    wbFileBtn.addEventListener('click', () => wbFile.click());
+    wbFile.addEventListener('change', (e) => {
+      const f = e.target.files?.[0];
+      if (f) importWordbookFile(f);
+      e.target.value = '';                 // 同一个文件允许重复选
+    });
+  }
+  const pasteBtn = $('wbPasteBtn'), pasteBox = $('wbPaste'), pasteName = $('wbPasteName');
+  if (pasteBtn && pasteBox) {
+    pasteBtn.addEventListener('click', () => {
+      const text = pasteBox.value;
+      if (!text.trim()) { toast('先粘贴词表内容（每行：单词 + 分隔符 + 释义）'); return; }
+      importWordbook(text, pasteName ? pasteName.value : '').then((ok) => {
+        if (ok) { pasteBox.value = ''; if (pasteName) pasteName.value = ''; }
+      });
+    });
+  }
+  const listBox = $('bookList');
+  if (listBox) {
+    listBox.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-act]');
+      if (!btn) return;
+      const id = btn.closest('.bk-row')?.dataset.id;
+      if (!id) return;
+      if (btn.dataset.act === 'use') switchToBook(id);
+      else if (btn.dataset.act === 'rename') beginRenameBook(id);
+      else if (btn.dataset.act === 'del') deleteBook(id);
+    });
+  }
+  // 顶栏书名可点：跳到设置页的词库管理（切换词库的最短路径）
+  const wbNameEl = $('wbName');
+  if (wbNameEl) {
+    wbNameEl.title = '点这里切换 / 管理词库';
+    wbNameEl.addEventListener('click', () => {
+      setMode('settings');
+      setTimeout(() => $('bookMgr')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+    });
+  }
   // 清除数据：四个粒度各接各的处理函数（见各自的注释说明差异）。
   // **四个全部走复选确认**（勾了才点亮按钮）—— 四者都不可撤销，
   // 而「恢复默认设置」原来单独用 confirm()，在安卓 WebView 里根本不弹窗
@@ -2014,54 +2289,63 @@ function k_advanceable() {
   return state.phase === 'answered';
 }
 
-/* ---------------- 备份 ---------------- */
-function exportBackup() {
+/* ---------------- 备份（2.0.0 全量格式） ---------------- */
+/*
+ * 备份 v2 = 一个文件打包**全部**：
+ *   books         每本词库的学习进度（按 id 对应，内置与导入都在）
+ *   importedBooks 导入词库的**词条本体**（内置书不用备，APK/资产里就有）
+ *   settings      全局设置
+ *   current       备份时的当前词库
+ * 恢复 = 按块写回（设置→进度→导入书本体→注册表），并兼容旧 v1 单书格式
+ * （{wordbook, progress}：只恢复那一本书的学习记录，不动其他书）。
+ */
+function buildBackupPayload() {
   flushProgress();
-  const blob = new Blob([JSON.stringify({
-    app: 'cet-vocab-trainer', version: PROGRESS_VERSION,
-    wordbook: state.wbId, exportedAt: new Date().toISOString(), progress,
-  }, null, 1)], { type: 'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `刷词进度-${state.wbId}-${todayKey()}.json`;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-  toast('已导出备份文件');
+  const books = bookList.map((b) => {
+    let p = null;
+    try {
+      const raw = localStorage.getItem(STORE_KEY(b.id)) || localStorage.getItem(LEGACY_STORE_KEY(b.id));
+      p = raw ? JSON.parse(raw) : null;
+    } catch { /* 单本读不出来就记 null，不挡整个备份 */ }
+    return { id: b.id, name: b.name, source: b.source, count: b.count, file: b.file || null, progress: p };
+  });
+  return {
+    app: 'cet-vocab-trainer', format: 2, version: PROGRESS_VERSION,
+    exportedAt: new Date().toISOString(),
+    settings: { ...progress.settings },
+    current: state.wbId,
+    books,
+    importedBooks: bookList.filter((b) => b.source === 'imported')
+      .map((b) => importedCache.get(b.id)).filter(Boolean),
+  };
 }
 
-function importBackup(e) {
+async function exportBackup() {
+  const payload = buildBackupPayload();
+  const n = payload.books.filter((b) => b.progress).length;
+  const blob = new Blob([JSON.stringify(payload, null, 1)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `刷词备份-全量-${todayKey()}.json`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  toast(`已导出全部 ${bookList.length} 本词库（含 ${n} 本的记录与 ${payload.importedBooks.length} 本导入词库）`);
+}
+
+async function importBackup(e) {
   const f = e.target.files?.[0];
   if (!f) return;
   const r = new FileReader();
   r.onload = async () => {
     try {
       const data = JSON.parse(String(r.result));
-      const p = data.progress || data;
-      if (!p || typeof p !== 'object' || !p.cards) throw new Error('格式不对');
-      /*
-       * 导入是**覆盖性**操作：整个 progress 被替换，当前进度全部没了，且不可撤销。
-       * 原来一声不吭直接覆盖（选完文件就生效）。这里必须在替换前确认，
-       * 并把"几换几"说清楚 —— 用户才有依据判断是不是选错了文件。
-       * 用自绘弹层而不是 confirm：见 askConfirm 的注释（WebView 不弹 confirm）。
-       */
-      const incoming = Object.keys(p.cards).length;
-      const current = Object.keys(progress.cards || {}).length;
-      const ok = await askConfirm({
-        title: '导入会覆盖当前进度',
-        body: `备份里有 ${incoming} 张卡。导入后，当前的 ${current} 张卡与全部统计会被替换，无法撤销。`
-          + (current > 0 ? ' 建议先导出一次当前进度。' : ''),
-        okText: '覆盖并导入',
-      });
-      if (!ok) { toast('已取消导入，当前进度未改动'); e.target.value = ''; return; }
-      progress = {
-        ...blankProgress(), ...p,
-        settings: { ...DEFAULT_SETTINGS, ...(p.settings || {}) },
-        types: { ...blankProgress().types, ...(p.types || {}) },
-      };
-      for (const k of Object.keys(progress.cards)) migrateCard(progress.cards[k]);
-      flushProgress();
-      renderStats();
-      toast(`已导入 ${Object.keys(progress.cards).length} 张卡的进度`);
+      if (data && data.format === 2 && Array.isArray(data.books)) {
+        await restoreBackupV2(data);
+      } else {
+        const p = data.progress || data;
+        if (!p || typeof p !== 'object' || !p.cards) throw new Error('格式不对');
+        await restoreBackupV1(data, p);
+      }
     } catch (err) {
       toast('导入失败：不是本应用导出的备份文件');
       console.error(err);
@@ -2069,6 +2353,80 @@ function importBackup(e) {
     e.target.value = '';
   };
   r.readAsText(f, 'utf-8');
+}
+
+async function restoreBackupV2(data) {
+  const withRec = (data.books || []).filter((b) => b.progress);
+  const cardN = withRec.reduce((n, b) => n + Object.keys(b.progress.cards || {}).length, 0);
+  const impN = (data.importedBooks || []).length;
+  const ok = await askConfirm({
+    title: '恢复全量备份？',
+    body: `备份里有 ${data.books.length} 本词库（${withRec.length} 本带记录，共 ${cardN} 张卡）`
+      + `、${impN} 本导入词库与全局设置。恢复会覆盖本机同 id 词库的全部学习记录，无法撤销。`
+      + (bookList.some((b) => (bookProgressMeta(b.id).cards || 0) > 0) ? ' 建议先导出一次当前备份。' : ''),
+    okText: '覆盖并恢复',
+  });
+  if (!ok) { toast('已取消恢复，本机数据未改动'); return; }
+
+  // ① 全局设置
+  if (data.settings) {
+    settings = { ...DEFAULT_SETTINGS, ...data.settings };
+    try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); } catch { /* 尽力 */ }
+  }
+  // ② 每本书的学习进度
+  for (const b of data.books || []) {
+    if (!b || !b.id || !b.progress) continue;
+    try { localStorage.setItem(STORE_KEY(b.id), JSON.stringify(b.progress)); } catch { /* 单本失败不挡整体 */ }
+  }
+  // ③ 导入词库本体（注册表随之重建：内置来自 manifest，导入来自备份）
+  const restoredImported = [];
+  for (const doc of data.importedBooks || []) {
+    if (!doc || !doc.id || !Array.isArray(doc.words)) continue;
+    await saveImportedBook(doc);
+    restoredImported.push({
+      id: doc.id, name: doc.name || doc.id, count: doc.words.length,
+      source: 'imported', addedAt: doc.importedAt || null,
+    });
+  }
+  bookList = [...bookList.filter((b) => b.source === 'builtin'), ...restoredImported];
+  saveRegistry();
+  // ④ 回到备份时的当前书（不在备份里就回第一本）
+  const target = bookList.find((b) => b.id === data.current) || bookList[0];
+  if (target) await activateBook(target.id);
+  const board = boardOf(state.mode);
+  if (board === 'stats') renderStats();
+  else if (board === 'settings') { renderSettings(); renderBooks(); }
+  else setMode(board);
+  toast(`已恢复 ${data.books.length} 本词库与 ${restoredImported.length} 本导入词库`);
+}
+
+/** v1 旧备份（单书进度）兼容恢复：只覆盖那一本书，其他书不碰 */
+async function restoreBackupV1(data, p) {
+  const wbId = data.wordbook || 'cet6';
+  const entry = bookList.find((b) => b.id === wbId);
+  if (!entry) {
+    toast(`备份属于词库「${wbId}」，但本机没有这本书 —— 先导入该书再恢复`);
+    return;
+  }
+  const incoming = Object.keys(p.cards).length;
+  const current = bookProgressMeta(wbId).cards;
+  const ok = await askConfirm({
+    title: `恢复旧版备份到「${entry.name}」`,
+    body: `这是旧版单书备份。导入后，「${entry.name}」当前的 ${current} 张卡与统计会被替换`
+      + `（备份里有 ${incoming} 张卡），其他词库不受影响，无法撤销。`,
+    okText: '覆盖并导入',
+  });
+  if (!ok) { toast('已取消导入，当前进度未改动'); return; }
+  localStorage.setItem(STORE_KEY(wbId), JSON.stringify(p));
+  if (state.wbId === wbId) {
+    progress = loadProgress(wbId);
+    const board = boardOf(state.mode);
+    if (board === 'stats') renderStats();
+    else if (board === 'settings') { renderSettings(); renderBooks(); }
+    else setMode(board);
+    updateCounters();
+  }
+  toast(`已恢复「${entry.name}」的 ${Object.keys(p.cards).length} 张卡（旧版备份格式）`);
 }
 
 /**
@@ -2126,24 +2484,20 @@ function closeModal(ok) {
 }
 
 /**
- * 清空学习进度。
+ * 清空**当前词库**的学习进度（2.0.0 起按书操作；其他词库不碰）。
  *
- * ⚠️ **保留 settings**（2026-10-30 修）。
- * 原来走 `progress = blankProgress()`，而 blankProgress() 里含
- * `settings: {...DEFAULT_SETTINGS}` —— 实测用户设的 newPerDay=7 / reviewPerDay=33 /
- * memorizeMs=5000 / showPos=false，点一次「清空进度」全被悄悄重置回默认。
- * 用户要清的是**学习记录**，不是**自己的偏好**，两者不该绑在一起。
+ * ⚠️ **保留 settings**（2026-10-30 修）：设置现在是全局对象，天然不受影响。
  * 确认方式：复选确认（wireAck），不再有 confirm 弹窗 ——「建议先导出备份」
  * 写在勾选框文案里。
  */
 function resetProgress() {
-  const keepSettings = { ...progress.settings };
-  progress = blankProgress();
-  progress.settings = keepSettings;
+  const had = Object.keys(progress.cards).length;
+  progress = normalizeProgress({ ...blankProgress(), times: [] });
+  progress.settings = settings || progress.settings;
   flushProgress();
   renderSettings();
   renderStats();
-  toast('学习进度已清空（设置已保留）');
+  toast(`已清空当前词库的学习进度（${had} 张卡；设置与其他词库不受影响）`);
 }
 
 /**
@@ -2173,16 +2527,22 @@ function resetSettings() {
 }
 
 /**
- * 全部恢复出厂：进度 + 设置一起清。
- * 单独留着是因为"我想从头再来一遍"是真实需求，但它必须与
- * 「清空学习进度」（保留设置）明确区分开 —— 用户点之前就该知道区别。
+ * 全部恢复出厂：**所有词库**的学习进度 + 全局设置一起清（2.0.0 语义升级）。
+ * 单独留着是因为"我想从头再来一遍"是真实需求。⚠️ 导入的词库**本体**保留
+ * （那是数据文件不是记录，删了就真没了 —— 想删书走「词库管理」的删除，那里有确认）。
  */
 function factoryReset() {
-  progress = blankProgress();
+  for (const b of bookList) {
+    try { localStorage.removeItem(STORE_KEY(b.id)); } catch { /* 尽力 */ }
+  }
+  settings = { ...DEFAULT_SETTINGS };
+  progress = normalizeProgress({ ...blankProgress(), times: [] });
+  progress.settings = settings;
+  try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings)); } catch { /* 尽力 */ }
   flushProgress();
   renderSettings();
   renderStats();
-  toast('已恢复出厂设置');
+  toast('已恢复出厂：全部词库的学习记录与设置已清空（导入的词库文件保留）');
 }
 
 /* ---------------- 安卓壳的返回键 ---------------- */
@@ -2270,6 +2630,19 @@ function installDebugHandle() {
     },
     tipOf: (w) => state.tips.get(w) || null,
     tipCount: () => state.tips.size,
+    /* ---- 2.0.0 多词库只读句柄（门禁探针断言用，不提供写入口） ---- */
+    booksInfo: () => ({
+      current: state.wbId,
+      list: bookList.map((b) => ({
+        id: b.id, name: b.name, count: b.count, source: b.source,
+        current: b.id === state.wbId, ...bookProgressMeta(b.id),
+      })),
+    }),
+    /** 导入词库（走真实的解析+入库+注册路径；文本或 JSON 对象皆可）—— 仅供门禁播种 */
+    importFromText: (text, name) => importWordbook(String(text), name || ''),
+    /** 备份 v2 载荷预览（同步读 localStorage + 内存缓存，不发下载） */
+    backupPreview: () => buildBackupPayload(),
+    progressKeyOf: (id) => STORE_KEY(id),
     /**
      * 测试专用：临时把某个词的助记从内存里摘掉，并**走真实的渲染路径**重画当前卡。
      *
@@ -2329,6 +2702,337 @@ function installDebugHandle() {
   });
 }
 
+/* ---------------- 词库激活与切换 ---------------- */
+/**
+ * 载入一本书到运行态：词条 / 助记 / 进度。**不弹任何确认**（那是 switchToBook 的事）。
+ * 返回 false = 数据拿不到（导入书本体丢失等），调用方负责兜底。
+ */
+async function activateBook(id) {
+  const entry = bookList.find((b) => b.id === id);
+  if (!entry) return false;
+  let wb = null;
+  if (entry.source === 'imported') {
+    wb = await getImportedBook(id);
+    if (!wb || !Array.isArray(wb.words) || !wb.words.length) return false;
+  } else {
+    // 词库路径**相对页面**取（`./` 前缀）：桌面宿主与安卓壳的挂载点不同（见 server.mjs 注释）
+    wb = await (await fetch(`./wordbooks/${entry.file}`)).json();
+  }
+  state.wbId = id;
+  setCurrentBook(id);
+  state.wb = wb;
+  state.byWord = new Map(wb.words.map((w) => [w.word, w]));
+
+  // 助记技巧是内置书**可选**的独立文件；导入书没有（优雅降级，不硬编）
+  state.tips = new Map();
+  if (entry.source === 'builtin') {
+    try {
+      const r = await fetch(`./wordbooks/tips/${id}.json`);
+      if (r.ok) {
+        const tipsDoc = await r.json();
+        for (const [k, v] of Object.entries(tipsDoc.tips || {})) {
+          if (v && v.tip) state.tips.set(k, v);
+        }
+      }
+    } catch { /* 没有助记文件就跳过 */ }
+  }
+
+  progress = loadProgress(id);
+  // 换书必换会话：队列/批次/错标都是当前书的运行态，绝不能带到下一本书
+  state.queue = []; state.idx = 0;
+  state.batch = null; state.batchWords = []; state.batchMode = null;
+  state.sessionWrong = new Set(); state.requeued = new Map();
+  state.stats = { ok: 0, bad: 0 }; state.done = false;
+
+  const count = wb.words.length;
+  $('wbName').textContent = `${wb.name} · ${count} 词`;
+  $('footInfo').textContent = `来源：${wb.source || '—'} · 进度存在本机` +
+    (state.tips.size ? ` · 助记 ${state.tips.size}/${count}` : '');
+  return true;
+}
+
+/** 切词库的唯一入口：会话进行中先自绘确认（丢弃的是队列，已答的题已计入原书成绩） */
+async function switchToBook(id, opts = {}) {
+  if (!id || id === state.wbId) return true;
+  const entry = bookList.find((b) => b.id === id);
+  if (!entry) { toast('词库不存在'); return false; }
+  const board = boardOf(state.mode);
+  const sessionLive = board !== 'stats' && board !== 'settings' &&
+    (state.phase === 'answered' || (state.queue.length > 0 && !state.done));
+  if (!opts.force && sessionLive) {
+    const ok = await askConfirm({
+      title: `切换到「${entry.name}」？`,
+      body: '当前这一轮还没走完，切换会丢弃本轮队列。已答过的题都计入原词库的成绩，不受影响。',
+      okText: '切换', danger: false,
+    });
+    if (!ok) return false;
+  }
+  flushProgress();
+  const okBoot = await activateBook(id);
+  if (!okBoot) {
+    toast('这本书的数据读不出来了，可能已损坏');
+    return false;
+  }
+  if (board === 'stats') renderStats();
+  else if (board === 'settings') { renderSettings(); renderBooks(); }
+  else setMode(board === 'quiz' ? 'quiz' : 'learn');
+  updateCounters();
+  return true;
+}
+
+/* ---------------- 词库导入（TXT / CSV / JSON / 粘贴） ---------------- */
+/*
+ * 三条路（用户 2.0.0 拍板「全都要」）：
+ *   ① 词表文件 / 粘贴文本：每行「单词 + 分隔符 + 释义」。分隔符按行内探测，
+ *      优先级：制表符 > 竖线 > 分号 > 半角逗号 > 连续空格。
+ *      不做单空格切分 —— 释义里的空格太常见，切了必然切坏。
+ *   ② JSON 文件：接受 cet6.json 同构（{words:[{word,def,pos?}]}）、
+ *      顶层数组 [{word,def}]、或 {data|list:[...]}；字段名做了常见别名映射。
+ *   ③ 文件名 / 输入框名称作为书名；留空自动取名。
+ * 结果统一报告：收录 N · 去重 K · 跳过 M（前 3 条原因写进 toast）。
+ */
+const IMPORT_MIN_WORDS = 5;    // 少于 5 个有效词条按误操作拒收，防止导入空文件
+
+function parseWordListText(text) {
+  const entries = [], skipped = [];
+  const seen = new Set();
+  let dup = 0;
+  const lines = String(text).split(/\r?\n/);
+  const SEP_RES = [/\t+/, /\s*\|\s*/, /\s*;\s*/, /,/, /\s{2,}/];
+  for (let i = 0; i < lines.length; i++) {
+    const raw = lines[i];
+    const line = raw.trim();
+    if (!line) continue;
+    let parts = null;
+    for (const re of SEP_RES) {
+      const m = line.split(re);
+      if (m.length >= 2 && m[0].trim() && m.slice(1).join(' ').trim()) { parts = m; break; }
+    }
+    if (!parts) {
+      skipped.push(`第${i + 1}行没有可识别的分隔符（需要 制表符/|/;/,/连续空格）`);
+      continue;
+    }
+    let word = parts[0].trim();
+    const def = parts.slice(1).join(' ').trim();
+    // 首行表头探测（word/单词 + 释义/definition 之类）
+    if (i === 0 && /^(word|单词|词条|词汇|english|term)\b/i.test(word) &&
+        /释义|意思|definition|meaning|中文|翻译/i.test(def)) continue;
+    // 清理：包裹引号/括号、行号前缀「1. 」
+    word = word.replace(/^["'“”‘’（(【\[]+|["'“”‘’）)】\]]+$/g, '')
+               .replace(/^\d+[.、)．\s]+/, '').trim();
+    if (!word || !def) {
+      skipped.push(`第${i + 1}行「${line.slice(0, 24)}」缺单词或释义`);
+      continue;
+    }
+    const key = word.toLowerCase();
+    if (seen.has(key)) { dup++; continue; }
+    seen.add(key);
+    entries.push({ word, def });
+  }
+  return { entries, skipped, dup };
+}
+
+function parseWordbookJson(obj) {
+  let arr = null;
+  if (Array.isArray(obj)) arr = obj;
+  else if (obj && Array.isArray(obj.words)) arr = obj.words;
+  else if (obj && Array.isArray(obj.data)) arr = obj.data;
+  else if (obj && Array.isArray(obj.list)) arr = obj.list;
+  else if (obj && Array.isArray(obj.entries)) arr = obj.entries;
+  if (!arr) return null;
+  const entries = [], skipped = [];
+  const seen = new Set();
+  let dup = 0;
+  for (const it of arr) {
+    let w = null, d = null, pos = null;
+    if (typeof it === 'string') {
+      const m = it.split(/\s*[|;\t]\s*|\s{2,}/);
+      if (m.length >= 2) { w = m[0]; d = m.slice(1).join(' '); }
+    } else if (it && typeof it === 'object') {
+      w = it.word || it.headword || it.w || it.en || it.term || it.spell;
+      d = it.def || it.definition || it.meaning || it.cn || it.zh ||
+          it.trans || it.translation || it.desc || it.explain;
+      pos = Array.isArray(it.pos) && it.pos.length ? it.pos : null;
+    }
+    if (!w || !d) { skipped.push('一条记录缺单词或释义'); continue; }
+    const key = String(w).trim().toLowerCase();
+    if (seen.has(key)) { dup++; continue; }
+    seen.add(key);
+    entries.push({ word: String(w).trim(), def: String(d).trim(), ...(pos ? { pos } : {}) });
+  }
+  return { entries, skipped, dup };
+}
+
+/** 导入总入口：payload = 文本（自动识别 JSON/词表）或已解析的 JSON 对象 */
+async function importWordbook(payload, nameHint) {
+  let parsed = null, srcLabel = '';
+  if (typeof payload === 'string') {
+    const t = payload.trim();
+    if (t.startsWith('{') || t.startsWith('[')) {
+      try {
+        const obj = JSON.parse(t);
+        parsed = parseWordbookJson(obj);
+        srcLabel = 'JSON';
+        if (obj && typeof obj.name === 'string' && !nameHint) nameHint = obj.name;
+        if (obj && typeof obj.source === 'string') srcLabel = obj.source;
+      } catch { parsed = null; }
+    }
+    if (!parsed) { parsed = parseWordListText(t); srcLabel = srcLabel || '词表'; }
+  } else if (payload && typeof payload === 'object') {
+    parsed = parseWordbookJson(payload);
+    srcLabel = 'JSON';
+    if (payload && typeof payload.source === 'string') srcLabel = payload.source;
+  }
+  if (!parsed || parsed.entries.length < IMPORT_MIN_WORDS) {
+    const why = parsed && parsed.skipped.length ? `；问题示例：${parsed.skipped[0]}` : '';
+    toast(`导入被拒收：有效词条不足 ${IMPORT_MIN_WORDS} 个${why}`);
+    return false;
+  }
+  const id = `imp-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+  const name = (nameHint || '').trim().slice(0, 40) ||
+    `我的词库 ${new Date().toLocaleDateString('zh-CN')}`;
+  const doc = {
+    id, name, source: srcLabel || '用户导入', count: parsed.entries.length,
+    words: parsed.entries, importedAt: new Date().toISOString(), format: 2,
+  };
+  await saveImportedBook(doc);
+  bookList.push({ id, name, count: doc.count, source: 'imported', addedAt: doc.importedAt });
+  saveRegistry();
+  const bits = [`已导入「${name}」：${doc.count} 词`];
+  if (parsed.dup) bits.push(`去重 ${parsed.dup}`);
+  if (parsed.skipped.length) bits.push(`跳过 ${parsed.skipped.length} 行`);
+  toast(bits.join(' · '));
+  renderBooks();
+  await switchToBook(id);          // 导入完自动切过去（会话进行中会先确认）
+  return true;
+}
+
+async function importWordbookFile(file) {
+  if (!file) return;
+  const nameHint = file.name.replace(/\.(json|txt|csv)$/i, '').slice(0, 40);
+  const r = new FileReader();
+  r.onload = async () => {
+    const text = String(r.result);
+    if (/\.json$/i.test(file.name) || text.trim().startsWith('{') || text.trim().startsWith('[')) {
+      try { await importWordbook(JSON.parse(text), nameHint); }
+      catch { toast('导入失败：JSON 解析出错（也尝试过按词表解析）'); }
+    } else {
+      await importWordbook(text, nameHint);
+    }
+  };
+  r.onerror = () => toast('文件读取失败');
+  r.readAsText(file, 'utf-8');
+}
+
+/* ---------------- 词库管理 UI（设置板块） ---------------- */
+function renderBooks() {
+  const box = $('bookList');
+  if (!box) return;
+  box.innerHTML = '';
+  for (const b of bookList) {
+    const meta = bookProgressMeta(b.id);
+    const isCur = b.id === state.wbId;
+    const row = document.createElement('div');
+    row.className = `bk-row${isCur ? ' current' : ''}`;
+    row.dataset.id = b.id;
+    row.innerHTML = `
+      <div class="bk-main">
+        <span class="bk-name">${escapeHtml(b.name)}</span>
+        ${isCur ? '<span class="bk-tag">当前</span>' : ''}
+        ${b.source === 'imported' ? '' : '<span class="bk-tag built-in">内置</span>'}
+        <span class="bk-meta">${b.count} 词 · 已学 ${meta.cards} · 记住 ${meta.mastered} · ${meta.days} 天</span>
+      </div>
+      <div class="bk-actions">
+        ${isCur ? '' : '<button class="btn" data-act="use">使用</button>'}
+        ${b.source === 'imported'
+          ? '<button class="btn" data-act="rename">重命名</button>'
+          : ''}
+        ${b.source === 'imported'
+          ? '<button class="btn danger" data-act="del">删除</button>'
+          : ''}
+      </div>`;
+    box.appendChild(row);
+  }
+  const empty = $('bookEmpty');
+  if (empty) empty.hidden = bookList.length > 0;
+}
+
+/** 行内重命名：把书名换成输入框，Enter/失焦保存，Esc 取消（WebView 没有 prompt） */
+function beginRenameBook(id) {
+  const row = document.querySelector(`.bk-row[data-id="${CSS.escape(id)}"]`);
+  const nameEl = row?.querySelector('.bk-name');
+  if (!row || !nameEl || row.dataset.renaming) return;
+  row.dataset.renaming = '1';
+  const entry = bookList.find((b) => b.id === id);
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.className = 'bk-rename';
+  input.maxLength = 40;
+  input.value = entry?.name || '';
+  nameEl.replaceWith(input);
+  input.focus();
+  input.select();
+  const finish = (save) => {
+    delete row.dataset.renaming;
+    if (save && entry) {
+      const v = input.value.trim();
+      if (v && v !== entry.name) renameBook(id, v);
+      else renderBooks();
+    } else renderBooks();
+  };
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); finish(true); }
+    else if (e.key === 'Escape') { e.preventDefault(); finish(false); }
+    e.stopPropagation();                       // 别让全局快捷键抢走按键
+  });
+  input.addEventListener('blur', () => finish(true));
+}
+
+function renameBook(id, newName) {
+  const entry = bookList.find((b) => b.id === id);
+  if (!entry) return;
+  const v = String(newName).trim().slice(0, 40);
+  if (!v) return;
+  entry.name = v;
+  saveRegistry();
+  const doc = importedCache.get(id);
+  if (doc) { doc.name = v; saveImportedBook(doc); }
+  if (state.wbId === id) {
+    $('wbName').textContent = `${state.wb.name} · ${state.wb.words.length} 词`;
+  }
+  renderBooks();
+  toast(`已重命名为「${v}」`);
+}
+
+async function deleteBook(id) {
+  const entry = bookList.find((b) => b.id === id);
+  if (!entry || entry.source !== 'imported') return;
+  const meta = bookProgressMeta(id);
+  const ok = await askConfirm({
+    title: `删除「${entry.name}」？`,
+    body: `将删除这本 ${entry.count} 词的导入词库` +
+      (meta.cards ? `，以及它的全部学习记录（${meta.cards} 张卡 · ${meta.days} 天）` : '（它还没有学习记录）') +
+      '。内置词库不受影响，删除无法撤销。',
+    okText: '删除词库',
+  });
+  if (!ok) return;
+  await deleteImportedBook(id);
+  try { localStorage.removeItem(STORE_KEY(id)); } catch { /* 尽力 */ }
+  bookList = bookList.filter((b) => b.id !== id);
+  saveRegistry();
+  if (state.wbId === id) {
+    const fallback = bookList[0];
+    if (fallback) {
+      await activateBook(fallback.id);
+      setMode('quiz');
+    } else {
+      $('wbName').textContent = '没有找到词库';
+    }
+  }
+  renderBooks();
+  toast(`已删除「${entry.name}」`);
+}
+
 /* ---------------- 启动 ---------------- */
 async function boot() {
   wireEvents();
@@ -2337,49 +3041,53 @@ async function boot() {
     speechSynthesis.onvoiceschanged = pickVoice;
   }
 
-  // 词库路径**相对页面**取（`./` 前缀），不写绝对路径 —— 因为同一份前端要跑在
-  // 两种宿主里：桌面用 server.mjs（绝对路径 /api/... 与 /assets/...），安卓壳用
-  // WebViewAssetLoader（页面在 /web/index.html，数据挂在 /wordbooks/...）。
-  // 写死绝对路径会让其中一种宿主 404，且错误只表现为「没有找到词库」。
+  // ① 内置词库清单：manifest 是唯一来源（相对页面路径，两种宿主各自挂载，见 server.mjs）
   let manifest = { wordbooks: [] };
-  try { manifest = await (await fetch('./wordbooks/index.json')).json(); } catch { /* 用空清单兜底 */ }
+  try { manifest = await (await fetch('./wordbooks/index.json')).json(); } catch { /* 空清单兜底 */ }
+  const builtins = (manifest.wordbooks || []).map((b) => ({
+    id: b.id,
+    name: b.name,
+    count: b.count || 0,
+    source: 'builtin',
+    file: b.file,
+    sourceName: b.source || '',
+  }));
 
-  const first = manifest.wordbooks?.[0];
-  if (!first) {
+  // ② 导入词库注册表 + 本体预载（注册表里有、本体没了的僵尸条目直接摘除）
+  const savedReg = loadRegistry() || [];
+  for (const e of savedReg) {
+    const doc = await getImportedBook(e.id);
+    if (doc) importedCache.set(e.id, doc);
+  }
+  const aliveImported = savedReg.filter((e) => importedCache.has(e.id));
+  bookList = [...builtins, ...aliveImported];
+  saveRegistry();
+
+  // ③ 全局设置（必须在 loadProgress 之前 —— normalizeProgress 会引用它）
+  settings = loadGlobalSettings();
+
+  // ④ 当前书：记住上次选择；无效（被删/损坏）就回第一本内置
+  const want = currentBookId();
+  let entry = bookList.find((b) => b.id === want);
+  if (entry && !(await activateBook(entry.id))) {
+    // 导入书本体损坏/丢失：摘掉僵尸条目，回退内置
+    bookList = bookList.filter((b) => b.id !== entry.id);
+    saveRegistry();
+    entry = null;
+  }
+  if (!entry) entry = bookList[0];
+  if (!entry) {
     $('wbName').textContent = '没有找到词库';
-    $('hint').textContent = 'assets/wordbooks/ 下没有词库文件。';
+    $('hint').textContent = 'assets/wordbooks/ 下没有词库文件。可到「设置 → 词库管理」导入。';
     return;
   }
-
-  const wb = await (await fetch(`./wordbooks/${first.file}`)).json();
-  state.wbId = wb.id || first.id;
-  state.wb = wb;
-  state.byWord = new Map(wb.words.map((w) => [w.word, w]));
-
-  // 助记技巧是**可选**的独立文件：没有也能正常刷词（不硬编不存在的助记）
-  state.tips = new Map();
-  try {
-    const r = await fetch(`./wordbooks/tips/${state.wbId}.json`);
-    if (r.ok) {
-      const tipsDoc = await r.json();
-      for (const [k, v] of Object.entries(tipsDoc.tips || {})) {
-        if (v && v.tip) state.tips.set(k, v);
-      }
-    }
-  } catch { /* 没有助记文件就跳过 */ }
-
-  progress = loadProgress(state.wbId);
-
-  $('wbName').textContent = `${wb.name} · ${wb.count} 词`;
-  $('footInfo').textContent = `来源：${wb.source || '—'} · 进度存在本机浏览器` +
-    (state.tips.size ? ` · 助记 ${state.tips.size}/${wb.count}` : '');
+  const booted = entry.id === state.wbId ? true : await activateBook(entry.id);
+  if (!booted) return;
 
   /*
    * 首屏必须走 setMode(state.mode)（state.mode 初始为 'quiz'），
-   * 不能像原来那样直接 buildQueue()：不带 only 的组队会排出
-   * 「新词 + 复习」混合队列 —— 等于在测验板块里学新词、答题，
-   * 「没学过任何词也能测验」就是从这条路绕进来的（2026-11-01 用户报告）。
-   * 板块分工（学习板块只排新词、测验板块只排复习题）必须从首屏就成立；
+   * 不能直接 buildQueue()：不带 only 的组队会排出「新词 + 复习」混合队列，
+   * 等于在测验板块里学新词、答题（2026-11-01 用户报告）。
    * 学过为 0 时首屏会落到 showDone() 的测验空态，引导去学习板块。
    */
   setMode(state.mode);

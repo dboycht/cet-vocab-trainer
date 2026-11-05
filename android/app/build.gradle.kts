@@ -35,11 +35,12 @@ android {
         minSdk = 26
         targetSdk = 36
 
-        versionCode = 3
+        versionCode = 4
         // Single source of truth stays the web app's package.json; this mirrors
         // it. The web UI shows its own version, so the two must not drift.
-        // 1.0.2 = 熟练度×遗忘曲线新机制；1.0.3 = 测验板块空态 + 清除数据复选确认。
-        versionName = "1.0.3"
+        // 1.0.2 = 熟练度×遗忘曲线新机制；1.0.3 = 测验板块空态 + 清除数据复选确认；
+        // 2.0.0 = 多词库（内置+导入）独立记录 + 词库管理 + 全量备份。
+        versionName = "2.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

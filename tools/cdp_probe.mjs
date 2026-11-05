@@ -127,12 +127,16 @@ async function shot(name) {
   writeFileSync(p, Buffer.from(r.data, "base64"));
   return p;
 }
-/** 用注入脚本播种（必须在应用脚本之前跑），播种完重载 */
+/** 用注入脚本播种（必须在应用脚本之前跑），播种完重载。
+ *  2.0.0 起同时播种全局设置键：设置已从每书进度里独立出来（cvt:v2:settings），
+ *  只播种书键不播种设置键的话，boot 会沿用上一次的全局设置，种子里的设置被无视。 */
 async function seedAndReload(progressJson) {
-  const src = `try{localStorage.setItem('cvt:v1:cet6', ${JSON.stringify(JSON.stringify(progressJson))});}catch(e){window.__seedErr=String(e)}`;
+  const src = `try{localStorage.setItem('cvt:v2:book:cet6:progress', ${JSON.stringify(JSON.stringify(progressJson))});` +
+    `localStorage.setItem('cvt:v2:settings', ${JSON.stringify(JSON.stringify(progressJson.settings || {}))});}` +
+    `catch(e){window.__seedErr=String(e)}`;
   const inj = await send("Page.addScriptToEvaluateOnNewDocument", { source: src });
   await send("Page.reload", { ignoreCache: false });
-  await sleep(2200);
+  await sleep(2400);
   await send("Page.removeScriptToEvaluateOnNewDocument", { identifier: inj.identifier });
 }
 const DAY = 86400000;
@@ -271,7 +275,7 @@ await sleep(900);
 const B = await evalJs(`(() => {
   const LW = ${JSON.stringify(learnWord)};
   const c = window.__cvt.cardOf(LW);
-  const raw = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
+  const raw = JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress'));
   const d = raw.days[Object.keys(raw.days)[0]] || {};
   const st = window.__cvt.stateInfo();
   return {
@@ -346,7 +350,7 @@ await evalJs(`document.querySelectorAll('.opt')[${C.answerIndex}].click()`);
 await sleep(400);
 const D = await evalJs(`(() => {
   const c = window.__cvt.cardOf(${JSON.stringify(W)});
-  const raw = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
+  const raw = JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress'));
   return { card: c, types: raw.types, verdict: document.getElementById('fbVerdict').textContent,
            fbClass: document.getElementById('feedback').className,
            nextShown: !document.getElementById('goNext').hidden };
@@ -373,7 +377,7 @@ await evalJs(`document.querySelectorAll('.opt')[${wrongIdx}].click()`);
 await sleep(400);
 const E1 = await evalJs(`(() => {
   const c = window.__cvt.cardOf(${JSON.stringify(W)});
-  const raw = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
+  const raw = JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress'));
   return { k: c.k, bad: c.bd, qlen: window.__cvt.stateInfo().queueLen,
            inMistakes: raw.mistakes.includes(${JSON.stringify(W)}),
            verdict: document.getElementById('fbVerdict').textContent };
@@ -512,7 +516,7 @@ await evalJs(`document.getElementById('dunnoBtn').click()`);
 await sleep(400);
 const D4 = await evalJs(`(() => {
   const c = window.__cvt.cardOf(${JSON.stringify(dWord)});
-  const raw = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
+  const raw = JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress'));
   return { verdict: document.getElementById('fbVerdict').textContent,
            cls: document.getElementById('feedback').className,
            k: c.k, inMistakes: raw.mistakes.includes(${JSON.stringify(dWord)}),
@@ -578,11 +582,12 @@ const seedOnlyTips = `(() => {
       if (tips[w.word]) return;                       // 有助记的留作新词
       cards[w.word] = { s: 2, i: 1, e: 2.5, d: today + 9999, r: 1, l: 0, a: 5, c: 5, k: 1, fd: today, ld: today, bd: 0, ms: 0, t: today };
     });
-    localStorage.setItem('cvt:v1:cet6', JSON.stringify({
+    localStorage.setItem('cvt:v2:book:cet6:progress', JSON.stringify({
       version: 2, cards: cards, mistakes: [], days: {}, streak: 0, lastDay: '',
       types: { en2cn: {a:0,c:0,ms:0}, cn2en: {a:0,c:0,ms:0}, spell: {a:0,c:0,ms:0} },
       settings: { newPerDay: 500, reviewPerDay: 0, quizTypes: 'mix', timeGate: false, memorizeMs: 0, autoSpeak: false, showPos: true }
     }));
+    localStorage.setItem('cvt:v2:settings', JSON.stringify({ newPerDay: 500, reviewPerDay: 0, quizTypes: 'mix', timeGate: false, memorizeMs: 0, autoSpeak: false, showPos: true }));
   } catch (e) { window.__seedErr = String(e); }
 })();`;
 const inj4 = await send("Page.addScriptToEvaluateOnNewDocument", { source: seedOnlyTips });
@@ -795,7 +800,7 @@ await send("Page.reload", { ignoreCache: false });
 await sleep(2400);
 const J = await evalJs(`(() => {
   const c = window.__cvt.cardOf(${JSON.stringify(JW)});
-  const raw = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
+  const raw = JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress'));
   return { a: c?.a ?? -1, c: c?.c ?? -1, types: raw.types, hasHandle: !!window.__cvt };
 })()`);
 check("刷新后调试句柄仍在", J.hasHandle === true);
@@ -1616,7 +1621,7 @@ async function queueUnderDueSwitch(useDue) {
   return JSON.parse(await evalJs(`JSON.stringify({
     learned: window.__cvt.learnedCount(),
     quizN: window.__cvt.queueSnapshot().queue.filter((x) => x.kind === 'quiz').length,
-    flag: JSON.parse(localStorage.getItem('cvt:v1:cet6')).settings.useDueQueue,
+    flag: JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress')).settings.useDueQueue,
   })`));
 }
 
@@ -1685,7 +1690,7 @@ async function clearWith(btnId) {
     }
     btn.click();
     await new Promise(r => setTimeout(r, 700));
-    const p = JSON.parse(localStorage.getItem('cvt:v1:cet6'));
+    const p = JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress'));
     return JSON.stringify({
       cards: Object.keys(p.cards || {}).length,
       mistakes: (p.mistakes || []).length,
@@ -1775,8 +1780,8 @@ function fnBody(src, name) {
   return next < 0 ? rest : rest.slice(0, next);
 }
 check("导入备份走自绘确认（覆盖性操作不能一声不吭）",
-  /askConfirm\s*\(/.test(fnBody(codeOnly, "importBackup")),
-  "importBackup 内含 askConfirm 调用");
+  /askConfirm\s*\(/.test(fnBody(codeOnly, "importBackup") + fnBody(codeOnly, "restoreBackupV2") + fnBody(codeOnly, "restoreBackupV1")),
+  "importBackup/restoreBackup* 内含 askConfirm 调用（2.0.0 起恢复逻辑拆在 restore* 里）");
 check("恢复默认设置不再依赖 confirm，改走复选确认",
   !/\bconfirm\s*\(/.test(fnBody(codeOnly, "resetSettings")),
   "resetSettings 内无 confirm 调用");
@@ -1835,7 +1840,7 @@ async function feedBackup() {
     modalShown: !document.getElementById('modal').hidden,
     title: document.getElementById('modalTitle').textContent,
     body: document.getElementById('modalBody').textContent,
-    cards: Object.keys(JSON.parse(localStorage.getItem('cvt:v1:cet6')||'{}').cards||{}).length,
+    cards: Object.keys(JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress')||'{}').cards||{}).length,
   })`));
 }
 
@@ -1848,7 +1853,7 @@ check("弹层说清了「几换几」", /\d+\s*张卡/.test(imp1.body), imp1.bod
 await evalJs(`document.getElementById('modalCancel').click(); true`);
 await sleep(400);
 const afterCancel = JSON.parse(await evalJs(`JSON.stringify({
-  cards: Object.keys(JSON.parse(localStorage.getItem('cvt:v1:cet6')||'{}').cards||{}).length,
+  cards: Object.keys(JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress')||'{}').cards||{}).length,
   modalHidden: document.getElementById('modal').hidden,
 })`));
 check("⭐ 点「取消」后进度一字未动", afterCancel.cards === 2 && afterCancel.modalHidden === true,
@@ -1860,11 +1865,183 @@ check("再次导入仍要确认（不能记住上一次的授权）", imp2.modal
 await evalJs(`document.getElementById('modalOk').click(); true`);
 await sleep(600);
 const afterOk = JSON.parse(await evalJs(`JSON.stringify({
-  cards: Object.keys(JSON.parse(localStorage.getItem('cvt:v1:cet6')||'{}').cards||{}).length,
+  cards: Object.keys(JSON.parse(localStorage.getItem('cvt:v2:book:cet6:progress')||'{}').cards||{}).length,
 })`));
 check("⭐ 点「确认」后备份生效（覆盖当前进度）", afterOk.cards === IMPORT_WORDS.length,
   `cards=${afterOk.cards}（期望 ${IMPORT_WORDS.length}）`);
 
+
+/* ---------- L2. 多词库（2.0.0）：迁移/导入/隔离/共享设置/全量备份/重命名/删除 ---------- */
+console.log("\n--- L2. 多词库：v1 迁移 → 粘贴导入 → 独立记录 → 备份打包 → 重命名 → 删除 ---");
+
+// ⓪ v1→v2 迁移：只种旧键，boot 必须迁出 v2 键且**旧键一字不动**
+const MB_V1 = mkProgress(["dignity", "mischief"]);
+{
+  const v1json = JSON.stringify(JSON.stringify(MB_V1));
+  const inj = await send("Page.addScriptToEvaluateOnNewDocument", { source:
+    `try{localStorage.clear();localStorage.setItem('cvt:v1:cet6', ${v1json});}catch(e){window.__seedErr=String(e)}` });
+  await send("Page.reload", { ignoreCache: false });
+  await sleep(2600);
+  await send("Page.removeScriptToEvaluateOnNewDocument", { identifier: inj.identifier });
+}
+const mb0 = JSON.parse(await evalJs(`JSON.stringify({
+  v1Raw: localStorage.getItem('cvt:v1:cet6') || '',
+  v2Raw: localStorage.getItem('cvt:v2:book:cet6:progress') || '',
+  cur: window.__cvt.booksInfo().current,
+})`));
+{
+  const v1 = JSON.parse(mb0.v1Raw || "{}");
+  const v2 = JSON.parse(mb0.v2Raw || "{}");
+  check("⭐ v1 旧键原样保留（迁移只读不删）",
+    mb0.v1Raw.length > 0 && v1.cards?.dignity && v1.cards?.mischief,
+    `v1 ${mb0.v1Raw.length}B`);
+  check("⭐ v1 进度已迁移成 v2 键（卡片数一致）",
+    Object.keys(v2.cards || {}).length === 2 && Object.keys(v1.cards || {}).length === 2,
+    `v2 cards=${Object.keys(v2.cards || {}).length}`);
+  check("迁移后当前书仍是内置书", mb0.cur === "cet6", mb0.cur);
+}
+
+// ① 管理列表初始态：内置书在列、无删除按钮
+await seedAndReload(mkProgress(["dignity", "overhang"]));
+const mb1 = JSON.parse(await evalJs(`(async () => {
+  document.querySelector('.mode-btn[data-mode="settings"]').click();
+  await new Promise(r => setTimeout(r, 700));
+  const rows = [...document.querySelectorAll('#bookList .bk-row')];
+  return JSON.stringify({
+    rows: rows.length,
+    rowIds: rows.map(r => r.dataset.id),
+    delBtns: rows.map(r => !!r.querySelector('[data-act="del"]')),
+    useBtns: rows.map(r => !!r.querySelector('[data-act="use"]')),
+    fileBtn: !!document.getElementById('wbImportFileBtn'),
+    pasteBox: !!document.getElementById('wbPaste'),
+  });
+})()`));
+check("管理列表：内置书在场、不可删；当前书无「使用」按钮", mb1.rows === 1 && mb1.rowIds[0] === "cet6" && !mb1.delBtns[0] && !mb1.useBtns[0],
+  JSON.stringify(mb1.rowIds));
+check("导入入口在场（文件按钮 + 粘贴框）", mb1.fileBtn && mb1.pasteBox);
+
+// ② 粘贴导入（真实 UI 路径）：自动切到新书
+const MB_TEXT = "zork\t虚拟释义A\nblorp\t虚拟释义B\nquux\t虚拟释义C\nfrobnicate\t虚拟释义D\nwiggle\t虚拟释义E\ngrok\t虚拟释义F\n";
+await evalJs(`(() => {
+  document.getElementById('wbPaste').value = ${JSON.stringify(MB_TEXT)};
+  document.getElementById('wbPasteName').value = '探针测试书';
+  document.getElementById('wbPasteBtn').click();
+  return true;
+})()`);
+await sleep(1400);
+const mb2 = JSON.parse(await evalJs(`JSON.stringify({
+  info: window.__cvt.booksInfo(),
+  wbName: document.getElementById('wbName').textContent,
+})`));
+check("⭐ 粘贴导入成功：注册表 +1 本导入书且自动切换",
+  mb2.info.list.length === 2 && mb2.info.current !== "cet6" &&
+  mb2.info.list.find((b) => b.source === "imported")?.count === 6,
+  JSON.stringify(mb2.info.list.map((b) => ({ id: b.id.slice(0, 9), n: b.count, s: b.source }))));
+check("切书后顶栏书名跟随", !/六级/.test(mb2.wbName), mb2.wbName);
+const mb2b = JSON.parse(await evalJs(`JSON.stringify({
+  preview: window.__cvt.backupPreview(),
+})`));
+check("导入书本体进了 IndexedDB（备份载荷能取到）",
+  (mb2b.preview.importedBooks || []).length === 1 &&
+  mb2b.preview.importedBooks[0].words.length === 6,
+  `导入本体 ${mb2b.preview.importedBooks.length} 本`);
+
+// ③ 每书独立进度：在导入书里学词，cet6 的键不受影响
+await evalJs(`document.querySelector('.mode-btn[data-mode="learn"]').click(); true`);
+await sleep(900);
+await evalJs(`(async () => {
+  for (let i = 0; i < 10; i++) {
+    const gl = document.getElementById('goLearn');
+    if (gl && !gl.hidden) { gl.click(); await new Promise(r => setTimeout(r, 500)); continue; }
+    const gn = document.getElementById('goNext');
+    if (gn && !gn.hidden) { gn.click(); await new Promise(r => setTimeout(r, 400)); continue; }
+    const dn = document.getElementById('dunnoBtn');
+    if (dn && !dn.hidden) { dn.click(); await new Promise(r => setTimeout(r, 300)); continue; }
+    const o = document.querySelectorAll('.opt');
+    if (o.length) { o[0].click(); await new Promise(r => setTimeout(r, 400)); continue; }
+    await new Promise(r => setTimeout(r, 300));
+  }
+  return true;
+})()`, true);
+await sleep(1400);
+const mb3 = JSON.parse(await evalJs(`JSON.stringify({
+  cur: window.__cvt.booksInfo().list.find(b => b.current).cards,
+  cet6: window.__cvt.booksInfo().list.find(b => b.id === 'cet6').cards,
+  keys: Object.keys(localStorage).filter(k => k.startsWith('cvt:v2:book:')).length,
+})`));
+check("⭐ 每书独立记录：导入书学到卡，cet6 保持 2 张", mb3.cur > 0 && mb3.cet6 === 2 && mb3.keys === 2,
+  `导入书 ${mb3.cur} 张 · cet6 ${mb3.cet6} 张 · 进度键 ${mb3.keys} 个`);
+
+// ④ 全局设置跨书共享：在导入书里改每日新词上限，切回内置书后仍生效
+await evalJs(`document.querySelector('.mode-btn[data-mode="settings"]').click(); true`);
+await sleep(500);
+await evalJs(`(() => {
+  const el = document.getElementById('setNew');
+  el.value = '33';
+  el.dispatchEvent(new Event('change', { bubbles: true }));
+  return true;
+})()`);
+await sleep(500);
+const mb4 = JSON.parse(await evalJs(`(async () => {
+  const cet6row = [...document.querySelectorAll('#bookList .bk-row')].find(r => r.dataset.id === 'cet6');
+  cet6row.querySelector('[data-act="use"]').click();
+  await new Promise(r => setTimeout(r, 1200));
+  const g = JSON.parse(localStorage.getItem('cvt:v2:settings') || '{}');
+  return JSON.stringify({ cur: window.__cvt.booksInfo().current, globalNew: g.newPerDay });
+})()`));
+check("⭐ 全局设置跨书共享（改一处，切书后仍生效）", mb4.cur === "cet6" && mb4.globalNew === 33,
+  JSON.stringify(mb4));
+
+// ⑤ 全量备份载荷：books 打包两本、导入书带词条本体
+const mb5 = JSON.parse(await evalJs(`JSON.stringify(window.__cvt.backupPreview())`));
+check("备份 v2：format/books/settings/current 齐全",
+  mb5.format === 2 && mb5.books.length === 2 && !!mb5.settings && mb5.current === "cet6",
+  `books=${mb5.books.length}`);
+check("备份 v2：cet6 带进度、导入书带词条本体",
+  Object.keys(mb5.books.find((b) => b.id === "cet6")?.progress?.cards || {}).length === 2 &&
+  mb5.importedBooks.length === 1 && mb5.importedBooks[0].words.length === 6,
+  `导入本体 ${mb5.importedBooks.length} 本`);
+
+// ⑥ 行内重命名（真实 UI 路径）
+await evalJs(`(() => {
+  const row = [...document.querySelectorAll('#bookList .bk-row')].find(r => r.dataset.id.startsWith('imp-'));
+  row.querySelector('[data-act="rename"]').click();
+  return true;
+})()`);
+await sleep(300);
+const mb6 = JSON.parse(await evalJs(`(async () => {
+  const input = document.querySelector('.bk-rename');
+  if (!input) return JSON.stringify({ got: false });
+  input.value = '改名后的书';
+  input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+  await new Promise(r => setTimeout(r, 500));
+  const row = [...document.querySelectorAll('#bookList .bk-row')].find(r => r.dataset.id.startsWith('imp-'));
+  return JSON.stringify({ got: true, name: row?.querySelector('.bk-name')?.textContent });
+})()`));
+check("行内重命名生效（注册表同步）", mb6.got && mb6.name === "改名后的书", mb6.name);
+
+// ⑦ 删除导入书（确认层 → 列表回归 1 本 → 记录键清除 → 自动回内置）
+await evalJs(`(() => {
+  const row = [...document.querySelectorAll('#bookList .bk-row')].find(r => r.dataset.id.startsWith('imp-'));
+  row.querySelector('[data-act="del"]').click();
+  return true;
+})()`);
+await sleep(500);
+const mb7modal = JSON.parse(await evalJs(`JSON.stringify({
+  shown: !document.getElementById('modal').hidden,
+  title: document.getElementById('modalTitle').textContent,
+})`));
+check("删除前弹自绘确认层（说清删什么）", mb7modal.shown && /删除/.test(mb7modal.title), mb7modal.title);
+await evalJs(`document.getElementById('modalOk').click(); true`);
+await sleep(900);
+const mb7 = JSON.parse(await evalJs(`JSON.stringify({
+  ids: window.__cvt.booksInfo().list.map(b => b.id),
+  cur: window.__cvt.booksInfo().current,
+  impKeys: Object.keys(localStorage).filter(k => k.startsWith('cvt:v2:book:imp-')).length,
+  wbName: document.getElementById('wbName').textContent,
+})`));
+check("⭐ 删除导入书：列表/当前书/记录键全部收干净", mb7.ids.length === 1 && mb7.ids[0] === "cet6" &&
+  mb7.cur === "cet6" && mb7.impKeys === 0 && /六级/.test(mb7.wbName), JSON.stringify(mb7.ids));
 
 /* ---------- M. 控制台报错 ---------- */
 console.log("\n--- M. 控制台报错 ---");
