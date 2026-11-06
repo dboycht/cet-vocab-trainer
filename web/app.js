@@ -57,7 +57,7 @@ const EASE_MIN = 1.3, EASE_MAX = 2.8;
  * package.json 不在其中，fetch 必然 404。所以这里留一份副本，
  * 由人负责与 package.json 同步（`npm run verify` 的门禁会比对，见 check_launcher）。
  */
-const APP_VERSION = '2.0.0';
+const APP_VERSION = '2.0.1';
 
 const STATE = { NEW: 0, LEARNING: 1, REVIEW: 2 };
 const STATE_LABEL = { 0: '新词', 1: '学习中', 2: '复习中' };
